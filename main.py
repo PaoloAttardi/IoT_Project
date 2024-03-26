@@ -29,31 +29,30 @@ def page_not_found(error):
 
 @app.route('/')
 def testoHTML():
-    query = f'from(bucket:"{config.get("InfluxDBClient","Bucket")}") |> range(start: -120h)'
+    query = f'from(bucket:"{config.get("InfluxDBClient","Bucket")}") |> range(start: -1h)'
     tables = client.query_api().query(query)
 
     # Process the query results
-    table = []
+    table = {}
     for tab in tables:
         for row in tab.records:
-            # Access fields of each row
-            # time = row.values["001"]
-            # field1 = row.values["002"]
-            # Access tags if any
             val = row.values["_field"]
-            if val not in table: table.append(row.values["_field"])
-            # Process data as needed
-            # print(f"Time: {time}, Field1: {field1}, Field2: {field2}, Tags: {tags}")
+            zone = row.values["_measurement"]
+            if val not in table: table[zone] = row.values["_field"]
     
     return render_template('main.html', devices=table)
 
 
-@app.route('/lista/<sensor>', methods=['GET'])
-def stampalista(sensor):
+@app.route('/lista/<zone>/<sensor>', methods=['GET'])
+def stampalista(zone, sensor):
     """
     Print the list
     ---
     parameters:
+        - in: path
+          name: zone
+          description: arg
+          required: true
         - in: path
           name: sensor
           description: arg
@@ -62,18 +61,26 @@ def stampalista(sensor):
       200:
         description: List
     """
-    query_api = client.query_api()
+    query = f'from(bucket:"{config.get("InfluxDBClient","Bucket")}") |> range(start: -1h)'
+    tables = client.query_api().query(query)
+
+    # Process the query results
+    table = {}
+    for tab in tables:
+        for row in tab.records:
+            val = row.values["_field"]
+            zone = row.values["_measurement"]
+            if val not in table: table[zone] = row.values["_field"]
     query = f'from(bucket:"{config.get("InfluxDBClient","Bucket")}")\
     |> range(start: -1h)\
-    |> filter(fn:(r) => r._measurement == "new_measurement")\
-    |> filter(fn:(r) => r.sensor == "{sensor}")\
-    |> filter(fn:(r) => r._field == "value")'
-    result = query_api.query(org=config.get("InfluxDBClient","Org"), query=query)
+    |> filter(fn:(r) => r._measurement == "{zone}")\
+    |> filter(fn:(r) => r._field == "{sensor}")'
+    result = client.query_api().query(org=config.get("InfluxDBClient","Org"), query=query)
     results = []
-    for table in result:
-        for record in table.records:
+    for res in result:
+        for record in res.records:
             results.append((record.get_value(), record.get_time()))
-    return render_template('lista3.html', lista=results)
+    return render_template('sensor_details.html', lista=results, devices=table)
 
 @app.route('/newdata/<sensor>/<id>/<type>/<value>', methods=['POST'])
 def addinlista(sensor, id, type, value):
