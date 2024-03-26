@@ -29,7 +29,7 @@ def page_not_found(error):
 
 @app.route('/')
 def testoHTML():
-    query = f'from(bucket:"{config.get("InfluxDBClient","Bucket")}") |> range(start: -1h)'
+    query = f'from(bucket:"{config.get("InfluxDBClient","Bucket")}") |> range(start: -120h)'
     tables = client.query_api().query(query)
 
     # Process the query results
@@ -61,9 +61,9 @@ def stampalista(zone, sensor):
       200:
         description: List
     """
-    query = f'from(bucket:"{config.get("InfluxDBClient","Bucket")}") |> range(start: -1h)'
+    query = f'from(bucket:"{config.get("InfluxDBClient","Bucket")}") |> range(start: -120h)'
     tables = client.query_api().query(query)
-
+    i = 0
     # Process the query results
     table = {}
     for tab in tables:
@@ -72,15 +72,20 @@ def stampalista(zone, sensor):
             zone = row.values["_measurement"]
             if val not in table: table[zone] = row.values["_field"]
     query = f'from(bucket:"{config.get("InfluxDBClient","Bucket")}")\
-    |> range(start: -1h)\
+    |> range(start: -120h)\
     |> filter(fn:(r) => r._measurement == "{zone}")\
     |> filter(fn:(r) => r._field == "{sensor}")'
     result = client.query_api().query(org=config.get("InfluxDBClient","Org"), query=query)
-    results = []
+    results1 = []
+    results2 = []
+    index = ""
     for res in result:
         for record in res.records:
-            results.append((record.get_value(), record.get_time()))
-    return render_template('sensor_details.html', lista=results, devices=table)
+            i += 1
+            results1.append(int(record.get_value()))
+            results2.append(i)
+            index = index + str(i) + ','
+    return render_template('sensor_details.html', values=results1, timestamp=results2, devices=table, labels=index)
 
 @app.route('/newdata/<sensor>/<id>/<type>/<value>', methods=['POST'])
 def addinlista(sensor, id, type, value):

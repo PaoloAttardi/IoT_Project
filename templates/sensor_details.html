@@ -1,7 +1,7 @@
 {% extends 'main.html' %}
 
 {% block content %}
-<canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas>
+<canvas class="my-4 w-100" id="myChart" width="900" height="380" data-labels="{{labels}}" data-values="{{values}}"></canvas>
 <h2>Bowl's status</h2>
 <div class="table-responsive">
     <table class="table table-striped table-sm">
@@ -12,11 +12,11 @@
       </tr>
     </thead>
     <tbody>
-      {% for el in lista %}
+      {% for i in range(values|length) %}
       <tr>
         <th scope="row"></th>
-        <td>{{el[0]}}</td>
-        <td>{{el[1]}}</td>
+        <td>{{values[i]}}</td>
+        <td>{{timestamp[i]}}</td>
       </tr>
       {% endfor %}
     </tbody>

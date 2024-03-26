@@ -6,30 +6,18 @@
   feather.replace({ 'aria-hidden': 'true' })
 
   // Graphs
-  var ctx = document.getElementById('myChart')
+  var canvas = document.getElementById('myChart')
+  var ctx = canvas.getContext('2d');
+
+  var labels = canvas.getAttribute('data-labels').split(',');
+  var values = canvas.getAttribute('data-values');
   // eslint-disable-next-line no-unused-vars
-  var myChart = new Chart(ctx, {
+  var myChart = new Chart(canvas, {
     type: 'line',
     data: {
-      labels: [
-        'Sunday',
-        'Monday',
-        'Tuesday',
-        'Wednesday',
-        'Thursday',
-        'Friday',
-        'Saturday'
-      ],
+      labels: labels,
       datasets: [{
-        data: [
-          15339,
-          21345,
-          18483,
-          24003,
-          23489,
-          24092,
-          12034
-        ],
+        data: values,
         lineTension: 0,
         backgroundColor: 'transparent',
         borderColor: '#007bff',
