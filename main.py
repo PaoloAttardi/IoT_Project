@@ -17,7 +17,7 @@ app = Flask(appname)
 config = configparser.ConfigParser()
 config.read('config.ini')
 client = influxdb_client.InfluxDBClient(url=config.get("InfluxDBClient","Url"),
-   token=config.get("InfluxDBClient","TokenMarti"),
+   token=config.get("InfluxDBClient","TokenMarti2"),
    org=config.get("InfluxDBClient","Org"))
 
 SWAGGER_URL = '/api/docs'  # URL for exposing Swagger UI (without trailing '/')
