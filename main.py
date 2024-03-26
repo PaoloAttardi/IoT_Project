@@ -16,16 +16,9 @@ appname = "IOT - sample1"
 app = Flask(appname)
 config = configparser.ConfigParser()
 config.read('config.ini')
-#client = influxdb_client.InfluxDBClient(url=config.get("InfluxDBClient","Url"),
-#   token=config.get("InfluxDBClient","Token"),
-#   org=config.get("InfluxDBClient","Org"))
-url = "http://localhost:8086"
-token = "TNHYGd2MrgC_Q6sw-Qi4jFy0Zqu0-fi6GYX6RGbPhl02hnrJkAZnTL-TdW7PbUXCGBx778HUPbKDVy7Igws0Dw=="
-org = "IoT_Project"
-bucket = "IoT_Project"
-
-client = influxdb_client.InfluxDBClient(url = url, token = token, org = org)
-
+client = influxdb_client.InfluxDBClient(url=config.get("InfluxDBClient","Url"),
+   token=config.get("InfluxDBClient","TokenMarti"),
+   org=config.get("InfluxDBClient","Org"))
 
 SWAGGER_URL = '/api/docs'  # URL for exposing Swagger UI (without trailing '/')
 API_URL = '/spec'  # Our API url (can of course be a local resource)
@@ -36,7 +29,7 @@ def page_not_found(error):
 
 @app.route('/')
 def testoHTML():
-    query = f'from(bucket:"{bucket}") |> range(start: -120h)'
+    query = f'from(bucket:"{config.get("InfluxDBClient","Bucket")}") |> range(start: -120h)'
     tables = client.query_api().query(query)
 
     # Process the query results
@@ -70,12 +63,12 @@ def stampalista(sensor):
         description: List
     """
     query_api = client.query_api()
-    query = f'from(bucket:"{bucket}")\
+    query = f'from(bucket:"{config.get("InfluxDBClient","Bucket")}")\
     |> range(start: -1h)\
     |> filter(fn:(r) => r._measurement == "new_measurement")\
     |> filter(fn:(r) => r.sensor == "{sensor}")\
     |> filter(fn:(r) => r._field == "value")'
-    result = query_api.query(org=org, query=query)
+    result = query_api.query(org=config.get("InfluxDBClient","Org"), query=query)
     results = []
     for table in result:
         for record in table.records:
@@ -110,7 +103,7 @@ def addinlista(sensor, id, type, value):
     """
     write_api = client.write_api(write_options=SYNCHRONOUS)
     measure = influxdb_client.Point(sensor).tag("sensor", type).field(id, float(value))
-    write_api.write(bucket=bucket, org=org, record=measure)
+    write_api.write(bucket=config.get("InfluxDBClient","Bucket"), org=config.get("InfluxDBClient","Org"), record=measure)
     return "Data added"
 
 @app.route('/previsione', methods=['GET'])
