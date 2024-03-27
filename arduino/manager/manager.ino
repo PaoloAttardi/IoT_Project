@@ -50,7 +50,7 @@ void loop() {
         Serial.print(EoL); //connessione al bridge
         char zona[] = "zona_1";
         int zona_size = strlen(zona);
-        char id[] = "001";
+        char id[] = "002";
         int id_size = strlen(id);
         Serial.print(zona_size);
         Serial.print(zona);

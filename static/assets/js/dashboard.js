@@ -10,7 +10,8 @@
   var ctx = canvas.getContext('2d');
 
   var labels = canvas.getAttribute('data-labels').split(',');
-  var values = canvas.getAttribute('data-values');
+  var valuesString = canvas.getAttribute('data-values');
+  var values = JSON.parse(valuesString);
   // eslint-disable-next-line no-unused-vars
   var myChart = new Chart(canvas, {
     type: 'line',
@@ -28,8 +29,12 @@
     options: {
       scales: {
         yAxes: [{
+          scaleLabel: {
+            display: true,
+            labelString: 'Temperature'
+          },
           ticks: {
-            beginAtZero: false
+            beginAtZero: true
           }
         }]
       },

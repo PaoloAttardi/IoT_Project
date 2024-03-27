@@ -44,6 +44,8 @@ body {
 .sidebar .nav-link {
   font-weight: 500;
   color: #333;
+  border: 0;
+  background: 0;
 }
 
 .sidebar .nav-link .feather {

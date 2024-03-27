@@ -32,15 +32,15 @@ def testoHTML():
     query = f'from(bucket:"{config.get("InfluxDBClient","Bucket")}") |> range(start: -120h)'
     tables = client.query_api().query(query)
 
-    # Process the query results
+    # Select all the existing bowls
     table = {}
     for tab in tables:
-        for row in tab.records:
-            val = row.values["_field"]
-            zone = row.values["_measurement"]
-            if val not in table: table[zone] = row.values["_field"]
+      for row in tab.records:
+        val = row.values["_field"]
+        zone = row.values["_measurement"]
+        if val not in table: table[val] = zone
     
-    return render_template('main.html', devices=table)
+    return render_template('homepage.html', devices=table)
 
 
 @app.route('/lista/<zone>/<sensor>', methods=['GET'])
@@ -70,9 +70,9 @@ def stampalista(zone, sensor):
         for row in tab.records:
             val = row.values["_field"]
             zone = row.values["_measurement"]
-            if val not in table: table[zone] = row.values["_field"]
+            if val not in table: table[val] = zone
     query = f'from(bucket:"{config.get("InfluxDBClient","Bucket")}")\
-    |> range(start: -120h)\
+    |> range(start: -20)\
     |> filter(fn:(r) => r._measurement == "{zone}")\
     |> filter(fn:(r) => r._field == "{sensor}")'
     result = client.query_api().query(org=config.get("InfluxDBClient","Org"), query=query)
@@ -83,7 +83,7 @@ def stampalista(zone, sensor):
         for record in res.records:
             i += 1
             results1.append(int(record.get_value()))
-            results2.append(i)
+            results2.append(record.get_time().strftime('%H:%M:%S'))
             index = index + str(i) + ','
     return render_template('sensor_details.html', values=results1, timestamp=results2, devices=table, labels=index)
 
