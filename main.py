@@ -2,14 +2,14 @@ from flask import Flask
 from flask import render_template
 from flask_swagger import swagger
 from flask import jsonify
-import requests
-from previsione import newPrediction
+from previsione import newPrediction, BucketList, get_weather_forecast
 from flask_swagger_ui import get_swaggerui_blueprint
 from influxdb_client.client.write_api import SYNCHRONOUS
 
 import configparser
 import influxdb_client
 import datetime
+import requests
 
 
 appname = "IOT - sample1"
@@ -29,17 +29,7 @@ def page_not_found(error):
 
 @app.route('/')
 def testoHTML():
-    query = f'from(bucket:"{config.get("InfluxDBClient","Bucket")}") |> range(start: -120h)'
-    tables = client.query_api().query(query)
-
-    # Select all the existing bowls
-    table = {}
-    for tab in tables:
-      for row in tab.records:
-        val = row.values["_field"]
-        zone = row.values["_measurement"]
-        if val not in table: table[val] = zone
-    
+    table = BucketList(config,client)
     return render_template('homepage.html', devices=table)
 
 
@@ -61,16 +51,7 @@ def stampalista(zone, sensor):
       200:
         description: List
     """
-    query = f'from(bucket:"{config.get("InfluxDBClient","Bucket")}") |> range(start: -120h)'
-    tables = client.query_api().query(query)
-    i = 0
-    # Process the query results
-    table = {}
-    for tab in tables:
-        for row in tab.records:
-            val = row.values["_field"]
-            zone = row.values["_measurement"]
-            if val not in table: table[val] = zone
+    table = BucketList(config,client)
     query = f'from(bucket:"{config.get("InfluxDBClient","Bucket")}")\
     |> range(start: -20)\
     |> filter(fn:(r) => r._measurement == "{zone}")\
@@ -118,8 +99,8 @@ def addinlista(sensor, id, type, value):
     write_api.write(bucket=config.get("InfluxDBClient","Bucket"), org=config.get("InfluxDBClient","Org"), record=measure)
     return "Data added"
 
-@app.route('/previsione', methods=['GET'])
-def previsione(lat=44.64, lon=10.92):
+@app.route('/flusso', methods=['GET'])
+def flussoPersone():
     """
     Makes a prediction based on an input hour
     ---
@@ -128,25 +109,28 @@ def previsione(lat=44.64, lon=10.92):
           name: ora
           description: arg
           required: true
-        - in: path
-          name: lat
-          description: float
-          required: false
-        - in: path
-          name: lon
-          description: float
-          required: false
     responses:
       200:
         description: Int
     """
+    hour = requests.get('hour')
     # Ottieni l'ora corrente
-    ora = requests.args.get('hour')
     now = datetime.datetime.now()
-    predizione = newPrediction(lat,lon,now,ora)
+    predizione = newPrediction(config.get("DEFAULT","lat"),config.get("DEFAULT","lon"),now,hour)
     # Ritorna la predizione
-    return f'La previsione del numero di persone alle {now} è {int(predizione[0])}'
-
+    return f'La previsione del numero di persone alle {hour} è {int(predizione[0])}'
+  
+@app.route('/previsione')
+def previsione():
+    table = BucketList(config,client)
+    url = f'https://api.openweathermap.org/data/2.5/weather?lat={config.get("DEFAULT","lat")}&lon={config.get("DEFAULT","lon")}&appid={config.get("OpenWeather","api_key")}'
+    response = requests.get(url)
+    weather_data = response.json()
+    weather_data['main']['temp'] = int(weather_data['main']['temp'])
+    today = datetime.datetime.now()
+    forecast = get_weather_forecast(config.get("OpenWeather","api_key"),config.get("DEFAULT","lat"),config.get("DEFAULT","lon"))
+    # days = [(today + datetime.timedelta(days=i)).strftime("%A") for i in range(1, 8)]
+    return render_template('weatherpage.html', devices=table, weather_data=weather_data, today=today, forecast=forecast)
 
 @app.route("/spec")
 def spec():

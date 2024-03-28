@@ -93,3 +93,37 @@ def newPrediction(lat, lon, now, ora):
         # Effettua la predizione utilizzando il modello e i dati di input
         predizione = regressor.predict([[season, yr, mnth, ora, holiday, weekday, workingday, weathersit, temp, atemp, hum]])
         return predizione
+    
+def BucketList(config, client):
+    query = f'from(bucket:"{config.get("InfluxDBClient","Bucket")}") |> range(start: -120h)'
+    tables = client.query_api().query(query)
+
+    # Select all the existing bowls
+    table = {}
+    for tab in tables:
+      for row in tab.records:
+        val = row.values["_field"]
+        zone = row.values["_measurement"]
+        if val not in table: table[val] = zone
+    return table
+
+import requests
+
+def get_weather_forecast(api_key, lat, lon):
+    url = f"http://api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid={api_key}&units=metric"
+    response = requests.get(url)
+    data = response.json()
+    if data["cod"] == "200":
+        forecast = {}
+        for forecast_data in data["list"]:
+            date = forecast_data["dt_txt"].split()[0]  # Extracting date
+            temperature = forecast_data["main"]["temp"]  # Extracting temperature
+            if date in forecast:
+                if forecast[date] >= temperature:
+                    forecast[date] = temperature
+            else:
+                forecast[date] = temperature
+        return forecast
+    else:
+        print("Error:", data["message"])
+        return None
