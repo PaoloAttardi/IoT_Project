@@ -64,10 +64,10 @@ void loop() {
   if (currentMillis - previousMillis >= interval) {
     previousMillis = currentMillis;
     Serial.print(SoL);
-    float randomValue = random(12, 22);
-    int pack_size = countDigits(randomValue);
+    float tempValue = random(12, 22);
+    int pack_size = countDigits(tempValue);
     Serial.print(pack_size);
-    Serial.print(randomValue);
+    Serial.print(tempValue);
     Serial.print("Tsensor_0");
     Serial.print(EoL);    
   }

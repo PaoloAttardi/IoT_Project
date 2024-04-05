@@ -80,18 +80,18 @@ class Bridge():
     # The callback for when a PUBLISH message is received from the server.
 	def on_message(self, client, userdata, msg):
 		print(msg.topic + " " + str(msg.payload))
-		if msg.topic == self.zona + '/' + self.id + '/' + "LvLsensor_0":
-			if float(msg.payload.decode())<15:
+		if msg.topic == self.zona + '/' + self.id + '/' + "Tsensor_0":
+			if float(msg.payload.decode())<5:
 				self.ser.write(b'A0')
 			else:
 				self.ser.write(b'S0')
-		elif msg.topic == self.zona + '/' + self.id + '/' + "Tsensor_0":
+		elif msg.topic == self.zona + '/' + self.id + '/' + "LvLsensor_0":
 			dati = list(self.datiZona.values())
 			if len(dati) != 0: media = sum(dati) / len(dati)
 			else: media = float(msg.payload.decode()) 
 			futureState = None
 			if self.currentState == 0:
-				if float(msg.payload.decode())>media+1:
+				if float(msg.payload.decode())>media+5:
 					futureState = 1
 				elif float(msg.payload.decode())<media-5:
 					futureState = 2
@@ -157,5 +157,5 @@ class Bridge():
 		sensorLen = len(self.buffer) - (SoN)
 		for j in range (sensorLen):
 			sensor_name = sensor_name + str(self.buffer[j + SoN].decode())
-		check = self.clientMQTT.publish(self.zona + '/' + self.id + '/' + sensor_name, val).is_published()
+		self.clientMQTT.publish(self.zona + '/' + self.id + '/' + sensor_name, val).is_published()
 		self.clientMQTT.on_message

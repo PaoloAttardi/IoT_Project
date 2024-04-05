@@ -61,7 +61,7 @@ def newPrediction(lat, lon, now, ora):
             season = 3  # Fall
         else:
             season = 4  # Winter
-        yr = now.year - 2011  # 0 per il 2011, 1 per il 2012
+        yr = 1  # 0 per il 2011, 1 per il 2012
         mnth = now.month
         # Crea un oggetto "Italy" che rappresenta le festività italiane
         it_holidays = holidays.IT()
@@ -92,7 +92,7 @@ def newPrediction(lat, lon, now, ora):
 
         # Effettua la predizione utilizzando il modello e i dati di input
         predizione = regressor.predict([[season, yr, mnth, ora, holiday, weekday, workingday, weathersit, temp, atemp, hum]])
-        return predizione
+        return abs(int(predizione / 25))
     
 def BucketList(config, client):
     query = f'from(bucket:"{config.get("InfluxDBClient","Bucket")}") |> range(start: -120h)'
@@ -116,8 +116,8 @@ def get_weather_forecast(api_key, lat, lon):
     if data["cod"] == "200":
         forecast = {}
         for forecast_data in data["list"]:
-            date = forecast_data["dt_txt"].split()[0]  # Extracting date
-            temperature = forecast_data["main"]["temp"]  # Extracting temperature
+            date = datetime.datetime.strptime(forecast_data["dt_txt"], "%Y-%m-%d %H:%M:%S").strftime("%A")  # Extracting date
+            temperature = forecast_data["main"]["temp_min"]  # Extracting temperature
             if date in forecast:
                 if forecast[date] >= temperature:
                     forecast[date] = temperature

@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, request
 from flask import render_template
 from flask_swagger import swagger
 from flask import jsonify
@@ -60,6 +60,7 @@ def stampalista(zone, sensor):
     results1 = []
     results2 = []
     index = ""
+    i = 0
     for res in result:
         for record in res.records:
             i += 1
@@ -99,34 +100,27 @@ def addinlista(sensor, id, type, value):
     write_api.write(bucket=config.get("InfluxDBClient","Bucket"), org=config.get("InfluxDBClient","Org"), record=measure)
     return "Data added"
 
-@app.route('/flusso', methods=['GET'])
+@app.route('/flusso/', methods=['GET'])
 def flussoPersone():
     """
     Makes a prediction based on an input hour
     ---
-    parameters:
-        - in: path
-          name: ora
-          description: arg
-          required: true
     responses:
       200:
         description: Int
     """
-    hour = requests.get('hour')
-    # Ottieni l'ora corrente
+    hour = int(request.args.get('hour'))
     now = datetime.datetime.now()
     predizione = newPrediction(config.get("DEFAULT","lat"),config.get("DEFAULT","lon"),now,hour)
     # Ritorna la predizione
-    return f'La previsione del numero di persone alle {hour} è {int(predizione[0])}'
+    return f'La previsione del numero di persone alle {hour} è {predizione}'
   
 @app.route('/previsione')
 def previsione():
     table = BucketList(config,client)
-    url = f'https://api.openweathermap.org/data/2.5/weather?lat={config.get("DEFAULT","lat")}&lon={config.get("DEFAULT","lon")}&appid={config.get("OpenWeather","api_key")}'
+    url = f'https://api.openweathermap.org/data/2.5/weather?lat={config.get("DEFAULT","lat")}&lon={config.get("DEFAULT","lon")}&appid={config.get("OpenWeather","api_key")}&units=metric'
     response = requests.get(url)
     weather_data = response.json()
-    weather_data['main']['temp'] = int(weather_data['main']['temp'])
     today = datetime.datetime.now()
     forecast = get_weather_forecast(config.get("OpenWeather","api_key"),config.get("DEFAULT","lat"),config.get("DEFAULT","lon"))
     # days = [(today + datetime.timedelta(days=i)).strftime("%A") for i in range(1, 8)]
