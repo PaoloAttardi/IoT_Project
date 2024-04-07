@@ -1,19 +1,54 @@
+import configparser
 import datetime
 import holidays
+import influxdb_client
 import pandas as pd
 import requests
+import pickle
+
 from sklearn.linear_model import LinearRegression
 from sklearn.preprocessing import StandardScaler
 from sklearn.metrics import mean_absolute_percentage_error
-import pickle
 
+config = configparser.ConfigParser()
+config.read('config.ini')
+client = influxdb_client.InfluxDBClient(url=config.get("InfluxDBClient","Url"),
+   token=config.get("InfluxDBClient","Token"),
+   org=config.get("InfluxDBClient","Org"))
+
+class Bowl():
+    
+    def __init__(self, zone, id, coord) -> None: # coord should be a list like [lat, lon]
+        self.id = zone + '/' + id
+        self.coord = coord
+        self.lvlBowl = []
+        self.lvlTank = []
+        # Load sensor data from Influx 
+        self.loadData(zone, id)
+        pass
+    
+    def loadData(self, zone, id):
+        query = f'from(bucket:"{config.get("InfluxDBClient","Bucket")}")\
+            |> range(start: -20)\
+            |> filter(fn:(r) => r._measurement == "{zone}")\
+            |> filter(fn:(r) => r._field == "{id}")' #\
+            # |> last()\
+            # |> limit(n: 20)'
+        result = client.query_api().query(org=config.get("InfluxDBClient","Org"), query=query)
+        for res in result:
+            for record in res.records:
+                print(record)
+                self.lvlBowl.append(int(record.get_value()))
+                self.lvlTank.append(record.get_time().strftime('%H:%M:%S'))
+    
+# bowl = Bowl(zone='zona_1',id='002',coord=[1,2])
+# print(bowl.lvlBowl)
 def predictorTraining():
     df = pd.read_csv("hour.csv")
 
     # Selezionare le feature rilevanti per la previsione
+    # Si applica la trasformazione StandardScaler alle feature selezionate
     relevant_features = ["season", "yr", "mnth", "hr", "holiday", "weekday", "workingday", "weathersit", "temp", "atemp", "hum"]
-
-    # Applicare la trasformazione StandardScaler alle feature selezionate
     scaler = StandardScaler()
     X = scaler.fit_transform(df[relevant_features].values)
 
@@ -49,7 +84,7 @@ def newPrediction(lat, lon, now, ora):
 
         # Ottieni le condizioni meteorologiche correnti da un API meteo
         api_key = '7709f02753c2a737ab142230c07b181d'
-        url = f'https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={api_key}'
+        url = f'https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={api_key}&units=metric'
         response = requests.get(url)
         weather_data = response.json()
         # Ottieni la stagione in base al mese corrente
@@ -63,10 +98,8 @@ def newPrediction(lat, lon, now, ora):
             season = 4  # Winter
         yr = 1  # 0 per il 2011, 1 per il 2012
         mnth = now.month
-        # Crea un oggetto "Italy" che rappresenta le festività italiane
+        # Crea una lista con le festività italiane e verifica se oggi è festività in Italia
         it_holidays = holidays.IT()
-
-        # Verifica se oggi è festività in Italia
         if datetime.date(now.year, now.month, now.day) in it_holidays:
             holiday = 1
         else:
@@ -86,16 +119,16 @@ def newPrediction(lat, lon, now, ora):
             weathersit = 3
         else:
             weathersit = 4
-        temp = weather_data['main']['temp'] - 273.15  # Converti da Kelvin a Celsius
-        atemp = weather_data['main']['feels_like'] - 273.15  # Converti da Kelvin a Celsius
+        temp = weather_data['main']['temp']
+        atemp = weather_data['main']['feels_like']
         hum = weather_data['main']['humidity']
 
         # Effettua la predizione utilizzando il modello e i dati di input
         predizione = regressor.predict([[season, yr, mnth, ora, holiday, weekday, workingday, weathersit, temp, atemp, hum]])
         return abs(int(predizione / 25))
     
-def BucketList(config, client):
-    query = f'from(bucket:"{config.get("InfluxDBClient","Bucket")}") |> range(start: -120h)'
+def BucketList():
+    query = f'from(bucket:"{config.get("InfluxDBClient","Bucket")}") |> range(start: -500h)'
     tables = client.query_api().query(query)
 
     # Select all the existing bowls
@@ -110,16 +143,18 @@ def BucketList(config, client):
 import requests
 
 def get_weather_forecast(api_key, lat, lon):
-    url = f"http://api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid={api_key}&units=metric"
+    url = f"http://api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&cnt=52&appid={api_key}&units=metric"
     response = requests.get(url)
     data = response.json()
     if data["cod"] == "200":
         forecast = {}
         for forecast_data in data["list"]:
-            date = datetime.datetime.strptime(forecast_data["dt_txt"], "%Y-%m-%d %H:%M:%S").strftime("%A")  # Extracting date
-            temperature = forecast_data["main"]["temp_min"]  # Extracting temperature
+            dt_object = datetime.datetime.fromtimestamp(forecast_data["dt"])
+            date = dt_object.strftime("%A")  # Extracting date
+            temperature = int(forecast_data["main"]["temp_max"])  # Extracting temperature
+            # forecast[date] = temperature
             if date in forecast:
-                if forecast[date] >= temperature:
+                if forecast[date] <= temperature:
                     forecast[date] = temperature
             else:
                 forecast[date] = temperature

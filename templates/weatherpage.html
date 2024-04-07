@@ -28,6 +28,15 @@
                 </div>
                 <div class="card-body p-0">
                   <div class="d-flex weakly-weather">
+                    <div class="weakly-weather-item">
+                      <p class="mb-0">
+                        Next days
+                      </p>
+                      <i class="mdi mdi-weather-cloudy"></i>
+                      <p class="mb-0">
+                        forecast:
+                      </p>
+                    </div>
                     {% for date, temperatures in forecast.items() %}
                     <div class="weakly-weather-item">
                       <p class="mb-0">

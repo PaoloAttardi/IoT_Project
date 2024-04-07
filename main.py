@@ -2,7 +2,7 @@ from flask import Flask, request
 from flask import render_template
 from flask_swagger import swagger
 from flask import jsonify
-from previsione import newPrediction, BucketList, get_weather_forecast
+from utils import newPrediction, BucketList, get_weather_forecast, Bowl
 from flask_swagger_ui import get_swaggerui_blueprint
 from influxdb_client.client.write_api import SYNCHRONOUS
 
@@ -12,13 +12,14 @@ import datetime
 import requests
 
 
-appname = "IOT - sample1"
+appname = "Happy Bowls"
 app = Flask(appname)
 config = configparser.ConfigParser()
 config.read('config.ini')
 client = influxdb_client.InfluxDBClient(url=config.get("InfluxDBClient","Url"),
    token=config.get("InfluxDBClient","Token"),
    org=config.get("InfluxDBClient","Org"))
+activeBowls = {}
 
 SWAGGER_URL = '/api/docs'  # URL for exposing Swagger UI (without trailing '/')
 API_URL = '/spec'  # Our API url (can of course be a local resource)
@@ -29,12 +30,12 @@ def page_not_found(error):
 
 @app.route('/')
 def testoHTML():
-    table = BucketList(config,client)
+    table = BucketList()
     return render_template('homepage.html', devices=table)
 
 
-@app.route('/lista/<zone>/<sensor>', methods=['GET'])
-def stampalista(zone, sensor):
+@app.route('/lista/<zone>/<id>', methods=['GET'])
+def stampalista(zone, id):
     """
     Print the list
     ---
@@ -44,18 +45,18 @@ def stampalista(zone, sensor):
           description: arg
           required: true
         - in: path
-          name: sensor
+          name: id
           description: arg
           required: true
     responses:
       200:
         description: List
     """
-    table = BucketList(config,client)
+    table = BucketList()
     query = f'from(bucket:"{config.get("InfluxDBClient","Bucket")}")\
     |> range(start: -20)\
     |> filter(fn:(r) => r._measurement == "{zone}")\
-    |> filter(fn:(r) => r._field == "{sensor}")'
+    |> filter(fn:(r) => r._field == "{id}")'
     result = client.query_api().query(org=config.get("InfluxDBClient","Org"), query=query)
     results1 = []
     results2 = []
@@ -98,9 +99,41 @@ def addinlista(sensor, id, type, value):
     write_api = client.write_api(write_options=SYNCHRONOUS)
     measure = influxdb_client.Point(sensor).tag("sensor", type).field(id, float(value))
     write_api.write(bucket=config.get("InfluxDBClient","Bucket"), org=config.get("InfluxDBClient","Org"), record=measure)
+    activeBowls[sensor + '/' + id].loadData(sensor, id) # update the data on the bowls
     return "Data added"
+  
+@app.route('/config/<zone>/<id>/Coord/<lat>/<lon>', methods=['POST'])
+def bowlConfig(zone, id, lat, lon):
+    """
+    Configure the active buckets
+    ---
+    parameters:
+        - in: path
+          name: zone
+          description: arg
+          required: true
+        - in: path
+          name: id
+          description: arg
+          required: true
+        - in: path
+          name: lat
+          description: float
+          required: true
+        - in: path
+          name: lon
+          description: float
+          required: true
+    responses:
+      200:
+        description: List
+    """
+    confBowl = Bowl(zone, id, [lat,lon])
+    if confBowl.id not in activeBowls:
+      activeBowls[confBowl.id] = confBowl
+    return f"Bowl {confBowl.id} configured"
 
-@app.route('/flusso/', methods=['GET'])
+@app.route('/flusso', methods=['GET'])
 def flussoPersone():
     """
     Makes a prediction based on an input hour
@@ -117,13 +150,19 @@ def flussoPersone():
   
 @app.route('/previsione')
 def previsione():
-    table = BucketList(config,client)
+    """
+    Returns the weather prediction
+    ---
+    responses:
+      200:
+        description: List
+    """
+    table = BucketList()
     url = f'https://api.openweathermap.org/data/2.5/weather?lat={config.get("DEFAULT","lat")}&lon={config.get("DEFAULT","lon")}&appid={config.get("OpenWeather","api_key")}&units=metric'
     response = requests.get(url)
     weather_data = response.json()
     today = datetime.datetime.now()
     forecast = get_weather_forecast(config.get("OpenWeather","api_key"),config.get("DEFAULT","lat"),config.get("DEFAULT","lon"))
-    # days = [(today + datetime.timedelta(days=i)).strftime("%A") for i in range(1, 8)]
     return render_template('weatherpage.html', devices=table, weather_data=weather_data, today=today, forecast=forecast)
 
 @app.route("/spec")

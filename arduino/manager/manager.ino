@@ -2,6 +2,10 @@ unsigned long previousMillis = 0;
 const int interval = 10000;
 int currentstate;
 bool config = true;
+char SoL = '\xff';
+char EoL = '\xfe';
+float lat = 44.64;
+float lon = 10.92;
 
 int countDigits(float number) {
   int digitCount = 0;
@@ -41,13 +45,13 @@ void setup() {
 
 void loop() {
   // put your main code here, to run repeatedly:
-  char SoL = '\xff';
-  char EoL = '\xfe';
   while (config) {
     if (Serial.available() > 0){
       char start = Serial.read();
       if (start == SoL){
-        Serial.print(EoL); //connessione al bridge
+        Serial.print(EoL); // connessione al bridge
+        Serial.print(lat); // passiamo informazioni come coordinate, id e zona
+        Serial.print(lon);
         char zona[] = "zona_1";
         int zona_size = strlen(zona);
         char id[] = "002";
@@ -68,7 +72,7 @@ void loop() {
     int pack_size = countDigits(tempValue);
     Serial.print(pack_size);
     Serial.print(tempValue);
-    Serial.print("Tsensor_0");
+    Serial.print("Lvlsensor_0");
     Serial.print(EoL);    
   }
   if(Serial.available() > 0){

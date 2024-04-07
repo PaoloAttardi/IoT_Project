@@ -31,7 +31,7 @@
         yAxes: [{
           scaleLabel: {
             display: true,
-            labelString: 'Temperature'
+            labelString: 'Water Level'
           },
           ticks: {
             beginAtZero: true
