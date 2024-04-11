@@ -5,10 +5,10 @@
     <h1 class="h2">Bowls List</h1>
 </div>
 <div class="row row-cols-1 row-cols-md-3 g-4">
-    {% for dev,zone in devices.items() %}
+    {% for dev,zone in alldevices.items() %}
     <div class="col">
         <div class="card">
-            <img src="{{ url_for('static', filename='pet.png') }}" class="card-img-top" alt="Bowl Details">
+            <img src="{{ url_for('static', filename='bowl_icons.jpg') }}" class="card-img-top" alt="Bowl Details">
             <div class="card-body">
                 <h5 class="card-title">Bowl number: {{dev}}</h5>
                 <p class="card-text">This is the Bowl in the '{{zone}}' region, click on the button below to get more details!</p>

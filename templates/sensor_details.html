@@ -4,6 +4,32 @@
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
   <h1 class="h2">Bowl's Data</h1>
 </div>
+<div class="container mt-3">
+  <h2>Bowl's Position</h2>
+  <div id="map"></div> <!-- Map container -->
+</div>
+<script>
+  // Function to initialize the map
+  let map;
+
+  async function initMap() {
+    const { Map } = await google.maps.importLibrary("maps");
+
+    map = new Map(document.getElementById("map"), {
+      center: { lat: -34.397, lng: 150.644 },
+      zoom: 8,
+    });
+
+      /*var marker = new google.maps.Marker({
+          position: initialPosition,
+          map: map,
+          draggable: true, // Make the marker draggable
+          title: 'Drag me!' // Tooltip for the marker
+      });*/
+  }
+  
+  initMap();
+</script>
 <canvas class="my-4 w-100" id="myChart" width="900" height="380" data-labels="{{labels}}" data-values="{{values}}"></canvas>
 <h2>Bowl's status</h2>
 <div class="table-responsive">

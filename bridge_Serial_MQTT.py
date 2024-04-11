@@ -19,26 +19,23 @@ class Bridge():
 		self.port = port
 		self.lat = 0
 		self.lon = 0
-		# valori di soglia per le temperature
+		# Limit for the water Bowl
 		self.sogliaMax = 35
-		self.sogliaMin = 10
+		self.sogliaMin = 5
 		self.setupSerial(port)
 		self.setupMQTT()
  
   
 	def setupSerial(self, port):        
 		try:
-			# apre la porta seriale
 			self.ser = serial.Serial(port.device, 9600, timeout=2)
 			time.sleep(2)
-			# scrive un messaggio sull'self
+			# Write the connection message
 			self.ser.write(b'\xff')
-			# legge la risposta dell'self
+			# Wait for the responses from the Arduino
 			response = self.ser.read()
-			# verifica se l'self ha risposto correttamente
 			if response == b'\xfe':
 				print(f"Arduino connesso alla porta {port.device}")
-				# se l'self è stato trovato aggiungi il suo id al dizionario con il buffer associato, esci dal ciclo
 				# leggi informazioni sulle coordinate
 				self.lat = str(self.ser.read(5).decode())
 				self.lon = str(self.ser.read(5).decode())
@@ -53,7 +50,7 @@ class Bridge():
 			else:
 				error = self.ser.read(27)
 				print(error)
-				# se l'self non ha risposto correttamente, chiude la porta seriale
+				# If the Arduino doesn't reply correctly, close the connection
 				self.ser.close()
 				print('Errore nella connessione')
 				return False
@@ -97,29 +94,30 @@ class Bridge():
 			else:
 				self.ser.write(b'S0')'''
 		else:
-			if msg.topic == self.zona + '/' + self.id + '/' + "Lvlsensor_0":
-				dati = list(self.datiZona.values())
+			if msg.topic == self.zona + '/' + self.id + '/' + "Lvlsensor_0": # Bowl level
+				'''dati = list(self.datiZona.values())
 				if len(dati) != 0: media = sum(dati) / len(dati)
-				else: media = float(msg.payload.decode()) 
+				else: media = float(msg.payload.decode())''' 
 				futureState = None
 				if self.currentState == 0:
-					if float(msg.payload.decode())>media+5:
+					if float(msg.payload.decode())<self.sogliaMin:
 						futureState = 1
-					elif float(msg.payload.decode())<media-5:
-						futureState = 2
 					else:
-						self.ser.write(b'S1')
-				elif self.currentState == 1:
-					if float(msg.payload.decode())>self.sogliaMax:
-						futureState = 3
+						futureState = 0
+				elif self.currentState == 1: # Take another value of the water level 
+					if float(msg.payload.decode())<self.sogliaMin:
+						futureState = 2
 					else: futureState = 0
 				elif self.currentState == 2:
-					if float(msg.payload.decode())<self.sogliaMin:
+					if float(msg.payload.decode())<self.sogliaMin: # Low water in the bowl
+						self.ser.write(b'A1') # Let the water flow
 						futureState = 3
-					else: futureState = 0
+					else: futureState = 1
 				elif self.currentState == 3:
-					self.ser.write(b'A1')
-					futureState = 0
+					if float(msg.payload.decode())==self.sogliaMax:
+						self.ser.write(b'S1') # Stop the water flow
+						futureState = 0
+					else: futureState = 3
 				self.currentState = futureState
 			elif msg.topic == self.zona + '/' + self.id + '/' + "Lvlsensor_1":
 				if float(msg.payload.decode())<15:

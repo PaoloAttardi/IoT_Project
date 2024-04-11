@@ -31,7 +31,7 @@ def page_not_found(error):
 @app.route('/')
 def testoHTML():
     table = BucketList()
-    return render_template('homepage.html', devices=table)
+    return render_template('homepage.html', devices=activeBowls, alldevices=table)
 
 
 @app.route('/lista/<zone>/<id>', methods=['GET'])
@@ -52,7 +52,6 @@ def stampalista(zone, id):
       200:
         description: List
     """
-    table = BucketList()
     query = f'from(bucket:"{config.get("InfluxDBClient","Bucket")}")\
     |> range(start: -20)\
     |> filter(fn:(r) => r._measurement == "{zone}")\
@@ -68,7 +67,7 @@ def stampalista(zone, id):
             results1.append(int(record.get_value()))
             results2.append(record.get_time().strftime('%H:%M:%S'))
             index = index + str(i) + ','
-    return render_template('sensor_details.html', values=results1, timestamp=results2, devices=table, labels=index)
+    return render_template('sensor_details.html', values=results1, timestamp=results2, devices=activeBowls, labels=index)
 
 @app.route('/newdata/<sensor>/<id>/<type>/<value>', methods=['POST'])
 def addinlista(sensor, id, type, value):
@@ -163,7 +162,7 @@ def previsione():
     weather_data = response.json()
     today = datetime.datetime.now()
     forecast = get_weather_forecast(config.get("OpenWeather","api_key"),config.get("DEFAULT","lat"),config.get("DEFAULT","lon"))
-    return render_template('weatherpage.html', devices=table, weather_data=weather_data, today=today, forecast=forecast)
+    return render_template('weatherpage.html', devices=activeBowls, weather_data=weather_data, today=today, forecast=forecast)
 
 @app.route("/spec")
 def spec():

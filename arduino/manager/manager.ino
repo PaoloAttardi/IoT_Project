@@ -6,6 +6,8 @@ char SoL = '\xff';
 char EoL = '\xfe';
 float lat = 44.64;
 float lon = 10.92;
+float tankCap = 2.0;
+float bowlCap = 0.1;
 
 int countDigits(float number) {
   int digitCount = 0;
@@ -68,17 +70,24 @@ void loop() {
   if (currentMillis - previousMillis >= interval) {
     previousMillis = currentMillis;
     Serial.print(SoL);
-    float tempValue = random(12, 22);
-    int pack_size = countDigits(tempValue);
+    float waterValue = random(12, 22);
+    int pack_size = countDigits(waterValue);
     Serial.print(pack_size);
-    Serial.print(tempValue);
-    Serial.print("Lvlsensor_0");
-    Serial.print(EoL);    
+    Serial.print(waterValue);
+    Serial.print("Lvlsensor_0"); // water in the bowl
+    Serial.print(EoL);
+    Serial.print(SoL);
+    float waterValue = random(12, 22);
+    int pack_size = countDigits(waterValue);
+    Serial.print(pack_size);
+    Serial.print(waterValue);
+    Serial.print("Lvlsensor_1"); // water in the tank
+    Serial.print(EoL); 
   }
   if(Serial.available() > 0){
     char val = Serial.read();
 
-    int futurestate;
+    int futurestate; // probabilmente si può rimuovere il 2
     if(currentstate == 0 && val == 'A') futurestate = 1;
     if(currentstate == 1 && val == '1') futurestate = 2; //acceso
     if(currentstate == 2 && val == 'S') futurestate = 3;
@@ -88,9 +97,9 @@ void loop() {
     if(currentstate == 6 && val == '2') futurestate = 7; //spento
 
     if(currentstate != futurestate){
-      if(futurestate == 2) digitalWrite(13,HIGH);
+      if(futurestate == 2) digitalWrite(13,HIGH); // open water flow
       if(futurestate == 4) {
-        digitalWrite(13,LOW);
+        digitalWrite(13,LOW); // close water flow
         futurestate = 0;
       }
       if(futurestate == 5) digitalWrite(12,HIGH);
