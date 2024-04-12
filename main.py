@@ -1,3 +1,4 @@
+import json
 from flask import Flask, request
 from flask import render_template
 from flask_swagger import swagger
@@ -156,7 +157,6 @@ def previsione():
       200:
         description: List
     """
-    table = BucketList()
     url = f'https://api.openweathermap.org/data/2.5/weather?lat={config.get("DEFAULT","lat")}&lon={config.get("DEFAULT","lon")}&appid={config.get("OpenWeather","api_key")}&units=metric'
     response = requests.get(url)
     weather_data = response.json()
@@ -164,6 +164,18 @@ def previsione():
     forecast = get_weather_forecast(config.get("OpenWeather","api_key"),config.get("DEFAULT","lat"),config.get("DEFAULT","lon"))
     return render_template('weatherpage.html', devices=activeBowls, weather_data=weather_data, today=today, forecast=forecast)
 
+@app.route('/lista', methods=['GET'])
+def listaJSON():
+    """
+    Return the JSON with the available bowls
+    ---
+    responses:
+      200:
+        description: JSON
+    """
+    table = BucketList()
+    return json.dumps(table)
+  
 @app.route("/spec")
 def spec():
     swag = swagger(app)
