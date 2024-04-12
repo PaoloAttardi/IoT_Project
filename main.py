@@ -64,7 +64,7 @@ def stampalista(zone, id):
     for res in result:
         for record in res.records:
             i += 1
-            results1.append(int(record.get_value()))
+            results1.append(record.get_value())
             results2.append(record.get_time().strftime('%H:%M:%S'))
             index = index + str(i) + ','
     return render_template('sensor_details.html', values=results1, timestamp=results2, devices=activeBowls, labels=index)

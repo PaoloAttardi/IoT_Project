@@ -7,31 +7,16 @@ char EoL = '\xfe';
 float lat = 44.64;
 float lon = 10.92;
 float tankCap = 2.0;
-float bowlCap = 0.1;
+float bowlWater = 0.00;
 
 int countDigits(float number) {
-  int digitCount = 0;
+  char buffer[15]; // Allocate a buffer to hold the string representation
+
+  // Convert float to string
+  dtostrf(number, 4, 2, buffer); // 4 is the total width including decimal point and 2 is the number of digits after the decimal point
+  int length = strlen(buffer);
   
-  // Conta le cifre della parte intera
-  int integerPart = (int)number;
-  while (integerPart > 0) {
-    digitCount++;
-    integerPart /= 10;
-  }
-  
-  // Conta le cifre della parte frazionaria
-  float fractionalPart = number - integerPart;
-  if (fractionalPart > 0) {
-    digitCount++;  // Conta la virgola decimale
-    while (fractionalPart > 0) {
-      digitCount++;
-      fractionalPart *= 10;
-      fractionalPart = fractionalPart - (int)fractionalPart;
-    }
-    digitCount++;
-  }
-  
-  return digitCount;
+  return length;
 }
 
 
@@ -70,17 +55,19 @@ void loop() {
   if (currentMillis - previousMillis >= interval) {
     previousMillis = currentMillis;
     Serial.print(SoL);
-    float waterValue = random(12, 22);
-    int pack_size = countDigits(waterValue);
-    Serial.print(pack_size);
-    Serial.print(waterValue);
+    float drink = random(1, 100);
+    if (drink > 50 && bowlWater >= 0.05) { // case where a dog drank from the bowl
+      bowlWater = bowlWater - 0.05;
+    }
+    int pack_size_1 = countDigits(bowlWater);
+    Serial.print(pack_size_1);
+    Serial.print(bowlWater);
     Serial.print("Lvlsensor_0"); // water in the bowl
     Serial.print(EoL);
     Serial.print(SoL);
-    float waterValue = random(12, 22);
-    int pack_size = countDigits(waterValue);
-    Serial.print(pack_size);
-    Serial.print(waterValue);
+    int pack_size_2 = countDigits(tankCap);
+    Serial.print(pack_size_2);
+    Serial.print(tankCap);
     Serial.print("Lvlsensor_1"); // water in the tank
     Serial.print(EoL); 
   }
@@ -97,7 +84,11 @@ void loop() {
     if(currentstate == 6 && val == '2') futurestate = 7; //spento
 
     if(currentstate != futurestate){
-      if(futurestate == 2) digitalWrite(13,HIGH); // open water flow
+      if(futurestate == 2 && tankCap >= 0.1) {
+        digitalWrite(13,HIGH); // open water flow
+        bowlWater = bowlWater + 0.1;
+        tankCap = tankCap - 0.1;
+      }
       if(futurestate == 4) {
         digitalWrite(13,LOW); // close water flow
         futurestate = 0;

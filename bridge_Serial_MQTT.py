@@ -20,8 +20,8 @@ class Bridge():
 		self.lat = 0
 		self.lon = 0
 		# Limit for the water Bowl
-		self.sogliaMax = 35
-		self.sogliaMin = 5
+		# self.sogliaMax = 0.1
+		self.sogliaMin = 0.04
 		self.setupSerial(port)
 		self.setupMQTT()
  
@@ -114,16 +114,16 @@ class Bridge():
 						futureState = 3
 					else: futureState = 1
 				elif self.currentState == 3:
-					if float(msg.payload.decode())==self.sogliaMax:
+					if float(msg.payload.decode())>self.sogliaMin:
 						self.ser.write(b'S1') # Stop the water flow
 						futureState = 0
 					else: futureState = 3
 				self.currentState = futureState
 			elif msg.topic == self.zona + '/' + self.id + '/' + "Lvlsensor_1":
-				if float(msg.payload.decode())<15:
+				if float(msg.payload.decode())<0:
 						self.ser.write(b'A2')
-				else:
-					self.ser.write(b'S2')
+				'''else:
+					self.ser.write(b'S2')'''
 			elif 'Lvlsensor_1' in msg.topic:
 				value = float(msg.payload.decode())
 				zona, id, name = msg.topic.split('/')
