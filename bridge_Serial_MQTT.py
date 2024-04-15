@@ -104,20 +104,16 @@ class Bridge():
 						futureState = 1
 					else:
 						futureState = 0
-				elif self.currentState == 1: # Take another value of the water level 
-					if float(msg.payload.decode())<self.sogliaMin:
+				elif self.currentState == 1:
+					if float(msg.payload.decode())<self.sogliaMin: # Low water in the bowl
+						self.ser.write(b'A1') # Let the water flow
 						futureState = 2
 					else: futureState = 0
 				elif self.currentState == 2:
-					if float(msg.payload.decode())<self.sogliaMin: # Low water in the bowl
-						self.ser.write(b'A1') # Let the water flow
-						futureState = 3
-					else: futureState = 1
-				elif self.currentState == 3:
 					if float(msg.payload.decode())>self.sogliaMin:
 						self.ser.write(b'S1') # Stop the water flow
 						futureState = 0
-					else: futureState = 3
+					else: futureState = 2
 				self.currentState = futureState
 			elif msg.topic == self.zona + '/' + self.id + '/' + "Lvlsensor_1":
 				if float(msg.payload.decode())<0:

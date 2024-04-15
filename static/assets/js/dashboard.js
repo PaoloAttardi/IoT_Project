@@ -1,24 +1,25 @@
-/* globals Chart:false, feather:false */
-
 (function () {
   'use strict'
 
   feather.replace({ 'aria-hidden': 'true' })
 
   // Graphs
-  var canvas = document.getElementById('myChart')
-  var ctx = canvas.getContext('2d');
+  // First Canvas
+  var canvas1 = document.getElementById('tankChart');
+  var ctx1 = canvas1.getContext('2d');
 
-  var labels = canvas.getAttribute('data-labels').split(',');
-  var valuesString = canvas.getAttribute('data-values');
-  var values = JSON.parse(valuesString);
-  // eslint-disable-next-line no-unused-vars
-  var myChart = new Chart(canvas, {
+  var labels1 = [];
+  var valuesString1 = canvas1.getAttribute('data-values');
+  var values1 = JSON.parse(valuesString1);
+  for (var i = 0; i < values1.length; i++) {
+    labels1.push(i);
+  }
+  var myChart1 = new Chart(canvas1, {
     type: 'line',
     data: {
-      labels: labels,
+      labels: labels1,
       datasets: [{
-        data: values,
+        data: values1,
         lineTension: 0,
         backgroundColor: 'transparent',
         borderColor: '#007bff',
@@ -42,5 +43,46 @@
         display: false
       }
     }
-  })
-})()
+  });
+
+  // Second Canvas
+  var canvas2 = document.getElementById('bowlChart');
+  var ctx2 = canvas2.getContext('2d');
+
+  var labels2 = [];
+  var valuesString2 = canvas2.getAttribute('data-values');
+  var values2 = JSON.parse(valuesString2);
+  for (var j = 0; j < values2.length; j++) {
+    labels2.push(j);
+  }
+  var myChart2 = new Chart(canvas2, {
+    type: 'line',
+    data: {
+      labels: labels2,
+      datasets: [{
+        data: values2,
+        lineTension: 0,
+        backgroundColor: 'transparent',
+        borderColor: '#ff0000', // Change color for differentiation
+        borderWidth: 4,
+        pointBackgroundColor: '#ff0000' // Change color for differentiation
+      }]
+    },
+    options: {
+      scales: {
+        yAxes: [{
+          scaleLabel: {
+            display: true,
+            labelString: 'Water Level'
+          },
+          ticks: {
+            beginAtZero: true
+          }
+        }]
+      },
+      legend: {
+        display: false
+      }
+    }
+  });
+})();

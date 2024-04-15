@@ -18,28 +18,65 @@ client = influxdb_client.InfluxDBClient(url=config.get("InfluxDBClient","Url"),
 
 class Bowl():
     
-    def __init__(self, zone, id, coord) -> None: # coord should be a list like [lat, lon]
+    def __init__(self, zone, id, lat, lon) -> None: # coord should be a list like [lat, lon]
         self.id = zone + '/' + id
-        self.coord = coord
+        self.zone = zone
+        self.val = id
+        self.lat = lat
+        self.lon = lon
         self.lvlBowl = []
         self.lvlTank = []
-        # Load sensor data from Influx 
-        self.loadData(zone, id)
+        # Load sensor data from Influx
+        # self.loadData(zone, id)
         pass
     
-    def loadData(self, zone, id):
+    def to_dict(self):
+        return {
+            "id": self.id,
+            "zone": self.zone,
+            "val": self.val,
+            "lat": self.lat,
+            "lon": self.lon,
+            "lvlBowl": self.lvlBowl,
+            "lvlTank": self.lvlTank
+        }
+    
+    def loadData(self):
+        self.lvlBowl = []
+        self.lvlTank = []
         query = f'from(bucket:"{config.get("InfluxDBClient","Bucket")}")\
-            |> range(start: -20)\
-            |> filter(fn:(r) => r._measurement == "{zone}")\
-            |> filter(fn:(r) => r._field == "{id}")' #\
-            # |> last()\
-            # |> limit(n: 20)'
-        result = client.query_api().query(org=config.get("InfluxDBClient","Org"), query=query)
-        for res in result:
+        |> range(start: -20)\
+        |> filter(fn:(r) => r._measurement == "{self.zone}")\
+        |> filter(fn:(r) => r._field == "{self.val}")\
+        |> filter(fn:(r) => r.sensor == "Lvlsensor_0")'
+        bowlLvl = client.query_api().query(org=config.get("InfluxDBClient","Org"), query=query)
+        query = f'from(bucket:"{config.get("InfluxDBClient","Bucket")}")\
+        |> range(start: -20)\
+        |> filter(fn:(r) => r._measurement == "{self.zone}")\
+        |> filter(fn:(r) => r._field == "{self.val}")\
+        |> filter(fn:(r) => r.sensor == "Lvlsensor_1")'
+        tankLvl = client.query_api().query(org=config.get("InfluxDBClient","Org"), query=query)
+        for res in bowlLvl:
             for record in res.records:
-                print(record)
-                self.lvlBowl.append(int(record.get_value()))
-                self.lvlTank.append(record.get_time().strftime('%H:%M:%S'))
+                self.lvlBowl.append(record.get_value())
+        for res in tankLvl:
+            for record in res.records:
+                self.lvlTank.append(record.get_value())
+    
+def BucketList():
+    query = f'from(bucket:"{config.get("InfluxDBClient","Bucket")}") |> range(start: -500h)'
+    tables = client.query_api().query(query)
+
+    # Select all the existing bowls
+    table = {}
+    for tab in tables:
+      for row in tab.records:
+        val = row.values["_field"]
+        zone = row.values["_measurement"]
+        lat = row.values["lat"]
+        lon = row.values["lon"]
+        table[zone + '/' + val] = Bowl(zone, val, lat, lon)
+    return table
     
 # bowl = Bowl(zone='zona_1',id='002',coord=[1,2])
 # print(bowl.lvlBowl)
@@ -126,19 +163,6 @@ def newPrediction(lat, lon, now, ora):
         # Effettua la predizione utilizzando il modello e i dati di input
         predizione = regressor.predict([[season, yr, mnth, ora, holiday, weekday, workingday, weathersit, temp, atemp, hum]])
         return abs(int(predizione / 25))
-    
-def BucketList():
-    query = f'from(bucket:"{config.get("InfluxDBClient","Bucket")}") |> range(start: -500h)'
-    tables = client.query_api().query(query)
-
-    # Select all the existing bowls
-    table = {}
-    for tab in tables:
-      for row in tab.records:
-        val = row.values["_field"]
-        zone = row.values["_measurement"]
-        if val not in table: table[val] = zone
-    return table
 
 import requests
 

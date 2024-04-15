@@ -1,4 +1,9 @@
 import json
+import configparser
+import influxdb_client
+import datetime
+import requests
+
 from flask import Flask, request
 from flask import render_template
 from flask_swagger import swagger
@@ -7,12 +12,6 @@ from utils import newPrediction, BucketList, get_weather_forecast, Bowl
 from flask_swagger_ui import get_swaggerui_blueprint
 from influxdb_client.client.write_api import SYNCHRONOUS
 
-import configparser
-import influxdb_client
-import datetime
-import requests
-
-
 appname = "Happy Bowls"
 app = Flask(appname)
 config = configparser.ConfigParser()
@@ -20,7 +19,7 @@ config.read('config.ini')
 client = influxdb_client.InfluxDBClient(url=config.get("InfluxDBClient","Url"),
    token=config.get("InfluxDBClient","Token"),
    org=config.get("InfluxDBClient","Org"))
-activeBowls = {}
+activeBowls = BucketList()
 
 SWAGGER_URL = '/api/docs'  # URL for exposing Swagger UI (without trailing '/')
 API_URL = '/spec'  # Our API url (can of course be a local resource)
@@ -31,8 +30,7 @@ def page_not_found(error):
 
 @app.route('/')
 def testoHTML():
-    table = BucketList()
-    return render_template('homepage.html', devices=activeBowls, alldevices=table)
+    return render_template('homepage.html', devices=activeBowls)
 
 
 @app.route('/lista/<zone>/<id>', methods=['GET'])
@@ -53,22 +51,9 @@ def stampalista(zone, id):
       200:
         description: List
     """
-    query = f'from(bucket:"{config.get("InfluxDBClient","Bucket")}")\
-    |> range(start: -20)\
-    |> filter(fn:(r) => r._measurement == "{zone}")\
-    |> filter(fn:(r) => r._field == "{id}")'
-    result = client.query_api().query(org=config.get("InfluxDBClient","Org"), query=query)
-    results1 = []
-    results2 = []
-    index = ""
-    i = 0
-    for res in result:
-        for record in res.records:
-            i += 1
-            results1.append(record.get_value())
-            results2.append(record.get_time().strftime('%H:%M:%S'))
-            index = index + str(i) + ','
-    return render_template('sensor_details.html', values=results1, timestamp=results2, devices=activeBowls, labels=index)
+    bowl = activeBowls[zone + '/' + id]
+    bowl.loadData()
+    return render_template('sensor_details.html', bowl=bowl, devices=activeBowls)
 
 @app.route('/newdata/<sensor>/<id>/<type>/<value>', methods=['POST'])
 def addinlista(sensor, id, type, value):
@@ -96,10 +81,10 @@ def addinlista(sensor, id, type, value):
       200:
         description: List
     """
+    bowl = activeBowls[sensor + '/' + id]
     write_api = client.write_api(write_options=SYNCHRONOUS)
-    measure = influxdb_client.Point(sensor).tag("sensor", type).field(id, float(value))
+    measure = influxdb_client.Point(sensor).tag("sensor", type).tag("lat", bowl.lat).tag("lon", bowl.lon).field(id, float(value))
     write_api.write(bucket=config.get("InfluxDBClient","Bucket"), org=config.get("InfluxDBClient","Org"), record=measure)
-    activeBowls[sensor + '/' + id].loadData(sensor, id) # update the data on the bowls
     return "Data added"
   
 @app.route('/config/<zone>/<id>/Coord/<lat>/<lon>', methods=['POST'])
@@ -128,7 +113,7 @@ def bowlConfig(zone, id, lat, lon):
       200:
         description: List
     """
-    confBowl = Bowl(zone, id, [lat,lon])
+    confBowl = Bowl(zone, id, lat, lon)
     if confBowl.id not in activeBowls:
       activeBowls[confBowl.id] = confBowl
     return f"Bowl {confBowl.id} configured"
@@ -174,7 +159,8 @@ def listaJSON():
         description: JSON
     """
     table = BucketList()
-    return json.dumps(table)
+    bowls_dicts = [bowl.to_dict() for __,bowl in table.items()]
+    return json.dumps(bowls_dicts)
   
 @app.route("/spec")
 def spec():
@@ -197,4 +183,4 @@ if __name__ == '__main__':
         }
     )
     app.register_blueprint(swaggerui_blueprint)
-    app.run(host=interface,port=port)
+    app.run(host=interface,port=port,debug=True)
