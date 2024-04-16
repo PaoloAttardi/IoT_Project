@@ -32,7 +32,7 @@
         yAxes: [{
           scaleLabel: {
             display: true,
-            labelString: 'Water Level'
+            labelString: 'Tank Level'
           },
           ticks: {
             beginAtZero: true
@@ -73,7 +73,7 @@
         yAxes: [{
           scaleLabel: {
             display: true,
-            labelString: 'Water Level'
+            labelString: 'Bowl Level'
           },
           ticks: {
             beginAtZero: true

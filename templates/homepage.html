@@ -1,14 +1,39 @@
 {% extends 'main.html' %}
 
 {% block content %}
-<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+<style>
+    .bg-image {
+        background: url('../static/landing.png');
+        background-size: cover;
+        background-position: center;
+        height: 100vh; /* Full height */
+    }
+    .overlay-text {
+        position: relative;
+        top: 20%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: rgb(0, 0, 0);
+        text-align: center;
+    }
+</style>
+<div class="container-fluid p-2">
+    <div class="bg-image">
+        <div class="overlay-text">
+            <h1>Welcome to Happy Bowls!</h1>
+            <h4>Explore our bowls and data.</h4>
+        </div>
+    </div>
+</div>
+
+<div class="d-flex justify-content-center flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
     <h1 class="h2">Bowls List</h1>
 </div>
 <div class="row row-cols-1 row-cols-md-3 g-4">
     {% for key,item in devices.items() %}
     <div class="col">
         <div class="card">
-            <img src="{{ url_for('static', filename='bowl_icons.jpg') }}" class="card-img-top" alt="Bowl Details">
+            <img src="{{ url_for('static', filename='bowl_icons.jpg') }}" class="card-img-top">
             <div class="card-body">
                 <h5 class="card-title">Bowl number: {{item.val}}</h5>
                 <p class="card-text">This is the Bowl in the '{{item.zone}}' region, click on the button below to get more details!</p>
