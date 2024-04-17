@@ -88,25 +88,63 @@
 </div>
 <canvas class="my-4 w-100" id="tankChart" width="900" height="380" data-values="{{bowl.lvlTank}}"></canvas>
 <canvas class="my-4 w-100" id="bowlChart" width="900" height="380" data-values="{{bowl.lvlBowl}}"></canvas>
-<h2>Bowl's status</h2>
-<div class="table-responsive">
-    <table class="table table-striped table-sm">
-      <tr>
-        <th scope="col"></th>
-        <th scope="col">Value</th>
-        <th scope="col">Timestamp</th>
-      </tr>
-    </thead>
-    <tbody>
-      {% for i in range(values|length) %}
-      <tr>
-        <th scope="row"></th>
-        <td>{{tank[i]}}</td>
-        <td>{{bowl[i]}}</td>
-      </tr>
-      {% endfor %}
-    </tbody>
-  </table>
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+  <h1 class="h2">Weather Prediction</h1>
 </div>
   
+<link href="{{ url_for('static', filename='assets/css/weather.css') }}" rel="stylesheet">
+<div class="page-content page-container" id="page-content">
+    <div class="padding">
+        <div class="row container d-flex justify-content-center">
+            <div class="col-lg-8 grid-margin stretch-card">
+              <!--weather card-->
+              <div class="card card-weather">
+                <div class="card-body">
+                  <div class="weather-date-location">
+                    <h3>{{today.strftime("%A")}}</h3>
+                    <p class="text-gray">
+                      <span class="weather-date">{{today.day}} {{today.strftime("%B")}}, {{today.year}}</span>
+                      <span class="weather-location">Modena, Italy</span>
+                    </p>
+                  </div>
+                  <div class="weather-data d-flex">
+                    <div class="mr-auto">
+                      <h4 class="display-3">{{weather_data['main']['temp']}}
+                        <span class="symbol">&deg;</span>C</h4>
+                      <p>
+                        {{weather_data['weather'][0]['main']}}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-body p-0">
+                  <div class="d-flex weakly-weather">
+                    <div class="weakly-weather-item">
+                      <p class="mb-0">
+                        Next days
+                      </p>
+                      <i class="mdi mdi-weather-cloudy"></i>
+                      <p class="mb-0">
+                        forecast:
+                      </p>
+                    </div>
+                    {% for date, temperatures in forecast.items() %}
+                    <div class="weakly-weather-item">
+                      <p class="mb-0">
+                        {{date}}
+                      </p>
+                      <i class="mdi mdi-weather-cloudy"></i>
+                      <p class="mb-0">
+                        {{temperatures}}&deg;
+                      </p>
+                    </div>
+                    {% endfor %}
+                  </div>
+                </div>
+              </div>
+              <!--weather card ends-->
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}

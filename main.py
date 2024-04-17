@@ -53,7 +53,12 @@ def stampalista(zone, id):
     """
     bowl = activeBowls[zone + '/' + id]
     bowl.loadData()
-    return render_template('sensor_details.html', bowl=bowl, devices=activeBowls)
+    url = f'https://api.openweathermap.org/data/2.5/weather?lat={bowl.lat}&lon={bowl.lon}&appid={config.get("OpenWeather","api_key")}&units=metric'
+    response = requests.get(url)
+    weather_data = response.json()
+    today = datetime.datetime.now()
+    forecast = get_weather_forecast(config.get("OpenWeather","api_key"),config.get("DEFAULT","lat"),config.get("DEFAULT","lon"))
+    return render_template('sensor_details.html', bowl=bowl, devices=activeBowls, weather_data=weather_data, today=today, forecast=forecast)
 
 @app.route('/newdata/<sensor>/<id>/<type>/<value>', methods=['POST'])
 def addinlista(sensor, id, type, value):
@@ -132,22 +137,6 @@ def flussoPersone():
     predizione = newPrediction(config.get("DEFAULT","lat"),config.get("DEFAULT","lon"),now,hour)
     # Ritorna la predizione
     return f'La previsione del numero di persone alle {hour} è {predizione}'
-  
-@app.route('/previsione')
-def previsione():
-    """
-    Returns the weather prediction
-    ---
-    responses:
-      200:
-        description: List
-    """
-    url = f'https://api.openweathermap.org/data/2.5/weather?lat={config.get("DEFAULT","lat")}&lon={config.get("DEFAULT","lon")}&appid={config.get("OpenWeather","api_key")}&units=metric'
-    response = requests.get(url)
-    weather_data = response.json()
-    today = datetime.datetime.now()
-    forecast = get_weather_forecast(config.get("OpenWeather","api_key"),config.get("DEFAULT","lat"),config.get("DEFAULT","lon"))
-    return render_template('weatherpage.html', devices=activeBowls, weather_data=weather_data, today=today, forecast=forecast)
 
 @app.route('/lista', methods=['GET'])
 def listaJSON():
@@ -159,7 +148,7 @@ def listaJSON():
         description: JSON
     """
     table = BucketList()
-    bowls_dicts = [bowl.to_dict() for __,bowl in table.items()]
+    bowls_dicts = [bowl.loadData().to_dict() for __,bowl in table.items()]
     return json.dumps(bowls_dicts)
   
 @app.route("/spec")
