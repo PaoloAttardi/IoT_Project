@@ -62,6 +62,7 @@ class Bowl():
         for res in tankLvl:
             for record in res.records:
                 self.lvlTank.append(record.get_value())
+        pass
     
 def BucketList():
     query = f'from(bucket:"{config.get("InfluxDBClient","Bucket")}") |> range(start: -500h)'

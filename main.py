@@ -30,6 +30,7 @@ def page_not_found(error):
 
 @app.route('/')
 def testoHTML():
+
     return render_template('homepage.html', devices=activeBowls)
 
 
@@ -148,7 +149,9 @@ def listaJSON():
         description: JSON
     """
     table = BucketList()
-    bowls_dicts = [bowl.loadData().to_dict() for __,bowl in table.items()]
+    for __,bowl in table.items():
+      bowl.loadData()
+    bowls_dicts = [bowl.to_dict() for __,bowl in table.items()]
     return json.dumps(bowls_dicts)
   
 @app.route("/spec")
