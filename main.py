@@ -151,6 +151,8 @@ def listaJSON():
     table = BucketList()
     for __,bowl in table.items():
       bowl.loadData()
+      bowl.lvlBowl = bowl.lvlBowl[-1]
+      bowl.lvlTank = bowl.lvlTank[-1]
     bowls_dicts = [bowl.to_dict() for __,bowl in table.items()]
     return json.dumps(bowls_dicts)
   
