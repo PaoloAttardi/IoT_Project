@@ -2,7 +2,7 @@
 
 {% block content %}
 <style>
-    .bg-image {
+    .bg-image-landing {
         background: url('../static/landing.png');
         background-size: cover;
         background-position: center;
@@ -18,7 +18,7 @@
     }
 </style>
 <div class="container-fluid p-2">
-    <div class="bg-image">
+    <div class="bg-image-landing">
         <div class="overlay-text">
             <h1>Welcome to Happy Bowls!</h1>
             <h4>Explore our bowls and data.</h4>
@@ -27,20 +27,20 @@
 </div>
 
 <div class="d-flex justify-content-center flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-    <h1 class="h2">Bowls List</h1>
+    <h1 class="h2">Community List</h1>
 </div>
-<div class="row row-cols-1 row-cols-md-3 g-4">
-    {% for key,item in devices.items() %}
+<div class="row row-cols-1 row-cols-md-4 g-4">
+    {% for meas in measurements %}
     <div class="col">
-        <div class="card">
-            <img src="{{ url_for('static', filename='bowl_icons.jpg') }}" class="card-img-top">
-            <div class="card-body">
-                <h5 class="card-title">Bowl number: {{item.val}}</h5>
-                <p class="card-text">This is the Bowl in the '{{item.zone}}' region, click on the button below to get more details!</p>
-                <a href="/lista/{{item.id}}" class="btn btn-primary">Go to the Bowl</a>
+    <div class="card border-dark mb-3 bg-image">
+        <div class="card-body text-dark">
+            <h4 class="card-title">{{meas}}</h4>
+            <p class="card-text card-bold">Select this card to see the bowls in this community, click on the button below to get more details!</p>
+            <div class="card-footer">
+                <a href="/lista/{{meas}}" class="btn btn-transparent card-bold" style="border-width: 2px; border-color: black;">Go to the Bowls List</a>
             </div>
-            <div class="card-footer"></div>
         </div>
+    </div>
     </div>
     {% endfor %}
 </div>

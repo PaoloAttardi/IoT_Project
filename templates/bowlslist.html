@@ -1,0 +1,21 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<div class="d-flex justify-content-center flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="h2">Bowls List</h1>
+</div>
+<div class="row row-cols-1 row-cols-md-3 g-4">
+    {% for key,item in bowls.items() %}
+    <div class="col">
+        <div class="card">
+            <img style="height: 50%; width:50%" src="{{ url_for('static', filename='bowl_icons.jpg') }}" class="card-img-top">
+            <div class="card-body">
+                <h5 class="card-title">Bowl number: {{item.val}}</h5>
+                <p class="card-text">This is the Bowl in the '{{item.zone}}' region, click on the button below to get more details!</p>
+                <a href="/lista/{{item.id}}" class="btn btn-primary">Go to the Bowl</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

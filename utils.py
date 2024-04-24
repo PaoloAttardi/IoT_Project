@@ -18,12 +18,13 @@ client = influxdb_client.InfluxDBClient(url=config.get("InfluxDBClient","Url"),
 
 class Bowl():
     
-    def __init__(self, zone, id, lat, lon) -> None: # coord should be a list like [lat, lon]
+    def __init__(self, zone, id, lat, lon, error=0) -> None: # coord should be a list like [lat, lon]
         self.id = zone + '/' + id
         self.zone = zone
         self.val = id
         self.lat = lat
         self.lon = lon
+        self.error = error
         self.lvlBowl = []
         self.lvlTank = []
         # Load sensor data from Influx
@@ -64,8 +65,13 @@ class Bowl():
                 self.lvlTank.append(record.get_value())
         pass
     
-def BucketList():
-    query = f'from(bucket:"{config.get("InfluxDBClient","Bucket")}") |> range(start: -500h)'
+def BucketList(zone=None):
+    if zone is not None: 
+        query = f'from(bucket:"{config.get("InfluxDBClient","Bucket")}")\
+            |> range(start: -500h)\
+            |> filter(fn:(r) => r._measurement == "{zone}")'
+    else: 
+        query = f'from(bucket:"{config.get("InfluxDBClient","Bucket")}") |> range(start: -500h)'
     tables = client.query_api().query(query)
 
     # Select all the existing bowls

@@ -30,14 +30,43 @@ def page_not_found(error):
 
 @app.route('/')
 def testoHTML():
+    # Select the bowls based on the different zone
+    query = f'from(bucket:"{config.get("InfluxDBClient","Bucket")}") |> range(start: -40)\
+      |> group()\
+      |> distinct(column: "_measurement")'
+    result = client.query_api().query(org=config.get("InfluxDBClient","Org"), query=query)
 
-    return render_template('homepage.html', devices=activeBowls)
-
-
+    # Select all the measurements
+    measurements = []
+    for table in result:
+      for row in table.records:
+        measurements.append(row.values.get("_value"))
+    return render_template('homepage.html', devices=activeBowls, measurements=measurements)
+  
+@app.route('/lista/<zone>', methods=['GET'])
+def communityLists(zone):
+  """
+    Shows the data of the selected bowl
+    ---
+    parameters:
+      - in: path
+        name: zone
+        description: arg
+        required: true
+    responses:
+      200:
+        description: List
+  """
+  if zone == 'all':
+    bowls = activeBowls
+  else:
+    bowls = BucketList(zone=zone)
+  return render_template('bowlslist.html', devices=activeBowls, bowls=bowls)
+  
 @app.route('/lista/<zone>/<id>', methods=['GET'])
 def stampalista(zone, id):
     """
-    Print the list
+    Shows the data of the selected bowl
     ---
     parameters:
         - in: path

@@ -39,9 +39,9 @@ void loop() {
         Serial.print(EoL); // connessione al bridge
         Serial.print(lat); // passiamo informazioni come coordinate, id e zona
         Serial.print(lon);
-        char zona[] = "zona_1";
+        char zona[] = "zona_2";
         int zona_size = strlen(zona);
-        char id[] = "002";
+        char id[] = "001";
         int id_size = strlen(id);
         Serial.print(zona_size);
         Serial.print(zona);
@@ -56,7 +56,7 @@ void loop() {
     previousMillis = currentMillis;
     Serial.print(SoL);
     float drink = random(1, 100);
-    if (drink > 50 && bowlWater >= 0.05) { // case where a dog drank from the bowl
+    if (drink > 60 && bowlWater >= 0.05) { // case where a dog drank from the bowl
       bowlWater = bowlWater - 0.05;
     }
     int pack_size_1 = countDigits(bowlWater);

@@ -100,3 +100,13 @@ body {
   border-color: transparent;
   box-shadow: 0 0 0 3px rgba(255, 255, 255, .25);
 }
+
+.bg-image {
+  background-image: url('../../background.png');
+  background-size: cover;
+  opacity: 0.7;
+}
+
+.card-title, .card-bold {
+  font-weight: bold; /* Make text bold */
+}
