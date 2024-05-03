@@ -4,8 +4,8 @@ int currentstate;
 bool config = true;
 char SoL = '\xff';
 char EoL = '\xfe';
-float lat = 44.64;
-float lon = 10.92;
+float lat = 10.24;
+float lon = 47.32;
 float tankCap = 2.0;
 float bowlWater = 0.00;
 
@@ -39,9 +39,9 @@ void loop() {
         Serial.print(EoL); // connessione al bridge
         Serial.print(lat); // passiamo informazioni come coordinate, id e zona
         Serial.print(lon);
-        char zona[] = "zona_2";
+        char zona[] = "zona_1";
         int zona_size = strlen(zona);
-        char id[] = "001";
+        char id[] = "002";
         int id_size = strlen(id);
         Serial.print(zona_size);
         Serial.print(zona);

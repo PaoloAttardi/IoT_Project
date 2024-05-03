@@ -89,10 +89,6 @@ class Bridge():
 		if msg.topic == self.zona + '/' + self.id + '/' + "Coord":
 			payload = str(msg.payload.decode()).split('/')
 			url = f"http://{IPAddr}/config/{msg.topic}/{payload[0]}/{payload[1]}"
-			'''if float(msg.payload.decode())<5:
-				self.ser.write(b'A0')
-			else:
-				self.ser.write(b'S0')'''
 		else:
 			if msg.topic == self.zona + '/' + self.id + '/' + "Lvlsensor_0": # Bowl level
 				'''dati = list(self.datiZona.values())
@@ -105,10 +101,12 @@ class Bridge():
 					else:
 						futureState = 0
 				elif self.currentState == 1:
-					if float(msg.payload.decode())<self.sogliaMin: # Low water in the bowl
+					url = f'http://{IPAddr}/meteo/{self.lat}/{self.lon}'
+					response = requests.get(url)
+					if float(msg.payload.decode())<self.sogliaMin and response != 'Rainy': # Low water in the bowl
 						self.ser.write(b'A1') # Let the water flow
 						futureState = 2
-					else: futureState = 0
+					else: futureState = 1
 				elif self.currentState == 2:
 					if float(msg.payload.decode())>self.sogliaMin:
 						self.ser.write(b'S1') # Stop the water flow
