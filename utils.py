@@ -18,13 +18,12 @@ client = influxdb_client.InfluxDBClient(url=config.get("InfluxDBClient","Url"),
 
 class Bowl():
     
-    def __init__(self, zone, id, lat, lon, error=0) -> None: # coord should be a list like [lat, lon]
+    def __init__(self, zone, id, lat, lon) -> None: # coord should be a list like [lat, lon]
         self.id = zone + '/' + id
         self.zone = zone
         self.val = id
         self.lat = lat
         self.lon = lon
-        self.error = error
         self.lvlBowl = []
         self.lvlTank = []
         # Load sensor data from Influx
