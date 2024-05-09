@@ -18,13 +18,12 @@ client = influxdb_client.InfluxDBClient(url=config.get("InfluxDBClient","Url"),
 
 class Bowl():
     
-    def __init__(self, zone, id, lat, lon, error=0) -> None: # coord should be a list like [lat, lon]
+    def __init__(self, zone, id, lat, lon) -> None: # coord should be a list like [lat, lon]
         self.id = zone + '/' + id
         self.zone = zone
         self.val = id
         self.lat = lat
         self.lon = lon
-        self.error = error
         self.lvlBowl = [0.0]
         self.lvlTank = [0.0]
         # Load sensor data from Influx
@@ -88,7 +87,7 @@ def BucketList(zone=None):
 # bowl = Bowl(zone='zona_1',id='002',coord=[1,2])
 # print(bowl.lvlBowl)
 def predictorTraining():
-    df = pd.read_csv("hour.csv")
+    df = pd.read_csv("AI/hour.csv")
 
     # Selezionare le feature rilevanti per la previsione
     # Si applica la trasformazione StandardScaler alle feature selezionate
@@ -104,7 +103,7 @@ def predictorTraining():
     regressor.fit(X, y)
 
     # Salvare il modello addestrato con pickle
-    with open("regressor.pickle", "wb") as f:
+    with open("AI/regressor.pickle", "wb") as f:
         pickle.dump(regressor, f)
 
     # Valutare l'accuratezza del modello con la metrica MAPE
@@ -123,7 +122,7 @@ def predictorTraining():
 
 def newPrediction(lat, lon, now, ora):
     # lat e lon di default sono quelle di MODENA
-    with open('regressor.pickle', 'rb') as f:
+    with open('AI/regressor.pickle', 'rb') as f:
         regressor = pickle.load(f)
 
         # Ottieni le condizioni meteorologiche correnti da un API meteo

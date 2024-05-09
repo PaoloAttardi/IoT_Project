@@ -168,6 +168,29 @@ def flussoPersone():
     # Ritorna la predizione
     return f'La previsione del numero di persone alle {hour} è {predizione}'
 
+@app.route('/meteo/<lat>/<lon>', methods=['GET'])
+def meteoAttuale(lat, lon):
+    """
+    Retrieve the weather based on the coordinates
+    ---
+    parameters:
+        - in: path
+          name: lat
+          description: arg
+          required: true
+        - in: path
+          name: lon
+          description: arg
+          required: true
+    responses:
+      200:
+        description: Int
+    """
+    url = f'https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={config.get("OpenWeather","api_key")}&units=metric'
+    response = requests.get(url)
+    weather_data = response.json()
+    return weather_data['weather'][0]['main']
+
 @app.route('/lista', methods=['GET'])
 def listaJSON():
     """
