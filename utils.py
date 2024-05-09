@@ -25,8 +25,8 @@ class Bowl():
         self.lat = lat
         self.lon = lon
         self.error = error
-        self.lvlBowl = []
-        self.lvlTank = []
+        self.lvlBowl = [0.0]
+        self.lvlTank = [0.0]
         # Load sensor data from Influx
         # self.loadData(zone, id)
         pass
