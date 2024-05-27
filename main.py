@@ -148,6 +148,7 @@ def bowlConfig(zone, id, lat, lon):
       200:
         description: List
     """
+    
     confBowl = Bowl(zone, id, lat, lon)
     if confBowl.id not in activeBowls:
       activeBowls[confBowl.id] = confBowl

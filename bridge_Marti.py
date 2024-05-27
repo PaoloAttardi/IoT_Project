@@ -15,14 +15,18 @@ class Bridge():
 		self.config.read('config.ini')
 		self.buffer = []
 		self.datiZona = {}
-		self.currentState = 0
+		self.currentstate0 = 0
+		self.currentstate1 = 0
 		self.ser = None
 		self.port = port
 		self.lat = 0
 		self.lon = 0
 		# Limit for the water Bowl
 		# self.sogliaMax = 0.1
-		self.sogliaMin = 0.04
+		self.sogliaBassa0 = 300	#no water in bowl
+		self.sogliaAlta0 = 160	#water in bowl
+		self.sogliaBassa1 = 740	#no water in tank
+		self.sogliaAlta1 = 415	#water in tank
 		self.setupSerial(port)
 		self.setupMQTT()
  
@@ -41,7 +45,7 @@ class Bridge():
 				# leggi informazioni sulle coordinate
 				self.lat = str(self.ser.read(5).decode())
 				self.lon = str(self.ser.read(5).decode())
-    			# leggi informazioni sulla zona della ciotola
+				# leggi informazioni sulla zona della ciotola
 				size_zona = int(self.ser.read().decode())
 				self.zona = self.ser.read(size_zona).decode()
 				# leggi informazioni sull'id
@@ -85,7 +89,7 @@ class Bridge():
 		# configuration step
 		self.clientMQTT.publish(self.zona + '/' + self.id + '/' + "Coord", self.lat + '/' + self.lon)
 
-    # The callback for when a PUBLISH message is received from the server.
+	# The callback for when a PUBLISH message is received from the server.
 	def on_message(self, client, userdata, msg):
 		hostname = socket.gethostname()
 		IPAddr = socket.gethostbyname(hostname)
@@ -93,34 +97,75 @@ class Bridge():
 			payload = str(msg.payload.decode()).split('/')
 			url = f"http://{IPAddr}/config/{msg.topic}/{payload[0]}/{payload[1]}"
 		else:
-			if msg.topic == self.zona + '/' + self.id + '/' + "Lvlsensor_0": # Bowl level
-				'''dati = list(self.datiZona.values())
-				if len(dati) != 0: media = sum(dati) / len(dati)
-				else: media = float(msg.payload.decode())''' 
-				futureState = None
-				if self.currentState == 0:
-					if float(msg.payload.decode())<self.sogliaMin:
-						futureState = 1
+			if msg.topic == self.zona + '/' + self.id + '/' + "Lvlsensor_0":
+				payload0 = msg.payload.decode()
+				print(f"Received message BOWLWATER: '{payload0}' on topic '{msg.topic}'")
+				try:
+					# Supponendo che il payload sia un numero intero
+					bowlWater = float(payload0)
+					# Esegui azioni basate sul valore ricevuto
+					print(f"Value received from Lvlsensor_0: {bowlWater}")
+				except ValueError:
+					print(f"Invalid payload: {payload0}")
+				
+				futurestate0 = None
+				
+				#state = 0 --> water in bowl
+				#state = 1 --> no water in bowl
+				#state = 2 --> filling bowl
+				
+				#STATE 0
+				if self.currentstate0 == 0:	
+					if bowlWater == 0.0:
+						futurestate0 = 1	#no water in bowl
 					else:
-						futureState = 0
-				elif self.currentState == 1:
+						futurestate0 = 0	#water in bowl
+				
+				#STATE 1
+				elif self.currentstate0 == 1:
 					url = f'http://{IPAddr}/meteo/{self.lat}/{self.lon}'
 					response = requests.get(url)
-					if float(msg.payload.decode())<self.sogliaMin and response != 'Rainy': # Low water in the bowl
-						self.ser.write(b'A1') # Let the water flow
-						futureState = 2
-					else: futureState = 1
-				elif self.currentState == 2:
-					if float(msg.payload.decode())>self.sogliaMin:
-						self.ser.write(b'S1') # Stop the water flow
-						futureState = 0
-					else: futureState = 2
-				self.currentState = futureState
+					if bowlWater == 0.0 and response.text != 'Rainy':
+						self.ser.write(b'A')
+						futurestate0 = 2	#fill bowl
+					else:
+						futurestate0 = 1	#no water
+						
+				#STATE 2
+				elif self.currentstate0 == 2:
+					if bowlWater == 1.0:
+						self.ser.write(b'S')
+						futurestate0 = 0	#water in bowl
+					else:
+						futurestate0 = 2	#fill water
+				self.currentstate0 = futurestate0
+				
+			
 			elif msg.topic == self.zona + '/' + self.id + '/' + "Lvlsensor_1":
-				if float(msg.payload.decode())<0:
-						self.ser.write(b'A2')
-				'''else:
-					self.ser.write(b'S2')'''
+				payload1 = msg.payload.decode()
+				print(f"Received message TANKCAP: '{payload1}' on topic '{msg.topic}'")
+				try:
+					# Supponendo che il payload sia un numero intero
+					tankCap = float(payload1)
+					# Esegui azioni basate sul valore ricevuto
+					print(f"Value received from Lvlsensor_1: {tankCap}")
+				except ValueError:
+					print(f"Invalid payload: {payload1}")
+
+				futurestate1 = None
+				#STATE 0
+				if self.currentstate1 == 0:
+					if tankCap == 0.0:
+						futurestate1 = 1
+					else:
+						futurestate1 = 0
+
+				#STATE 1
+				elif self.currentstate1 == 1:
+					print("Warning: No water in tank!")
+					self.currentstate1 = 0
+				self.currentstate1 = futurestate1
+     
 			elif 'Lvlsensor_1' in msg.topic:
 				value = float(msg.payload.decode())
 				zona, id, name = msg.topic.split('/')
@@ -163,4 +208,10 @@ class Bridge():
 		sensorLen = len(self.buffer) - (SoN)
 		for j in range (sensorLen):
 			sensor_name = sensor_name + str(self.buffer[j + SoN].decode())
+
+		print("Publishing message:")
+		print(f"Topic: {self.zona}/{self.id}/{sensor_name}")
+		print(f"Payload: {val}")
+		
 		self.clientMQTT.publish(self.zona + '/' + self.id + '/' + sensor_name, val)
+		

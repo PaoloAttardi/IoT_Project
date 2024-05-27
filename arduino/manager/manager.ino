@@ -9,6 +9,7 @@ float lon = 47.32;
 float tankCap = 2.0;
 float bowlWater = 0.00;
 
+
 int countDigits(float number) {
   char buffer[15]; // Allocate a buffer to hold the string representation
 
@@ -39,9 +40,9 @@ void loop() {
         Serial.print(EoL); // connessione al bridge
         Serial.print(lat); // passiamo informazioni come coordinate, id e zona
         Serial.print(lon);
-        char zona[] = "zona_1";
+        char zona[] = "zona_3";
         int zona_size = strlen(zona);
-        char id[] = "002";
+        char id[] = "001";
         int id_size = strlen(id);
         Serial.print(zona_size);
         Serial.print(zona);
@@ -55,10 +56,14 @@ void loop() {
   if (currentMillis - previousMillis >= interval) {
     previousMillis = currentMillis;
     Serial.print(SoL);
+
+    //cambia con livello ciotola- capacitatore
+    
     float drink = random(1, 100);
     if (drink > 60 && bowlWater >= 0.05) { // case where a dog drank from the bowl
       bowlWater = bowlWater - 0.05;
     }
+    
     int pack_size_1 = countDigits(bowlWater);
     Serial.print(pack_size_1);
     Serial.print(bowlWater);
