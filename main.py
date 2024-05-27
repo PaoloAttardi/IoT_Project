@@ -122,7 +122,7 @@ def addinlista(sensor, id, type, value):
     write_api.write(bucket=config.get("InfluxDBClient","Bucket"), org=config.get("InfluxDBClient","Org"), record=measure)
     return "Data added"
   
-@app.route('/config/<zone>/<id>/Coord/<lat>/<lon>', methods=['POST'])
+@app.route('/config/<zone>/<id>/Coord/<lat>/<lon>', methods=['GET'])
 def bowlConfig(zone, id, lat, lon):
     """
     Configure the active buckets
