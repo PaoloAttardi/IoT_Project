@@ -18,15 +18,17 @@ Servo servo;
 //WATER SENSOR
 
 int sensorPin0 = A0;    // Pin analogico dove è collegato il sensore
+
 int sensorValue0 = 0;
 float bowlWater = 0.0;   // Variabile per memorizzare il valore letto dal sensore
 int sogliaAlta0 = 160;  // Valore per alta presenza di acqua
 int sogliaBassa0 = 300; // Valore per bassa presenza di acqua
 
 //CAPACITIVE SOIL SENSOR
+int sensorPin1 = A1;    // Pin analogico dove è collegato il sensore
+
 float tankCap = 0.0;   // Variabile per memorizzare il valore letto dal sensore
 int sensorValue1 = 0;
-int sensorPin1 = A1;    // Pin analogico dove è collegato il sensore
 int sogliaAlta1 = 415;  // Valore per alta presenza di acqua
 int sogliaBassa1 = 740; // Valore per bassa presenza di acqua
 
@@ -56,7 +58,8 @@ void setup() {
   Serial.begin(9600); // Inizializza la comunicazione seriale a 9600 baud
 
   servo.attach(8);
-  servo.write(0);
+  //starting point --> filo tirato
+  servo.write(90);
   delay(2000);
   
 
@@ -73,9 +76,9 @@ void loop() {
         Serial.print(EoL); // connessione al bridge
         Serial.print(lat); // passiamo informazioni come coordinate, id e zona
         Serial.print(lon);
-        char zona[] = "zona_3";
+        char zona[] = "zona_1";
         int zona_size = strlen(zona);
-        char id[] = "003";
+        char id[] = "001";
         int id_size = strlen(id);
         Serial.print(zona_size);
         Serial.print(zona);
@@ -238,28 +241,26 @@ void loop() {
 
 
 
-  if(Serial.available() > 0){
-  char val = Serial.read();
+  if (Serial.available() > 0) {
+    char val = Serial.read();
 
-  int futurestate; // probabilmente si può rimuovere il 2
-  if(currentstate == 0 && val == 'A') futurestate = 1;  //acceso
-  else if(currentstate == 1 && val == 'S') futurestate = 0; //spento
-
-
-  if(currentstate != futurestate){
-    if(futurestate == 1) {
-      servo.write(90);  // open water flow
-      delay(1000); 
+    int futurestate = currentstate;
+    if (currentstate == 0 && val == 'A') {
+      futurestate = 1;  // acceso
+    } else if (currentstate == 1 && val == 'S') {
+      futurestate = 0;  // spento
     }
-    else if(futurestate == 0) {
-      servo.write(0);  // close water flow
-      delay(1000); 
-      futurestate = 0;
-    }
-  }
 
-  
-  currentstate = futurestate;
+    if (currentstate != futurestate) {
+      if (futurestate == 1) {
+        servo.write(0);  // open water flow
+        delay(4000);
+      } else if (futurestate == 0) {
+        servo.write(90);  // close water flow
+        delay(1000);
+      }
+      currentstate = futurestate;
+    }
   }
 }
 
