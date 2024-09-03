@@ -133,7 +133,7 @@ class Bridge():
 						
 				#STATE 2
 				elif self.currentstate0 == 2:
-					if bowlWater == 1.0:
+					if bowlWater == 0.5:
 						self.ser.write(b'S')
 						futurestate0 = 0	#water in bowl
 					else:
@@ -172,11 +172,19 @@ class Bridge():
 				if self.id != id:
 					self.datiZona[id] = value
 			url = f"http://{IPAddr}/newdata/{msg.topic}/{msg.payload.decode()}"
-		try:
+		if url:
+			try:
+				print(f"Sending POST request to {url}")
+				response = requests.post(url)
+				print(f"Response Status Code: {response.status_code}")
+				print(f"Response Content: {response.text}")
+			except requests.exceptions.RequestException as e:
+				print(f"Request exception: {e}")
+		"""try:
 			print(url)
 			requests.post(url)
 		except requests.exceptions.RequestException as e:
-			raise SystemExit(e)
+			raise SystemExit(e)"""
 
 	def readData(self):
 		#look for a byte from serial

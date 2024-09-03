@@ -16,9 +16,12 @@ appname = "Happy Bowls"
 app = Flask(appname)
 config = configparser.ConfigParser()
 config.read('config.ini')
+
+
 client = influxdb_client.InfluxDBClient(url=config.get("InfluxDBClient","Url"),
-   token=config.get("InfluxDBClient","Token"),
-   org=config.get("InfluxDBClient","Org"))
+ token=config.get("InfluxDBClient","Token"),
+ org=config.get("InfluxDBClient","Org"))
+
 activeBowls = BucketList()
 
 SWAGGER_URL = '/api/docs'  # URL for exposing Swagger UI (without trailing '/')
@@ -122,7 +125,7 @@ def addinlista(sensor, id, type, value):
     write_api.write(bucket=config.get("InfluxDBClient","Bucket"), org=config.get("InfluxDBClient","Org"), record=measure)
     return "Data added"
   
-@app.route('/config/<zone>/<id>/Coord/<lat>/<lon>', methods=['GET'])
+@app.route('/config/<zone>/<id>/Coord/<lat>/<lon>', methods=['GET','POST'])
 def bowlConfig(zone, id, lat, lon):
     """
     Configure the active buckets
