@@ -150,8 +150,9 @@ def bowlConfig(zone, id, lat, lon):
     """
     
     confBowl = Bowl(zone, id, lat, lon)
-    if confBowl.id not in activeBowls:
-      activeBowls[confBowl.id] = confBowl
+    activeBowls[confBowl.id] = confBowl
+    #if confBowl.id not in activeBowls:
+    #  activeBowls[confBowl.id] = confBowl
     return f"Bowl {confBowl.id} configured"
 
 @app.route('/flusso', methods=['GET'])
