@@ -119,7 +119,10 @@ def addinlista(sensor, id, type, value):
       200:
         description: List
     """
+    print(f"Value of type: {type}")
+    print(f"Adding data to InfluxDB: Sensor={sensor}, ID={id}, Type={type}, Value={value}")
     bowl = activeBowls[sensor + '/' + id]
+    print("Available keys in activeBowls:", list(activeBowls.keys()))
     write_api = client.write_api(write_options=SYNCHRONOUS)
     measure = influxdb_client.Point(sensor).tag("sensor", type).tag("lat", bowl.lat).tag("lon", bowl.lon).field(id, float(value))
     write_api.write(bucket=config.get("InfluxDBClient","Bucket"), org=config.get("InfluxDBClient","Org"), record=measure)

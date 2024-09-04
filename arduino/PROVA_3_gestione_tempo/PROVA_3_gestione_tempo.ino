@@ -2,8 +2,14 @@
 
 
 unsigned long previousMillis = 0;
-const int interval = 10000;
-int currentstate;
+unsigned long previousMillis1 = 0;
+const int interval = 5000;
+const int interval1 = 2000;
+int currentState;
+int lastState;
+unsigned long lastChangeTime = 0;
+const unsigned long openDelay = 4000; // Tempo per cui il servo rimane aperto (in millisecondi)
+
 bool config = true;
 bool setservo = true;
 char SoL = '\xff';
@@ -21,8 +27,8 @@ int sensorPin0 = A0;    // Pin analogico dove è collegato il sensore
 
 int sensorValue0 = 0;
 float bowlWater = 0.0;   // Variabile per memorizzare il valore letto dal sensore
-int sogliaAlta0 = 160;  // Valore per alta presenza di acqua
-int sogliaBassa0 = 300; // Valore per bassa presenza di acqua
+int sogliaAlta0 = 115;  // Valore per alta presenza di acqua
+int sogliaBassa0 = 195; // Valore per bassa presenza di acqua
 
 //CAPACITIVE SOIL SENSOR
 int sensorPin1 = A1;    // Pin analogico dove è collegato il sensore
@@ -63,7 +69,7 @@ void setup() {
   delay(2000);
   
 
-  currentstate = 0;
+  currentState = 1;
 }
 
 void sendData(float value, const char* sensorName) {
@@ -87,7 +93,7 @@ void loop() {
         Serial.print(lon);
         char zona[] = "zona_1";
         int zona_size = strlen(zona);
-        char id[] = "001";
+        char id[] = "002";
         int id_size = strlen(id);
         Serial.print(zona_size);
         Serial.print(zona);
@@ -148,34 +154,73 @@ void loop() {
     
   
 
+  
+// if (currentMillis - previousMillis1 >= interval1) {
+//     previousMillis1 = currentMillis;
 
+//     if (Serial.available() > 0) {
+//       char val = Serial.read();
+      
+//       if (val == 'A') {
+//         currentState = 0;  // Passa allo stato di apertura
+//         previousMillis1 = millis();  // Resetta il timer
+//       } else if (val == 'S') {
+//         currentState = 1;  // Passa allo stato di chiusura
+//         previousMillis1 = millis();  // Resetta il timer
+//       }
+//     }
 
-
+//     if (currentState != lastState) {
+//       switch (currentState) {
+//         case 0: // Stato 0: apertura
+//           servo.write(0);  // Apri il flusso d'acqua
+//           Serial.println("Opening water flow...");
+//           break;
+//         case 1: // Stato 1: chiusura
+//           servo.write(90);  // Chiudi il flusso d'acqua
+//           Serial.println("Closing water flow...");
+//           break;
+//       }
+//       lastState = currentState;  // Aggiorna lo stato precedente
+//     }
+//   }  
+// }
+// }
+  // Gestione dell'input seriale
   if (Serial.available() > 0) {
     char val = Serial.read();
 
-    int futurestate = currentstate;
-    if (currentstate == 0 && val == 'A') {
-      futurestate = 1;  // acceso
-    } else if (currentstate == 1 && val == 'S') {
-      futurestate = 0;  // spento
+    if (val == 'A') {
+      currentState = 0;  // Passa allo stato di apertura
+      previousMillis1 = millis();  // Resetta il timer
+    } else if (val == 'S') {
+      currentState = 1;  // Passa allo stato di chiusura
+      previousMillis1 = millis();  // Resetta il timer
     }
+  }
+  }
+  unsigned long currentMillis1 = millis();
+  // Gestione dei cambiamenti di stato basati su tempo
+    if (currentMillis1 - previousMillis1 >= interval1) {
+      previousMillis1 = currentMillis1;
 
-    if (currentstate != futurestate) {
-      if (futurestate == 1) {
-        servo.write(0);  // open water flow
-        //delay(4000);
-      } else if (futurestate == 0) {
-        Serial.println("Closing water flow...");
-        servo.write(90);  // close water flow
-        delay(1000);
+      switch (currentState) {
+        case 0: // Stato 0: attesa per apertura
+          // Esegui azioni per apertura
+          servo.write(0);  // Apri il flusso d'acqua
+          Serial.println("Opening water flow...");
+          currentState = 1;  // Passa allo stato 1
+          break;
+
+        case 1: // Stato 1: attesa per chiusura
+          // Esegui azioni per chiusura
+          servo.write(90);  // Chiudi il flusso d'acqua
+          Serial.println("Closing water flow...");
+          currentState = 0;  // Torna allo stato 0
+          break;
       }
-      currentstate = futurestate;
     }
-  }
-  }
-  }
-
+}
 
 
 

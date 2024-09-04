@@ -7,6 +7,10 @@ import configparser
 import requests
 import paho.mqtt.client as mqtt
 import time
+import logging
+
+# Configura il logging
+logging.basicConfig(filename='output.log', level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
 
 class Bridge():
 
@@ -222,4 +226,7 @@ class Bridge():
 		print(f"Payload: {val}")
 		
 		self.clientMQTT.publish(self.zona + '/' + self.id + '/' + sensor_name, val)
+  
+	
+
 		
