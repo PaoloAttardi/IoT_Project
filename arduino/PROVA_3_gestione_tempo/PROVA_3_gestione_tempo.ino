@@ -72,14 +72,6 @@ void setup() {
   currentState = 1;
 }
 
-void sendData(float value, const char* sensorName) {
-  int pack_size = countDigits(value);
-  Serial.print(SoL);
-  Serial.print(pack_size);
-  Serial.print(value, 2); // Specifica il numero di decimal
-  Serial.print(sensorName);
-  Serial.print(EoL);
-}
 
 
 void loop() {
@@ -111,7 +103,7 @@ void loop() {
   }
 
 
- unsigned long currentMillis = millis();
+  unsigned long currentMillis = millis();
   if (currentMillis - previousMillis >= interval) {
     previousMillis = currentMillis;
     //BOWL --> LvlSensor_0
