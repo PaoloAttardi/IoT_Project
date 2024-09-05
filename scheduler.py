@@ -1,6 +1,6 @@
 import serial
 import serial.tools.list_ports
-from bridge_Marti import Bridge
+from bridge_2_states import Bridge
 
 class Scheduler():
 

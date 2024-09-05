@@ -131,17 +131,18 @@ class Bridge():
 					response = requests.get(url)
 					if bowlWater == 0.0 and response.text != 'Rainy':
 						self.ser.write(b'A')
-						futurestate0 = 2	#fill bowl
+						#futurestate0 = 2	#fill bowl
+						futurestate0 = 0    #water in bowl
 					else:
 						futurestate0 = 1	#no water
 						
 				#STATE 2
-				elif self.currentstate0 == 2:
-					if bowlWater == 0.5:
-						self.ser.write(b'S')
-						futurestate0 = 0	#water in bowl
-					else:
-						futurestate0 = 2	#fill water
+				#elif self.currentstate0 == 2:
+				#	if bowlWater == 0.5:
+				#		self.ser.write(b'S')
+				#		futurestate0 = 0	#water in bowl
+				#	else:
+				#		futurestate0 = 2	#fill water
 				self.currentstate0 = futurestate0
 				
 			
@@ -169,7 +170,7 @@ class Bridge():
 					print("Warning: No water in tank!")
 					self.currentstate1 = 0
 				self.currentstate1 = futurestate1
-     
+	 
 			elif 'Lvlsensor_1' in msg.topic:
 				value = float(msg.payload.decode())
 				zona, id, name = msg.topic.split('/')
