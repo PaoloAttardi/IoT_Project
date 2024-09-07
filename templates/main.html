@@ -36,12 +36,6 @@
             </a>
           </li>
           <li class="nav-item">
-            <button class="nav-link" data-bs-toggle="modal" data-bs-target="#exampleModal">
-              <span data-feather="file"></span>
-              Flow Prediction
-            </button>
-          </li>
-          <li class="nav-item">
             <a class="nav-link" aria-current="page" href="/lista/all">
               <span data-feather="list"></span>
               Bowls List
@@ -67,28 +61,6 @@
         </ul>
       </div>
     </nav>
-    <!--Modal for prediction-->
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="hourModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="hourModalLabel">Enter Hour</h5>
-            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <form action="/flusso" method="get">
-              <div class="form-group">
-                <label for="hour">Hour:</label>
-                <input type="text" class="form-control" id="hour" name="hour" placeholder="Enter hour">
-              </div>
-              <button type="submit" class="btn btn-primary">Submit</button>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
     <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
       {% block content %}{% endblock %}
     </main>

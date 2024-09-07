@@ -153,6 +153,27 @@
               </div>
               <!--weather card ends-->
             </div>
+            <div class="d-flex justify-content-center flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+              <h1 class="h2">Flow Prediction</h1>
+            </div>
+            <form class="row g-4">
+              <div class="col-auto">
+                <h3>Select the Hour:</h3>
+              </div>
+              <form action="/lista/{{bowl.zone}}/{{bowl.val}}" method="get">
+                <div class="col-auto">
+                  <label for="InputHour" class="visually-hidden">Hour: like '1, 5 or 15'</label>
+                  <input type="text" class="form-control" id="InputHour" name="hour" placeholder="Hour: like '1, 5 or 15'" required>
+                </div>
+                <div class="col-auto">
+                  <button type="submit" class="btn btn-primary mb-3">Check Taffic Flow</button>
+                </div>
+                <div class="col-auto">
+                  {% if output is not none %}
+                      <h4>Expected People: {{ output }}</h4>
+                  {% endif %}
+                </div>
+              </form>
         </div>
     </div>
 </div>

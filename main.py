@@ -91,7 +91,12 @@ def stampalista(zone, id):
     weather_data = response.json()
     today = datetime.datetime.now()
     forecast = get_weather_forecast(config.get("OpenWeather","api_key"),config.get("DEFAULT","lat"),config.get("DEFAULT","lon"))
-    return render_template('sensor_details.html', bowl=bowl, devices=activeBowls, weather_data=weather_data, today=today, forecast=forecast)
+    if request.args.get('hour'):
+      hour = int(request.args.get('hour'))
+      now = datetime.datetime.now()
+      outputs = newPrediction(config.get("DEFAULT","lat"),config.get("DEFAULT","lon"),now,hour)
+    else: outputs = None
+    return render_template('sensor_details.html', bowl=bowl, devices=activeBowls, weather_data=weather_data, today=today, forecast=forecast, output=outputs)
 
 @app.route('/newdata/<sensor>/<id>/<type>/<value>', methods=['POST'])
 def addinlista(sensor, id, type, value):
@@ -156,25 +161,13 @@ def bowlConfig(zone, id, lat, lon):
     """
     
     confBowl = Bowl(zone, id, lat, lon)
-    activeBowls[confBowl.id] = confBowl
-    #if confBowl.id not in activeBowls:
-    #  activeBowls[confBowl.id] = confBowl
+    if confBowl.id not in activeBowls:
+      activeBowls[confBowl.id] = confBowl
+      write_api = client.write_api(write_options=SYNCHRONOUS)
+      measure1 = influxdb_client.Point(zone).tag("sensor", "Lvlsensor_0").tag("lat", lat).tag("lon", lon).field(id, float(0))
+      measure2 = influxdb_client.Point(zone).tag("sensor", "Lvlsensor_1").tag("lat", lat).tag("lon", lon).field(id, float(0))
+      write_api.write(bucket=config.get("InfluxDBClient","Bucket"), org=config.get("InfluxDBClient","Org"), record=[measure1, measure2])
     return f"Bowl {confBowl.id} configured"
-
-@app.route('/flusso', methods=['GET'])
-def flussoPersone():
-    """
-    Makes a prediction based on an input hour
-    ---
-    responses:
-      200:
-        description: Int
-    """
-    hour = int(request.args.get('hour'))
-    now = datetime.datetime.now()
-    predizione = newPrediction(config.get("DEFAULT","lat"),config.get("DEFAULT","lon"),now,hour)
-    # Ritorna la predizione
-    return f'La previsione del numero di persone alle {hour} è {predizione}'
 
 @app.route('/meteo/<lat>/<lon>', methods=['GET'])
 def meteoAttuale(lat, lon):
