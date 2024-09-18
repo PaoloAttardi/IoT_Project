@@ -179,45 +179,28 @@ def bowlConfig(zone, id, lat, lon):
     confBowl = Bowl(zone, id, lat, lon)
     if confBowl.id not in activeBowls:
       activeBowls[confBowl.id] = confBowl
-      write_api = client.write_api(write_options=SYNCHRONOUS)
-      measure1 = influxdb_client.Point(zone).tag("sensor", "Lvlsensor_0").tag("lat", lat).tag("lon", lon).field(id, float(0))
-      measure2 = influxdb_client.Point(zone).tag("sensor", "Lvlsensor_1").tag("lat", lat).tag("lon", lon).field(id, float(0))
-      write_api.write(bucket=config.get("InfluxDBClient","Bucket"), org=config.get("InfluxDBClient","Org"), record=[measure1, measure2])
+      # Crea il messaggio da pubblicare su MQTT
+      message = {
+          "zona": zone,
+          "id": id,
+          "latitudine": lat,
+          "longitudine": lon
+      }
+      # Converti il messaggio in una stringa (formato JSON)
+      message_str = str(message)
+
+      # Pubblica il messaggio tramite MQTT
+      try:
+          mqtt_client.publish(mqtt_topic, message_str)
+          print(f"Messaggio pubblicato su {mqtt_topic}: {message_str}")
+          return jsonify({"message": "Messaggio pubblicato con successo"}), 200
+      except Exception as e:
+          return jsonify({"error": f"Errore durante la pubblicazione MQTT: {e}"}), 500
+      #write_api = client.write_api(write_options=SYNCHRONOUS)
+      #measure1 = influxdb_client.Point(zone).tag("sensor", "Lvlsensor_0").tag("lat", lat).tag("lon", lon).field(id, float(0))
+      #measure2 = influxdb_client.Point(zone).tag("sensor", "Lvlsensor_1").tag("lat", lat).tag("lon", lon).field(id, float(0))
+      #write_api.write(bucket=config.get("InfluxDBClient","Bucket"), org=config.get("InfluxDBClient","Org"), record=[measure1, measure2])
     return f"Bowl {confBowl.id} configured"
-  
-@app.route('/config', methods=['POST'])
-def publish_message():
-    data = request.get_json()
-
-    # Controllo che tutti i campi necessari siano presenti
-    required_fields = ['zona', 'id', 'latitudine', 'longitudine']
-    for field in required_fields:
-        if field not in data:
-            return jsonify({"error": f"Campo mancante: {field}"}), 400
-
-    zona = data['zona']
-    device_id = data['id']
-    latitudine = data['latitudine']
-    longitudine = data['longitudine']
-
-    # Crea il messaggio da pubblicare su MQTT
-    message = {
-        "zona": zona,
-        "id": device_id,
-        "latitudine": latitudine,
-        "longitudine": longitudine
-    }
-
-    # Converti il messaggio in una stringa (formato JSON)
-    message_str = str(message)
-
-    # Pubblica il messaggio tramite MQTT
-    try:
-        mqtt_client.publish(mqtt_topic, message_str)
-        print(f"Messaggio pubblicato su {mqtt_topic}: {message_str}")
-        return jsonify({"message": "Messaggio pubblicato con successo"}), 200
-    except Exception as e:
-        return jsonify({"error": f"Errore durante la pubblicazione MQTT: {e}"}), 500
 
 @app.route('/meteo/<lat>/<lon>', methods=['GET'])
 def meteoAttuale(lat, lon):
