@@ -3,6 +3,7 @@ import configparser
 import influxdb_client
 import datetime
 import requests
+import paho.mqtt.client as mqtt
 
 from flask import Flask, request
 from flask import render_template
@@ -17,6 +18,21 @@ app = Flask(appname)
 config = configparser.ConfigParser()
 config.read('config.ini')
 
+# Inizializzazione del client MQTT
+mqtt_client = mqtt.Client(mqtt.CallbackAPIVersion.VERSION2)
+mqtt_topic = "config/topic"  # Il topic su cui inviare i dati
+
+def connect_mqtt():
+    try:
+      mqtt_client.connect(
+        config.get("MQTT","Server", fallback= "broker.hivemq.com"),
+        config.getint("MQTT","Port", fallback= 1883),
+        60)
+      print(f'Connesso a {config.get("MQTT", "Server")}:{config.get("MQTT", "Port")}')
+    except Exception as e:
+      print(f"Errore nella connessione MQTT: {e}")
+
+connect_mqtt()
 
 client = influxdb_client.InfluxDBClient(url=config.get("InfluxDBClient","Url"),
  token=config.get("InfluxDBClient","Token"),
@@ -168,6 +184,40 @@ def bowlConfig(zone, id, lat, lon):
       measure2 = influxdb_client.Point(zone).tag("sensor", "Lvlsensor_1").tag("lat", lat).tag("lon", lon).field(id, float(0))
       write_api.write(bucket=config.get("InfluxDBClient","Bucket"), org=config.get("InfluxDBClient","Org"), record=[measure1, measure2])
     return f"Bowl {confBowl.id} configured"
+  
+@app.route('/config', methods=['POST'])
+def publish_message():
+    data = request.get_json()
+
+    # Controllo che tutti i campi necessari siano presenti
+    required_fields = ['zona', 'id', 'latitudine', 'longitudine']
+    for field in required_fields:
+        if field not in data:
+            return jsonify({"error": f"Campo mancante: {field}"}), 400
+
+    zona = data['zona']
+    device_id = data['id']
+    latitudine = data['latitudine']
+    longitudine = data['longitudine']
+
+    # Crea il messaggio da pubblicare su MQTT
+    message = {
+        "zona": zona,
+        "id": device_id,
+        "latitudine": latitudine,
+        "longitudine": longitudine
+    }
+
+    # Converti il messaggio in una stringa (formato JSON)
+    message_str = str(message)
+
+    # Pubblica il messaggio tramite MQTT
+    try:
+        mqtt_client.publish(mqtt_topic, message_str)
+        print(f"Messaggio pubblicato su {mqtt_topic}: {message_str}")
+        return jsonify({"message": "Messaggio pubblicato con successo"}), 200
+    except Exception as e:
+        return jsonify({"error": f"Errore durante la pubblicazione MQTT: {e}"}), 500
 
 @app.route('/meteo/<lat>/<lon>', methods=['GET'])
 def meteoAttuale(lat, lon):
