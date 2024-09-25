@@ -25,6 +25,7 @@ class Bridge():
 		self.port = port
 		self.lat = 0
 		self.lon = 0
+		self.bowl_data_sent = False
 		# Limit for the water Bowl
 		# self.sogliaMax = 0.1
 		self.sogliaBassa0 = 300	#no water in bowl
@@ -34,7 +35,7 @@ class Bridge():
 		self.setupSerial(port)
 		self.setupMQTT()
  
-  
+	''' OLD
 	def setupSerial(self, port):        
 		try:
 			print(f"Setting up serial connection on {port.device}")
@@ -67,6 +68,73 @@ class Bridge():
 		except (OSError, serial.SerialException) as e:
 			print(f"Serial setup exception: {e}")
 			pass
+ 	'''
+  
+	def setupSerial(self, port):
+		try:
+			print(f"Impostazione della connessione seriale sulla porta {port.device}")
+			
+			# Inizializza la seriale
+			self.ser = serial.Serial(port.device, 9600, timeout=2)
+			time.sleep(2)  # Aspetta che la connessione si stabilizzi
+
+			# Scrivi il messaggio di connessione (esempio: \xff come segnale di inizio)
+			self.ser.write(b'\xff')
+			
+			# Attendi la risposta dall'Arduino (esempio: \xfe come conferma di connessione)
+			response = self.ser.read()
+			
+			if response == b'\xfe':
+				print(f"Arduino connesso correttamente sulla porta {port.device}")
+				
+				# Ora attendiamo che l'Arduino invii la conferma di avvenuta connessione
+				print("Connessione riuscita. Pronto a inviare i dati della ciotola.")
+				self.portName = port.device
+				return True
+			else:
+				# Gestione degli errori: se la risposta non è corretta
+				error = self.ser.read(27)  # Leggi eventuali errori (può variare)
+				print(f"Errore: {error}")
+				
+				# Chiudi la connessione se ci sono problemi
+				self.ser.close()
+				print('Errore nella connessione seriale con Arduino')
+				return False
+
+		except (OSError, serial.SerialException) as e:
+			print(f"Errore nell'impostazione della connessione seriale: {e}")
+			return False
+
+	#NEW!!!	
+	def send_bowl_data(self, zone, id, lat, lon):
+		"""
+		Invia i dati della ciotola (zona, ID, latitudine e longitudine) all'Arduino
+		"""
+	
+		if self.ser and self.ser.is_open:
+			try:
+				# Invia i dati della ciotola
+				self.ser.write(zone.encode() + b'\n')
+				self.ser.write(id.encode() + b'\n')
+				self.ser.write(lat.encode() + b'\n')
+				self.ser.write(lon.encode() + b'\n')
+				print(f"Dati inviati all'Arduino: {zone}, {id}, {lat}, {lon}")
+
+				# Attendi la conferma dall'Arduino
+				response = self.ser.read()
+				if response == b'\x01':
+					print("Arduino ha confermato la ricezione dei dati.")
+					self.bowl_data_sent = True  # Imposta il flag a True
+					return True
+				else:
+					print(f"Errore nella conferma dall'Arduino: {response}")
+					return False
+			except serial.SerialException as e:
+				print(f"Errore durante l'invio dei dati all'Arduino: {e}")
+				return False
+		else:
+			print("Connessione seriale non aperta.")
+			return False
 
 
 	def setupMQTT(self):
@@ -90,16 +158,37 @@ class Bridge():
 		self.clientMQTT.subscribe(self.zona + '/' + self.id + '/' + "Lvlsensor_0") # water level in the bowl
 		self.clientMQTT.subscribe(self.zona + '/' + self.id + '/' + "Lvlsensor_1") # water level in the tank
 		self.clientMQTT.subscribe(self.zona + '/+/Lvlsensor_1') # tank level in the area
+  
 		# configuration step
-		self.clientMQTT.publish(self.zona + '/' + self.id + '/' + "Coord", self.lat + '/' + self.lon)
+		#self.clientMQTT.publish(self.zona + '/' + self.id + '/' + "Coord", self.lat + '/' + self.lon)
+		self.clientMQTT.publish("config/topic", f"{self.zona}/{self.id}/Coord/{self.lat}/{self.lon}")
+
 
 	# The callback for when a PUBLISH message is received from the server.
 	def on_message(self, client, userdata, msg):
 		hostname = socket.gethostname()
 		IPAddr = socket.gethostbyname(hostname)
+		#if msg.topic == self.zona + '/' + self.id + '/' + "Coord":
+		#	payload = str(msg.payload.decode()).split('/')
+		#	url = f"http://{IPAddr}/config/{msg.topic}/{payload[0]}/{payload[1]}"
+
+		# Gestione dei messaggi delle coordinate
 		if msg.topic == self.zona + '/' + self.id + '/' + "Coord":
 			payload = str(msg.payload.decode()).split('/')
-			url = f"http://{IPAddr}/config/{msg.topic}/{payload[0]}/{payload[1]}"
+			lat, lon = payload[0], payload[1]
+			print(f"Received coordinates: Lat: {lat}, Lon: {lon} on topic {msg.topic}")
+
+			# Invia le coordinate all'Arduino tramite la seriale
+			if self.ser:
+				try:
+					config_message = f"{self.zona},{self.id},{self.lat},{self.lon}\n"
+					self.ser.write(config_message.encode())
+					print(f"Inviato all'Arduino: Zona: {self.zona} ID: {self.id} Lat: {lat}, Lon: {lon}")
+				except serial.SerialException as e:
+					print(f"Error sending data to Arduino: {e}")
+			
+			url = f"http://{IPAddr}/config/{msg.topic}/{lat}/{lon}"
+	
 		else:
 			if msg.topic == self.zona + '/' + self.id + '/' + "Lvlsensor_0":
 				payload0 = msg.payload.decode()

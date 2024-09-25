@@ -6,12 +6,18 @@ unsigned long servoOpenTime = 0;
 const unsigned long servoDuration = 5000; // 5 secondi per il servo
 
 
-bool config = true;
+//bool config = true;
 bool setservo = true;
 char SoL = '\xff';
 char EoL = '\xfe';
-float lat = 10.24;
-float lon = 47.32;
+// float lat = 10.24;
+// float lon = 47.32;
+
+String zona;
+String id;
+String lat;
+String lon;
+bool config = true;
 
 Servo servo;
 
@@ -65,25 +71,44 @@ void setup() {
 
 
 void loop() {
+
+  //OLD
+  // while (config) {
+  //   if (Serial.available() > 0) {
+  //     char start = Serial.read();
+  //     if (start == SoL) {
+  //       Serial.print(EoL);  // Connessione al bridge
+  //       Serial.print(lat);  // Passiamo informazioni come coordinate, ID e zona
+  //       Serial.print(lon);
+  //       char zona[] = "zona_1";
+  //       int zona_size = strlen(zona);
+  //       char id[] = "002";
+  //       int id_size = strlen(id);
+  //       Serial.print(zona_size);
+  //       Serial.print(zona);
+  //       Serial.print(id_size);
+  //       Serial.print(id);
+  //       config = false;
+  //     }       
+  //   }
+  // }
+
   while (config) {
     if (Serial.available() > 0) {
       char start = Serial.read();
       if (start == SoL) {
-        Serial.print(EoL);  // Connessione al bridge
-        Serial.print(lat);  // Passiamo informazioni come coordinate, ID e zona
-        Serial.print(lon);
-        char zona[] = "zona_1";
-        int zona_size = strlen(zona);
-        char id[] = "002";
-        int id_size = strlen(id);
-        Serial.print(zona_size);
-        Serial.print(zona);
-        Serial.print(id_size);
-        Serial.print(id);
-        config = false;
-      }       
+        Serial.print(EoL);
+      }
+      zona = Serial.readStringUntil('\n');
+      id = Serial.readStringUntil('\n');
+      lat = Serial.readStringUntil('\n');
+      lon = Serial.readStringUntil('\n');
+      
+      Serial.write(0x01);
+      config = false;
     }
   }
+  
 
   unsigned long currentMillis = millis();
   if (currentMillis - previousMillis >= interval) {

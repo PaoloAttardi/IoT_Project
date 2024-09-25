@@ -8,6 +8,7 @@ class Scheduler():
         self.arduini = []
         self.bridges = []
 
+    '''OLD
     def loop(self):
         while(True):
             print("Checking connection...")
@@ -20,6 +21,32 @@ class Scheduler():
                     print(f"Removing bridge on {bridge.port.device}")
                     self.bridges.remove(bridge)
                     self.arduini.remove(bridge.port.device)
+    '''
+                    
+                    
+    def loop(self):
+        while True:
+            print("Checking connection...")
+            self.checkConnection()
+            
+            for bridge in self.bridges:
+                if bridge.ser.isOpen():
+                    # Invia i dati della ciotola solo la prima volta (se il flag è False)
+                    if not bridge.bowl_data_sent:
+                        if bridge.send_bowl_data(self.zone, self.bowl_id, self.lat, self.lon):
+                            print(f"Dati della ciotola inviati con successo: {self.zone}, {self.bowl_id}, {self.lat}, {self.lon}")
+                        else:
+                            print("Errore durante l'invio dei dati all'Arduino.")
+                    
+                    # Continuare a leggere i dati dopo la configurazione
+                    print(f"Reading data from {bridge.port.device}")
+                    bridge.readData()
+                else:
+                    # Rimuovi il bridge se la connessione non è più valida
+                    print(f"Removing bridge on {bridge.port.device}")
+                    self.bridges.remove(bridge)
+                    self.arduini.remove(bridge.port.device)
+
 
     
     def checkConnection(self):

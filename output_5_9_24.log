@@ -643,3 +643,11 @@
 2024-09-05 15:51:30,607 - DEBUG - Starting new HTTP connection (1): 192.168.1.177:80
 2024-09-05 15:51:30,734 - DEBUG - http://192.168.1.177:80 "POST /newdata/zona_1/002/Lvlsensor_0/0.50 HTTP/1.1" 200 10
 2024-09-05 15:51:34,253 - DEBUG - Starting new HTTP connection (1): 192.168.1.177:80
+2024-09-25 11:03:53,541 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:80
+ * Running on http://192.168.1.177:80
+2024-09-25 11:03:53,542 - INFO - [33mPress CTRL+C to quit[0m
+2024-09-25 11:03:53,543 - INFO -  * Restarting with stat
+2024-09-25 11:03:55,783 - WARNING -  * Debugger is active!
+2024-09-25 11:03:55,795 - INFO -  * Debugger PIN: 195-187-536
