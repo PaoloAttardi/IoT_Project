@@ -179,6 +179,7 @@ def bowlConfig(zone, id, lat, lon):
     confBowl = Bowl(zone, id, lat, lon)
     if confBowl.id not in activeBowls:
       activeBowls[confBowl.id] = confBowl
+      print(f"Ciotole attive: {activeBowls}")
       # Crea il messaggio da pubblicare su MQTT
       message = {
           "zona": zone,
@@ -188,6 +189,7 @@ def bowlConfig(zone, id, lat, lon):
       }
       # Converti il messaggio in una stringa (formato JSON)
       message_str = str(message)
+      
 
       # Pubblica il messaggio tramite MQTT
       try:

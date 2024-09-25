@@ -8,6 +8,7 @@ import requests
 import paho.mqtt.client as mqtt
 import time
 import logging
+import json
 
 # Configura il logging
 logging.basicConfig(filename='output_5_9_24.log', level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
@@ -19,12 +20,14 @@ class Bridge():
 		self.config.read('config.ini')
 		self.buffer = []
 		self.datiZona = {}
+		self.zona = ""
+		self.id = ""
 		self.currentstate0 = 0
 		self.currentstate1 = 0
 		self.ser = None
 		self.port = port
-		self.lat = 0
-		self.lon = 0
+		self.lat = ""
+		self.lon = ""
 		self.bowl_data_sent = False
 		# Limit for the water Bowl
 		# self.sogliaMax = 0.1
@@ -113,6 +116,8 @@ class Bridge():
 	
 		if self.ser and self.ser.is_open:
 			try:
+	
+				print(f"Zona Aggiunta: {self.zona}, ID: {self.id}, LAT: {self.lat}, LON: {self.lon}")
 				# Invia i dati della ciotola
 				self.ser.write(zone.encode() + b'\n')
 				self.ser.write(id.encode() + b'\n')
@@ -154,14 +159,15 @@ class Bridge():
 
 		# Subscribing in on_connect() means that if we lose the connection and
 		# reconnect then subscriptions will be renewed.
-		self.clientMQTT.subscribe(self.zona + '/' + self.id + '/' + "Coord") # used for configuration
+		#self.clientMQTT.subscribe(self.zona + '/' + self.id + '/' + "Coord") # used for configuration
+		self.clientMQTT.subscribe("config/topic")
 		self.clientMQTT.subscribe(self.zona + '/' + self.id + '/' + "Lvlsensor_0") # water level in the bowl
 		self.clientMQTT.subscribe(self.zona + '/' + self.id + '/' + "Lvlsensor_1") # water level in the tank
 		self.clientMQTT.subscribe(self.zona + '/+/Lvlsensor_1') # tank level in the area
   
 		# configuration step
 		#self.clientMQTT.publish(self.zona + '/' + self.id + '/' + "Coord", self.lat + '/' + self.lon)
-		self.clientMQTT.publish("config/topic", f"{self.zona}/{self.id}/Coord/{self.lat}/{self.lon}")
+		self.clientMQTT.publish(f"{self.zona}/{self.id}/Coord/{self.lat}/{self.lon}")
 
 
 	# The callback for when a PUBLISH message is received from the server.
@@ -171,26 +177,22 @@ class Bridge():
 		#if msg.topic == self.zona + '/' + self.id + '/' + "Coord":
 		#	payload = str(msg.payload.decode()).split('/')
 		#	url = f"http://{IPAddr}/config/{msg.topic}/{payload[0]}/{payload[1]}"
+		if msg.topic == "config/topic":
+			# Decodifica il payload JSON in un dizionario
+			payload = json.loads(msg.payload.decode())
+			print(f"PAYLOAD: {payload}")
+			# Ora puoi accedere ai valori direttamente dal dizionario
+			self.zona = payload['zona']
+			self.id = payload['id']
+			self.lat = payload['latitudine']
+			self.lon = payload['longitudine']
+			self.send_bowl_data(self.zona, self.id, self.lat, self.lon)
 
-		# Gestione dei messaggi delle coordinate
-		if msg.topic == self.zona + '/' + self.id + '/' + "Coord":
-			payload = str(msg.payload.decode()).split('/')
-			lat, lon = payload[0], payload[1]
-			print(f"Received coordinates: Lat: {lat}, Lon: {lon} on topic {msg.topic}")
+			logging.info(f"Zona: {self.zona}, ID: {self.id}, Lat: {self.lat}, Lon: {self.lon}")
 
-			# Invia le coordinate all'Arduino tramite la seriale
-			if self.ser:
-				try:
-					config_message = f"{self.zona},{self.id},{self.lat},{self.lon}\n"
-					self.ser.write(config_message.encode())
-					print(f"Inviato all'Arduino: Zona: {self.zona} ID: {self.id} Lat: {lat}, Lon: {lon}")
-				except serial.SerialException as e:
-					print(f"Error sending data to Arduino: {e}")
-			
-			url = f"http://{IPAddr}/config/{msg.topic}/{lat}/{lon}"
-	
-		else:
-			if msg.topic == self.zona + '/' + self.id + '/' + "Lvlsensor_0":
+			url = f"http://{IPAddr}/config/topic/{self.zona}/{self.id}{self.lat}/{self.lon}"
+
+		elif msg.topic == self.zona + '/' + self.id + '/' + "Lvlsensor_0":
 				payload0 = msg.payload.decode()
 				print(f"Received message BOWLWATER: '{payload0}' on topic '{msg.topic}'")
 				try:
@@ -235,7 +237,7 @@ class Bridge():
 				self.currentstate0 = futurestate0
 				
 			
-			elif msg.topic == self.zona + '/' + self.id + '/' + "Lvlsensor_1":
+		elif msg.topic == self.zona + '/' + self.id + '/' + "Lvlsensor_1":
 				payload1 = msg.payload.decode()
 				print(f"Received message TANKCAP: '{payload1}' on topic '{msg.topic}'")
 				try:
@@ -260,12 +262,12 @@ class Bridge():
 					self.currentstate1 = 0
 				self.currentstate1 = futurestate1
 	 
-			elif 'Lvlsensor_1' in msg.topic:
+		elif 'Lvlsensor_1' in msg.topic:
 				value = float(msg.payload.decode())
 				zona, id, name = msg.topic.split('/')
 				if self.id != id:
 					self.datiZona[id] = value
-			url = f"http://{IPAddr}/newdata/{msg.topic}/{msg.payload.decode()}"
+		url = f"http://{IPAddr}/newdata/{msg.topic}/{msg.payload.decode()}"
 		if url:
 			try:
 				print(f"Sending POST request to {url}")
@@ -320,3 +322,22 @@ class Bridge():
 	
 
 		
+  
+  
+  
+''' OLD
+  		# Gestione dei messaggi delle coordinate
+		elif msg.topic == self.zona + '/' + self.id + '/' + "Coord":
+			payload = str(msg.payload.decode()).split('/')
+			self.lat, self.lon = payload[0], payload[1]
+			print(f"Received coordinates: Lat: {self.lat}, Lon: {self.lon} on topic {msg.topic}")
+			# Invia le coordinate all'Arduino tramite la seriale
+			if self.ser:
+				try:
+					config_message = f"{self.zona},{self.id},{self.lat},{self.lon}\n"
+					self.ser.write(config_message.encode())
+					print(f"Inviato all'Arduino: Zona: {self.zona} ID: {self.id} Lat: {self.lat}, Lon: {self.lon}")
+				except serial.SerialException as e:
+					print(f"Error sending data to Arduino: {e}")
+			
+			url = f"http://{IPAddr}/config/{msg.topic}/{self.lat}/{self.lon}"'''

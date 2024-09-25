@@ -1,6 +1,7 @@
 import serial
 import serial.tools.list_ports
 from bridge_2_states import Bridge
+from main import activeBowls
 
 class Scheduler():
 
@@ -8,7 +9,7 @@ class Scheduler():
         self.arduini = []
         self.bridges = []
 
-    '''OLD
+    
     def loop(self):
         while(True):
             print("Checking connection...")
@@ -21,23 +22,23 @@ class Scheduler():
                     print(f"Removing bridge on {bridge.port.device}")
                     self.bridges.remove(bridge)
                     self.arduini.remove(bridge.port.device)
-    '''
                     
                     
+    '''NEW       
     def loop(self):
         while True:
             print("Checking connection...")
             self.checkConnection()
-            
+
             for bridge in self.bridges:
                 if bridge.ser.isOpen():
                     # Invia i dati della ciotola solo la prima volta (se il flag è False)
-                    if not bridge.bowl_data_sent:
-                        if bridge.send_bowl_data(self.zone, self.bowl_id, self.lat, self.lon):
-                            print(f"Dati della ciotola inviati con successo: {self.zone}, {self.bowl_id}, {self.lat}, {self.lon}")
+                    if bridge.lat is not None and bridge.lon is not None:  # Controlla se lat e lon sono disponibili
+                        if bridge.send_bowl_data(bridge.zona, bridge.id, bridge.lat, bridge.lon):
+                            print(f"Dati della ciotola inviati con successo: {bridge.zona}, {bridge.id}, {bridge.lat}, {bridge.lon}")
                         else:
                             print("Errore durante l'invio dei dati all'Arduino.")
-                    
+
                     # Continuare a leggere i dati dopo la configurazione
                     print(f"Reading data from {bridge.port.device}")
                     bridge.readData()
@@ -46,6 +47,8 @@ class Scheduler():
                     print(f"Removing bridge on {bridge.port.device}")
                     self.bridges.remove(bridge)
                     self.arduini.remove(bridge.port.device)
+    ''' 
+
 
 
     

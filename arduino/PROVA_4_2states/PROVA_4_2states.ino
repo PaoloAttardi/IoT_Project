@@ -103,6 +103,11 @@ void loop() {
       id = Serial.readStringUntil('\n');
       lat = Serial.readStringUntil('\n');
       lon = Serial.readStringUntil('\n');
+
+      Serial.print(zona);
+      Serial.print(id);
+      Serial.print(lat);
+      Serial.print(lon);
       
       Serial.write(0x01);
       config = false;
