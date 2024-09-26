@@ -4,6 +4,7 @@ import influxdb_client
 import datetime
 import requests
 import paho.mqtt.client as mqtt
+import logging
 
 from flask import Flask, request
 from flask import render_template
@@ -13,6 +14,7 @@ from utils import newPrediction, BucketList, get_weather_forecast, Bowl
 from flask_swagger_ui import get_swaggerui_blueprint
 from influxdb_client.client.write_api import SYNCHRONOUS
 
+
 appname = "Happy Bowls"
 app = Flask(appname)
 config = configparser.ConfigParser()
@@ -21,6 +23,7 @@ config.read('config.ini')
 # Inizializzazione del client MQTT
 mqtt_client = mqtt.Client(mqtt.CallbackAPIVersion.VERSION2)
 mqtt_topic = "config/topic"  # Il topic su cui inviare i dati
+
 
 def connect_mqtt():
     try:
@@ -33,12 +36,15 @@ def connect_mqtt():
       print(f"Errore nella connessione MQTT: {e}")
 
 connect_mqtt()
+mqtt_client.subscribe(mqtt_topic, qos= 2)
 
 client = influxdb_client.InfluxDBClient(url=config.get("InfluxDBClient","Url"),
  token=config.get("InfluxDBClient","Token"),
  org=config.get("InfluxDBClient","Org"))
 
 activeBowls = BucketList()
+
+#values = []
 
 SWAGGER_URL = '/api/docs'  # URL for exposing Swagger UI (without trailing '/')
 API_URL = '/spec'  # Our API url (can of course be a local resource)
@@ -151,6 +157,7 @@ def addinlista(sensor, id, type, value):
   
 @app.route('/config/<zone>/<id>/Coord/<lat>/<lon>', methods=['GET','POST'])
 def bowlConfig(zone, id, lat, lon):
+    print(f"Richiesta ricevuta: zone={zone}, id={id}, lat={lat}, lon={lon}")
     """
     Configure the active buckets
     ---
@@ -181,6 +188,8 @@ def bowlConfig(zone, id, lat, lon):
       activeBowls[confBowl.id] = confBowl
       print(f"Ciotole attive: {activeBowls}")
       # Crea il messaggio da pubblicare su MQTT
+      lat = float(lat)
+      lon = float(lon)
       message = {
           "zona": zone,
           "id": id,
@@ -188,13 +197,16 @@ def bowlConfig(zone, id, lat, lon):
           "longitudine": lon
       }
       # Converti il messaggio in una stringa (formato JSON)
-      message_str = str(message)
+      #payload = str(message)
+      payload = json.dumps(message)
       
 
+      # Concatena i valori in una stringa separata da virgole (o altro separatore)
+      print(f"MESSAGGIO: {payload} -- TIPO: {type(payload)}")
       # Pubblica il messaggio tramite MQTT
       try:
-          mqtt_client.publish(mqtt_topic, message_str)
-          print(f"Messaggio pubblicato su {mqtt_topic}: {message_str}")
+          mqtt_client.publish(mqtt_topic, payload, qos= 2, retain= True)
+          print(f"Messaggio pubblicato su {mqtt_topic}: {payload}")
           return jsonify({"message": "Messaggio pubblicato con successo"}), 200
       except Exception as e:
           return jsonify({"error": f"Errore durante la pubblicazione MQTT: {e}"}), 500

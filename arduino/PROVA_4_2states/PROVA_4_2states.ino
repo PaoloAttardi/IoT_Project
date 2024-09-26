@@ -18,6 +18,7 @@ String id;
 String lat;
 String lon;
 bool config = true;
+bool setvalues = true;
 
 Servo servo;
 
@@ -98,19 +99,29 @@ void loop() {
       char start = Serial.read();
       if (start == SoL) {
         Serial.print(EoL);
+        config = false;
       }
-      zona = Serial.readStringUntil('\n');
-      id = Serial.readStringUntil('\n');
-      lat = Serial.readStringUntil('\n');
-      lon = Serial.readStringUntil('\n');
+    }
+  }
 
-      Serial.print(zona);
-      Serial.print(id);
-      Serial.print(lat);
-      Serial.print(lon);
-      
-      Serial.write(0x01);
-      config = false;
+  while (setvalues){
+    if(Serial.available() > 0){
+      char start2 = Serial.read();
+      if (start2 == SoL){
+        Serial.print(EoL);
+        zona = Serial.readStringUntil('\n');
+        id = Serial.readStringUntil('\n');
+        lat = Serial.readStringUntil('\n');
+        lon = Serial.readStringUntil('\n');
+
+        //Serial.print(zona);
+        //Serial.print(id);
+        //Serial.print(lat);
+        //Serial.print(lon);
+        
+        Serial.write(0x01);
+        setvalues = false;
+      }
     }
   }
   

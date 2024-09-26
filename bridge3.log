@@ -1,0 +1,629 @@
+2024-09-26 14:42:55,192 - INFO - Arduino connesso correttamente sulla porta /dev/cu.usbmodem144101
+2024-09-26 14:42:55,193 - INFO - Connessione riuscita. Pronto a inviare i dati della ciotola.
+2024-09-26 14:42:55,193 - INFO - Entro in SetupMQTT
+2024-09-26 14:42:55,193 - INFO - Entrato in on_connect
+2024-09-26 14:43:59,172 - INFO - Arduino connesso correttamente sulla porta /dev/cu.usbmodem144101
+2024-09-26 14:43:59,173 - INFO - Connessione riuscita. Pronto a inviare i dati della ciotola.
+2024-09-26 14:43:59,173 - INFO - Entro in SetupMQTT
+2024-09-26 14:43:59,173 - INFO - Entrato in on_connect
+2024-09-26 14:51:49,894 - INFO - Arduino connesso correttamente sulla porta /dev/cu.usbmodem144101
+2024-09-26 14:51:49,895 - INFO - Connessione riuscita. Pronto a inviare i dati della ciotola.
+2024-09-26 14:51:49,895 - INFO - Entro in SetupMQTT
+2024-09-26 14:51:49,895 - INFO - Entrato in on_connect
+2024-09-26 14:51:49,895 - INFO - Entrato in on_message
+2024-09-26 14:53:33,606 - INFO - Arduino connesso correttamente sulla porta /dev/cu.usbmodem144101
+2024-09-26 14:53:33,607 - INFO - Connessione riuscita. Pronto a inviare i dati della ciotola.
+2024-09-26 14:53:33,607 - INFO - Entro in SetupMQTT
+2024-09-26 14:53:33,607 - INFO - Entrato in on_connect
+2024-09-26 14:53:33,607 - INFO - Entrato in on_message
+2024-09-26 14:57:26,141 - INFO - Arduino connesso correttamente sulla porta /dev/cu.usbmodem144101
+2024-09-26 14:57:26,142 - INFO - Connessione riuscita. Pronto a inviare i dati della ciotola.
+2024-09-26 14:57:26,142 - INFO - Entro in SetupMQTT
+2024-09-26 14:57:26,310 - INFO - Entrato in on_connect
+2024-09-26 14:57:26,310 - INFO - Connected with result code Success
+2024-09-26 15:13:28,600 - INFO - Entrato in on_message
+2024-09-26 15:13:28,609 - INFO - TOPIC: config/
+2024-09-26 15:13:28,609 - INFO - on_config è stato chiamato.
+2024-09-26 15:13:28,610 - INFO - Received message on topic: config/
+2024-09-26 15:13:28,611 - ERROR - Errore nella decodifica del payload JSON
+2024-09-26 15:13:28,611 - INFO - Zona: , ID: , Lat: , Lon: 
+2024-09-26 15:13:28,634 - DEBUG - Starting new HTTP connection (1): 192.168.1.177:80
+2024-09-26 15:13:28,641 - DEBUG - http://192.168.1.177:80 "POST /config///Coord// HTTP/1.1" 404 25
+2024-09-26 15:13:28,644 - DEBUG - Starting new HTTP connection (1): 192.168.1.177:80
+2024-09-26 15:13:28,646 - DEBUG - http://192.168.1.177:80 "POST /newdata/config//ciao HTTP/1.1" 404 25
+2024-09-26 15:13:28,875 - INFO - Entrato in on_message
+2024-09-26 15:13:28,876 - INFO - TOPIC: //Coord
+2024-09-26 15:13:28,877 - DEBUG - Starting new HTTP connection (1): 192.168.1.177:80
+2024-09-26 15:13:28,879 - DEBUG - http://192.168.1.177:80 "POST /newdata///Coord// HTTP/1.1" 404 25
+2024-09-26 15:19:03,258 - INFO - Arduino connesso correttamente sulla porta /dev/cu.usbmodem144101
+2024-09-26 15:19:03,258 - INFO - Connessione riuscita. Pronto a inviare i dati della ciotola.
+2024-09-26 15:19:03,259 - INFO - Entro in SetupMQTT
+2024-09-26 15:19:03,259 - INFO - connecting to MQTT broker...
+2024-09-26 15:19:11,535 - INFO - Entrato in on_connect
+2024-09-26 15:19:11,535 - INFO - Connected with result code Success
+2024-09-26 15:20:45,540 - INFO - Entrato in on_message
+2024-09-26 15:20:45,543 - INFO - TOPIC: config/
+2024-09-26 15:20:45,543 - INFO - on_config è stato chiamato.
+2024-09-26 15:20:45,543 - INFO - Received message on topic: config/
+2024-09-26 15:20:45,544 - INFO - Payload grezzo: ciao
+2024-09-26 15:20:45,544 - ERROR - Errore nella decodifica del payload JSON
+2024-09-26 15:20:45,544 - INFO - Zona: , ID: , Lat: , Lon: 
+2024-09-26 15:20:45,552 - DEBUG - Starting new HTTP connection (1): 192.168.1.177:80
+2024-09-26 15:20:45,556 - DEBUG - http://192.168.1.177:80 "POST /config///Coord// HTTP/1.1" 404 25
+2024-09-26 15:20:45,558 - DEBUG - Starting new HTTP connection (1): 192.168.1.177:80
+2024-09-26 15:20:45,559 - DEBUG - http://192.168.1.177:80 "POST /newdata/config//ciao HTTP/1.1" 404 25
+2024-09-26 15:20:53,691 - INFO - Entrato in on_message
+2024-09-26 15:20:53,692 - INFO - TOPIC: //Coord
+2024-09-26 15:20:53,693 - DEBUG - Starting new HTTP connection (1): 192.168.1.177:80
+2024-09-26 15:20:53,695 - DEBUG - http://192.168.1.177:80 "POST /newdata///Coord// HTTP/1.1" 404 25
+2024-09-26 15:22:13,287 - INFO - Arduino connesso correttamente sulla porta /dev/cu.usbmodem144101
+2024-09-26 15:22:13,289 - INFO - Connessione riuscita. Pronto a inviare i dati della ciotola.
+2024-09-26 15:22:13,289 - INFO - Entro in SetupMQTT
+2024-09-26 15:22:13,289 - INFO - connecting to MQTT broker...
+2024-09-26 15:22:13,382 - INFO - Entrato in on_connect
+2024-09-26 15:22:13,382 - INFO - Connected with result code Success
+2024-09-26 15:24:13,075 - INFO - Arduino connesso correttamente sulla porta /dev/cu.usbmodem144101
+2024-09-26 15:24:13,075 - INFO - Connessione riuscita. Pronto a inviare i dati della ciotola.
+2024-09-26 15:24:13,075 - INFO - Entro in SetupMQTT
+2024-09-26 15:24:13,075 - INFO - connecting to MQTT broker...
+2024-09-26 15:24:20,953 - INFO - Entrato in on_connect
+2024-09-26 15:24:20,953 - INFO - Connected with result code Success
+2024-09-26 15:27:25,181 - WARNING -  * Debugger is active!
+2024-09-26 15:27:25,193 - INFO -  * Debugger PIN: 195-187-536
+2024-09-26 15:28:29,311 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:80
+ * Running on http://192.168.1.177:80
+2024-09-26 15:28:29,312 - INFO - [33mPress CTRL+C to quit[0m
+2024-09-26 15:28:29,312 - INFO -  * Restarting with stat
+
+
+2024-09-26 15:30:00,636 - INFO -  * Detected change in '/Users/martina/Desktop/PROGETTO_IOT/IoT_Project/main.py', reloading
+2024-09-26 15:30:00,842 - INFO -  * Restarting with stat
+2024-09-26 15:30:34,127 - INFO - Arduino connesso correttamente sulla porta /dev/cu.usbmodem144101
+2024-09-26 15:30:34,127 - INFO - Connessione riuscita. Pronto a inviare i dati della ciotola.
+2024-09-26 15:30:34,127 - INFO - Entro in SetupMQTT
+2024-09-26 15:30:34,127 - INFO - connecting to MQTT broker...
+2024-09-26 15:31:35,411 - INFO - Entrato in on_connect
+2024-09-26 15:31:35,411 - INFO - Connected with result code Success
+2024-09-26 15:35:28,728 - INFO - Arduino connesso correttamente sulla porta /dev/cu.usbmodem144101
+2024-09-26 15:35:28,728 - INFO - Connessione riuscita. Pronto a inviare i dati della ciotola.
+2024-09-26 15:35:28,729 - INFO - Entro in SetupMQTT
+2024-09-26 15:35:28,729 - INFO - connecting to MQTT broker...
+
+
+
+2024-09-26 15:37:08,435 - INFO - Arduino connesso correttamente sulla porta /dev/cu.usbmodem144101
+2024-09-26 15:37:08,436 - INFO - Connessione riuscita. Pronto a inviare i dati della ciotola.
+2024-09-26 15:37:08,436 - INFO - Entro in SetupMQTT
+2024-09-26 15:37:08,436 - INFO - connecting to MQTT broker...
+2024-09-26 15:37:10,585 - INFO - Entrato in on_connect
+2024-09-26 15:37:10,586 - INFO - Connected with result code Success
+2024-09-26 15:40:36,424 - INFO - Arduino connesso correttamente sulla porta /dev/cu.usbmodem144101
+2024-09-26 15:40:36,425 - INFO - Connessione riuscita. Pronto a inviare i dati della ciotola.
+2024-09-26 15:40:36,425 - INFO - Entro in SetupMQTT
+2024-09-26 15:40:36,425 - INFO - connecting to MQTT broker...
+2024-09-26 15:40:48,265 - INFO - Entrato in on_connect
+2024-09-26 15:40:48,266 - INFO - Connected with result code Success
+2024-09-26 15:54:12,582 - INFO - Arduino connesso correttamente sulla porta /dev/cu.usbmodem144101
+2024-09-26 15:54:12,583 - INFO - Connessione riuscita. Pronto a inviare i dati della ciotola.
+2024-09-26 15:54:12,583 - INFO - Entro in SetupMQTT
+2024-09-26 15:54:12,584 - INFO - connecting to MQTT broker...
+2024-09-26 15:56:16,103 - INFO - Entrato in on_connect
+2024-09-26 15:56:16,103 - INFO - Connected with result code Success
+2024-09-26 15:59:43,874 - INFO - Arduino connesso correttamente sulla porta /dev/cu.usbmodem144101
+2024-09-26 15:59:43,875 - INFO - Connessione riuscita. Pronto a inviare i dati della ciotola.
+2024-09-26 15:59:43,875 - INFO - Entro in SetupMQTT
+2024-09-26 15:59:43,875 - INFO - connecting to MQTT broker...
+2024-09-26 16:01:50,774 - INFO - Entrato in on_connect
+2024-09-26 16:01:50,774 - INFO - Connected with result code Success
+
+
+2024-09-26 16:08:55,248 - INFO - Arduino connesso correttamente sulla porta /dev/cu.usbmodem144101
+2024-09-26 16:08:55,249 - INFO - Connessione riuscita. Pronto a inviare i dati della ciotola.
+2024-09-26 16:08:55,249 - INFO - Entro in SetupMQTT
+2024-09-26 16:08:55,249 - INFO - connecting to MQTT broker...
+2024-09-26 16:09:12,078 - INFO - Entrato in on_connect
+2024-09-26 16:09:12,078 - INFO - Connected with result code Success
+2024-09-26 16:34:29,664 - INFO - connecting to MQTT broker...
+2024-09-26 16:34:29,986 - INFO - Connesso a broker.hivemq.com:1883
+2024-09-26 16:34:29,987 - INFO - Sottoscritto al topic: config/topic/
+2024-09-26 16:34:30,423 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:80
+ * Running on http://192.168.1.177:80
+2024-09-26 16:34:30,423 - INFO - [33mPress CTRL+C to quit[0m
+2024-09-26 16:34:30,425 - INFO -  * Restarting with stat
+2024-09-26 16:34:31,970 - INFO - connecting to MQTT broker...
+2024-09-26 16:34:32,014 - INFO - Connesso a broker.hivemq.com:1883
+2024-09-26 16:34:32,014 - INFO - Sottoscritto al topic: config/topic/
+2024-09-26 16:34:32,392 - WARNING -  * Debugger is active!
+2024-09-26 16:34:32,405 - INFO -  * Debugger PIN: 195-187-536
+2024-09-26 16:39:53,586 - INFO - Arduino connesso correttamente sulla porta /dev/cu.usbmodem144101
+2024-09-26 16:39:53,587 - INFO - Connessione riuscita. Pronto a inviare i dati della ciotola.
+2024-09-26 16:39:53,587 - INFO - Entro in SetupMQTT
+2024-09-26 16:41:11,649 - INFO - Entrato in on_connect
+2024-09-26 16:41:11,650 - INFO - Connected with result code Success
+2024-09-26 16:55:25,091 - INFO - Arduino connesso correttamente sulla porta /dev/cu.usbmodem144101
+2024-09-26 16:55:25,092 - INFO - Connessione riuscita. Pronto a inviare i dati della ciotola.
+2024-09-26 16:55:25,092 - INFO - Entro in SetupMQTT
+2024-09-26 17:01:22,393 - INFO - Entrato in on_connect
+2024-09-26 17:01:22,395 - INFO - Connected with result code Success
+2024-09-26 17:10:00,478 - INFO - []
+2024-09-26 17:10:02,496 - INFO - Arduino connesso correttamente sulla porta /dev/cu.usbmodem144101
+2024-09-26 17:10:02,496 - INFO - Connessione riuscita. Pronto a inviare i dati della ciotola.
+2024-09-26 17:10:02,496 - INFO - Entro in SetupMQTT
+2024-09-26 17:10:13,301 - INFO - Entrato in on_connect
+2024-09-26 17:10:13,301 - INFO - Connected with result code Success
+
+
+2024-09-26 17:26:08,408 - INFO - Arduino connesso correttamente sulla porta /dev/cu.usbmodem144101
+2024-09-26 17:26:08,409 - INFO - Connessione riuscita. Pronto a inviare i dati della ciotola.
+2024-09-26 17:26:08,409 - INFO - Entro in SetupMQTT
+2024-09-26 17:26:35,770 - INFO - Entrato in on_connect
+2024-09-26 17:26:35,770 - INFO - Connected with result code Success
+2024-09-26 17:31:41,974 - INFO - Arduino connesso correttamente sulla porta /dev/cu.usbmodem144101
+2024-09-26 17:31:41,974 - INFO - Connessione riuscita. Pronto a inviare i dati della ciotola.
+2024-09-26 17:31:41,974 - INFO - Entro in SetupMQTT
+2024-09-26 17:31:41,974 - INFO - connecting to MQTT broker...
+2024-09-26 17:32:08,787 - INFO - Entrato in on_connect
+2024-09-26 17:32:08,788 - INFO - Connected with result code Success
+
+
+2024-09-26 17:34:21,239 - INFO - Arduino connesso correttamente sulla porta /dev/cu.usbmodem144101
+2024-09-26 17:34:21,239 - INFO - Connessione riuscita. Pronto a inviare i dati della ciotola.
+2024-09-26 17:34:21,240 - INFO - Entro in SetupMQTT
+2024-09-26 17:34:21,240 - INFO - connecting to MQTT broker...
+2024-09-26 17:34:31,891 - INFO - Entrato in on_connect
+2024-09-26 17:34:31,891 - INFO - Connected with result code Success
+2024-09-26 17:36:35,503 - INFO - Arduino connesso correttamente sulla porta /dev/cu.usbmodem144101
+2024-09-26 17:36:35,503 - INFO - Connessione riuscita. Pronto a inviare i dati della ciotola.
+2024-09-26 17:36:35,503 - INFO - Entro in SetupMQTT
+2024-09-26 17:36:35,503 - INFO - connecting to MQTT broker...
+2024-09-26 17:36:35,677 - INFO - Entrato in on_connect
+2024-09-26 17:36:35,677 - INFO - Connected with result code Success
+2024-09-26 17:36:35,677 - INFO - Connesso al topic: config/topic/
+2024-09-26 17:40:01,494 - INFO - Arduino connesso correttamente sulla porta /dev/cu.usbmodem144101
+2024-09-26 17:40:01,495 - INFO - Connessione riuscita. Pronto a inviare i dati della ciotola.
+2024-09-26 17:40:01,495 - INFO - Entro in SetupMQTT
+2024-09-26 17:40:01,495 - INFO - connecting to MQTT broker...
+2024-09-26 17:40:25,706 - INFO - Entrato in on_connect
+2024-09-26 17:40:25,706 - INFO - Connected with result code Success
+2024-09-26 17:40:25,706 - INFO - Connesso al topic: config/topic/
+2024-09-26 17:41:32,666 - INFO - Arduino connesso correttamente sulla porta /dev/cu.usbmodem144101
+2024-09-26 17:41:32,668 - INFO - Connessione riuscita. Pronto a inviare i dati della ciotola.
+2024-09-26 17:41:32,668 - INFO - Entro in SetupMQTT
+2024-09-26 17:41:32,668 - INFO - connecting to MQTT broker...
+2024-09-26 17:41:32,741 - INFO - Entrato in on_connect
+2024-09-26 17:41:32,741 - INFO - Connected with result code Success
+2024-09-26 17:41:32,741 - INFO - Connesso al topic: config/topic/
+
+
+
+
+
+2024-09-26 17:43:45,238 - INFO - Arduino connesso correttamente sulla porta /dev/cu.usbmodem144101
+2024-09-26 17:43:45,238 - INFO - Connessione riuscita. Pronto a inviare i dati della ciotola.
+2024-09-26 17:43:45,238 - INFO - Entro in SetupMQTT
+2024-09-26 17:43:45,238 - INFO - connecting to MQTT broker...
+2024-09-26 17:43:45,311 - INFO - Entrato in on_connect
+2024-09-26 17:43:45,311 - INFO - Connected with result code Success
+2024-09-26 17:43:45,311 - INFO - Connesso al topic: config/topic/
+2024-09-26 17:43:53,047 - INFO - Entrato in on_message
+2024-09-26 17:43:53,051 - INFO - TOPIC: config/topic/
+2024-09-26 17:43:53,052 - INFO - on_config è stato chiamato.
+2024-09-26 17:43:53,052 - INFO - Received message on topic: config/topic/
+2024-09-26 17:43:53,052 - INFO - Payload grezzo: zona,id,latitudine,longitudine
+2024-09-26 17:43:53,052 - ERROR - Errore nella decodifica del payload JSON
+2024-09-26 17:43:53,052 - INFO - Zona: , ID: , Lat: , Lon: 
+2024-09-26 17:43:53,203 - INFO - Entrato in on_message
+2024-09-26 17:43:53,204 - INFO - TOPIC: //Coord
+2024-09-26 17:45:18,445 - INFO - Arduino connesso correttamente sulla porta /dev/cu.usbmodem144101
+2024-09-26 17:45:18,445 - INFO - Connessione riuscita. Pronto a inviare i dati della ciotola.
+2024-09-26 17:45:18,446 - INFO - Entro in SetupMQTT
+2024-09-26 17:45:18,446 - INFO - connecting to MQTT broker...
+2024-09-26 17:45:42,848 - INFO - Entrato in on_connect
+2024-09-26 17:45:42,848 - INFO - Connected with result code Success
+2024-09-26 17:45:42,848 - INFO - Connesso al topic: config/topic/
+
+
+
+2024-09-26 17:50:45,257 - INFO - Arduino connesso correttamente sulla porta /dev/cu.usbmodem144101
+2024-09-26 17:50:45,258 - INFO - Connessione riuscita. Pronto a inviare i dati della ciotola.
+2024-09-26 17:50:45,258 - INFO - Entro in SetupMQTT
+2024-09-26 17:50:45,259 - INFO - connecting to MQTT broker...
+2024-09-26 17:50:45,388 - INFO - Entrato in on_connect
+2024-09-26 17:50:45,388 - INFO - Connected with result code Success
+2024-09-26 17:50:45,388 - INFO - Connesso al topic: config/topic/
+2024-09-26 17:51:21,525 - INFO - Entrato in on_message
+2024-09-26 17:51:21,532 - INFO - TOPIC: config/topic/
+2024-09-26 17:51:21,532 - INFO - on_config è stato chiamato.
+2024-09-26 17:51:21,532 - INFO - Received message on topic: config/topic/
+2024-09-26 17:51:21,532 - INFO - Payload grezzo: {'zona': 'Soliera', 'id': '1', 'latitudine': 44.7365, 'longitudine': 10.9174}
+2024-09-26 17:51:21,532 - ERROR - Errore nella decodifica del payload JSON
+2024-09-26 17:51:21,532 - INFO - Zona: , ID: , Lat: , Lon: 
+2024-09-26 17:51:21,836 - INFO - Entrato in on_message
+2024-09-26 17:51:21,836 - INFO - TOPIC: //Coord
+
+
+
+2024-09-26 17:57:06,279 - INFO - Arduino connesso correttamente sulla porta /dev/cu.usbmodem144101
+2024-09-26 17:57:06,279 - INFO - Connessione riuscita. Pronto a inviare i dati della ciotola.
+2024-09-26 17:57:06,279 - INFO - Entro in SetupMQTT
+2024-09-26 17:57:06,279 - INFO - connecting to MQTT broker...
+2024-09-26 17:57:10,150 - INFO - Entrato in on_connect
+2024-09-26 17:57:10,150 - INFO - Connected with result code Success
+2024-09-26 17:57:10,151 - INFO - Connesso al topic: config/topic/
+2024-09-26 18:00:05,426 - INFO - Arduino connesso correttamente sulla porta /dev/cu.usbmodem144101
+2024-09-26 18:00:05,427 - INFO - Connessione riuscita. Pronto a inviare i dati della ciotola.
+2024-09-26 18:00:05,427 - INFO - Entro in SetupMQTT
+2024-09-26 18:00:05,427 - INFO - connecting to MQTT broker...
+2024-09-26 18:01:06,691 - INFO - Entrato in on_connect
+2024-09-26 18:01:06,692 - INFO - Connected with result code Success
+2024-09-26 18:01:06,692 - INFO - Connesso al topic: config/topic/
+
+
+
+
+2024-09-26 18:08:57,910 - INFO - Arduino connesso correttamente sulla porta /dev/cu.usbmodem144101
+2024-09-26 18:08:57,910 - INFO - Connessione riuscita. Pronto a inviare i dati della ciotola.
+2024-09-26 18:08:57,910 - INFO - Entro in SetupMQTT
+2024-09-26 18:08:57,910 - INFO - connecting to MQTT broker...
+2024-09-26 18:11:18,539 - INFO - Entrato in on_connect
+2024-09-26 18:11:18,539 - INFO - Connected with result code Success
+2024-09-26 18:11:18,539 - INFO - Connesso al topic: config/topic/
+2024-09-26 18:27:51,874 - INFO - Arduino connesso correttamente sulla porta /dev/cu.usbmodem144101
+2024-09-26 18:27:51,875 - INFO - Connessione riuscita. Pronto a inviare i dati della ciotola.
+2024-09-26 18:27:51,875 - INFO - Entro in SetupMQTT
+2024-09-26 18:27:51,875 - INFO - connecting to MQTT broker...
+2024-09-26 18:28:16,618 - INFO - Entrato in on_connect
+2024-09-26 18:28:16,619 - INFO - Connected with result code Success
+2024-09-26 18:28:16,619 - INFO - Connesso al topic: config/topic/
+2024-09-26 18:28:41,499 - INFO - Entrato in on_message
+2024-09-26 18:28:41,503 - INFO - TOPIC: config/topic/
+2024-09-26 18:28:41,503 - INFO - on_config è stato chiamato.
+2024-09-26 18:28:41,503 - INFO - Received message on topic: config/topic/
+2024-09-26 18:28:41,503 - INFO - Payload grezzo: {"zona": "Soliera", "id": "1", "latitudine": 44.7365, "longitudine": 10.9174}
+2024-09-26 18:28:41,503 - INFO - PAYLOAD: {"zona": "Soliera", "id": "1", "latitudine": 44.7365, "longitudine": 10.9174}
+2024-09-26 18:28:41,503 - ERROR - Errore inatteso: string indices must be integers
+2024-09-26 18:28:41,503 - INFO - Zona: , ID: , Lat: , Lon: 
+2024-09-26 18:28:41,676 - INFO - Entrato in on_message
+2024-09-26 18:28:41,677 - INFO - TOPIC: //Coord
+2024-09-26 18:30:40,049 - INFO - Arduino connesso correttamente sulla porta /dev/cu.usbmodem144101
+2024-09-26 18:30:40,049 - INFO - Connessione riuscita. Pronto a inviare i dati della ciotola.
+2024-09-26 18:30:40,049 - INFO - Entro in SetupMQTT
+2024-09-26 18:30:40,050 - INFO - connecting to MQTT broker...
+2024-09-26 18:30:40,106 - INFO - Entrato in on_connect
+2024-09-26 18:30:40,106 - INFO - Connected with result code Success
+2024-09-26 18:30:40,107 - INFO - Connesso al topic: config/topic/
+2024-09-26 18:30:48,067 - INFO - Entrato in on_message
+2024-09-26 18:30:48,068 - INFO - TOPIC: config/topic/
+2024-09-26 18:30:48,068 - INFO - on_config è stato chiamato.
+2024-09-26 18:30:48,068 - INFO - Received message on topic: config/topic/
+2024-09-26 18:30:48,068 - INFO - Payload grezzo: {"zona": "Soliera", "id": "1", "latitudine": 44.7365, "longitudine": 10.9174}
+2024-09-26 18:30:48,068 - INFO - PAYLOAD: {"zona": "Soliera", "id": "1", "latitudine": 44.7365, "longitudine": 10.9174}
+2024-09-26 18:30:48,068 - ERROR - Errore inatteso: string indices must be integers
+2024-09-26 18:30:48,069 - INFO - Zona: , ID: , Lat: , Lon: 
+2024-09-26 18:30:48,214 - INFO - Entrato in on_message
+2024-09-26 18:30:48,215 - INFO - TOPIC: //Coord
+2024-09-26 18:34:12,102 - INFO - Arduino connesso correttamente sulla porta /dev/cu.usbmodem144101
+2024-09-26 18:34:12,102 - INFO - Connessione riuscita. Pronto a inviare i dati della ciotola.
+2024-09-26 18:34:12,102 - INFO - Entro in SetupMQTT
+2024-09-26 18:34:12,102 - INFO - connecting to MQTT broker...
+2024-09-26 18:34:12,184 - INFO - Entrato in on_connect
+2024-09-26 18:34:12,184 - INFO - Connected with result code Success
+2024-09-26 18:34:12,185 - INFO - Connesso al topic: config/topic/
+
+
+
+
+2024-09-26 18:36:57,201 - INFO - Arduino connesso correttamente sulla porta /dev/cu.usbmodem144101
+2024-09-26 18:36:57,202 - INFO - Connessione riuscita. Pronto a inviare i dati della ciotola.
+2024-09-26 18:36:57,202 - INFO - Entro in SetupMQTT
+2024-09-26 18:36:57,202 - INFO - connecting to MQTT broker...
+2024-09-26 18:39:00,703 - INFO - Entrato in on_connect
+2024-09-26 18:39:00,703 - INFO - Connected with result code Success
+2024-09-26 18:39:00,703 - INFO - Connesso al topic: config/topic/
+
+
+
+
+2024-09-26 18:41:56,815 - INFO - Arduino connesso correttamente sulla porta /dev/cu.usbmodem144101
+2024-09-26 18:41:56,816 - INFO - Connessione riuscita. Pronto a inviare i dati della ciotola.
+2024-09-26 18:41:56,816 - INFO - Entro in SetupMQTT
+2024-09-26 18:41:56,816 - INFO - connecting to MQTT broker...
+2024-09-26 18:42:58,071 - INFO - Entrato in on_connect
+2024-09-26 18:42:58,071 - INFO - Connected with result code Success
+2024-09-26 18:42:58,071 - INFO - Connesso al topic: config/topic/
+
+
+
+
+2024-09-26 18:44:45,055 - INFO - Arduino connesso correttamente sulla porta /dev/cu.usbmodem144101
+2024-09-26 18:44:45,055 - INFO - Connessione riuscita. Pronto a inviare i dati della ciotola.
+2024-09-26 18:44:45,055 - INFO - Entro in SetupMQTT
+2024-09-26 18:44:45,055 - INFO - connecting to MQTT broker...
+2024-09-26 18:45:46,309 - INFO - Entrato in on_connect
+2024-09-26 18:45:46,310 - INFO - Connected with result code Success
+2024-09-26 18:45:46,310 - INFO - Connesso al topic: config/topic/
+2024-09-26 18:46:49,300 - INFO - Arduino connesso correttamente sulla porta /dev/cu.usbmodem144101
+2024-09-26 18:46:49,300 - INFO - Connessione riuscita. Pronto a inviare i dati della ciotola.
+2024-09-26 18:46:49,300 - INFO - Entro in SetupMQTT
+2024-09-26 18:46:49,300 - INFO - connecting to MQTT broker...
+2024-09-26 18:48:52,787 - INFO - Entrato in on_connect
+2024-09-26 18:48:52,787 - INFO - Connected with result code Success
+2024-09-26 18:48:52,787 - INFO - Connesso al topic: config/topic/
+2024-09-26 18:52:57,446 - INFO - Arduino connesso correttamente sulla porta /dev/cu.usbmodem144101
+2024-09-26 18:52:57,448 - INFO - Connessione riuscita. Pronto a inviare i dati della ciotola.
+2024-09-26 18:52:57,448 - INFO - Entro in SetupMQTT
+2024-09-26 18:52:57,449 - INFO - connecting to MQTT broker...
+2024-09-26 18:53:58,711 - INFO - Entrato in on_connect
+2024-09-26 18:53:58,712 - INFO - Connected with result code Success
+2024-09-26 18:53:58,712 - INFO - Connesso al topic: config/topic/
+
+
+
+
+2024-09-26 19:08:25,712 - INFO - Arduino connesso correttamente sulla porta /dev/cu.usbmodem144101
+2024-09-26 19:08:25,713 - INFO - Connessione riuscita. Pronto a inviare i dati della ciotola.
+2024-09-26 19:08:25,713 - INFO - Entro in SetupMQTT
+2024-09-26 19:08:25,713 - INFO - connecting to MQTT broker...
+2024-09-26 19:15:30,089 - INFO - Entrato in on_connect
+2024-09-26 19:15:30,090 - INFO - Connected with result code Success
+2024-09-26 19:15:30,090 - INFO - Connesso al topic: config/topic/
+
+
+
+2024-09-26 19:25:37,674 - INFO - Arduino connesso correttamente sulla porta /dev/cu.usbmodem144101
+2024-09-26 19:25:37,674 - INFO - Connessione riuscita. Pronto a inviare i dati della ciotola.
+2024-09-26 19:25:37,674 - INFO - Entro in SetupMQTT
+2024-09-26 19:25:37,674 - INFO - connecting to MQTT broker...
+2024-09-26 19:26:38,932 - INFO - Entrato in on_connect
+2024-09-26 19:26:38,933 - INFO - Connected with result code Success
+2024-09-26 19:26:38,933 - INFO - Connesso al topic: config/topic/
+
+
+
+2024-09-26 19:27:56,054 - INFO - Arduino connesso correttamente sulla porta /dev/cu.usbmodem144101
+2024-09-26 19:27:56,054 - INFO - Connessione riuscita. Pronto a inviare i dati della ciotola.
+2024-09-26 19:27:56,054 - INFO - Entro in SetupMQTT
+2024-09-26 19:27:56,054 - INFO - connecting to MQTT broker...
+2024-09-26 21:29:54,392 - INFO - Arduino connesso correttamente sulla porta /dev/cu.usbmodem144101
+2024-09-26 21:29:54,393 - INFO - Connessione riuscita. Pronto a inviare i dati della ciotola.
+2024-09-26 21:29:54,393 - INFO - Entro in SetupMQTT
+2024-09-26 21:29:54,394 - INFO - connecting to MQTT broker...
+2024-09-26 21:29:54,467 - INFO - Entrato in on_connect
+2024-09-26 21:29:54,467 - INFO - Connected with result code Success
+2024-09-26 21:29:54,467 - INFO - Connesso al topic: config/topic/
+
+
+
+2024-09-26 21:33:02,394 - INFO - Arduino connesso correttamente sulla porta /dev/cu.usbmodem144101
+2024-09-26 21:33:02,395 - INFO - Connessione riuscita. Pronto a inviare i dati della ciotola.
+2024-09-26 21:33:02,395 - INFO - Entro in SetupMQTT
+2024-09-26 21:33:02,395 - INFO - connecting to MQTT broker...
+2024-09-26 21:34:17,567 - INFO - Arduino connesso correttamente sulla porta /dev/cu.usbmodem144101
+2024-09-26 21:34:17,568 - INFO - Connessione riuscita. Pronto a inviare i dati della ciotola.
+2024-09-26 21:34:17,568 - INFO - Entro in SetupMQTT
+2024-09-26 21:34:17,568 - INFO - connecting to MQTT broker...
+2024-09-26 21:34:17,640 - INFO - Entrato in on_connect
+2024-09-26 21:34:17,640 - INFO - Connected with result code Success
+2024-09-26 21:34:17,641 - INFO - Connesso al topic: config/topic/
+
+
+
+
+2024-09-26 21:38:05,499 - INFO - Arduino connesso correttamente sulla porta /dev/cu.usbmodem144101
+2024-09-26 21:38:05,500 - INFO - Connessione riuscita. Pronto a inviare i dati della ciotola.
+2024-09-26 21:38:05,500 - INFO - Entro in SetupMQTT
+2024-09-26 21:38:05,500 - INFO - connecting to MQTT broker...
+2024-09-26 21:38:05,950 - INFO - Entrato in on_connect
+2024-09-26 21:38:05,950 - INFO - Connected with result code Success
+2024-09-26 21:38:05,950 - INFO - Connesso al topic: config/topic/
+
+
+
+2024-09-26 21:39:23,859 - INFO - Arduino connesso correttamente sulla porta /dev/cu.usbmodem144101
+2024-09-26 21:39:23,859 - INFO - Connessione riuscita. Pronto a inviare i dati della ciotola.
+2024-09-26 21:39:23,859 - INFO - Entro in SetupMQTT
+2024-09-26 21:39:23,859 - INFO - connecting to MQTT broker...
+2024-09-26 21:40:26,457 - INFO - Entrato in on_connect
+2024-09-26 21:40:26,458 - INFO - Connected with result code Success
+2024-09-26 21:40:26,458 - INFO - Connesso al topic: config/topic
+
+
+
+2024-09-26 21:42:15,155 - INFO - Arduino connesso correttamente sulla porta /dev/cu.usbmodem144101
+2024-09-26 21:42:15,155 - INFO - Connessione riuscita. Pronto a inviare i dati della ciotola.
+2024-09-26 21:42:15,155 - INFO - Entro in SetupMQTT
+2024-09-26 21:42:15,155 - INFO - connecting to MQTT broker...
+2024-09-26 21:43:16,507 - INFO - Entrato in on_connect
+2024-09-26 21:43:16,508 - INFO - Connected with result code Success
+2024-09-26 21:43:16,508 - INFO - Connesso al topic: config/topic
+
+
+
+2024-09-26 21:53:03,702 - INFO - Arduino connesso correttamente sulla porta /dev/cu.usbmodem144101
+2024-09-26 21:53:03,702 - INFO - Connessione riuscita. Pronto a inviare i dati della ciotola.
+2024-09-26 21:53:03,702 - INFO - Entro in SetupMQTT
+2024-09-26 21:53:03,702 - INFO - connecting to MQTT broker...
+2024-09-26 21:54:04,954 - INFO - Entrato in on_connect
+2024-09-26 21:54:04,954 - INFO - Connected with result code Success
+2024-09-26 21:54:04,954 - INFO - Connesso al topic: config/topic
+
+
+2024-09-26 21:58:26,146 - INFO - Arduino connesso correttamente sulla porta /dev/cu.usbmodem144101
+2024-09-26 21:58:26,146 - INFO - Connessione riuscita. Pronto a inviare i dati della ciotola.
+2024-09-26 21:58:26,146 - INFO - Entro in SetupMQTT
+2024-09-26 21:58:26,146 - INFO - connecting to MQTT broker...
+2024-09-26 21:59:27,393 - INFO - Entrato in on_connect
+2024-09-26 21:59:27,393 - INFO - Connected with result code Success
+2024-09-26 21:59:27,393 - INFO - Connesso al topic: config/topic
+
+
+2024-09-26 22:03:18,287 - INFO - Arduino connesso correttamente sulla porta /dev/cu.usbmodem144101
+2024-09-26 22:03:18,289 - INFO - Connessione riuscita. Pronto a inviare i dati della ciotola.
+2024-09-26 22:03:18,289 - INFO - Entro in SetupMQTT
+2024-09-26 22:03:18,289 - INFO - connecting to MQTT broker...
+2024-09-26 22:03:18,329 - INFO - MQTT broker CONNECTED
+2024-09-26 22:05:21,775 - INFO - Entrato in on_connect
+2024-09-26 22:05:21,776 - INFO - Connected with result code Success
+2024-09-26 22:05:21,776 - INFO - Connesso al topic: config/topic
+
+
+
+2024-09-26 22:10:15,881 - INFO - Arduino connesso correttamente sulla porta /dev/cu.usbmodem144101
+2024-09-26 22:10:15,881 - INFO - Connessione riuscita. Pronto a inviare i dati della ciotola.
+2024-09-26 22:10:15,882 - INFO - Entro in SetupMQTT
+2024-09-26 22:10:15,882 - INFO - connecting to MQTT broker...
+2024-09-26 22:10:15,913 - INFO - MQTT broker CONNECTED
+2024-09-26 22:10:37,653 - INFO - Entrato in on_connect
+2024-09-26 22:10:37,654 - INFO - Connected with result code Success
+2024-09-26 22:10:37,654 - INFO - Connesso al topic: config/topic
+2024-09-26 22:10:37,871 - INFO - Entrato in on_message
+2024-09-26 22:10:37,875 - INFO - TOPIC: config/topic
+2024-09-26 22:10:37,875 - INFO - on_config è stato chiamato.
+2024-09-26 22:10:37,875 - INFO - Received message on topic: config/topic
+2024-09-26 22:10:37,875 - INFO - Payload grezzo: {"zona": "Soliera", "id": "1", "latitudine": 44.7365, "longitudine": 10.9174}
+2024-09-26 22:10:37,875 - INFO - Converting from Json to Object
+2024-09-26 22:10:37,875 - INFO - PAYLOAD: {'zona': 'Soliera', 'id': '1', 'latitudine': 44.7365, 'longitudine': 10.9174} - TYPE: <class 'dict'>
+2024-09-26 22:10:37,879 - ERROR - Errore inatteso: 'float' object has no attribute 'encode'
+2024-09-26 22:24:53,055 - INFO - Arduino connesso correttamente sulla porta /dev/cu.usbmodem144101
+2024-09-26 22:24:53,056 - INFO - Connessione riuscita. Pronto a inviare i dati della ciotola.
+2024-09-26 22:24:53,056 - INFO - Entro in SetupMQTT
+2024-09-26 22:24:53,057 - INFO - connecting to MQTT broker...
+2024-09-26 22:24:53,095 - INFO - MQTT broker CONNECTED
+2024-09-26 22:24:59,405 - INFO - Entrato in on_connect
+2024-09-26 22:24:59,407 - INFO - Connected with result code Success
+2024-09-26 22:24:59,407 - INFO - Connesso al topic: config/topic
+2024-09-26 22:24:59,481 - INFO - Entrato in on_message
+2024-09-26 22:24:59,482 - INFO - TOPIC: config/topic
+2024-09-26 22:24:59,482 - INFO - on_config è stato chiamato.
+2024-09-26 22:24:59,482 - INFO - Received message on topic: config/topic
+2024-09-26 22:24:59,482 - INFO - Payload grezzo: {"zona": "Soliera", "id": "1", "latitudine": 44.7365, "longitudine": 10.9174}
+2024-09-26 22:24:59,482 - INFO - Converting from Json to Object
+2024-09-26 22:24:59,482 - INFO - PAYLOAD: {'zona': 'Soliera', 'id': '1', 'latitudine': 44.7365, 'longitudine': 10.9174} - TYPE: <class 'dict'>
+2024-09-26 22:24:59,486 - ERROR - Errore inatteso: 'float' object has no attribute 'encode'
+2024-09-26 22:29:24,286 - INFO - Arduino connesso correttamente sulla porta /dev/cu.usbmodem144101
+2024-09-26 22:29:24,288 - INFO - Connessione riuscita. Pronto a inviare i dati della ciotola.
+2024-09-26 22:29:24,288 - INFO - Entro in SetupMQTT
+2024-09-26 22:29:24,288 - INFO - connecting to MQTT broker...
+2024-09-26 22:29:24,321 - INFO - MQTT broker CONNECTED
+2024-09-26 22:29:24,358 - INFO - Entrato in on_connect
+2024-09-26 22:29:24,359 - INFO - Connected with result code Success
+2024-09-26 22:29:24,359 - INFO - Connesso al topic: config/topic
+2024-09-26 22:29:24,440 - INFO - Entrato in on_message
+2024-09-26 22:29:24,441 - INFO - TOPIC: config/topic
+2024-09-26 22:29:24,441 - INFO - on_config è stato chiamato.
+2024-09-26 22:29:24,441 - INFO - Received message on topic: config/topic
+2024-09-26 22:29:24,441 - INFO - Payload grezzo: {"zona": "Soliera", "id": "1", "latitudine": 44.7365, "longitudine": 10.9174}
+2024-09-26 22:29:24,441 - INFO - Converting from Json to Object
+2024-09-26 22:29:24,441 - INFO - PAYLOAD: {'zona': 'Soliera', 'id': '1', 'latitudine': 44.7365, 'longitudine': 10.9174} - TYPE: <class 'dict'>
+2024-09-26 22:29:24,446 - ERROR - Errore inatteso: 'float' object has no attribute 'encode'
+
+
+
+
+2024-09-26 22:31:26,068 - INFO - Arduino connesso correttamente sulla porta /dev/cu.usbmodem144101
+2024-09-26 22:31:26,069 - INFO - Connessione riuscita. Pronto a inviare i dati della ciotola.
+2024-09-26 22:31:26,069 - INFO - Entro in SetupMQTT
+2024-09-26 22:31:26,069 - INFO - connecting to MQTT broker...
+2024-09-26 22:31:26,096 - INFO - MQTT broker CONNECTED
+2024-09-26 22:31:32,759 - INFO - Entrato in on_connect
+2024-09-26 22:31:32,759 - INFO - Connected with result code Success
+2024-09-26 22:31:32,759 - INFO - Connesso al topic: config/topic
+2024-09-26 22:31:32,823 - INFO - Entrato in on_message
+2024-09-26 22:31:32,824 - INFO - TOPIC: config/topic
+2024-09-26 22:31:32,824 - INFO - on_config è stato chiamato.
+2024-09-26 22:31:32,824 - INFO - Received message on topic: config/topic
+2024-09-26 22:31:32,825 - INFO - Payload grezzo: {"zona": "Soliera", "id": "1", "latitudine": 44.7365, "longitudine": 10.9174}
+2024-09-26 22:31:32,825 - INFO - Converting from Json to Object
+2024-09-26 22:31:32,825 - INFO - PAYLOAD: {'zona': 'Soliera', 'id': '1', 'latitudine': 44.7365, 'longitudine': 10.9174} - TYPE: <class 'dict'>
+2024-09-26 22:31:32,831 - DEBUG - Dati inviati all'Arduino: Soliera, 1, 44.7365, 10.9174
+2024-09-26 22:31:32,859 - DEBUG - Arduino ha confermato la ricezione dei dati.
+2024-09-26 22:40:22,587 - INFO - Arduino connesso correttamente sulla porta /dev/cu.usbmodem144101
+2024-09-26 22:40:22,589 - INFO - Connessione riuscita. Pronto a inviare i dati della ciotola.
+2024-09-26 22:40:22,589 - INFO - Entro in SetupMQTT
+2024-09-26 22:40:22,589 - INFO - connecting to MQTT broker...
+2024-09-26 22:40:22,629 - INFO - MQTT broker CONNECTED
+2024-09-26 22:40:32,043 - INFO - Entrato in on_connect
+2024-09-26 22:40:32,044 - INFO - Connected with result code Success
+2024-09-26 22:40:32,050 - INFO - Connesso al topic: config/topic
+2024-09-26 22:40:32,123 - INFO - Entrato in on_message
+2024-09-26 22:40:32,124 - INFO - TOPIC: config/topic
+2024-09-26 22:40:32,124 - INFO - on_config è stato chiamato.
+2024-09-26 22:40:32,124 - INFO - Received message on topic: config/topic
+2024-09-26 22:40:32,124 - INFO - Payload grezzo: {"zona": "Soliera", "id": "1", "latitudine": 44.7365, "longitudine": 10.9174}
+2024-09-26 22:40:32,124 - INFO - Converting from Json to Object
+2024-09-26 22:40:32,124 - INFO - PAYLOAD: {'zona': 'Soliera', 'id': '1', 'latitudine': 44.7365, 'longitudine': 10.9174} - TYPE: <class 'dict'>
+2024-09-26 22:40:32,130 - DEBUG - Dati inviati all'Arduino: Soliera, 1, 44.7365, 10.9174
+2024-09-26 22:40:32,159 - DEBUG - Arduino ha confermato la ricezione dei dati.
+2024-09-26 22:40:32,159 - ERROR - Errore nelle subscribe unsupported operand type(s) for +: 'float' and 'str'
+2024-09-26 22:40:35,899 - INFO - Entrato in on_message
+2024-09-26 22:40:35,903 - INFO - TOPIC: Soliera/1/Lvlsensor_0
+2024-09-26 22:40:39,544 - INFO - Entrato in on_message
+2024-09-26 22:40:39,544 - INFO - TOPIC: Soliera/1/Lvlsensor_1
+2024-09-26 22:40:45,470 - INFO - Entrato in on_message
+2024-09-26 22:40:45,472 - INFO - TOPIC: config/topic
+2024-09-26 22:40:45,472 - INFO - on_config è stato chiamato.
+2024-09-26 22:40:45,472 - INFO - Received message on topic: config/topic
+2024-09-26 22:40:45,472 - INFO - Payload grezzo: {"zona": "Soliera", "id": "1", "latitudine": 44.7365, "longitudine": 10.9174}
+2024-09-26 22:40:45,472 - INFO - Converting from Json to Object
+2024-09-26 22:40:45,472 - INFO - PAYLOAD: {'zona': 'Soliera', 'id': '1', 'latitudine': 44.7365, 'longitudine': 10.9174} - TYPE: <class 'dict'>
+2024-09-26 22:40:45,473 - DEBUG - Dati inviati all'Arduino: Soliera, 1, 44.7365, 10.9174
+2024-09-26 22:40:45,473 - ERROR - Errore nelle subscribe unsupported operand type(s) for +: 'float' and 'str'
+2024-09-26 22:40:55,927 - INFO - Entrato in on_message
+2024-09-26 22:40:55,932 - INFO - TOPIC: Soliera/1/Lvlsensor_0
+2024-09-26 22:40:59,581 - INFO - Entrato in on_message
+2024-09-26 22:40:59,582 - INFO - TOPIC: Soliera/1/Lvlsensor_1
+2024-09-26 22:41:05,947 - INFO - Entrato in on_message
+2024-09-26 22:41:05,952 - INFO - TOPIC: Soliera/1/Lvlsensor_0
+2024-09-26 22:41:09,583 - INFO - Entrato in on_message
+2024-09-26 22:41:09,584 - INFO - TOPIC: Soliera/1/Lvlsensor_1
+2024-09-26 22:41:15,969 - INFO - Entrato in on_message
+2024-09-26 22:41:15,973 - INFO - TOPIC: Soliera/1/Lvlsensor_0
+2024-09-26 22:41:19,627 - INFO - Entrato in on_message
+2024-09-26 22:41:19,628 - INFO - TOPIC: Soliera/1/Lvlsensor_1
+
+
+
+
+
+2024-09-26 22:47:07,073 - INFO - Arduino connesso correttamente sulla porta /dev/cu.usbmodem144101
+2024-09-26 22:47:07,074 - INFO - Connessione riuscita. Pronto a inviare i dati della ciotola.
+2024-09-26 22:47:07,074 - INFO - Entro in SetupMQTT
+2024-09-26 22:47:07,074 - INFO - connecting to MQTT broker...
+2024-09-26 22:47:07,113 - INFO - MQTT broker CONNECTED
+2024-09-26 22:47:07,146 - INFO - Entrato in on_connect
+2024-09-26 22:47:07,146 - INFO - Connected with result code Success
+2024-09-26 22:47:07,146 - INFO - Connesso al topic: config/topic
+2024-09-26 22:47:07,213 - INFO - Entrato in on_message
+2024-09-26 22:47:07,214 - INFO - TOPIC: config/topic
+2024-09-26 22:47:07,214 - INFO - on_config è stato chiamato.
+2024-09-26 22:47:07,214 - INFO - Received message on topic: config/topic
+2024-09-26 22:47:07,214 - INFO - Payload grezzo: {"zona": "Soliera", "id": "1", "latitudine": 44.7365, "longitudine": 10.9174}
+2024-09-26 22:47:07,214 - INFO - Converting from Json to Object
+2024-09-26 22:47:07,214 - INFO - PAYLOAD: {'zona': 'Soliera', 'id': '1', 'latitudine': 44.7365, 'longitudine': 10.9174} - TYPE: <class 'dict'>
+2024-09-26 22:47:07,220 - DEBUG - Dati inviati all'Arduino: Soliera, 1, 44.7365, 10.9174
+2024-09-26 22:47:07,249 - DEBUG - Arduino ha confermato la ricezione dei dati.
+2024-09-26 22:47:07,249 - INFO - Zona: Soliera, ID: 1, Lat: 44.7365, Lon: 10.9174
+2024-09-26 22:47:07,428 - INFO - Entrato in on_message
+2024-09-26 22:47:07,429 - INFO - TOPIC: Soliera/1/Coord
+2024-09-26 22:47:20,390 - INFO - Entrato in on_message
+2024-09-26 22:47:20,394 - INFO - TOPIC: Soliera/1/Lvlsensor_0
+2024-09-26 22:47:24,050 - INFO - Entrato in on_message
+2024-09-26 22:47:24,052 - INFO - TOPIC: Soliera/1/Lvlsensor_1
+2024-09-26 22:47:30,400 - INFO - Entrato in on_message
+2024-09-26 22:47:30,401 - INFO - TOPIC: Soliera/1/Lvlsensor_0
+2024-09-26 22:47:34,039 - INFO - Entrato in on_message
+2024-09-26 22:47:34,040 - INFO - TOPIC: Soliera/1/Lvlsensor_1
+2024-09-26 22:47:40,402 - INFO - Entrato in on_message
+2024-09-26 22:47:40,406 - INFO - TOPIC: Soliera/1/Lvlsensor_0
+2024-09-26 22:47:44,051 - INFO - Entrato in on_message
+2024-09-26 22:47:44,052 - INFO - TOPIC: Soliera/1/Lvlsensor_1
+2024-09-26 22:47:50,418 - INFO - Entrato in on_message
+2024-09-26 22:47:50,419 - INFO - TOPIC: Soliera/1/Lvlsensor_0
+2024-09-26 22:47:54,081 - INFO - Entrato in on_message
+2024-09-26 22:47:54,082 - INFO - TOPIC: Soliera/1/Lvlsensor_1
+2024-09-26 22:48:00,414 - INFO - Entrato in on_message
+2024-09-26 22:48:00,418 - INFO - TOPIC: Soliera/1/Lvlsensor_0

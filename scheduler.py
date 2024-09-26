@@ -1,8 +1,10 @@
 import serial
 import serial.tools.list_ports
-from bridge_2_states import Bridge
-from main import activeBowls
+from bridge_26_09 import Bridge
+import logging
 
+logging.basicConfig(filename='scheduler.log', level=logging.DEBUG,
+                    format='%(asctime)s - %(levelname)s - %(message)s')
 class Scheduler():
 
     def __init__(self):

@@ -10,9 +10,13 @@ import time
 import logging
 import json
 
+from main import mqtt_client
+
 # Configura il logging
-logging.basicConfig(filename='bridge.log', level=logging.DEBUG,
-                    format='%(asctime)s - %(levelname)s - %(message)s')
+logging.basicConfig(filename='bridge3.log', level=logging.DEBUG,
+					format='%(asctime)s - %(levelname)s - %(message)s')
+
+
 
 class Bridge():
 
@@ -36,43 +40,9 @@ class Bridge():
 		self.sogliaAlta0 = 160	#water in bowl
 		self.sogliaBassa1 = 740	#no water in tank
 		self.sogliaAlta1 = 415	#water in tank
+		self.clientMQTT = mqtt_client
 		self.setupSerial(port)
 		self.setupMQTT()
- 
-	''' OLD
-	def setupSerial(self, port):        
-		try:
-			print(f"Setting up serial connection on {port.device}")
-			self.ser = serial.Serial(port.device, 9600, timeout=2)
-			time.sleep(2)
-			# Write the connection message
-			self.ser.write(b'\xff')
-			# Wait for the responses from the Arduino
-			response = self.ser.read()
-			if response == b'\xfe':
-				print(f"Arduino connesso alla porta {port.device}")
-				# leggi informazioni sulle coordinate
-				self.lat = str(self.ser.read(5).decode())
-				self.lon = str(self.ser.read(5).decode())
-				# leggi informazioni sulla zona della ciotola
-				size_zona = int(self.ser.read().decode())
-				self.zona = self.ser.read(size_zona).decode()
-				# leggi informazioni sull'id
-				size_id = int(self.ser.read().decode())
-				self.id = self.ser.read(size_id).decode()
-				self.portName = port.device
-				return True
-			else:
-				error = self.ser.read(27)
-				print(f"Error: {error}")
-				# If the Arduino doesn't reply correctly, close the connection
-				self.ser.close()
-				print('Errore nella connessione')
-				return False
-		except (OSError, serial.SerialException) as e:
-			print(f"Serial setup exception: {e}")
-			pass
- 	'''
   
 	def setupSerial(self, port):
 		try:
@@ -89,10 +59,10 @@ class Bridge():
 			response = self.ser.read()
 			
 			if response == b'\xfe':
-				print(f"Arduino connesso correttamente sulla porta {port.device}")
+				logging.info(f"Arduino connesso correttamente sulla porta {port.device}")
 				
 				# Ora attendiamo che l'Arduino invii la conferma di avvenuta connessione
-				print("Connessione riuscita. Pronto a inviare i dati della ciotola.")
+				logging.info("Connessione riuscita. Pronto a inviare i dati della ciotola.")
 				self.portName = port.device
 				return True
 			else:
@@ -102,11 +72,11 @@ class Bridge():
 				
 				# Chiudi la connessione se ci sono problemi
 				self.ser.close()
-				print('Errore nella connessione seriale con Arduino')
+				logging.info('Errore nella connessione seriale con Arduino')
 				return False
 
 		except (OSError, serial.SerialException) as e:
-			print(f"Errore nell'impostazione della connessione seriale: {e}")
+			logging.info(f"Errore nell'impostazione della connessione seriale: {e}")
 			return False
 
 	#NEW!!!	
@@ -124,18 +94,18 @@ class Bridge():
 					# Invia i dati della ciotola
 					self.ser.write(zone.encode() + b'\n')
 					self.ser.write(id.encode() + b'\n')
-					self.ser.write(lat.encode() + b'\n')
-					self.ser.write(lon.encode() + b'\n')
+					self.ser.write(str(lat).encode() + b'\n')
+					self.ser.write(str(lon).encode() + b'\n')
 					logging.debug(f"Dati inviati all'Arduino: {zone}, {id}, {lat}, {lon}")
 
 				# Attendi la conferma dall'Arduino
-				response = self.ser.read()
-				if response == b'\x01':
+				response1 = self.ser.read()
+				if response1 == b'\x01':
 					logging.debug("Arduino ha confermato la ricezione dei dati.")
 					self.bowl_data_sent = True  # Imposta il flag a True
 					return True
 				else:
-					print(f"Errore nella conferma dall'Arduino: {response}")
+					print(f"Errore nella conferma dall'Arduino: {response1}")
 					return False
 			except serial.SerialException as e:
 				print(f"Errore durante l'invio dei dati all'Arduino: {e}")
@@ -146,73 +116,104 @@ class Bridge():
 
 
 	def setupMQTT(self):
-		self.clientMQTT = mqtt.Client(mqtt.CallbackAPIVersion.VERSION2)
+		logging.info("Entro in SetupMQTT")
 		self.clientMQTT.on_connect = self.on_connect
 		self.clientMQTT.on_message = self.on_message
-		print("connecting to MQTT broker...")
-		self.clientMQTT.connect(
+		#self.clientMQTT = mqtt.Client(mqtt.CallbackAPIVersion.VERSION2)
+		logging.info("connecting to MQTT broker...")
+		try:
+			self.clientMQTT.connect(
 			self.config.get("MQTT","Server", fallback= "broker.hivemq.com"),
 			self.config.getint("MQTT","Port", fallback= 1883),
 			60)
+			logging.info("MQTT broker CONNECTED")
+		except Exception as e:
+			logging.error(f"Connection Error: {e}")
 		self.clientMQTT.loop_start()
 
 
 	def on_connect(self, client, userdata, flags, rc, properties):
-		logging.debug("Connected with result code " + str(rc))
+		logging.info("Entrato in on_connect")
+		logging.info("Connected with result code " + str(rc))
+		try:
 
-		# Subscribing in on_connect() means that if we lose the connection and
-		# reconnect then subscriptions will be renewed.
-		#self.clientMQTT.subscribe(self.zona + '/' + self.id + '/' + "Coord") # used for configuration
-		self.clientMQTT.subscribe("config/")
-		#self.clientMQTT.subscribe(self.zona + '/' + self.id + '/' + "Lvlsensor_0") # water level in the bowl
-		#self.clientMQTT.subscribe(self.zona + '/' + self.id + '/' + "Lvlsensor_1") # water level in the tank
-		#self.clientMQTT.subscribe(self.zona + '/+/Lvlsensor_1') # tank level in the area
-  
-		# configuration step
-		#self.clientMQTT.publish(self.zona + '/' + self.id + '/' + "Coord", self.lat + '/' + self.lon)
-		#self.clientMQTT.publish(f"config/{self.zona}/{self.id}/Coord/{self.lat}/{self.lon}")
+			self.clientMQTT.subscribe("config/topic", qos=2)
+			logging.info("Connesso al topic: config/topic")
+		except Exception as e:
+			logging.error(f"ERRORE SUBSCRIPTION: {e}")
 
+   
 
-	# The callback for when a PUBLISH message is received from the server.
+	def on_config(self, msg, IPAddr):
+		logging.info("on_config è stato chiamato.")
+		"""
+		Gestisce i messaggi di configurazione.
+		"""
+		logging.info(f"Received message on topic: {msg.topic}")
+		logging.info(f"Payload grezzo: {msg.payload.decode()}")
+
+		try:
+			msg_decode=msg.payload.decode("utf-8")
+			logging.info(f"Converting from Json to Object")
+			# Decodifica il payload JSON in un dizionario
+			message = json.loads(msg_decode)
+			logging.info(f"PAYLOAD: {message} - TYPE: {type(message)}")
+				
+			# Verifica che i campi esistano nel payload
+			if all(key in message for key in ('zona', 'id', 'latitudine', 'longitudine')):
+				# Estrai i valori dal payload
+				self.zona = message["zona"]
+				self.id = message["id"]
+				self.lat = message["latitudine"]
+				self.lon = message["longitudine"]
+				
+				# Chiama il metodo per inviare i dati della bowl
+				self.send_bowl_data(self.zona, self.id, self.lat, self.lon)
+			
+			else:
+				logging.error("Errore: campi mancanti nel payload")
+
+		except json.JSONDecodeError:
+			logging.error("Errore nella decodifica del payload JSON")
+		except Exception as e:
+			logging.error(f"Errore inatteso: {e}")
+   
+		try:
+			#CREATE TOPIC
+			self.clientMQTT.subscribe(self.zona + '/' + self.id + '/' + "Coord", qos=2)
+			self.clientMQTT.subscribe(self.zona + '/' + self.id + '/' + "Lvlsensor_0", qos=2) # water level in the bowl
+			self.clientMQTT.subscribe(self.zona + '/' + self.id + '/' + "Lvlsensor_1", qos=2) # water level in the tank
+			self.clientMQTT.subscribe(self.zona + '/+/Lvlsensor_1', qos=2) # tank level in the area
+			self.clientMQTT.publish(self.zona + '/' + self.id + '/' + "Coord", str(self.lat) + '/' + str(self.lon), qos=2)
+
+			logging.info(f"Zona: {self.zona}, ID: {self.id}, Lat: {self.lat}, Lon: {self.lon}")
+
+			url = f"http://{IPAddr}/config/{self.zona}/{self.id}/Coord/{self.lat}/{self.lon}"
+
+			if url:
+				try:
+					print(f"Sending POST request to {url}")
+					response = requests.post(url)
+					print(f"Response Status Code: {response.status_code}")
+					print(f"Response Content: {response.text}")
+				except requests.exceptions.RequestException as e:
+					print(f"Request exception: {e}")
+
+		except Exception as e:
+			logging.error(f"Errore nelle subscribe {e}")
+		
+   
+
 	def on_message(self, client, userdata, msg):
+		logging.info("Entrato in on_message")
 		hostname = socket.gethostname()
 		IPAddr = socket.gethostbyname(hostname)
 		#if msg.topic == self.zona + '/' + self.id + '/' + "Coord":
 		#	payload = str(msg.payload.decode()).split('/')
 		#	url = f"http://{IPAddr}/config/{msg.topic}/{payload[0]}/{payload[1]}"
+		logging.info(f"TOPIC: {msg.topic}")
 		if msg.topic == "config/topic":
-			try:
-				# Decodifica il payload JSON in un dizionario
-				payload = json.loads(msg.payload.decode())
-				logging.debug(f"PAYLOAD: {payload}")
-				
-				# Verifica che i campi esistano nel payload
-				if all(key in payload for key in ('zona', 'id', 'latitudine', 'longitudine')):
-					# Estrai i valori dal payload
-					self.zona = payload['zona']
-					self.id = payload['id']
-					self.lat = payload['latitudine']
-					self.lon = payload['longitudine']
-					
-					# Chiama il metodo per inviare i dati della bowl
-					self.send_bowl_data(self.zona, self.id, self.lat, self.lon)
-				else:
-					print("Errore: campi mancanti nel payload")
-			except json.JSONDecodeError:
-				print("Errore nella decodifica del payload JSON")
-			except Exception as e:
-				print(f"Errore inatteso: {e}")
-   
-			#CREATE TOPIC
-			self.clientMQTT.subscribe(self.zona + '/' + self.id + '/' + "Lvlsensor_0") # water level in the bowl
-			self.clientMQTT.subscribe(self.zona + '/' + self.id + '/' + "Lvlsensor_1") # water level in the tank
-			self.clientMQTT.subscribe(self.zona + '/+/Lvlsensor_1') # tank level in the area
-			self.clientMQTT.publish(f"config/{self.zona}/{self.id}/Coord/{self.lat}/{self.lon}")
-
-			logging.debug(f"Zona: {self.zona}, ID: {self.id}, Lat: {self.lat}, Lon: {self.lon}")
-
-			url = f"http://{IPAddr}/config/{self.zona}/{self.id}/Coord/{self.lat}/{self.lon}"
-
+			self.on_config(msg, IPAddr)
 		elif msg.topic == self.zona + '/' + self.id + '/' + "Lvlsensor_0":
 				payload0 = msg.payload.decode()
 				print(f"Received message BOWLWATER: '{payload0}' on topic '{msg.topic}'")
@@ -303,6 +304,7 @@ class Bridge():
 		except requests.exceptions.RequestException as e:
 			raise SystemExit(e)"""
 
+
 	def readData(self):
 		#look for a byte from serial
 		while self.ser.in_waiting>0:
@@ -346,19 +348,3 @@ class Bridge():
   
   
   
-''' OLD
-  		# Gestione dei messaggi delle coordinate
-		elif msg.topic == self.zona + '/' + self.id + '/' + "Coord":
-			payload = str(msg.payload.decode()).split('/')
-			self.lat, self.lon = payload[0], payload[1]
-			print(f"Received coordinates: Lat: {self.lat}, Lon: {self.lon} on topic {msg.topic}")
-			# Invia le coordinate all'Arduino tramite la seriale
-			if self.ser:
-				try:
-					config_message = f"{self.zona},{self.id},{self.lat},{self.lon}\n"
-					self.ser.write(config_message.encode())
-					print(f"Inviato all'Arduino: Zona: {self.zona} ID: {self.id} Lat: {self.lat}, Lon: {self.lon}")
-				except serial.SerialException as e:
-					print(f"Error sending data to Arduino: {e}")
-			
-			url = f"http://{IPAddr}/config/{msg.topic}/{self.lat}/{self.lon}"'''
