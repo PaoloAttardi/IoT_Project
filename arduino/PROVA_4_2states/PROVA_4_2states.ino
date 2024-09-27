@@ -13,10 +13,10 @@ char EoL = '\xfe';
 // float lat = 10.24;
 // float lon = 47.32;
 
-String zona;
-String id;
-String lat;
-String lon;
+String zona = "";
+String id = "";
+String lat = "";
+String lon = "";
 bool config = true;
 bool setvalues = true;
 
@@ -115,6 +115,7 @@ void loop() {
         lon = Serial.readStringUntil('\n');
 
         //Serial.print(zona);
+        //Serial.print("ID : ");
         //Serial.print(id);
         //Serial.print(lat);
         //Serial.print(lon);
@@ -124,6 +125,14 @@ void loop() {
       }
     }
   }
+
+  //if(Serial.available() > 0){
+  //  char addnewBowl = Serial.read();
+  //  if (addnewBowl == SoL){
+  //    config = true;
+  //    setvalues = true;
+  //  }
+  //}
   
 
   unsigned long currentMillis = millis();

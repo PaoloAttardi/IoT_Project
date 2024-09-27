@@ -13,9 +13,10 @@ import json
 from main import mqtt_client
 
 # Configura il logging
-logging.basicConfig(filename='bridge3.log', level=logging.DEBUG,
+logging.basicConfig(filename='bridge4.log', level=logging.DEBUG,
 					format='%(asctime)s - %(levelname)s - %(message)s')
 
+reset = 1
 
 
 class Bridge():
@@ -137,7 +138,7 @@ class Bridge():
 		logging.info("Connected with result code " + str(rc))
 		try:
 
-			self.clientMQTT.subscribe("config/topic", qos=2)
+			self.clientMQTT.subscribe("config/topic")
 			logging.info("Connesso al topic: config/topic")
 		except Exception as e:
 			logging.error(f"ERRORE SUBSCRIPTION: {e}")
@@ -180,11 +181,11 @@ class Bridge():
    
 		try:
 			#CREATE TOPIC
-			self.clientMQTT.subscribe(self.zona + '/' + self.id + '/' + "Coord", qos=2)
-			self.clientMQTT.subscribe(self.zona + '/' + self.id + '/' + "Lvlsensor_0", qos=2) # water level in the bowl
-			self.clientMQTT.subscribe(self.zona + '/' + self.id + '/' + "Lvlsensor_1", qos=2) # water level in the tank
-			self.clientMQTT.subscribe(self.zona + '/+/Lvlsensor_1', qos=2) # tank level in the area
-			self.clientMQTT.publish(self.zona + '/' + self.id + '/' + "Coord", str(self.lat) + '/' + str(self.lon), qos=2)
+			self.clientMQTT.subscribe(self.zona + '/' + self.id + '/' + "Coord")
+			self.clientMQTT.subscribe(self.zona + '/' + self.id + '/' + "Lvlsensor_0") # water level in the bowl
+			self.clientMQTT.subscribe(self.zona + '/' + self.id + '/' + "Lvlsensor_1") # water level in the tank
+			self.clientMQTT.subscribe(self.zona + '/+/Lvlsensor_1') # tank level in the area
+			self.clientMQTT.publish(self.zona + '/' + self.id + '/' + "Coord", str(self.lat) + '/' + str(self.lon))
 
 			logging.info(f"Zona: {self.zona}, ID: {self.id}, Lat: {self.lat}, Lon: {self.lon}")
 
@@ -208,13 +209,14 @@ class Bridge():
 		logging.info("Entrato in on_message")
 		hostname = socket.gethostname()
 		IPAddr = socket.gethostbyname(hostname)
-		#if msg.topic == self.zona + '/' + self.id + '/' + "Coord":
-		#	payload = str(msg.payload.decode()).split('/')
-		#	url = f"http://{IPAddr}/config/{msg.topic}/{payload[0]}/{payload[1]}"
 		logging.info(f"TOPIC: {msg.topic}")
 		if msg.topic == "config/topic":
 			self.on_config(msg, IPAddr)
-		elif msg.topic == self.zona + '/' + self.id + '/' + "Lvlsensor_0":
+		elif msg.topic == self.zona + '/' + self.id + '/' + "Coord":
+			payload = str(msg.payload.decode()).split('/')
+			url = f"http://{IPAddr}/config/{msg.topic}/{payload[0]}/{payload[1]}"
+		elif 'Lvlsensor_' in msg.topic:
+			if msg.topic == self.zona + '/' + self.id + '/' + "Lvlsensor_0":
 				payload0 = msg.payload.decode()
 				print(f"Received message BOWLWATER: '{payload0}' on topic '{msg.topic}'")
 				try:
@@ -259,50 +261,52 @@ class Bridge():
 				self.currentstate0 = futurestate0
 				
 			
-		elif msg.topic == self.zona + '/' + self.id + '/' + "Lvlsensor_1":
-				payload1 = msg.payload.decode()
-				print(f"Received message TANKCAP: '{payload1}' on topic '{msg.topic}'")
-				try:
-					# Supponendo che il payload sia un numero intero
-					tankCap = float(payload1)
-					# Esegui azioni basate sul valore ricevuto
-					print(f"Value received from Lvlsensor_1: {tankCap}")
-				except ValueError:
-					print(f"Invalid payload: {payload1}")
+			elif msg.topic == self.zona + '/' + self.id + '/' + "Lvlsensor_1":
+					payload1 = msg.payload.decode()
+					print(f"Received message TANKCAP: '{payload1}' on topic '{msg.topic}'")
+					try:
+						# Supponendo che il payload sia un numero intero
+						tankCap = float(payload1)
+						# Esegui azioni basate sul valore ricevuto
+						print(f"Value received from Lvlsensor_1: {tankCap}")
+					except ValueError:
+						print(f"Invalid payload: {payload1}")
 
-				futurestate1 = None
-				#STATE 0
-				if self.currentstate1 == 0:
-					if tankCap == 0.0:
-						futurestate1 = 1
-					else:
-						futurestate1 = 0
+					futurestate1 = None
+					#STATE 0
+					if self.currentstate1 == 0:
+						if tankCap == 0.0:
+							futurestate1 = 1
+						else:
+							futurestate1 = 0
 
-				#STATE 1
-				elif self.currentstate1 == 1:
-					print("Warning: No water in tank!")
-					self.currentstate1 = 0
-				self.currentstate1 = futurestate1
-	 
-		elif 'Lvlsensor_1' in msg.topic:
-				value = float(msg.payload.decode())
-				zona, id, name = msg.topic.split('/')
-				if self.id != id:
-					self.datiZona[id] = value
-		url = f"http://{IPAddr}/newdata/{msg.topic}/{msg.payload.decode()}"
-		if url:
-			try:
-				print(f"Sending POST request to {url}")
-				response = requests.post(url)
-				print(f"Response Status Code: {response.status_code}")
-				print(f"Response Content: {response.text}")
+					#STATE 1
+					elif self.currentstate1 == 1:
+						print("Warning: No water in tank!")
+						self.currentstate1 = 0
+					self.currentstate1 = futurestate1
+		
+			elif 'Lvlsensor_1' in msg.topic:
+					value = float(msg.payload.decode())
+					zona, id, name = msg.topic.split('/')
+					if self.id != id:
+						self.datiZona[id] = value
+
+			if 'Lvlsensor' in msg.topic:
+				url = f"http://{IPAddr}/newdata/{msg.topic}/{msg.payload.decode()}"
+				if url:
+					try:
+						print(f"Sending POST request to {url}")
+						response = requests.post(url)
+						print(f"Response Status Code: {response.status_code}")
+						print(f"Response Content: {response.text}")
+					except requests.exceptions.RequestException as e:
+						print(f"Request exception: {e}")
+			"""try:
+				print(url)
+				requests.post(url)
 			except requests.exceptions.RequestException as e:
-				print(f"Request exception: {e}")
-		"""try:
-			print(url)
-			requests.post(url)
-		except requests.exceptions.RequestException as e:
-			raise SystemExit(e)"""
+				raise SystemExit(e)"""
 
 
 	def readData(self):
@@ -339,7 +343,6 @@ class Bridge():
 		print("Publishing message:")
 		print(f"Topic: {self.zona}/{self.id}/{sensor_name}")
 		print(f"Payload: {val}")
-		
 		self.clientMQTT.publish(self.zona + '/' + self.id + '/' + sensor_name, val)
   
 	

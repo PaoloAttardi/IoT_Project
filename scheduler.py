@@ -2,6 +2,7 @@ import serial
 import serial.tools.list_ports
 from bridge_26_09 import Bridge
 import logging
+import time
 
 logging.basicConfig(filename='scheduler.log', level=logging.DEBUG,
                     format='%(asctime)s - %(levelname)s - %(message)s')
@@ -11,6 +12,8 @@ class Scheduler():
         self.arduini = []
         self.bridges = []
 
+    
+    
     
     def loop(self):
         while(True):
