@@ -4,8 +4,6 @@ import influxdb_client
 import datetime
 import requests
 import paho.mqtt.client as mqtt
-import logging
-
 from flask import Flask, request
 from flask import render_template
 from flask_swagger import swagger
