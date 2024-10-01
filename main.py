@@ -104,8 +104,8 @@ def stampalista(zone, id):
 			200:
 				description: List
 		"""
-		#bowl = activeBowls[zone + '/' + id]
-		bowl = activeBowls[id]
+		bowl = activeBowls[zone + '/' + id]
+		#bowl = activeBowls[id]
 		bowl.loadData()
 		url = f'https://api.openweathermap.org/data/2.5/weather?lat={bowl.lat}&lon={bowl.lon}&appid={config.get("OpenWeather","api_key")}&units=metric'
 		response = requests.get(url)
