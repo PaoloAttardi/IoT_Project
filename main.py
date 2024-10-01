@@ -208,10 +208,10 @@ def bowlConfig(zone, id, lat, lon):
 					return jsonify({"message": "Messaggio pubblicato con successo"}), 200
 			except Exception as e:
 					return jsonify({"error": f"Errore durante la pubblicazione MQTT: {e}"}), 500
-				#write_api = client.write_api(write_options=SYNCHRONOUS)
-				#measure1 = influxdb_client.Point(zone).tag("sensor", "Lvlsensor_0").tag("lat", lat).tag("lon", lon).field(id, float(0))
-				#measure2 = influxdb_client.Point(zone).tag("sensor", "Lvlsensor_1").tag("lat", lat).tag("lon", lon).field(id, float(0))
-				#write_api.write(bucket=config.get("InfluxDBClient","Bucket"), org=config.get("InfluxDBClient","Org"), record=[measure1, measure2])
+		#write_api = client.write_api(write_options=SYNCHRONOUS)
+		#measure1 = influxdb_client.Point(zone).tag("sensor", "Lvlsensor_0").tag("lat", lat).tag("lon", lon).field(id, float(0))
+		#measure2 = influxdb_client.Point(zone).tag("sensor", "Lvlsensor_1").tag("lat", lat).tag("lon", lon).field(id, float(0))
+		#write_api.write(bucket=config.get("InfluxDBClient","Bucket"), org=config.get("InfluxDBClient","Org"), record=[measure1, measure2])
 		return f"Bowl {confBowl.id} configured"
 	
 @app.route('/meteo/<lat>/<lon>', methods=['GET'])

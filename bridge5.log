@@ -1,0 +1,237 @@
+2024-09-30 12:41:18,000 - INFO - Arduino connesso correttamente sulla porta /dev/cu.usbmodem144101
+2024-09-30 12:41:18,001 - INFO - Connessione riuscita. Pronto a inviare i dati della ciotola.
+2024-09-30 12:41:18,001 - INFO - Entro in SetupMQTT
+2024-09-30 12:41:18,001 - INFO - connecting to MQTT broker...
+2024-09-30 12:41:18,040 - INFO - MQTT broker CONNECTED
+2024-09-30 12:41:18,479 - INFO - Entrato in on_connect
+2024-09-30 12:41:18,479 - INFO - Connected with result code Success
+2024-09-30 12:41:18,479 - INFO - Connesso al topic: config/topic
+2024-09-30 12:41:25,499 - INFO - Entrato in on_message
+2024-09-30 12:41:25,502 - INFO - TOPIC: config/topic
+2024-09-30 12:41:25,502 - INFO - on_config è stato chiamato.
+2024-09-30 12:41:25,502 - INFO - Received message on topic: config/topic
+2024-09-30 12:41:25,502 - INFO - Payload grezzo: {"zona": "Soliera", "id": "1", "latitudine": 44.7365, "longitudine": 10.9174}
+2024-09-30 12:41:25,503 - INFO - Converting from Json to Object
+2024-09-30 12:41:25,503 - INFO - PAYLOAD: {'zona': 'Soliera', 'id': '1', 'latitudine': 44.7365, 'longitudine': 10.9174} - TYPE: <class 'dict'>
+2024-09-30 12:41:25,507 - DEBUG - Dati inviati all'Arduino: Soliera, 1, 44.7365, 10.9174
+2024-09-30 12:41:25,536 - DEBUG - Arduino ha confermato la ricezione dei dati.
+2024-09-30 12:41:25,537 - INFO - Zona: Soliera, ID: 1, Lat: 44.7365, Lon: 10.9174
+2024-09-30 12:41:25,670 - INFO - Entrato in on_message
+2024-09-30 12:41:25,671 - INFO - TOPIC: config/topic
+2024-09-30 12:41:25,671 - INFO - on_config è stato chiamato.
+2024-09-30 12:41:25,671 - INFO - Received message on topic: config/topic
+2024-09-30 12:41:25,671 - INFO - Payload grezzo: {"zona": "Soliera", "id": "1", "latitudine": 44.7365, "longitudine": 10.9174}
+2024-09-30 12:41:25,671 - INFO - Converting from Json to Object
+2024-09-30 12:41:25,671 - INFO - PAYLOAD: {'zona': 'Soliera', 'id': '1', 'latitudine': 44.7365, 'longitudine': 10.9174} - TYPE: <class 'dict'>
+2024-09-30 12:41:27,613 - INFO - Zona: Soliera, ID: 1, Lat: 44.7365, Lon: 10.9174
+2024-09-30 12:41:27,616 - INFO - Entrato in on_message
+2024-09-30 12:41:27,617 - INFO - TOPIC: Soliera/1/Coord
+2024-09-30 12:41:27,675 - INFO - Entrato in on_message
+2024-09-30 12:41:27,675 - INFO - TOPIC: config/topic
+2024-09-30 12:41:27,675 - INFO - on_config è stato chiamato.
+2024-09-30 12:41:27,675 - INFO - Received message on topic: config/topic
+2024-09-30 12:41:27,675 - INFO - Payload grezzo: {"zona": "Soliera", "id": "1", "latitudine": 44.7365, "longitudine": 10.9174}
+2024-09-30 12:41:27,675 - INFO - Converting from Json to Object
+2024-09-30 12:41:27,676 - INFO - PAYLOAD: {'zona': 'Soliera', 'id': '1', 'latitudine': 44.7365, 'longitudine': 10.9174} - TYPE: <class 'dict'>
+2024-09-30 12:41:27,676 - INFO - Zona: Soliera, ID: 1, Lat: 44.7365, Lon: 10.9174
+2024-09-30 12:41:27,739 - INFO - Entrato in on_message
+2024-09-30 12:41:27,740 - INFO - TOPIC: config/topic
+2024-09-30 12:41:27,740 - INFO - on_config è stato chiamato.
+2024-09-30 12:41:27,740 - INFO - Received message on topic: config/topic
+2024-09-30 12:41:27,740 - INFO - Payload grezzo: {"zona": "Soliera", "id": "1", "latitudine": 44.7365, "longitudine": 10.9174}
+2024-09-30 12:41:27,740 - INFO - Converting from Json to Object
+2024-09-30 12:41:27,740 - INFO - PAYLOAD: {'zona': 'Soliera', 'id': '1', 'latitudine': 44.7365, 'longitudine': 10.9174} - TYPE: <class 'dict'>
+2024-09-30 12:41:27,740 - INFO - Zona: Soliera, ID: 1, Lat: 44.7365, Lon: 10.9174
+2024-09-30 12:41:27,775 - INFO - Entrato in on_message
+2024-09-30 12:41:27,776 - INFO - TOPIC: Soliera/1/Coord
+2024-09-30 12:41:27,811 - INFO - Entrato in on_message
+2024-09-30 12:41:27,812 - INFO - TOPIC: config/topic
+2024-09-30 12:41:27,812 - INFO - on_config è stato chiamato.
+2024-09-30 12:41:27,812 - INFO - Received message on topic: config/topic
+2024-09-30 12:41:27,812 - INFO - Payload grezzo: {"zona": "Soliera", "id": "1", "latitudine": 44.7365, "longitudine": 10.9174}
+2024-09-30 12:41:27,812 - INFO - Converting from Json to Object
+2024-09-30 12:41:27,812 - INFO - PAYLOAD: {'zona': 'Soliera', 'id': '1', 'latitudine': 44.7365, 'longitudine': 10.9174} - TYPE: <class 'dict'>
+2024-09-30 12:41:27,812 - INFO - Zona: Soliera, ID: 1, Lat: 44.7365, Lon: 10.9174
+2024-09-30 12:41:27,846 - INFO - Entrato in on_message
+2024-09-30 12:41:27,847 - INFO - TOPIC: Soliera/1/Coord
+2024-09-30 12:41:27,867 - INFO - Entrato in on_message
+2024-09-30 12:41:27,868 - INFO - TOPIC: config/topic
+2024-09-30 12:41:27,868 - INFO - on_config è stato chiamato.
+2024-09-30 12:41:27,868 - INFO - Received message on topic: config/topic
+2024-09-30 12:41:27,868 - INFO - Payload grezzo: {"zona": "Soliera", "id": "1", "latitudine": 44.7365, "longitudine": 10.9174}
+2024-09-30 12:41:27,869 - INFO - Converting from Json to Object
+2024-09-30 12:41:27,869 - INFO - PAYLOAD: {'zona': 'Soliera', 'id': '1', 'latitudine': 44.7365, 'longitudine': 10.9174} - TYPE: <class 'dict'>
+2024-09-30 12:41:27,869 - INFO - Zona: Soliera, ID: 1, Lat: 44.7365, Lon: 10.9174
+2024-09-30 12:41:27,895 - INFO - Entrato in on_message
+2024-09-30 12:41:27,896 - INFO - TOPIC: Soliera/1/Coord
+2024-09-30 12:41:27,909 - INFO - Entrato in on_message
+2024-09-30 12:41:27,910 - INFO - TOPIC: config/topic
+2024-09-30 12:41:27,910 - INFO - on_config è stato chiamato.
+2024-09-30 12:41:27,910 - INFO - Received message on topic: config/topic
+2024-09-30 12:41:27,910 - INFO - Payload grezzo: {"zona": "Soliera", "id": "1", "latitudine": 44.7365, "longitudine": 10.9174}
+2024-09-30 12:41:27,910 - INFO - Converting from Json to Object
+2024-09-30 12:41:27,910 - INFO - PAYLOAD: {'zona': 'Soliera', 'id': '1', 'latitudine': 44.7365, 'longitudine': 10.9174} - TYPE: <class 'dict'>
+2024-09-30 12:41:27,911 - INFO - Zona: Soliera, ID: 1, Lat: 44.7365, Lon: 10.9174
+2024-09-30 12:41:27,915 - INFO - Entrato in on_message
+2024-09-30 12:41:27,916 - INFO - TOPIC: Soliera/1/Coord
+2024-09-30 12:41:27,951 - INFO - Entrato in on_message
+2024-09-30 12:41:27,952 - INFO - TOPIC: Soliera/1/Coord
+2024-09-30 12:41:27,953 - INFO - Entrato in on_message
+2024-09-30 12:41:27,954 - INFO - TOPIC: config/topic
+2024-09-30 12:41:27,955 - INFO - on_config è stato chiamato.
+2024-09-30 12:41:27,955 - INFO - Received message on topic: config/topic
+2024-09-30 12:41:27,955 - INFO - Payload grezzo: {"zona": "Soliera", "id": "1", "latitudine": 44.7365, "longitudine": 10.9174}
+2024-09-30 12:41:27,955 - INFO - Converting from Json to Object
+2024-09-30 12:41:27,955 - INFO - PAYLOAD: {'zona': 'Soliera', 'id': '1', 'latitudine': 44.7365, 'longitudine': 10.9174} - TYPE: <class 'dict'>
+2024-09-30 12:41:27,956 - INFO - Zona: Soliera, ID: 1, Lat: 44.7365, Lon: 10.9174
+2024-09-30 12:41:27,991 - INFO - Entrato in on_message
+2024-09-30 12:41:27,992 - INFO - TOPIC: Soliera/1/Coord
+2024-09-30 12:41:27,998 - INFO - Entrato in on_message
+2024-09-30 12:41:27,998 - INFO - TOPIC: config/topic
+2024-09-30 12:41:27,998 - INFO - on_config è stato chiamato.
+2024-09-30 12:41:27,998 - INFO - Received message on topic: config/topic
+2024-09-30 12:41:27,998 - INFO - Payload grezzo: {"zona": "Soliera", "id": "1", "latitudine": 44.7365, "longitudine": 10.9174}
+2024-09-30 12:41:27,998 - INFO - Converting from Json to Object
+2024-09-30 12:41:27,999 - INFO - PAYLOAD: {'zona': 'Soliera', 'id': '1', 'latitudine': 44.7365, 'longitudine': 10.9174} - TYPE: <class 'dict'>
+2024-09-30 12:41:27,999 - INFO - Zona: Soliera, ID: 1, Lat: 44.7365, Lon: 10.9174
+2024-09-30 12:41:28,031 - INFO - Entrato in on_message
+2024-09-30 12:41:28,032 - INFO - TOPIC: Soliera/1/Coord
+2024-09-30 12:41:28,037 - INFO - Entrato in on_message
+2024-09-30 12:41:28,038 - INFO - TOPIC: config/topic
+2024-09-30 12:41:28,038 - INFO - on_config è stato chiamato.
+2024-09-30 12:41:28,038 - INFO - Received message on topic: config/topic
+2024-09-30 12:41:28,038 - INFO - Payload grezzo: {"zona": "Soliera", "id": "1", "latitudine": 44.7365, "longitudine": 10.9174}
+2024-09-30 12:41:28,038 - INFO - Converting from Json to Object
+2024-09-30 12:41:28,038 - INFO - PAYLOAD: {'zona': 'Soliera', 'id': '1', 'latitudine': 44.7365, 'longitudine': 10.9174} - TYPE: <class 'dict'>
+2024-09-30 12:41:28,039 - INFO - Zona: Soliera, ID: 1, Lat: 44.7365, Lon: 10.9174
+2024-09-30 12:41:28,077 - INFO - Entrato in on_message
+2024-09-30 12:41:28,078 - INFO - TOPIC: config/topic
+2024-09-30 12:41:28,078 - INFO - on_config è stato chiamato.
+2024-09-30 12:41:28,078 - INFO - Received message on topic: config/topic
+2024-09-30 12:41:28,078 - INFO - Payload grezzo: {"zona": "Soliera", "id": "1", "latitudine": 44.7365, "longitudine": 10.9174}
+2024-09-30 12:41:28,078 - INFO - Converting from Json to Object
+2024-09-30 12:41:28,079 - INFO - PAYLOAD: {'zona': 'Soliera', 'id': '1', 'latitudine': 44.7365, 'longitudine': 10.9174} - TYPE: <class 'dict'>
+2024-09-30 12:41:28,079 - INFO - Zona: Soliera, ID: 1, Lat: 44.7365, Lon: 10.9174
+2024-09-30 12:41:28,088 - INFO - Entrato in on_message
+2024-09-30 12:41:28,089 - INFO - TOPIC: Soliera/1/Coord
+2024-09-30 12:41:28,122 - INFO - Entrato in on_message
+2024-09-30 12:41:28,123 - INFO - TOPIC: config/topic
+2024-09-30 12:41:28,124 - INFO - on_config è stato chiamato.
+2024-09-30 12:41:28,124 - INFO - Received message on topic: config/topic
+2024-09-30 12:41:28,124 - INFO - Payload grezzo: {"zona": "Soliera", "id": "1", "latitudine": 44.7365, "longitudine": 10.9174}
+2024-09-30 12:41:28,124 - INFO - Converting from Json to Object
+2024-09-30 12:41:28,124 - INFO - PAYLOAD: {'zona': 'Soliera', 'id': '1', 'latitudine': 44.7365, 'longitudine': 10.9174} - TYPE: <class 'dict'>
+2024-09-30 12:41:28,125 - INFO - Zona: Soliera, ID: 1, Lat: 44.7365, Lon: 10.9174
+2024-09-30 12:41:28,152 - INFO - Entrato in on_message
+2024-09-30 12:41:28,154 - INFO - TOPIC: Soliera/1/Coord
+2024-09-30 12:41:28,168 - INFO - Entrato in on_message
+2024-09-30 12:41:28,169 - INFO - TOPIC: config/topic
+2024-09-30 12:41:28,169 - INFO - on_config è stato chiamato.
+2024-09-30 12:41:28,169 - INFO - Received message on topic: config/topic
+2024-09-30 12:41:28,169 - INFO - Payload grezzo: {"zona": "Soliera", "id": "1", "latitudine": 44.7365, "longitudine": 10.9174}
+2024-09-30 12:41:28,169 - INFO - Converting from Json to Object
+2024-09-30 12:41:28,169 - INFO - PAYLOAD: {'zona': 'Soliera', 'id': '1', 'latitudine': 44.7365, 'longitudine': 10.9174} - TYPE: <class 'dict'>
+2024-09-30 12:41:28,170 - INFO - Zona: Soliera, ID: 1, Lat: 44.7365, Lon: 10.9174
+2024-09-30 12:41:28,249 - INFO - Entrato in on_message
+2024-09-30 12:41:28,250 - INFO - TOPIC: config/topic
+2024-09-30 12:41:28,250 - INFO - on_config è stato chiamato.
+2024-09-30 12:41:28,250 - INFO - Received message on topic: config/topic
+2024-09-30 12:41:28,251 - INFO - Payload grezzo: {"zona": "Soliera", "id": "1", "latitudine": 44.7365, "longitudine": 10.9174}
+2024-09-30 12:41:28,251 - INFO - Converting from Json to Object
+2024-09-30 12:41:28,251 - INFO - PAYLOAD: {'zona': 'Soliera', 'id': '1', 'latitudine': 44.7365, 'longitudine': 10.9174} - TYPE: <class 'dict'>
+2024-09-30 12:41:28,251 - INFO - Zona: Soliera, ID: 1, Lat: 44.7365, Lon: 10.9174
+2024-09-30 12:41:28,256 - INFO - Entrato in on_message
+2024-09-30 12:41:28,256 - INFO - TOPIC: Soliera/1/Coord
+2024-09-30 12:41:28,295 - INFO - Entrato in on_message
+2024-09-30 12:41:28,296 - INFO - TOPIC: config/topic
+2024-09-30 12:41:28,296 - INFO - on_config è stato chiamato.
+2024-09-30 12:41:28,296 - INFO - Received message on topic: config/topic
+2024-09-30 12:41:28,296 - INFO - Payload grezzo: {"zona": "Soliera", "id": "1", "latitudine": 44.7365, "longitudine": 10.9174}
+2024-09-30 12:41:28,297 - INFO - Converting from Json to Object
+2024-09-30 12:41:28,297 - INFO - PAYLOAD: {'zona': 'Soliera', 'id': '1', 'latitudine': 44.7365, 'longitudine': 10.9174} - TYPE: <class 'dict'>
+2024-09-30 12:41:28,297 - INFO - Zona: Soliera, ID: 1, Lat: 44.7365, Lon: 10.9174
+2024-09-30 12:41:28,303 - INFO - Entrato in on_message
+2024-09-30 12:41:28,303 - INFO - TOPIC: Soliera/1/Coord
+2024-09-30 12:41:28,314 - INFO - Entrato in on_message
+2024-09-30 12:41:28,315 - INFO - TOPIC: Soliera/1/Coord
+2024-09-30 12:41:28,329 - INFO - Entrato in on_message
+2024-09-30 12:41:28,330 - INFO - TOPIC: Soliera/1/Coord
+2024-09-30 12:41:28,361 - INFO - Entrato in on_message
+2024-09-30 12:41:28,362 - INFO - TOPIC: config/topic
+2024-09-30 12:41:28,362 - INFO - on_config è stato chiamato.
+2024-09-30 12:41:28,362 - INFO - Received message on topic: config/topic
+2024-09-30 12:41:28,362 - INFO - Payload grezzo: {"zona": "Soliera", "id": "1", "latitudine": 44.7365, "longitudine": 10.9174}
+2024-09-30 12:41:28,362 - INFO - Converting from Json to Object
+2024-09-30 12:41:28,363 - INFO - PAYLOAD: {'zona': 'Soliera', 'id': '1', 'latitudine': 44.7365, 'longitudine': 10.9174} - TYPE: <class 'dict'>
+2024-09-30 12:41:28,363 - INFO - Zona: Soliera, ID: 1, Lat: 44.7365, Lon: 10.9174
+2024-09-30 12:41:28,388 - INFO - Entrato in on_message
+2024-09-30 12:41:28,389 - INFO - TOPIC: Soliera/1/Coord
+2024-09-30 12:41:28,425 - INFO - Entrato in on_message
+2024-09-30 12:41:28,427 - INFO - TOPIC: config/topic
+2024-09-30 12:41:28,427 - INFO - on_config è stato chiamato.
+2024-09-30 12:41:28,427 - INFO - Received message on topic: config/topic
+2024-09-30 12:41:28,427 - INFO - Payload grezzo: {"zona": "Soliera", "id": "1", "latitudine": 44.7365, "longitudine": 10.9174}
+2024-09-30 12:41:28,427 - INFO - Converting from Json to Object
+2024-09-30 12:41:28,427 - INFO - PAYLOAD: {'zona': 'Soliera', 'id': '1', 'latitudine': 44.7365, 'longitudine': 10.9174} - TYPE: <class 'dict'>
+2024-09-30 12:41:28,427 - DEBUG - Dati inviati all'Arduino: Soliera, 1, 44.7365, 10.9174
+2024-09-30 12:41:30,430 - INFO - Zona: Soliera, ID: 1, Lat: 44.7365, Lon: 10.9174
+2024-09-30 12:41:30,434 - INFO - Entrato in on_message
+2024-09-30 12:41:30,434 - INFO - TOPIC: Soliera/1/Coord
+2024-09-30 12:41:30,649 - INFO - Entrato in on_message
+2024-09-30 12:41:30,650 - INFO - TOPIC: config/topic
+2024-09-30 12:41:30,650 - INFO - on_config è stato chiamato.
+2024-09-30 12:41:30,650 - INFO - Received message on topic: config/topic
+2024-09-30 12:41:30,650 - INFO - Payload grezzo: {"zona": "Soliera", "id": "1", "latitudine": 44.7365, "longitudine": 10.9174}
+2024-09-30 12:41:30,650 - INFO - Converting from Json to Object
+2024-09-30 12:41:30,650 - INFO - PAYLOAD: {'zona': 'Soliera', 'id': '1', 'latitudine': 44.7365, 'longitudine': 10.9174} - TYPE: <class 'dict'>
+2024-09-30 12:41:34,652 - INFO - Zona: Soliera, ID: 1, Lat: 44.7365, Lon: 10.9174
+2024-09-30 12:41:34,654 - INFO - Entrato in on_message
+2024-09-30 12:41:34,655 - INFO - TOPIC: Soliera/1/Coord
+2024-09-30 12:41:35,097 - INFO - Entrato in on_message
+2024-09-30 12:41:35,098 - INFO - TOPIC: Soliera/1/Coord
+2024-09-30 12:41:44,981 - INFO - Entrato in on_message
+2024-09-30 12:41:44,985 - INFO - TOPIC: Soliera/1/Lvlsensor_1
+2024-09-30 12:41:51,323 - INFO - Entrato in on_message
+2024-09-30 12:41:51,324 - INFO - TOPIC: Soliera/1/Lvlsensor_0
+2024-09-30 12:41:55,006 - INFO - Entrato in on_message
+2024-09-30 12:41:55,006 - INFO - TOPIC: Soliera/1/Lvlsensor_1
+2024-09-30 12:42:01,346 - INFO - Entrato in on_message
+2024-09-30 12:42:01,350 - INFO - TOPIC: Soliera/1/Lvlsensor_0
+2024-09-30 12:48:22,747 - INFO - Arduino connesso correttamente sulla porta /dev/cu.usbmodem144101
+2024-09-30 12:48:22,748 - INFO - Connessione riuscita. Pronto a inviare i dati della ciotola.
+2024-09-30 12:48:22,748 - INFO - Entro in SetupMQTT
+2024-09-30 12:48:22,748 - INFO - connecting to MQTT broker...
+2024-09-30 12:48:22,788 - INFO - MQTT broker CONNECTED
+2024-09-30 12:48:23,137 - INFO - Entrato in on_connect
+2024-09-30 12:48:23,137 - INFO - Connected with result code Success
+2024-09-30 12:48:23,137 - INFO - Connesso al topic: config/topic
+
+
+
+2024-09-30 13:02:25,136 - INFO - Arduino connesso correttamente sulla porta /dev/cu.usbmodem144101
+2024-09-30 13:02:25,136 - INFO - Connessione riuscita. Pronto a inviare i dati della ciotola.
+2024-09-30 13:02:25,136 - INFO - Entro in SetupMQTT
+2024-09-30 13:02:25,136 - INFO - connecting to MQTT broker...
+2024-09-30 13:02:25,174 - INFO - MQTT broker CONNECTED
+2024-09-30 13:02:25,216 - INFO - Entrato in on_connect
+2024-09-30 13:02:25,216 - INFO - Connected with result code Success
+2024-09-30 13:02:25,216 - INFO - Connesso al topic: config/topic
+
+
+2024-09-30 13:12:05,962 - INFO - Arduino connesso correttamente sulla porta /dev/cu.usbmodem144101
+2024-09-30 13:12:05,963 - INFO - Connessione riuscita. Pronto a inviare i dati della ciotola.
+2024-09-30 13:12:05,963 - INFO - Entro in SetupMQTT
+2024-09-30 13:12:05,963 - INFO - connecting to MQTT broker...
+2024-09-30 13:12:06,002 - INFO - MQTT broker CONNECTED
+2024-09-30 13:12:06,044 - INFO - Entrato in on_connect
+2024-09-30 13:12:06,044 - INFO - Connected with result code Success
+2024-09-30 13:12:06,044 - INFO - Connesso al topic: config/topic
+
+2024-09-30 13:29:32,611 - INFO - Arduino connesso correttamente sulla porta /dev/cu.usbmodem144101
+2024-09-30 13:29:32,612 - INFO - Connessione riuscita. Pronto a inviare i dati della ciotola.
+2024-09-30 13:29:32,613 - INFO - Entro in SetupMQTT
+2024-09-30 13:29:32,613 - INFO - connecting to MQTT broker...
+2024-09-30 13:29:32,651 - INFO - MQTT broker CONNECTED
+2024-09-30 13:29:32,714 - INFO - Entrato in on_connect
+2024-09-30 13:29:32,714 - INFO - Connected with result code Success
+2024-09-30 13:29:32,714 - INFO - Connesso al topic: config/topic

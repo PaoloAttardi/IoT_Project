@@ -13,7 +13,7 @@ import json
 from main import mqtt_client
 
 # Configura il logging
-logging.basicConfig(filename='bridge4.log', level=logging.DEBUG,
+logging.basicConfig(filename='bridge5.log', level=logging.DEBUG,
 					format='%(asctime)s - %(levelname)s - %(message)s')
 
 reset = 1
