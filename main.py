@@ -214,7 +214,6 @@ def bowlConfig(zone, id, lat, lon):
 				#write_api.write(bucket=config.get("InfluxDBClient","Bucket"), org=config.get("InfluxDBClient","Org"), record=[measure1, measure2])
 		return f"Bowl {confBowl.id} configured"
 	
-	
 @app.route('/meteo/<lat>/<lon>', methods=['GET'])
 def meteoAttuale(lat, lon):
 		"""
