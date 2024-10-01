@@ -243,3 +243,19 @@
 2024-10-01 10:06:56,455 - INFO - Entrato in on_connect
 2024-10-01 10:06:56,455 - INFO - Connected with result code Success
 2024-10-01 10:06:56,455 - INFO - Connesso al topic: config/topic
+2024-10-01 10:55:32,465 - INFO - Arduino connesso correttamente sulla porta COM5
+2024-10-01 10:55:32,466 - INFO - Connessione riuscita. Pronto a inviare i dati della ciotola.
+2024-10-01 10:55:32,466 - INFO - Entro in SetupMQTT
+2024-10-01 10:55:32,466 - INFO - connecting to MQTT broker...
+2024-10-01 10:55:32,505 - INFO - MQTT broker CONNECTED
+2024-10-01 10:55:32,541 - INFO - Entrato in on_connect
+2024-10-01 10:55:32,541 - INFO - Connected with result code Success
+2024-10-01 10:55:32,541 - INFO - Connesso al topic: config/topic
+2024-10-01 11:01:18,363 - INFO - Arduino connesso correttamente sulla porta COM5
+2024-10-01 11:01:18,363 - INFO - Connessione riuscita. Pronto a inviare i dati della ciotola.
+2024-10-01 11:01:18,363 - INFO - Entro in SetupMQTT
+2024-10-01 11:01:18,363 - INFO - connecting to MQTT broker...
+2024-10-01 11:01:18,405 - INFO - MQTT broker CONNECTED
+2024-10-01 11:01:18,740 - INFO - Entrato in on_connect
+2024-10-01 11:01:18,740 - INFO - Connected with result code Success
+2024-10-01 11:01:18,740 - INFO - Connesso al topic: config/topic
