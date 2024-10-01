@@ -215,6 +215,14 @@ class Bridge():
 		elif msg.topic == self.zona + '/' + self.id + '/' + "Coord":
 			payload = str(msg.payload.decode()).split('/')
 			url = f"http://{IPAddr}/config/{msg.topic}/{payload[0]}/{payload[1]}"
+			if url:
+				try:
+					print(f"Sending POST request to {url}")
+					response = requests.post(url)
+					print(f"Response Status Code: {response.status_code}")
+					print(f"Response Content: {response.text}")
+				except requests.exceptions.RequestException as e:
+					print(f"Request exception: {e}")
 		elif 'Lvlsensor_' in msg.topic:
 			if msg.topic == self.zona + '/' + self.id + '/' + "Lvlsensor_0":
 				payload0 = msg.payload.decode()
