@@ -37,8 +37,8 @@ class Bowl():
             "val": self.val,
             "lat": self.lat,
             "lon": self.lon,
-            "lvlBowl": self.lvlBowl,
-            "lvlTank": self.lvlTank
+            "lvlBowl": str(self.lvlBowl),
+            "lvlTank": str(self.lvlTank)
         }
     
     def loadData(self):
@@ -58,11 +58,14 @@ class Bowl():
         tankLvl = client.query_api().query(org=config.get("InfluxDBClient","Org"), query=query)
         for res in bowlLvl:
             for record in res.records:
-                self.lvlBowl.append(record.get_value())
+                #value = record.get_value()
+                self.lvlBowl.append(record.get_value())  # Conversione in stringa prima di aggiungere alla lista
+
         for res in tankLvl:
             for record in res.records:
+                #value = record.get_value()
                 self.lvlTank.append(record.get_value())
-        pass
+                pass
     
 def BucketList(zone=None):
     if zone is not None: 

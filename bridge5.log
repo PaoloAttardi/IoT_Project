@@ -235,3 +235,109 @@
 2024-09-30 13:29:32,714 - INFO - Entrato in on_connect
 2024-09-30 13:29:32,714 - INFO - Connected with result code Success
 2024-09-30 13:29:32,714 - INFO - Connesso al topic: config/topic
+2024-10-01 12:02:29,905 - INFO - Arduino connesso correttamente sulla porta /dev/cu.usbmodem141101
+2024-10-01 12:02:29,906 - INFO - Connessione riuscita. Pronto a inviare i dati della ciotola.
+2024-10-01 12:02:29,907 - INFO - Entro in SetupMQTT
+2024-10-01 12:02:29,907 - INFO - connecting to MQTT broker...
+2024-10-01 12:02:29,966 - INFO - MQTT broker CONNECTED
+2024-10-01 12:02:30,369 - INFO - Entrato in on_connect
+2024-10-01 12:02:30,369 - INFO - Connected with result code Success
+2024-10-01 12:02:30,369 - INFO - Connesso al topic: config/topic
+2024-10-01 12:03:22,299 - INFO - Entrato in on_message
+2024-10-01 12:03:22,305 - INFO - TOPIC: config/topic
+2024-10-01 12:03:22,306 - INFO - on_config è stato chiamato.
+2024-10-01 12:03:22,306 - INFO - Received message on topic: config/topic
+2024-10-01 12:03:22,306 - INFO - Payload grezzo: {"zona": "Modena", "id": "2", "latitudine": 44.6298, "longitudine": 10.9486}
+2024-10-01 12:03:22,306 - INFO - Converting from Json to Object
+2024-10-01 12:03:22,306 - INFO - PAYLOAD: {'zona': 'Modena', 'id': '2', 'latitudine': 44.6298, 'longitudine': 10.9486} - TYPE: <class 'dict'>
+2024-10-01 12:03:22,315 - DEBUG - Dati inviati all'Arduino: Modena, 2, 44.6298, 10.9486
+2024-10-01 12:03:22,343 - DEBUG - Arduino ha confermato la ricezione dei dati.
+2024-10-01 12:03:22,343 - INFO - Zona: Modena, ID: 2, Lat: 44.6298, Lon: 10.9486
+2024-10-01 12:03:22,484 - INFO - Entrato in on_message
+2024-10-01 12:03:22,489 - INFO - TOPIC: Modena/2/Coord
+2024-10-01 12:03:26,140 - INFO - Entrato in on_message
+2024-10-01 12:03:26,141 - INFO - TOPIC: Modena/2/Lvlsensor_0
+2024-10-01 12:03:29,745 - INFO - Entrato in on_message
+2024-10-01 12:03:29,745 - INFO - TOPIC: Modena/2/Lvlsensor_1
+2024-10-01 12:03:36,101 - INFO - Entrato in on_message
+2024-10-01 12:03:36,102 - INFO - TOPIC: Modena/2/Lvlsensor_0
+2024-10-01 12:03:39,763 - INFO - Entrato in on_message
+2024-10-01 12:03:39,764 - INFO - TOPIC: Modena/2/Lvlsensor_1
+2024-10-01 12:03:46,111 - INFO - Entrato in on_message
+2024-10-01 12:03:46,112 - INFO - TOPIC: Modena/2/Lvlsensor_0
+2024-10-01 12:03:49,779 - INFO - Entrato in on_message
+2024-10-01 12:03:49,784 - INFO - TOPIC: Modena/2/Lvlsensor_1
+2024-10-01 12:03:56,270 - INFO - Entrato in on_message
+2024-10-01 12:03:56,271 - INFO - TOPIC: Modena/2/Lvlsensor_0
+2024-10-01 12:59:44,099 - INFO - Arduino connesso correttamente sulla porta /dev/cu.usbmodem141101
+2024-10-01 12:59:44,100 - INFO - Connessione riuscita. Pronto a inviare i dati della ciotola.
+2024-10-01 12:59:44,100 - INFO - Entro in SetupMQTT
+2024-10-01 12:59:44,100 - INFO - connecting to MQTT broker...
+2024-10-01 12:59:44,170 - INFO - MQTT broker CONNECTED
+2024-10-01 12:59:44,286 - INFO - Entrato in on_connect
+2024-10-01 12:59:44,286 - INFO - Connected with result code Success
+2024-10-01 12:59:44,287 - INFO - Connesso al topic: config/topic
+2024-10-01 13:00:21,968 - INFO - Entrato in on_message
+2024-10-01 13:00:21,969 - INFO - TOPIC: config/topic
+2024-10-01 13:00:21,969 - INFO - on_config è stato chiamato.
+2024-10-01 13:00:21,969 - INFO - Received message on topic: config/topic
+2024-10-01 13:00:21,969 - INFO - Payload grezzo: {"zona": "Modena", "id": "5", "latitudine": 44.6299, "longitudine": 10.9485}
+2024-10-01 13:00:21,970 - INFO - Converting from Json to Object
+2024-10-01 13:00:21,970 - INFO - PAYLOAD: {'zona': 'Modena', 'id': '5', 'latitudine': 44.6299, 'longitudine': 10.9485} - TYPE: <class 'dict'>
+2024-10-01 13:00:21,972 - DEBUG - Dati inviati all'Arduino: Modena, 5, 44.6299, 10.9485
+2024-10-01 13:00:22,001 - DEBUG - Arduino ha confermato la ricezione dei dati.
+2024-10-01 13:00:22,002 - INFO - Zona: Modena, ID: 5, Lat: 44.6299, Lon: 10.9485
+2024-10-01 13:00:22,183 - INFO - Entrato in on_message
+2024-10-01 13:00:22,188 - INFO - TOPIC: Modena/5/Coord
+2024-10-01 13:00:25,728 - INFO - Entrato in on_message
+2024-10-01 13:00:25,730 - INFO - TOPIC: Modena/5/Lvlsensor_0
+2024-10-01 13:00:29,410 - INFO - Entrato in on_message
+2024-10-01 13:00:29,411 - INFO - TOPIC: Modena/5/Lvlsensor_1
+2024-10-01 13:00:35,752 - INFO - Entrato in on_message
+2024-10-01 13:00:35,752 - INFO - TOPIC: Modena/5/Lvlsensor_0
+2024-10-01 13:00:39,393 - INFO - Entrato in on_message
+2024-10-01 13:00:39,394 - INFO - TOPIC: Modena/5/Lvlsensor_1
+2024-10-01 13:00:45,745 - INFO - Entrato in on_message
+2024-10-01 13:00:45,747 - INFO - TOPIC: Modena/5/Lvlsensor_0
+2024-10-01 13:00:49,382 - INFO - Entrato in on_message
+2024-10-01 13:00:49,383 - INFO - TOPIC: Modena/5/Lvlsensor_1
+2024-10-01 13:00:55,770 - INFO - Entrato in on_message
+2024-10-01 13:00:55,772 - INFO - TOPIC: Modena/5/Lvlsensor_0
+2024-10-01 13:00:59,407 - INFO - Entrato in on_message
+2024-10-01 13:00:59,408 - INFO - TOPIC: Modena/5/Lvlsensor_1
+2024-10-01 13:01:05,902 - INFO - Entrato in on_message
+2024-10-01 13:01:05,905 - INFO - TOPIC: Modena/5/Lvlsensor_0
+2024-10-01 13:01:09,432 - INFO - Entrato in on_message
+2024-10-01 13:01:09,433 - INFO - TOPIC: Modena/5/Lvlsensor_1
+2024-10-01 13:01:15,792 - INFO - Entrato in on_message
+2024-10-01 13:01:15,793 - INFO - TOPIC: Modena/5/Lvlsensor_0
+2024-10-01 13:01:19,437 - INFO - Entrato in on_message
+2024-10-01 13:01:19,438 - INFO - TOPIC: Modena/5/Lvlsensor_1
+2024-10-01 13:22:18,592 - INFO - Arduino connesso correttamente sulla porta /dev/cu.usbmodem141101
+2024-10-01 13:22:18,593 - INFO - Connessione riuscita. Pronto a inviare i dati della ciotola.
+2024-10-01 13:22:18,593 - INFO - Entro in SetupMQTT
+2024-10-01 13:22:18,594 - INFO - connecting to MQTT broker...
+2024-10-01 13:22:18,677 - INFO - MQTT broker CONNECTED
+2024-10-01 13:22:18,797 - INFO - Entrato in on_connect
+2024-10-01 13:22:18,797 - INFO - Connected with result code Success
+2024-10-01 13:22:18,797 - INFO - Connesso al topic: config/topic
+2024-10-01 13:23:33,272 - INFO - Entrato in on_message
+2024-10-01 13:23:33,273 - INFO - TOPIC: config/topic
+2024-10-01 13:23:33,274 - INFO - on_config è stato chiamato.
+2024-10-01 13:23:33,274 - INFO - Received message on topic: config/topic
+2024-10-01 13:23:33,274 - INFO - Payload grezzo: {"zona": "Modena", "id": "7", "latitudine": 44.6299, "longitudine": 10.9485}
+2024-10-01 13:23:33,274 - INFO - Converting from Json to Object
+2024-10-01 13:23:33,274 - INFO - PAYLOAD: {'zona': 'Modena', 'id': '7', 'latitudine': 44.6299, 'longitudine': 10.9485} - TYPE: <class 'dict'>
+2024-10-01 13:23:33,277 - DEBUG - Dati inviati all'Arduino: Modena, 7, 44.6299, 10.9485
+2024-10-01 13:23:33,306 - DEBUG - Arduino ha confermato la ricezione dei dati.
+2024-10-01 13:23:33,307 - INFO - Zona: Modena, ID: 7, Lat: 44.6299, Lon: 10.9485
+2024-10-01 13:23:33,482 - INFO - Entrato in on_message
+2024-10-01 13:23:33,487 - INFO - TOPIC: Modena/7/Coord
+2024-10-01 13:23:37,117 - INFO - Entrato in on_message
+2024-10-01 13:23:37,118 - INFO - TOPIC: Modena/7/Lvlsensor_0
+2024-10-01 13:23:40,706 - INFO - Entrato in on_message
+2024-10-01 13:23:40,707 - INFO - TOPIC: Modena/7/Lvlsensor_1
+2024-10-01 13:23:47,328 - INFO - Entrato in on_message
+2024-10-01 13:23:47,329 - INFO - TOPIC: Modena/7/Lvlsensor_0
+2024-10-01 13:23:50,747 - INFO - Entrato in on_message
+2024-10-01 13:23:50,748 - INFO - TOPIC: Modena/7/Lvlsensor_1
