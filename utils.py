@@ -38,7 +38,9 @@ class Bowl():
             "lat": self.lat,
             "lon": self.lon,
             "lvlBowl": str(self.lvlBowl),
+            #"lvlBowl": self.lvlBowl,
             "lvlTank": str(self.lvlTank)
+            #"lvlTank": self.lvlTank
         }
     
     def loadData(self):

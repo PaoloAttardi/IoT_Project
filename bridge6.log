@@ -1,0 +1,1053 @@
+2024-10-17 16:06:09,152 - INFO - Arduino connesso correttamente sulla porta /dev/cu.usbmodem144101
+2024-10-17 16:06:09,152 - INFO - Connessione riuscita. Pronto a inviare i dati della ciotola.
+2024-10-17 16:06:09,152 - INFO - Entro in SetupMQTT
+2024-10-17 16:06:09,152 - INFO - connecting to MQTT broker...
+2024-10-17 16:06:09,177 - INFO - MQTT broker CONNECTED
+2024-10-17 16:06:10,153 - INFO - Entrato in on_connect
+2024-10-17 16:06:10,154 - INFO - Connected with result code Success
+2024-10-17 16:06:10,154 - INFO - Connesso al topic: config/topic
+2024-10-17 16:06:55,230 - INFO - Entrato in on_message
+2024-10-17 16:06:55,233 - INFO - TOPIC: config/topic
+2024-10-17 16:06:55,233 - INFO - on_config è stato chiamato.
+2024-10-17 16:06:55,233 - INFO - Received message on topic: config/topic
+2024-10-17 16:06:55,233 - INFO - Payload grezzo: {"zona": "Soliera", "id": "1", "latitudine": 44.7365, "longitudine": 10.9174}
+2024-10-17 16:06:55,234 - INFO - Converting from Json to Object
+2024-10-17 16:06:55,234 - INFO - PAYLOAD: {'zona': 'Soliera', 'id': '1', 'latitudine': 44.7365, 'longitudine': 10.9174} - TYPE: <class 'dict'>
+2024-10-17 16:06:55,237 - DEBUG - Dati inviati all'Arduino: Soliera, 1, 44.7365, 10.9174
+2024-10-17 16:06:55,265 - DEBUG - Arduino ha confermato la ricezione dei dati.
+2024-10-17 16:06:55,266 - INFO - Zona: Soliera, ID: 1, Lat: 44.7365, Lon: 10.9174
+2024-10-17 16:06:56,009 - INFO - Entrato in on_message
+2024-10-17 16:06:56,009 - INFO - TOPIC: Soliera/1/Coord
+2024-10-17 16:06:59,186 - INFO - Entrato in on_message
+2024-10-17 16:06:59,187 - INFO - TOPIC: Soliera/1/Lvlsensor_0
+2024-10-17 16:07:02,693 - INFO - Entrato in on_message
+2024-10-17 16:07:02,694 - INFO - TOPIC: Soliera/1/Lvlsensor_1
+2024-10-17 16:07:09,035 - INFO - Entrato in on_message
+2024-10-17 16:07:09,036 - INFO - TOPIC: Soliera/1/Lvlsensor_0
+2024-10-17 16:07:12,739 - INFO - Entrato in on_message
+2024-10-17 16:07:12,745 - INFO - TOPIC: Soliera/1/Lvlsensor_1
+2024-10-17 16:07:19,274 - INFO - Entrato in on_message
+2024-10-17 16:07:19,276 - INFO - TOPIC: Soliera/1/Lvlsensor_0
+2024-10-17 16:07:22,859 - INFO - Entrato in on_message
+2024-10-17 16:07:22,859 - INFO - TOPIC: Soliera/1/Lvlsensor_1
+2024-10-17 16:07:29,936 - INFO - Entrato in on_message
+2024-10-17 16:07:29,940 - INFO - TOPIC: Soliera/1/Lvlsensor_0
+2024-10-17 16:07:32,929 - INFO - Entrato in on_message
+2024-10-17 16:07:32,930 - INFO - TOPIC: Soliera/1/Lvlsensor_1
+2024-10-17 16:07:39,448 - INFO - Entrato in on_message
+2024-10-17 16:07:39,448 - INFO - TOPIC: Soliera/1/Lvlsensor_0
+2024-10-17 16:07:43,135 - INFO - Entrato in on_message
+2024-10-17 16:07:43,136 - INFO - TOPIC: Soliera/1/Lvlsensor_1
+2024-10-17 16:07:49,380 - INFO - Entrato in on_message
+2024-10-17 16:07:49,384 - INFO - TOPIC: Soliera/1/Lvlsensor_0
+2024-10-17 16:07:53,067 - INFO - Entrato in on_message
+2024-10-17 16:07:53,071 - INFO - TOPIC: Soliera/1/Lvlsensor_1
+2024-10-17 16:07:59,173 - INFO - Entrato in on_message
+2024-10-17 16:07:59,174 - INFO - TOPIC: Soliera/1/Lvlsensor_0
+2024-10-17 16:08:02,835 - INFO - Entrato in on_message
+2024-10-17 16:08:02,836 - INFO - TOPIC: Soliera/1/Lvlsensor_1
+2024-10-17 16:08:09,451 - INFO - Entrato in on_message
+2024-10-17 16:08:09,454 - INFO - TOPIC: Soliera/1/Lvlsensor_0
+2024-10-17 16:08:13,240 - INFO - Entrato in on_message
+2024-10-17 16:08:13,242 - INFO - TOPIC: Soliera/1/Lvlsensor_1
+2024-10-17 16:08:19,215 - INFO - Entrato in on_message
+2024-10-17 16:08:19,216 - INFO - TOPIC: Soliera/1/Lvlsensor_0
+2024-10-17 16:08:23,071 - INFO - Entrato in on_message
+2024-10-17 16:08:23,072 - INFO - TOPIC: Soliera/1/Lvlsensor_1
+2024-10-17 16:08:29,344 - INFO - Entrato in on_message
+2024-10-17 16:08:29,347 - INFO - TOPIC: Soliera/1/Lvlsensor_0
+2024-10-17 16:08:32,725 - INFO - Entrato in on_message
+2024-10-17 16:08:32,726 - INFO - TOPIC: Soliera/1/Lvlsensor_1
+2024-10-17 16:08:39,342 - INFO - Entrato in on_message
+2024-10-17 16:08:39,342 - INFO - TOPIC: Soliera/1/Lvlsensor_0
+2024-10-17 16:08:42,790 - INFO - Entrato in on_message
+2024-10-17 16:08:42,792 - INFO - TOPIC: Soliera/1/Lvlsensor_1
+2024-10-17 16:08:49,219 - INFO - Entrato in on_message
+2024-10-17 16:08:49,222 - INFO - TOPIC: Soliera/1/Lvlsensor_0
+2024-10-17 16:08:52,876 - INFO - Entrato in on_message
+2024-10-17 16:08:52,877 - INFO - TOPIC: Soliera/1/Lvlsensor_1
+2024-10-17 16:08:59,628 - INFO - Entrato in on_message
+2024-10-17 16:08:59,629 - INFO - TOPIC: Soliera/1/Lvlsensor_0
+2024-10-17 16:09:03,037 - INFO - Entrato in on_message
+2024-10-17 16:09:03,038 - INFO - TOPIC: Soliera/1/Lvlsensor_1
+2024-10-17 16:09:09,257 - INFO - Entrato in on_message
+2024-10-17 16:09:09,260 - INFO - TOPIC: Soliera/1/Lvlsensor_0
+2024-10-17 16:09:12,984 - INFO - Entrato in on_message
+2024-10-17 16:09:12,985 - INFO - TOPIC: Soliera/1/Lvlsensor_1
+2024-10-17 16:09:19,252 - INFO - Entrato in on_message
+2024-10-17 16:09:19,253 - INFO - TOPIC: Soliera/1/Lvlsensor_0
+2024-10-17 16:09:22,901 - INFO - Entrato in on_message
+2024-10-17 16:09:22,902 - INFO - TOPIC: Soliera/1/Lvlsensor_1
+2024-10-17 16:09:29,200 - INFO - Entrato in on_message
+2024-10-17 16:09:29,204 - INFO - TOPIC: Soliera/1/Lvlsensor_0
+2024-10-17 16:09:32,893 - INFO - Entrato in on_message
+2024-10-17 16:09:32,894 - INFO - TOPIC: Soliera/1/Lvlsensor_1
+2024-10-17 16:09:39,196 - INFO - Entrato in on_message
+2024-10-17 16:09:39,198 - INFO - TOPIC: Soliera/1/Lvlsensor_0
+2024-10-17 16:09:42,937 - INFO - Entrato in on_message
+2024-10-17 16:09:42,938 - INFO - TOPIC: Soliera/1/Lvlsensor_1
+2024-10-17 16:09:49,465 - INFO - Entrato in on_message
+2024-10-17 16:09:49,468 - INFO - TOPIC: Soliera/1/Lvlsensor_0
+2024-10-17 16:09:52,925 - INFO - Entrato in on_message
+2024-10-17 16:09:52,926 - INFO - TOPIC: Soliera/1/Lvlsensor_1
+2024-10-17 16:09:59,301 - INFO - Entrato in on_message
+2024-10-17 16:09:59,301 - INFO - TOPIC: Soliera/1/Lvlsensor_0
+2024-10-17 16:10:03,018 - INFO - Entrato in on_message
+2024-10-17 16:10:03,019 - INFO - TOPIC: Soliera/1/Lvlsensor_1
+2024-10-17 16:10:09,670 - INFO - Entrato in on_message
+2024-10-17 16:10:09,674 - INFO - TOPIC: Soliera/1/Lvlsensor_0
+2024-10-17 16:10:13,254 - INFO - Entrato in on_message
+2024-10-17 16:10:13,255 - INFO - TOPIC: Soliera/1/Lvlsensor_1
+2024-10-17 16:10:19,516 - INFO - Entrato in on_message
+2024-10-17 16:10:19,517 - INFO - TOPIC: Soliera/1/Lvlsensor_0
+2024-10-17 16:10:23,187 - INFO - Entrato in on_message
+2024-10-17 16:10:23,188 - INFO - TOPIC: Soliera/1/Lvlsensor_1
+2024-10-17 16:10:29,303 - INFO - Entrato in on_message
+2024-10-17 16:10:29,306 - INFO - TOPIC: Soliera/1/Lvlsensor_0
+2024-10-17 16:10:33,047 - INFO - Entrato in on_message
+2024-10-17 16:10:33,048 - INFO - TOPIC: Soliera/1/Lvlsensor_1
+2024-10-17 16:10:39,226 - INFO - Entrato in on_message
+2024-10-17 16:10:39,227 - INFO - TOPIC: Soliera/1/Lvlsensor_0
+2024-10-17 16:10:43,258 - INFO - Entrato in on_message
+2024-10-17 16:10:43,259 - INFO - TOPIC: Soliera/1/Lvlsensor_1
+2024-10-17 16:10:50,779 - INFO - Entrato in on_message
+2024-10-17 16:10:50,782 - INFO - TOPIC: Soliera/1/Lvlsensor_0
+2024-10-17 16:10:53,398 - INFO - Entrato in on_message
+2024-10-17 16:10:53,399 - INFO - TOPIC: Soliera/1/Lvlsensor_1
+2024-10-17 16:10:59,745 - INFO - Entrato in on_message
+2024-10-17 16:10:59,746 - INFO - TOPIC: Soliera/1/Lvlsensor_0
+2024-10-17 16:11:03,052 - INFO - Entrato in on_message
+2024-10-17 16:11:03,053 - INFO - TOPIC: Soliera/1/Lvlsensor_1
+2024-10-17 16:11:10,088 - INFO - Entrato in on_message
+2024-10-17 16:11:10,091 - INFO - TOPIC: Soliera/1/Lvlsensor_0
+2024-10-17 16:11:13,057 - INFO - Entrato in on_message
+2024-10-17 16:11:13,058 - INFO - TOPIC: Soliera/1/Lvlsensor_1
+2024-10-17 16:11:19,611 - INFO - Entrato in on_message
+2024-10-17 16:11:19,612 - INFO - TOPIC: Soliera/1/Lvlsensor_0
+2024-10-17 16:11:23,297 - INFO - Entrato in on_message
+2024-10-17 16:11:23,298 - INFO - TOPIC: Soliera/1/Lvlsensor_1
+2024-10-17 16:11:29,363 - INFO - Entrato in on_message
+2024-10-17 16:11:29,366 - INFO - TOPIC: Soliera/1/Lvlsensor_0
+2024-10-17 16:11:33,153 - INFO - Entrato in on_message
+2024-10-17 16:11:33,154 - INFO - TOPIC: Soliera/1/Lvlsensor_1
+2024-10-17 16:11:39,395 - INFO - Entrato in on_message
+2024-10-17 16:11:39,396 - INFO - TOPIC: Soliera/1/Lvlsensor_0
+2024-10-17 16:11:43,091 - INFO - Entrato in on_message
+2024-10-17 16:11:43,092 - INFO - TOPIC: Soliera/1/Lvlsensor_1
+2024-10-17 16:11:49,423 - INFO - Entrato in on_message
+2024-10-17 16:11:49,426 - INFO - TOPIC: Soliera/1/Lvlsensor_0
+2024-10-17 16:11:53,038 - INFO - Entrato in on_message
+2024-10-17 16:11:53,039 - INFO - TOPIC: Soliera/1/Lvlsensor_1
+2024-10-17 16:11:59,414 - INFO - Entrato in on_message
+2024-10-17 16:11:59,414 - INFO - TOPIC: Soliera/1/Lvlsensor_0
+2024-10-17 16:12:03,117 - INFO - Entrato in on_message
+2024-10-17 16:12:03,118 - INFO - TOPIC: Soliera/1/Lvlsensor_1
+2024-10-17 16:12:09,658 - INFO - Entrato in on_message
+2024-10-17 16:12:09,661 - INFO - TOPIC: Soliera/1/Lvlsensor_0
+2024-10-17 16:12:13,118 - INFO - Entrato in on_message
+2024-10-17 16:12:13,119 - INFO - TOPIC: Soliera/1/Lvlsensor_1
+2024-10-17 16:12:19,485 - INFO - Entrato in on_message
+2024-10-17 16:12:19,486 - INFO - TOPIC: Soliera/1/Lvlsensor_0
+2024-10-17 16:12:23,111 - INFO - Entrato in on_message
+2024-10-17 16:12:23,116 - INFO - TOPIC: Soliera/1/Lvlsensor_1
+2024-10-17 16:12:29,723 - INFO - Entrato in on_message
+2024-10-17 16:12:29,727 - INFO - TOPIC: Soliera/1/Lvlsensor_0
+2024-10-17 16:12:33,069 - INFO - Entrato in on_message
+2024-10-17 16:12:33,070 - INFO - TOPIC: Soliera/1/Lvlsensor_1
+2024-10-17 16:12:39,754 - INFO - Entrato in on_message
+2024-10-17 16:12:39,755 - INFO - TOPIC: Soliera/1/Lvlsensor_0
+2024-10-17 16:12:43,168 - INFO - Entrato in on_message
+2024-10-17 16:12:43,169 - INFO - TOPIC: Soliera/1/Lvlsensor_1
+2024-10-21 10:53:51,469 - INFO - Arduino connesso correttamente sulla porta /dev/cu.usbmodem144101
+2024-10-21 10:53:51,471 - INFO - Connessione riuscita. Pronto a inviare i dati della ciotola.
+2024-10-21 10:53:51,471 - INFO - Entro in SetupMQTT
+2024-10-21 10:53:51,471 - INFO - connecting to MQTT broker...
+2024-10-21 10:53:51,537 - INFO - MQTT broker CONNECTED
+2024-10-21 10:54:19,303 - INFO - Entrato in on_connect
+2024-10-21 10:54:19,304 - INFO - Connected with result code Success
+2024-10-21 10:54:19,304 - INFO - Connesso al topic: config/topic
+2024-10-21 10:59:36,460 - INFO - Arduino connesso correttamente sulla porta /dev/cu.usbmodem144101
+2024-10-21 10:59:36,460 - INFO - Connessione riuscita. Pronto a inviare i dati della ciotola.
+2024-10-21 10:59:36,460 - INFO - Entro in SetupMQTT
+2024-10-21 10:59:36,460 - INFO - connecting to MQTT broker...
+2024-10-21 10:59:36,486 - INFO - MQTT broker CONNECTED
+2024-10-21 11:00:03,682 - INFO - Entrato in on_connect
+2024-10-21 11:00:03,682 - INFO - Connected with result code Success
+2024-10-21 11:00:03,683 - INFO - Connesso al topic: config/topic
+2024-10-21 11:16:46,390 - INFO - Errore nell'impostazione della connessione seriale: [Errno 16] could not open port /dev/cu.usbmodem144101: [Errno 16] Resource busy: '/dev/cu.usbmodem144101'
+2024-10-21 11:16:46,391 - INFO - Entro in SetupMQTT
+2024-10-21 11:16:46,391 - INFO - connecting to MQTT broker...
+2024-10-21 11:16:46,415 - INFO - MQTT broker CONNECTED
+2024-10-21 11:17:32,642 - INFO - Arduino connesso correttamente sulla porta /dev/cu.usbmodem144101
+2024-10-21 11:17:32,642 - INFO - Connessione riuscita. Pronto a inviare i dati della ciotola.
+2024-10-21 11:17:32,642 - INFO - Entro in SetupMQTT
+2024-10-21 11:17:32,642 - INFO - connecting to MQTT broker...
+2024-10-21 11:17:32,672 - INFO - MQTT broker CONNECTED
+2024-10-21 11:17:32,695 - INFO - Entrato in on_connect
+2024-10-21 11:17:32,695 - INFO - Connected with result code Not authorized
+2024-10-21 11:17:32,695 - INFO - Connesso al topic: config/topic
+2024-10-21 11:18:02,203 - INFO - Entrato in on_connect
+2024-10-21 11:18:02,203 - INFO - Connected with result code Success
+2024-10-21 11:18:02,203 - INFO - Connesso al topic: config/topic
+2024-10-21 11:27:43,536 - INFO - Arduino connesso correttamente sulla porta /dev/cu.usbmodem144101
+2024-10-21 11:27:43,538 - INFO - Connessione riuscita. Pronto a inviare i dati della ciotola.
+2024-10-21 11:27:43,538 - INFO - Entro in SetupMQTT
+2024-10-21 11:27:43,538 - INFO - connecting to MQTT broker...
+2024-10-21 11:27:43,569 - INFO - MQTT broker CONNECTED
+2024-10-21 11:28:11,758 - INFO - Entrato in on_connect
+2024-10-21 11:28:11,758 - INFO - Connected with result code Success
+2024-10-21 11:28:11,759 - INFO - Connesso al topic: config/topic
+2024-10-21 11:42:01,765 - INFO - Arduino connesso correttamente sulla porta /dev/cu.usbmodem144101
+2024-10-21 11:42:01,765 - INFO - Connessione riuscita. Pronto a inviare i dati della ciotola.
+2024-10-21 11:42:01,766 - INFO - Entro in SetupMQTT
+2024-10-21 11:42:01,766 - INFO - connecting to MQTT broker...
+2024-10-21 11:42:01,790 - INFO - MQTT broker CONNECTED
+2024-10-21 11:42:01,812 - INFO - Entrato in on_connect
+2024-10-21 11:42:01,812 - INFO - Connected with result code Not authorized
+2024-10-21 11:42:01,812 - INFO - Connesso al topic: config/topic
+2024-10-21 11:42:02,862 - INFO - Entrato in on_connect
+2024-10-21 11:42:02,863 - INFO - Connected with result code Not authorized
+2024-10-21 11:42:02,863 - INFO - Connesso al topic: config/topic
+2024-10-21 11:42:04,926 - INFO - Entrato in on_connect
+2024-10-21 11:42:04,926 - INFO - Connected with result code Not authorized
+2024-10-21 11:42:04,926 - INFO - Connesso al topic: config/topic
+2024-10-21 11:42:08,967 - INFO - Entrato in on_connect
+2024-10-21 11:42:08,968 - INFO - Connected with result code Not authorized
+2024-10-21 11:42:08,968 - INFO - Connesso al topic: config/topic
+2024-10-21 11:42:17,024 - INFO - Entrato in on_connect
+2024-10-21 11:42:17,024 - INFO - Connected with result code Not authorized
+2024-10-21 11:42:17,024 - INFO - Connesso al topic: config/topic
+2024-10-21 11:42:33,121 - INFO - Entrato in on_connect
+2024-10-21 11:42:33,122 - INFO - Connected with result code Not authorized
+2024-10-21 11:42:33,122 - INFO - Connesso al topic: config/topic
+2024-10-21 11:43:05,187 - INFO - Entrato in on_connect
+2024-10-21 11:43:05,188 - INFO - Connected with result code Not authorized
+2024-10-21 11:43:05,188 - INFO - Connesso al topic: config/topic
+2024-10-21 11:44:09,244 - INFO - Entrato in on_connect
+2024-10-21 11:44:09,245 - INFO - Connected with result code Not authorized
+2024-10-21 11:44:09,245 - INFO - Connesso al topic: config/topic
+2024-10-21 11:46:36,387 - INFO - Entrato in on_connect
+2024-10-21 11:46:36,388 - INFO - Connected with result code Success
+2024-10-21 11:46:36,388 - INFO - Connesso al topic: config/topic
+
+2024-10-21 12:03:51,479 - INFO - Arduino connesso correttamente sulla porta /dev/cu.usbmodem144101
+2024-10-21 12:03:51,480 - INFO - Connessione riuscita. Pronto a inviare i dati della ciotola.
+2024-10-21 12:03:51,480 - INFO - Entro in SetupMQTT
+2024-10-21 12:03:51,480 - INFO - connecting to MQTT broker...
+2024-10-21 12:03:51,506 - INFO - MQTT broker CONNECTED
+2024-10-21 12:03:51,530 - INFO - Entrato in on_connect
+2024-10-21 12:03:51,530 - INFO - Connected with result code Not authorized
+2024-10-21 12:03:51,530 - INFO - Connesso al topic: config/topic
+2024-10-21 12:03:52,589 - INFO - Entrato in on_connect
+2024-10-21 12:03:52,589 - INFO - Connected with result code Not authorized
+2024-10-21 12:03:52,589 - INFO - Connesso al topic: config/topic
+2024-10-21 12:03:54,646 - INFO - Entrato in on_connect
+2024-10-21 12:03:54,646 - INFO - Connected with result code Not authorized
+2024-10-21 12:03:54,646 - INFO - Connesso al topic: config/topic
+2024-10-21 12:03:58,697 - INFO - Entrato in on_connect
+2024-10-21 12:03:58,697 - INFO - Connected with result code Not authorized
+2024-10-21 12:03:58,697 - INFO - Connesso al topic: config/topic
+2024-10-21 12:04:34,021 - INFO - Entrato in on_connect
+2024-10-21 12:04:34,021 - INFO - Connected with result code Success
+2024-10-21 12:04:34,021 - INFO - Connesso al topic: config/topic
+2024-10-21 12:04:38,413 - INFO - Entrato in on_message
+2024-10-21 12:04:38,417 - INFO - TOPIC: config/topic
+2024-10-21 12:04:38,417 - INFO - on_config è stato chiamato.
+2024-10-21 12:04:38,417 - INFO - Received message on topic: config/topic
+2024-10-21 12:04:38,417 - INFO - Payload grezzo: {"zona": "Soliera", "id": "1", "latitudine": 44.7365, "longitudine": 10.9174}
+2024-10-21 12:04:38,417 - INFO - Converting from Json to Object
+2024-10-21 12:04:38,417 - INFO - PAYLOAD: {'zona': 'Soliera', 'id': '1', 'latitudine': 44.7365, 'longitudine': 10.9174} - TYPE: <class 'dict'>
+2024-10-21 12:04:38,423 - DEBUG - Dati inviati all'Arduino: Soliera, 1, 44.7365, 10.9174
+2024-10-21 12:04:38,451 - DEBUG - Arduino ha confermato la ricezione dei dati.
+2024-10-21 12:04:38,451 - INFO - Zona: Soliera, ID: 1, Lat: 44.7365, Lon: 10.9174
+2024-10-21 12:04:38,704 - INFO - Entrato in on_message
+2024-10-21 12:04:38,705 - INFO - TOPIC: Soliera/1/Coord
+2024-10-21 12:04:42,223 - INFO - Entrato in on_message
+2024-10-21 12:04:42,224 - INFO - TOPIC: Soliera/1/Lvlsensor_0
+2024-10-21 12:04:45,919 - INFO - Entrato in on_message
+2024-10-21 12:04:45,920 - INFO - TOPIC: Soliera/1/Lvlsensor_1
+2024-10-21 12:04:52,253 - INFO - Entrato in on_message
+2024-10-21 12:04:52,254 - INFO - TOPIC: Soliera/1/Lvlsensor_0
+2024-10-21 12:04:55,955 - INFO - Entrato in on_message
+2024-10-21 12:04:55,958 - INFO - TOPIC: Soliera/1/Lvlsensor_1
+2024-10-21 12:05:02,265 - INFO - Entrato in on_message
+2024-10-21 12:05:02,266 - INFO - TOPIC: Soliera/1/Lvlsensor_0
+2024-10-21 12:05:05,999 - INFO - Entrato in on_message
+2024-10-21 12:05:05,999 - INFO - TOPIC: Soliera/1/Lvlsensor_1
+2024-10-21 12:05:12,263 - INFO - Entrato in on_message
+2024-10-21 12:05:12,267 - INFO - TOPIC: Soliera/1/Lvlsensor_0
+2024-10-21 12:05:15,971 - INFO - Entrato in on_message
+2024-10-21 12:05:15,972 - INFO - TOPIC: Soliera/1/Lvlsensor_1
+2024-10-21 12:05:22,256 - INFO - Entrato in on_message
+2024-10-21 12:05:22,257 - INFO - TOPIC: Soliera/1/Lvlsensor_0
+2024-10-21 12:05:25,997 - INFO - Entrato in on_message
+2024-10-21 12:05:25,998 - INFO - TOPIC: Soliera/1/Lvlsensor_1
+2024-10-21 12:05:32,279 - INFO - Entrato in on_message
+2024-10-21 12:05:32,283 - INFO - TOPIC: Soliera/1/Lvlsensor_0
+2024-10-21 12:05:35,998 - INFO - Entrato in on_message
+2024-10-21 12:05:35,999 - INFO - TOPIC: Soliera/1/Lvlsensor_1
+2024-10-21 12:05:42,553 - INFO - Entrato in on_message
+2024-10-21 12:05:42,554 - INFO - TOPIC: Soliera/1/Lvlsensor_0
+2024-10-21 12:05:45,990 - INFO - Entrato in on_message
+2024-10-21 12:05:45,991 - INFO - TOPIC: Soliera/1/Lvlsensor_1
+2024-10-21 12:05:52,306 - INFO - Entrato in on_message
+2024-10-21 12:05:52,310 - INFO - TOPIC: Soliera/1/Lvlsensor_0
+2024-10-21 12:05:56,054 - INFO - Entrato in on_message
+2024-10-21 12:05:56,054 - INFO - TOPIC: Soliera/1/Lvlsensor_1
+2024-10-21 12:06:02,307 - INFO - Entrato in on_message
+2024-10-21 12:06:02,308 - INFO - TOPIC: Soliera/1/Lvlsensor_0
+2024-10-21 12:06:06,047 - INFO - Entrato in on_message
+2024-10-21 12:06:06,048 - INFO - TOPIC: Soliera/1/Lvlsensor_1
+2024-10-21 12:06:12,376 - INFO - Entrato in on_message
+2024-10-21 12:06:12,380 - INFO - TOPIC: Soliera/1/Lvlsensor_0
+2024-10-21 12:06:16,075 - INFO - Entrato in on_message
+2024-10-21 12:06:16,076 - INFO - TOPIC: Soliera/1/Lvlsensor_1
+2024-10-21 12:06:22,342 - INFO - Entrato in on_message
+2024-10-21 12:06:22,343 - INFO - TOPIC: Soliera/1/Lvlsensor_0
+2024-10-21 12:06:26,044 - INFO - Entrato in on_message
+2024-10-21 12:06:26,044 - INFO - TOPIC: Soliera/1/Lvlsensor_1
+2024-10-21 12:06:32,409 - INFO - Entrato in on_message
+2024-10-21 12:06:32,413 - INFO - TOPIC: Soliera/1/Lvlsensor_0
+
+
+2024-10-21 12:34:13,629 - INFO - Arduino connesso correttamente sulla porta /dev/cu.usbmodem144101
+2024-10-21 12:34:13,630 - INFO - Connessione riuscita. Pronto a inviare i dati della ciotola.
+2024-10-21 12:34:13,631 - INFO - Entro in SetupMQTT
+2024-10-21 12:34:13,631 - INFO - connecting to MQTT broker...
+2024-10-21 12:34:13,657 - INFO - MQTT broker CONNECTED
+2024-10-21 12:34:13,681 - INFO - Entrato in on_connect
+2024-10-21 12:34:13,682 - INFO - Connected with result code Not authorized
+2024-10-21 12:34:13,682 - INFO - Connesso al topic: config/topic
+2024-10-21 12:34:14,739 - INFO - Entrato in on_connect
+2024-10-21 12:34:14,739 - INFO - Connected with result code Not authorized
+2024-10-21 12:34:14,739 - INFO - Connesso al topic: config/topic
+2024-10-21 12:34:16,800 - INFO - Entrato in on_connect
+2024-10-21 12:34:16,800 - INFO - Connected with result code Not authorized
+2024-10-21 12:34:16,800 - INFO - Connesso al topic: config/topic
+2024-10-21 12:34:20,851 - INFO - Entrato in on_connect
+2024-10-21 12:34:20,851 - INFO - Connected with result code Not authorized
+2024-10-21 12:34:20,851 - INFO - Connesso al topic: config/topic
+2024-10-21 12:34:28,917 - INFO - Entrato in on_connect
+2024-10-21 12:34:28,917 - INFO - Connected with result code Not authorized
+2024-10-21 12:34:28,917 - INFO - Connesso al topic: config/topic
+2024-10-21 12:34:44,982 - INFO - Entrato in on_connect
+2024-10-21 12:34:44,982 - INFO - Connected with result code Not authorized
+2024-10-21 12:34:44,982 - INFO - Connesso al topic: config/topic
+2024-10-21 12:35:44,731 - INFO - Entrato in on_connect
+2024-10-21 12:35:44,732 - INFO - Connected with result code Success
+2024-10-21 12:35:44,732 - INFO - Connesso al topic: config/topic
+
+
+2024-10-21 12:38:21,903 - INFO - Arduino connesso correttamente sulla porta /dev/cu.usbmodem144101
+2024-10-21 12:38:21,904 - INFO - Connessione riuscita. Pronto a inviare i dati della ciotola.
+2024-10-21 12:38:21,904 - INFO - Entro in SetupMQTT
+2024-10-21 12:38:21,904 - INFO - connecting to MQTT broker...
+2024-10-21 12:38:21,931 - INFO - MQTT broker CONNECTED
+2024-10-21 12:38:49,512 - INFO - Entrato in on_connect
+2024-10-21 12:38:49,513 - INFO - Connected with result code Success
+2024-10-21 12:38:49,513 - INFO - Connesso al topic: config/topic
+
+
+2024-10-21 14:01:52,618 - INFO - Arduino connesso correttamente sulla porta /dev/cu.usbmodem144101
+2024-10-21 14:01:52,619 - INFO - Connessione riuscita. Pronto a inviare i dati della ciotola.
+2024-10-21 14:01:52,619 - INFO - Entro in SetupMQTT
+2024-10-21 14:01:52,620 - INFO - connecting to MQTT broker...
+2024-10-21 14:01:52,800 - INFO - MQTT broker CONNECTED
+2024-10-21 14:01:53,141 - INFO - Entrato in on_connect
+2024-10-21 14:01:53,141 - INFO - Connected with result code Not authorized
+2024-10-21 14:01:53,142 - INFO - Connesso al topic: config/topic
+2024-10-21 14:01:54,770 - INFO - Entrato in on_connect
+2024-10-21 14:01:54,770 - INFO - Connected with result code Not authorized
+2024-10-21 14:01:54,770 - INFO - Connesso al topic: config/topic
+2024-10-21 14:01:57,280 - INFO - Entrato in on_connect
+2024-10-21 14:01:57,280 - INFO - Connected with result code Not authorized
+2024-10-21 14:01:57,280 - INFO - Connesso al topic: config/topic
+2024-10-21 14:02:30,003 - INFO - Entrato in on_connect
+2024-10-21 14:02:30,003 - INFO - Connected with result code Success
+2024-10-21 14:02:30,003 - INFO - Connesso al topic: config/topic
+2024-10-21 15:48:59,121 - INFO - Arduino connesso correttamente sulla porta /dev/cu.usbmodem144101
+2024-10-21 15:48:59,122 - INFO - Connessione riuscita. Pronto a inviare i dati della ciotola.
+2024-10-21 15:48:59,123 - INFO - Entro in SetupMQTT
+2024-10-21 15:48:59,123 - INFO - connecting to MQTT broker...
+2024-10-21 15:48:59,148 - INFO - MQTT broker CONNECTED
+2024-10-21 15:48:59,172 - INFO - Entrato in on_connect
+2024-10-21 15:48:59,173 - INFO - Connected with result code Not authorized
+2024-10-21 15:48:59,173 - INFO - Connesso al topic: config/topic
+2024-10-21 15:49:00,232 - INFO - Entrato in on_connect
+2024-10-21 15:49:00,232 - INFO - Connected with result code Not authorized
+2024-10-21 15:49:00,232 - INFO - Connesso al topic: config/topic
+2024-10-21 15:49:20,371 - INFO - Entrato in on_connect
+2024-10-21 15:49:20,371 - INFO - Connected with result code Success
+2024-10-21 15:49:20,371 - INFO - Connesso al topic: config/topic
+2024-10-21 16:06:38,013 - INFO - Arduino connesso correttamente sulla porta /dev/cu.usbmodem144101
+2024-10-21 16:06:38,013 - INFO - Connessione riuscita. Pronto a inviare i dati della ciotola.
+2024-10-21 16:06:38,013 - INFO - Entro in SetupMQTT
+2024-10-21 16:06:38,013 - INFO - connecting to MQTT broker...
+2024-10-21 16:06:38,037 - INFO - MQTT broker CONNECTED
+2024-10-21 16:06:38,060 - INFO - Entrato in on_connect
+2024-10-21 16:06:38,060 - INFO - Connected with result code Not authorized
+2024-10-21 16:06:38,060 - INFO - Connesso al topic: config/topic
+2024-10-21 16:06:59,825 - INFO - Entrato in on_connect
+2024-10-21 16:06:59,825 - INFO - Connected with result code Success
+2024-10-21 16:06:59,825 - INFO - Connesso al topic: config/topic
+2024-10-21 16:20:15,525 - INFO - Arduino connesso correttamente sulla porta /dev/cu.usbmodem144101
+2024-10-21 16:20:15,525 - INFO - Connessione riuscita. Pronto a inviare i dati della ciotola.
+2024-10-21 16:20:15,525 - INFO - Entro in SetupMQTT
+2024-10-21 16:20:15,525 - INFO - connecting to MQTT broker...
+2024-10-21 16:20:15,549 - INFO - MQTT broker CONNECTED
+2024-10-21 16:20:15,573 - INFO - Entrato in on_connect
+2024-10-21 16:20:15,573 - INFO - Connected with result code Not authorized
+2024-10-21 16:20:15,573 - INFO - Connesso al topic: config/topic
+2024-10-21 16:20:16,626 - INFO - Entrato in on_connect
+2024-10-21 16:20:16,626 - INFO - Connected with result code Not authorized
+2024-10-21 16:20:16,626 - INFO - Connesso al topic: config/topic
+2024-10-21 16:20:18,674 - INFO - Entrato in on_connect
+2024-10-21 16:20:18,674 - INFO - Connected with result code Not authorized
+2024-10-21 16:20:18,674 - INFO - Connesso al topic: config/topic
+2024-10-21 16:20:22,858 - INFO - Entrato in on_connect
+2024-10-21 16:20:22,859 - INFO - Connected with result code Not authorized
+2024-10-21 16:20:22,859 - INFO - Connesso al topic: config/topic
+2024-10-21 16:20:30,909 - INFO - Entrato in on_connect
+2024-10-21 16:20:30,909 - INFO - Connected with result code Not authorized
+2024-10-21 16:20:30,909 - INFO - Connesso al topic: config/topic
+2024-10-21 16:20:46,958 - INFO - Entrato in on_connect
+2024-10-21 16:20:46,959 - INFO - Connected with result code Not authorized
+2024-10-21 16:20:46,959 - INFO - Connesso al topic: config/topic
+2024-10-21 16:21:19,013 - INFO - Entrato in on_connect
+2024-10-21 16:21:19,014 - INFO - Connected with result code Not authorized
+2024-10-21 16:21:19,014 - INFO - Connesso al topic: config/topic
+2024-10-21 16:22:23,124 - INFO - Entrato in on_connect
+2024-10-21 16:22:23,125 - INFO - Connected with result code Not authorized
+2024-10-21 16:22:23,125 - INFO - Connesso al topic: config/topic
+2024-10-22 11:35:10,012 - INFO - Arduino connesso correttamente sulla porta /dev/cu.usbmodem144101
+2024-10-22 11:35:10,013 - INFO - Connessione riuscita. Pronto a inviare i dati della ciotola.
+2024-10-22 11:35:10,013 - INFO - Entro in SetupMQTT
+2024-10-22 11:35:10,013 - INFO - connecting to MQTT broker...
+2024-10-22 11:35:10,034 - INFO - MQTT broker CONNECTED
+2024-10-22 11:35:10,055 - INFO - Entrato in on_connect
+2024-10-22 11:35:10,055 - INFO - Connected with result code Not authorized
+2024-10-22 11:35:10,056 - INFO - Connesso al topic: config/topic
+2024-10-22 11:35:11,110 - INFO - Entrato in on_connect
+2024-10-22 11:35:11,110 - INFO - Connected with result code Not authorized
+2024-10-22 11:35:11,110 - INFO - Connesso al topic: config/topic
+2024-10-22 11:35:40,685 - INFO - Entrato in on_connect
+2024-10-22 11:35:40,686 - INFO - Connected with result code Success
+2024-10-22 11:35:40,686 - INFO - Connesso al topic: config/topic
+2024-10-22 11:36:59,224 - INFO - Entrato in on_message
+2024-10-22 11:36:59,227 - INFO - TOPIC: config/topic
+2024-10-22 11:36:59,227 - INFO - on_config è stato chiamato.
+2024-10-22 11:36:59,227 - INFO - Received message on topic: config/topic
+2024-10-22 11:36:59,227 - INFO - Payload grezzo: {"zona": "Soliera", "id": "1", "latitudine": 44.7365, "longitudine": 10.9174}
+2024-10-22 11:36:59,227 - INFO - Converting from Json to Object
+2024-10-22 11:36:59,228 - INFO - PAYLOAD: {'zona': 'Soliera', 'id': '1', 'latitudine': 44.7365, 'longitudine': 10.9174} - TYPE: <class 'dict'>
+2024-10-22 11:36:59,232 - DEBUG - Dati inviati all'Arduino: Soliera, 1, 44.7365, 10.9174
+2024-10-22 11:36:59,260 - DEBUG - Arduino ha confermato la ricezione dei dati.
+2024-10-22 11:36:59,261 - INFO - Zona: Soliera, ID: 1, Lat: 44.7365, Lon: 10.9174
+2024-10-22 11:36:59,768 - INFO - Entrato in on_message
+2024-10-22 11:36:59,770 - INFO - TOPIC: Soliera/1/Coord
+2024-10-22 11:37:02,951 - INFO - Entrato in on_message
+2024-10-22 11:37:02,953 - INFO - TOPIC: Soliera/1/Lvlsensor_0
+2024-10-22 11:37:07,317 - INFO - Entrato in on_message
+2024-10-22 11:37:07,318 - INFO - TOPIC: Soliera/1/Lvlsensor_1
+2024-10-22 11:37:12,996 - INFO - Entrato in on_message
+2024-10-22 11:37:12,997 - INFO - TOPIC: Soliera/1/Lvlsensor_0
+2024-10-22 11:37:16,615 - INFO - Entrato in on_message
+2024-10-22 11:37:16,618 - INFO - TOPIC: Soliera/1/Lvlsensor_1
+2024-10-22 11:37:23,395 - INFO - Entrato in on_message
+2024-10-22 11:37:23,396 - INFO - TOPIC: Soliera/1/Lvlsensor_0
+2024-10-22 11:37:26,617 - INFO - Entrato in on_message
+2024-10-22 11:37:26,618 - INFO - TOPIC: Soliera/1/Lvlsensor_1
+2024-10-22 11:37:33,175 - INFO - Entrato in on_message
+2024-10-22 11:37:33,179 - INFO - TOPIC: Soliera/1/Lvlsensor_0
+2024-10-22 11:37:36,649 - INFO - Entrato in on_message
+2024-10-22 11:37:36,650 - INFO - TOPIC: Soliera/1/Lvlsensor_1
+2024-10-22 11:37:42,996 - INFO - Entrato in on_message
+2024-10-22 11:37:42,997 - INFO - TOPIC: Soliera/1/Lvlsensor_0
+2024-10-22 11:37:46,647 - INFO - Entrato in on_message
+2024-10-22 11:37:46,648 - INFO - TOPIC: Soliera/1/Lvlsensor_1
+2024-10-22 11:37:53,044 - INFO - Entrato in on_message
+2024-10-22 11:37:53,048 - INFO - TOPIC: Soliera/1/Lvlsensor_0
+2024-10-22 11:37:56,658 - INFO - Entrato in on_message
+2024-10-22 11:37:56,659 - INFO - TOPIC: Soliera/1/Lvlsensor_1
+2024-10-22 11:38:03,029 - INFO - Entrato in on_message
+2024-10-22 11:38:03,030 - INFO - TOPIC: Soliera/1/Lvlsensor_0
+2024-10-22 11:38:06,681 - INFO - Entrato in on_message
+2024-10-22 11:38:06,682 - INFO - TOPIC: Soliera/1/Lvlsensor_1
+2024-10-22 11:38:13,096 - INFO - Entrato in on_message
+2024-10-22 11:38:13,100 - INFO - TOPIC: Soliera/1/Lvlsensor_0
+2024-10-22 11:38:16,696 - INFO - Entrato in on_message
+2024-10-22 11:38:16,696 - INFO - TOPIC: Soliera/1/Lvlsensor_1
+2024-10-22 11:38:23,048 - INFO - Entrato in on_message
+2024-10-22 11:38:23,049 - INFO - TOPIC: Soliera/1/Lvlsensor_0
+2024-10-22 11:38:26,714 - INFO - Entrato in on_message
+2024-10-22 11:38:26,715 - INFO - TOPIC: Soliera/1/Lvlsensor_1
+2024-10-22 11:38:33,068 - INFO - Entrato in on_message
+2024-10-22 11:38:33,071 - INFO - TOPIC: Soliera/1/Lvlsensor_0
+2024-10-22 11:38:36,731 - INFO - Entrato in on_message
+2024-10-22 11:38:36,732 - INFO - TOPIC: Soliera/1/Lvlsensor_1
+2024-10-22 11:38:43,089 - INFO - Entrato in on_message
+2024-10-22 11:38:43,090 - INFO - TOPIC: Soliera/1/Lvlsensor_0
+2024-10-22 11:38:46,734 - INFO - Entrato in on_message
+2024-10-22 11:38:46,734 - INFO - TOPIC: Soliera/1/Lvlsensor_1
+2024-10-22 11:38:53,105 - INFO - Entrato in on_message
+2024-10-22 11:38:53,109 - INFO - TOPIC: Soliera/1/Lvlsensor_0
+2024-10-22 11:38:56,768 - INFO - Entrato in on_message
+2024-10-22 11:38:56,768 - INFO - TOPIC: Soliera/1/Lvlsensor_1
+2024-10-22 11:39:03,120 - INFO - Entrato in on_message
+2024-10-22 11:39:03,121 - INFO - TOPIC: Soliera/1/Lvlsensor_0
+2024-10-22 11:39:06,777 - INFO - Entrato in on_message
+2024-10-22 11:39:06,778 - INFO - TOPIC: Soliera/1/Lvlsensor_1
+2024-10-22 11:39:13,238 - INFO - Entrato in on_message
+2024-10-22 11:39:13,241 - INFO - TOPIC: Soliera/1/Lvlsensor_0
+2024-10-22 11:39:16,786 - INFO - Entrato in on_message
+2024-10-22 11:39:16,787 - INFO - TOPIC: Soliera/1/Lvlsensor_1
+2024-10-22 11:39:23,208 - INFO - Entrato in on_message
+2024-10-22 11:39:23,209 - INFO - TOPIC: Soliera/1/Lvlsensor_0
+2024-10-22 11:39:26,799 - INFO - Entrato in on_message
+2024-10-22 11:39:26,800 - INFO - TOPIC: Soliera/1/Lvlsensor_1
+2024-10-22 11:39:33,164 - INFO - Entrato in on_message
+2024-10-22 11:39:33,168 - INFO - TOPIC: Soliera/1/Lvlsensor_0
+2024-10-22 11:39:36,795 - INFO - Entrato in on_message
+2024-10-22 11:39:36,796 - INFO - TOPIC: Soliera/1/Lvlsensor_1
+2024-10-22 11:39:43,163 - INFO - Entrato in on_message
+2024-10-22 11:39:43,164 - INFO - TOPIC: Soliera/1/Lvlsensor_0
+2024-10-22 11:39:46,816 - INFO - Entrato in on_message
+2024-10-22 11:39:46,816 - INFO - TOPIC: Soliera/1/Lvlsensor_1
+2024-10-22 11:39:53,183 - INFO - Entrato in on_message
+2024-10-22 11:39:53,186 - INFO - TOPIC: Soliera/1/Lvlsensor_0
+2024-10-22 11:39:56,831 - INFO - Entrato in on_message
+2024-10-22 11:39:56,832 - INFO - TOPIC: Soliera/1/Lvlsensor_1
+2024-10-22 11:40:03,185 - INFO - Entrato in on_message
+2024-10-22 11:40:03,186 - INFO - TOPIC: Soliera/1/Lvlsensor_0
+2024-10-22 11:40:06,832 - INFO - Entrato in on_message
+2024-10-22 11:40:06,833 - INFO - TOPIC: Soliera/1/Lvlsensor_1
+2024-10-22 11:40:13,198 - INFO - Entrato in on_message
+2024-10-22 11:40:13,201 - INFO - TOPIC: Soliera/1/Lvlsensor_0
+2024-10-22 11:40:16,908 - INFO - Entrato in on_message
+2024-10-22 11:40:16,909 - INFO - TOPIC: Soliera/1/Lvlsensor_1
+2024-10-22 11:40:23,217 - INFO - Entrato in on_message
+2024-10-22 11:40:23,218 - INFO - TOPIC: Soliera/1/Lvlsensor_0
+2024-10-22 11:40:26,866 - INFO - Entrato in on_message
+2024-10-22 11:40:26,867 - INFO - TOPIC: Soliera/1/Lvlsensor_1
+2024-10-22 11:40:33,228 - INFO - Entrato in on_message
+2024-10-22 11:40:33,231 - INFO - TOPIC: Soliera/1/Lvlsensor_0
+2024-10-22 11:40:36,927 - INFO - Entrato in on_message
+2024-10-22 11:40:36,928 - INFO - TOPIC: Soliera/1/Lvlsensor_1
+2024-10-22 11:40:43,246 - INFO - Entrato in on_message
+2024-10-22 11:40:43,247 - INFO - TOPIC: Soliera/1/Lvlsensor_0
+2024-10-22 11:40:46,886 - INFO - Entrato in on_message
+2024-10-22 11:40:46,886 - INFO - TOPIC: Soliera/1/Lvlsensor_1
+2024-10-22 11:40:53,255 - INFO - Entrato in on_message
+2024-10-22 11:40:53,258 - INFO - TOPIC: Soliera/1/Lvlsensor_0
+2024-10-22 11:40:56,921 - INFO - Entrato in on_message
+2024-10-22 11:40:56,922 - INFO - TOPIC: Soliera/1/Lvlsensor_1
+2024-10-22 11:41:03,268 - INFO - Entrato in on_message
+2024-10-22 11:41:03,269 - INFO - TOPIC: Soliera/1/Lvlsensor_0
+2024-10-22 11:41:06,918 - INFO - Entrato in on_message
+2024-10-22 11:41:06,919 - INFO - TOPIC: Soliera/1/Lvlsensor_1
+2024-10-22 11:41:13,265 - INFO - Entrato in on_message
+2024-10-22 11:41:13,268 - INFO - TOPIC: Soliera/1/Lvlsensor_0
+2024-10-22 11:41:16,969 - INFO - Entrato in on_message
+2024-10-22 11:41:16,970 - INFO - TOPIC: Soliera/1/Lvlsensor_1
+2024-10-22 11:41:23,301 - INFO - Entrato in on_message
+2024-10-22 11:41:23,302 - INFO - TOPIC: Soliera/1/Lvlsensor_0
+2024-10-22 11:41:26,960 - INFO - Entrato in on_message
+2024-10-22 11:41:26,961 - INFO - TOPIC: Soliera/1/Lvlsensor_1
+2024-10-22 11:41:33,304 - INFO - Entrato in on_message
+2024-10-22 11:41:33,308 - INFO - TOPIC: Soliera/1/Lvlsensor_0
+2024-10-22 11:41:36,935 - INFO - Entrato in on_message
+2024-10-22 11:41:36,936 - INFO - TOPIC: Soliera/1/Lvlsensor_1
+2024-10-22 11:41:43,310 - INFO - Entrato in on_message
+2024-10-22 11:41:43,310 - INFO - TOPIC: Soliera/1/Lvlsensor_0
+2024-10-22 11:41:46,933 - INFO - Entrato in on_message
+2024-10-22 11:41:46,933 - INFO - TOPIC: Soliera/1/Lvlsensor_1
+2024-10-22 11:41:53,320 - INFO - Entrato in on_message
+2024-10-22 11:41:53,325 - INFO - TOPIC: Soliera/1/Lvlsensor_0
+2024-10-22 11:41:56,981 - INFO - Entrato in on_message
+2024-10-22 11:41:56,981 - INFO - TOPIC: Soliera/1/Lvlsensor_1
+2024-10-22 11:42:03,348 - INFO - Entrato in on_message
+2024-10-22 11:42:03,349 - INFO - TOPIC: Soliera/1/Lvlsensor_0
+2024-10-22 11:42:07,006 - INFO - Entrato in on_message
+2024-10-22 11:42:07,007 - INFO - TOPIC: Soliera/1/Lvlsensor_1
+2024-10-22 11:42:13,374 - INFO - Entrato in on_message
+2024-10-22 11:42:13,378 - INFO - TOPIC: Soliera/1/Lvlsensor_0
+2024-10-22 11:42:17,030 - INFO - Entrato in on_message
+2024-10-22 11:42:17,031 - INFO - TOPIC: Soliera/1/Lvlsensor_1
+2024-10-22 11:42:23,441 - INFO - Entrato in on_message
+2024-10-22 11:42:23,443 - INFO - TOPIC: Soliera/1/Lvlsensor_0
+2024-10-22 11:42:27,037 - INFO - Entrato in on_message
+2024-10-22 11:42:27,037 - INFO - TOPIC: Soliera/1/Lvlsensor_1
+2024-10-22 11:42:33,414 - INFO - Entrato in on_message
+2024-10-22 11:42:33,418 - INFO - TOPIC: Soliera/1/Lvlsensor_0
+2024-10-22 11:42:37,171 - INFO - Entrato in on_message
+2024-10-22 11:42:37,172 - INFO - TOPIC: Soliera/1/Lvlsensor_1
+2024-10-22 11:42:43,460 - INFO - Entrato in on_message
+2024-10-22 11:42:43,461 - INFO - TOPIC: Soliera/1/Lvlsensor_0
+2024-10-22 11:42:47,394 - INFO - Entrato in on_message
+2024-10-22 11:42:47,395 - INFO - TOPIC: Soliera/1/Lvlsensor_1
+2024-10-22 11:42:53,423 - INFO - Entrato in on_message
+2024-10-22 11:42:53,426 - INFO - TOPIC: Soliera/1/Lvlsensor_0
+2024-10-22 11:42:57,065 - INFO - Entrato in on_message
+2024-10-22 11:42:57,066 - INFO - TOPIC: Soliera/1/Lvlsensor_1
+2024-10-22 11:43:03,442 - INFO - Entrato in on_message
+2024-10-22 11:43:03,443 - INFO - TOPIC: Soliera/1/Lvlsensor_0
+2024-10-22 11:43:07,110 - INFO - Entrato in on_message
+2024-10-22 11:43:07,111 - INFO - TOPIC: Soliera/1/Lvlsensor_1
+2024-10-22 11:43:13,651 - INFO - Entrato in on_message
+2024-10-22 11:43:13,655 - INFO - TOPIC: Soliera/1/Lvlsensor_0
+2024-10-22 11:43:17,107 - INFO - Entrato in on_message
+2024-10-22 11:43:17,108 - INFO - TOPIC: Soliera/1/Lvlsensor_1
+2024-10-22 11:43:23,456 - INFO - Entrato in on_message
+2024-10-22 11:43:23,459 - INFO - TOPIC: Soliera/1/Lvlsensor_0
+2024-10-22 11:43:27,121 - INFO - Entrato in on_message
+2024-10-22 11:43:27,122 - INFO - TOPIC: Soliera/1/Lvlsensor_1
+2024-10-22 11:43:33,495 - INFO - Entrato in on_message
+2024-10-22 11:43:33,499 - INFO - TOPIC: Soliera/1/Lvlsensor_0
+2024-10-22 11:43:37,144 - INFO - Entrato in on_message
+2024-10-22 11:43:37,145 - INFO - TOPIC: Soliera/1/Lvlsensor_1
+2024-10-22 11:43:43,495 - INFO - Entrato in on_message
+2024-10-22 11:43:43,496 - INFO - TOPIC: Soliera/1/Lvlsensor_0
+2024-10-22 11:43:47,140 - INFO - Entrato in on_message
+2024-10-22 11:43:47,141 - INFO - TOPIC: Soliera/1/Lvlsensor_1
+2024-10-22 11:43:53,482 - INFO - Entrato in on_message
+2024-10-22 11:43:53,486 - INFO - TOPIC: Soliera/1/Lvlsensor_0
+2024-10-22 11:43:57,115 - INFO - Entrato in on_message
+2024-10-22 11:43:57,116 - INFO - TOPIC: Soliera/1/Lvlsensor_1
+2024-10-22 11:44:03,531 - INFO - Entrato in on_message
+2024-10-22 11:44:03,532 - INFO - TOPIC: Soliera/1/Lvlsensor_0
+2024-10-22 11:44:07,162 - INFO - Entrato in on_message
+2024-10-22 11:44:07,163 - INFO - TOPIC: Soliera/1/Lvlsensor_1
+2024-10-22 11:44:13,531 - INFO - Entrato in on_message
+2024-10-22 11:44:13,534 - INFO - TOPIC: Soliera/1/Lvlsensor_0
+2024-10-22 11:44:17,189 - INFO - Entrato in on_message
+2024-10-22 11:44:17,190 - INFO - TOPIC: Soliera/1/Lvlsensor_1
+2024-10-22 11:44:23,548 - INFO - Entrato in on_message
+2024-10-22 11:44:23,550 - INFO - TOPIC: Soliera/1/Lvlsensor_0
+2024-10-22 11:44:27,202 - INFO - Entrato in on_message
+2024-10-22 11:44:27,203 - INFO - TOPIC: Soliera/1/Lvlsensor_1
+2024-10-22 11:44:33,571 - INFO - Entrato in on_message
+2024-10-22 11:44:33,575 - INFO - TOPIC: Soliera/1/Lvlsensor_0
+2024-10-22 11:44:37,214 - INFO - Entrato in on_message
+2024-10-22 11:44:37,215 - INFO - TOPIC: Soliera/1/Lvlsensor_1
+2024-10-22 11:44:43,577 - INFO - Entrato in on_message
+2024-10-22 11:44:43,578 - INFO - TOPIC: Soliera/1/Lvlsensor_0
+2024-10-22 11:44:47,240 - INFO - Entrato in on_message
+2024-10-22 11:44:47,241 - INFO - TOPIC: Soliera/1/Lvlsensor_1
+2024-10-22 11:44:53,592 - INFO - Entrato in on_message
+2024-10-22 11:44:53,596 - INFO - TOPIC: Soliera/1/Lvlsensor_0
+2024-10-22 11:44:57,257 - INFO - Entrato in on_message
+2024-10-22 11:44:57,258 - INFO - TOPIC: Soliera/1/Lvlsensor_1
+2024-10-22 11:45:03,661 - INFO - Entrato in on_message
+2024-10-22 11:45:03,662 - INFO - TOPIC: Soliera/1/Lvlsensor_0
+2024-10-22 11:45:07,256 - INFO - Entrato in on_message
+2024-10-22 11:45:07,257 - INFO - TOPIC: Soliera/1/Lvlsensor_1
+2024-10-22 11:45:13,608 - INFO - Entrato in on_message
+2024-10-22 11:45:13,612 - INFO - TOPIC: Soliera/1/Lvlsensor_0
+2024-10-22 11:45:17,264 - INFO - Entrato in on_message
+2024-10-22 11:45:17,265 - INFO - TOPIC: Soliera/1/Lvlsensor_1
+2024-10-22 11:45:23,653 - INFO - Entrato in on_message
+2024-10-22 11:45:23,654 - INFO - TOPIC: Soliera/1/Lvlsensor_0
+2024-10-22 11:45:27,299 - INFO - Entrato in on_message
+2024-10-22 11:45:27,300 - INFO - TOPIC: Soliera/1/Lvlsensor_1
+2024-10-22 11:45:33,647 - INFO - Entrato in on_message
+2024-10-22 11:45:33,651 - INFO - TOPIC: Soliera/1/Lvlsensor_0
+2024-10-22 11:45:37,292 - INFO - Entrato in on_message
+2024-10-22 11:45:37,293 - INFO - TOPIC: Soliera/1/Lvlsensor_1
+2024-10-22 11:45:43,659 - INFO - Entrato in on_message
+2024-10-22 11:45:43,660 - INFO - TOPIC: Soliera/1/Lvlsensor_0
+2024-10-22 11:45:47,324 - INFO - Entrato in on_message
+2024-10-22 11:45:47,325 - INFO - TOPIC: Soliera/1/Lvlsensor_1
+2024-10-22 11:45:53,662 - INFO - Entrato in on_message
+2024-10-22 11:45:53,665 - INFO - TOPIC: Soliera/1/Lvlsensor_0
+2024-10-22 11:45:57,657 - INFO - Entrato in on_message
+2024-10-22 11:45:57,658 - INFO - TOPIC: Soliera/1/Lvlsensor_1
+2024-10-22 11:46:03,692 - INFO - Entrato in on_message
+2024-10-22 11:46:03,693 - INFO - TOPIC: Soliera/1/Lvlsensor_0
+2024-10-22 11:46:07,333 - INFO - Entrato in on_message
+2024-10-22 11:46:07,334 - INFO - TOPIC: Soliera/1/Lvlsensor_1
+2024-10-22 11:46:13,712 - INFO - Entrato in on_message
+2024-10-22 11:46:13,716 - INFO - TOPIC: Soliera/1/Lvlsensor_0
+2024-10-22 11:46:17,412 - INFO - Entrato in on_message
+2024-10-22 11:46:17,412 - INFO - TOPIC: Soliera/1/Lvlsensor_1
+2024-10-22 11:46:23,764 - INFO - Entrato in on_message
+2024-10-22 11:46:23,765 - INFO - TOPIC: Soliera/1/Lvlsensor_0
+2024-10-22 11:46:27,371 - INFO - Entrato in on_message
+2024-10-22 11:46:27,372 - INFO - TOPIC: Soliera/1/Lvlsensor_1
+2024-10-22 11:46:33,737 - INFO - Entrato in on_message
+2024-10-22 11:46:33,742 - INFO - TOPIC: Soliera/1/Lvlsensor_0
+2024-10-22 11:46:37,391 - INFO - Entrato in on_message
+2024-10-22 11:46:37,392 - INFO - TOPIC: Soliera/1/Lvlsensor_1
+2024-10-22 11:46:43,748 - INFO - Entrato in on_message
+2024-10-22 11:46:43,750 - INFO - TOPIC: Soliera/1/Lvlsensor_0
+2024-10-22 11:46:47,731 - INFO - Entrato in on_message
+2024-10-22 11:46:47,732 - INFO - TOPIC: Soliera/1/Lvlsensor_1
+2024-10-22 11:46:53,751 - INFO - Entrato in on_message
+2024-10-22 11:46:53,754 - INFO - TOPIC: Soliera/1/Lvlsensor_0
+2024-10-22 11:46:57,399 - INFO - Entrato in on_message
+2024-10-22 11:46:57,400 - INFO - TOPIC: Soliera/1/Lvlsensor_1
+2024-10-22 11:47:03,762 - INFO - Entrato in on_message
+2024-10-22 11:47:03,763 - INFO - TOPIC: Soliera/1/Lvlsensor_0
+2024-10-22 11:47:07,419 - INFO - Entrato in on_message
+2024-10-22 11:47:07,420 - INFO - TOPIC: Soliera/1/Lvlsensor_1
+2024-10-22 11:47:13,774 - INFO - Entrato in on_message
+2024-10-22 11:47:13,777 - INFO - TOPIC: Soliera/1/Lvlsensor_0
+2024-10-22 11:47:17,435 - INFO - Entrato in on_message
+2024-10-22 11:47:17,436 - INFO - TOPIC: Soliera/1/Lvlsensor_1
+2024-10-22 11:47:23,793 - INFO - Entrato in on_message
+2024-10-22 11:47:23,794 - INFO - TOPIC: Soliera/1/Lvlsensor_0
+2024-10-22 11:47:27,455 - INFO - Entrato in on_message
+2024-10-22 11:47:27,456 - INFO - TOPIC: Soliera/1/Lvlsensor_1
+2024-10-22 11:47:33,797 - INFO - Entrato in on_message
+2024-10-22 11:47:33,801 - INFO - TOPIC: Soliera/1/Lvlsensor_0
+2024-10-22 11:47:37,445 - INFO - Entrato in on_message
+2024-10-22 11:47:37,446 - INFO - TOPIC: Soliera/1/Lvlsensor_1
+2024-10-22 11:47:43,828 - INFO - Entrato in on_message
+2024-10-22 11:47:43,829 - INFO - TOPIC: Soliera/1/Lvlsensor_0
+2024-10-22 11:47:47,469 - INFO - Entrato in on_message
+2024-10-22 11:47:47,470 - INFO - TOPIC: Soliera/1/Lvlsensor_1
+2024-10-22 11:47:53,841 - INFO - Entrato in on_message
+2024-10-22 11:47:53,844 - INFO - TOPIC: Soliera/1/Lvlsensor_0
+2024-10-22 11:47:57,493 - INFO - Entrato in on_message
+2024-10-22 11:47:57,494 - INFO - TOPIC: Soliera/1/Lvlsensor_1
+2024-10-22 11:48:03,911 - INFO - Entrato in on_message
+2024-10-22 11:48:03,913 - INFO - TOPIC: Soliera/1/Lvlsensor_0
+2024-10-22 11:48:07,507 - INFO - Entrato in on_message
+2024-10-22 11:48:07,508 - INFO - TOPIC: Soliera/1/Lvlsensor_1
+2024-10-22 11:48:13,870 - INFO - Entrato in on_message
+2024-10-22 11:48:13,874 - INFO - TOPIC: Soliera/1/Lvlsensor_0
+2024-10-22 11:48:17,535 - INFO - Entrato in on_message
+2024-10-22 11:48:17,536 - INFO - TOPIC: Soliera/1/Lvlsensor_1
+2024-10-22 11:48:23,902 - INFO - Entrato in on_message
+2024-10-22 11:48:23,902 - INFO - TOPIC: Soliera/1/Lvlsensor_0
+2024-10-22 11:48:27,532 - INFO - Entrato in on_message
+2024-10-22 11:48:27,533 - INFO - TOPIC: Soliera/1/Lvlsensor_1
+2024-10-22 11:48:33,891 - INFO - Entrato in on_message
+2024-10-22 11:48:33,895 - INFO - TOPIC: Soliera/1/Lvlsensor_0
+2024-10-22 11:48:37,541 - INFO - Entrato in on_message
+2024-10-22 11:48:37,542 - INFO - TOPIC: Soliera/1/Lvlsensor_1
+2024-10-22 11:48:43,897 - INFO - Entrato in on_message
+2024-10-22 11:48:43,898 - INFO - TOPIC: Soliera/1/Lvlsensor_0
+2024-10-22 11:48:47,551 - INFO - Entrato in on_message
+2024-10-22 11:48:47,552 - INFO - TOPIC: Soliera/1/Lvlsensor_1
+2024-10-22 11:48:53,921 - INFO - Entrato in on_message
+2024-10-22 11:48:53,925 - INFO - TOPIC: Soliera/1/Lvlsensor_0
+2024-10-22 11:48:57,557 - INFO - Entrato in on_message
+2024-10-22 11:48:57,558 - INFO - TOPIC: Soliera/1/Lvlsensor_1
+2024-10-22 11:49:03,934 - INFO - Entrato in on_message
+2024-10-22 11:49:03,936 - INFO - TOPIC: Soliera/1/Lvlsensor_0
+2024-10-22 11:49:07,585 - INFO - Entrato in on_message
+2024-10-22 11:49:07,586 - INFO - TOPIC: Soliera/1/Lvlsensor_1
+2024-10-22 11:49:13,950 - INFO - Entrato in on_message
+2024-10-22 11:49:13,954 - INFO - TOPIC: Soliera/1/Lvlsensor_0
+2024-10-22 11:49:17,603 - INFO - Entrato in on_message
+2024-10-22 11:49:17,604 - INFO - TOPIC: Soliera/1/Lvlsensor_1
+2024-10-22 11:49:23,953 - INFO - Entrato in on_message
+2024-10-22 11:49:23,954 - INFO - TOPIC: Soliera/1/Lvlsensor_0
+2024-10-22 11:49:27,731 - INFO - Entrato in on_message
+2024-10-22 11:49:27,732 - INFO - TOPIC: Soliera/1/Lvlsensor_1
+2024-10-22 11:49:33,980 - INFO - Entrato in on_message
+2024-10-22 11:49:33,984 - INFO - TOPIC: Soliera/1/Lvlsensor_0
+2024-10-22 11:49:37,601 - INFO - Entrato in on_message
+2024-10-22 11:49:37,602 - INFO - TOPIC: Soliera/1/Lvlsensor_1
+2024-10-22 11:49:43,983 - INFO - Entrato in on_message
+2024-10-22 11:49:43,985 - INFO - TOPIC: Soliera/1/Lvlsensor_0
+2024-10-22 11:49:47,653 - INFO - Entrato in on_message
+2024-10-22 11:49:47,654 - INFO - TOPIC: Soliera/1/Lvlsensor_1
+2024-10-22 11:49:54,019 - INFO - Entrato in on_message
+2024-10-22 11:49:54,022 - INFO - TOPIC: Soliera/1/Lvlsensor_0
+2024-10-22 11:49:57,662 - INFO - Entrato in on_message
+2024-10-22 11:49:57,663 - INFO - TOPIC: Soliera/1/Lvlsensor_1
+2024-10-22 11:50:04,014 - INFO - Entrato in on_message
+2024-10-22 11:50:04,015 - INFO - TOPIC: Soliera/1/Lvlsensor_0
+2024-10-22 11:50:07,658 - INFO - Entrato in on_message
+2024-10-22 11:50:07,659 - INFO - TOPIC: Soliera/1/Lvlsensor_1
+2024-10-22 11:50:14,113 - INFO - Entrato in on_message
+2024-10-22 11:50:14,117 - INFO - TOPIC: Soliera/1/Lvlsensor_0
+2024-10-22 11:50:17,680 - INFO - Entrato in on_message
+2024-10-22 11:50:17,681 - INFO - TOPIC: Soliera/1/Lvlsensor_1
+2024-10-22 11:50:24,150 - INFO - Entrato in on_message
+2024-10-22 11:50:24,151 - INFO - TOPIC: Soliera/1/Lvlsensor_0
+2024-10-22 11:50:27,698 - INFO - Entrato in on_message
+2024-10-22 11:50:27,699 - INFO - TOPIC: Soliera/1/Lvlsensor_1
+2024-10-22 11:50:34,050 - INFO - Entrato in on_message
+2024-10-22 11:50:34,053 - INFO - TOPIC: Soliera/1/Lvlsensor_0
+2024-10-22 11:50:37,729 - INFO - Entrato in on_message
+2024-10-22 11:50:37,730 - INFO - TOPIC: Soliera/1/Lvlsensor_1
+2024-10-22 11:50:44,070 - INFO - Entrato in on_message
+2024-10-22 11:50:44,071 - INFO - TOPIC: Soliera/1/Lvlsensor_0
+2024-10-22 11:50:47,710 - INFO - Entrato in on_message
+2024-10-22 11:50:47,711 - INFO - TOPIC: Soliera/1/Lvlsensor_1
+2024-10-22 11:50:54,100 - INFO - Entrato in on_message
+2024-10-22 11:50:54,103 - INFO - TOPIC: Soliera/1/Lvlsensor_0
+2024-10-22 11:50:57,750 - INFO - Entrato in on_message
+2024-10-22 11:50:57,751 - INFO - TOPIC: Soliera/1/Lvlsensor_1
+2024-10-22 11:51:04,149 - INFO - Entrato in on_message
+2024-10-22 11:51:04,150 - INFO - TOPIC: Soliera/1/Lvlsensor_0
+2024-10-22 11:51:07,804 - INFO - Entrato in on_message
+2024-10-22 11:51:07,805 - INFO - TOPIC: Soliera/1/Lvlsensor_1
+2024-10-22 11:51:14,347 - INFO - Entrato in on_message
+2024-10-22 11:51:14,359 - INFO - TOPIC: Soliera/1/Lvlsensor_0
+2024-10-22 11:51:17,751 - INFO - Entrato in on_message
+2024-10-22 11:51:17,752 - INFO - TOPIC: Soliera/1/Lvlsensor_1
+2024-10-22 11:51:24,142 - INFO - Entrato in on_message
+2024-10-22 11:51:24,143 - INFO - TOPIC: Soliera/1/Lvlsensor_0
+2024-10-22 11:51:27,849 - INFO - Entrato in on_message
+2024-10-22 11:51:27,850 - INFO - TOPIC: Soliera/1/Lvlsensor_1
+2024-10-22 11:51:34,154 - INFO - Entrato in on_message
+2024-10-22 11:51:34,160 - INFO - TOPIC: Soliera/1/Lvlsensor_0
+2024-10-22 11:51:37,800 - INFO - Entrato in on_message
+2024-10-22 11:51:37,800 - INFO - TOPIC: Soliera/1/Lvlsensor_1
+2024-10-22 11:51:44,177 - INFO - Entrato in on_message
+2024-10-22 11:51:44,178 - INFO - TOPIC: Soliera/1/Lvlsensor_0
+2024-10-22 11:51:47,831 - INFO - Entrato in on_message
+2024-10-22 11:51:47,831 - INFO - TOPIC: Soliera/1/Lvlsensor_1
+2024-10-22 11:51:54,218 - INFO - Entrato in on_message
+2024-10-22 11:51:54,221 - INFO - TOPIC: Soliera/1/Lvlsensor_0
+2024-10-22 11:51:57,818 - INFO - Entrato in on_message
+2024-10-22 11:51:57,819 - INFO - TOPIC: Soliera/1/Lvlsensor_1
+2024-10-22 11:52:04,195 - INFO - Entrato in on_message
+2024-10-22 11:52:04,198 - INFO - TOPIC: Soliera/1/Lvlsensor_0
+2024-10-22 11:52:07,850 - INFO - Entrato in on_message
+2024-10-22 11:52:07,851 - INFO - TOPIC: Soliera/1/Lvlsensor_1
+2024-10-22 11:52:14,208 - INFO - Entrato in on_message
+2024-10-22 11:52:14,211 - INFO - TOPIC: Soliera/1/Lvlsensor_0
+2024-10-22 11:52:17,852 - INFO - Entrato in on_message
+2024-10-22 11:52:17,853 - INFO - TOPIC: Soliera/1/Lvlsensor_1
+2024-10-22 11:52:24,223 - INFO - Entrato in on_message
+2024-10-22 11:52:24,223 - INFO - TOPIC: Soliera/1/Lvlsensor_0
+2024-10-22 11:52:27,893 - INFO - Entrato in on_message
+2024-10-22 11:52:27,894 - INFO - TOPIC: Soliera/1/Lvlsensor_1
+2024-10-22 11:52:34,222 - INFO - Entrato in on_message
+2024-10-22 11:52:34,226 - INFO - TOPIC: Soliera/1/Lvlsensor_0
+2024-10-22 11:52:37,890 - INFO - Entrato in on_message
+2024-10-22 11:52:37,891 - INFO - TOPIC: Soliera/1/Lvlsensor_1
+2024-10-22 11:52:44,260 - INFO - Entrato in on_message
+2024-10-22 11:52:44,261 - INFO - TOPIC: Soliera/1/Lvlsensor_0
+2024-10-22 11:52:48,099 - INFO - Entrato in on_message
+2024-10-22 11:52:48,100 - INFO - TOPIC: Soliera/1/Lvlsensor_1
+
+
+2024-10-22 11:58:28,397 - INFO - Arduino connesso correttamente sulla porta /dev/cu.usbmodem144101
+2024-10-22 11:58:28,399 - INFO - Connessione riuscita. Pronto a inviare i dati della ciotola.
+2024-10-22 11:58:28,399 - INFO - Entro in SetupMQTT
+2024-10-22 11:58:28,399 - INFO - connecting to MQTT broker...
+2024-10-22 11:58:28,429 - INFO - MQTT broker CONNECTED
+2024-10-22 11:58:56,376 - INFO - Entrato in on_connect
+2024-10-22 11:58:56,377 - INFO - Connected with result code Success
+2024-10-22 11:58:56,377 - INFO - Connesso al topic: config/topic
+
+
+2024-10-22 13:12:52,148 - INFO - Arduino connesso correttamente sulla porta /dev/cu.usbmodem144101
+2024-10-22 13:12:52,149 - INFO - Connessione riuscita. Pronto a inviare i dati della ciotola.
+2024-10-22 13:12:52,149 - INFO - Entro in SetupMQTT
+2024-10-22 13:12:52,149 - INFO - connecting to MQTT broker...
+2024-10-22 13:12:52,173 - INFO - MQTT broker CONNECTED
+2024-10-22 13:12:52,196 - INFO - Entrato in on_connect
+2024-10-22 13:12:52,197 - INFO - Connected with result code Not authorized
+2024-10-22 13:12:52,197 - INFO - Connesso al topic: config/topic
+2024-10-22 13:12:53,245 - INFO - Entrato in on_connect
+2024-10-22 13:12:53,246 - INFO - Connected with result code Not authorized
+2024-10-22 13:12:53,246 - INFO - Connesso al topic: config/topic
+2024-10-22 13:12:55,303 - INFO - Entrato in on_connect
+2024-10-22 13:12:55,303 - INFO - Connected with result code Not authorized
+2024-10-22 13:12:55,304 - INFO - Connesso al topic: config/topic
+2024-10-22 13:13:27,790 - INFO - Entrato in on_connect
+2024-10-22 13:13:27,791 - INFO - Connected with result code Success
+2024-10-22 13:13:27,791 - INFO - Connesso al topic: config/topic
+2024-10-22 13:14:26,402 - INFO - Arduino connesso correttamente sulla porta /dev/cu.usbmodem144101
+2024-10-22 13:14:26,403 - INFO - Connessione riuscita. Pronto a inviare i dati della ciotola.
+2024-10-22 13:14:26,403 - INFO - Entro in SetupMQTT
+2024-10-22 13:14:26,403 - INFO - connecting to MQTT broker...
+2024-10-22 13:14:26,427 - INFO - MQTT broker CONNECTED
+2024-10-22 13:14:26,489 - INFO - Entrato in on_connect
+2024-10-22 13:14:26,489 - INFO - Connected with result code Not authorized
+2024-10-22 13:14:26,490 - INFO - Connesso al topic: config/topic
+2024-10-22 13:14:27,545 - INFO - Entrato in on_connect
+2024-10-22 13:14:27,545 - INFO - Connected with result code Not authorized
+2024-10-22 13:14:27,546 - INFO - Connesso al topic: config/topic
+2024-10-22 13:14:56,717 - INFO - Entrato in on_connect
+2024-10-22 13:14:56,717 - INFO - Connected with result code Success
+2024-10-22 13:14:56,717 - INFO - Connesso al topic: config/topic
+2024-10-22 13:17:37,773 - INFO - Arduino connesso correttamente sulla porta /dev/cu.usbmodem144101
+2024-10-22 13:17:37,773 - INFO - Connessione riuscita. Pronto a inviare i dati della ciotola.
+2024-10-22 13:17:37,773 - INFO - Entro in SetupMQTT
+2024-10-22 13:17:37,773 - INFO - connecting to MQTT broker...
+2024-10-22 13:17:37,801 - INFO - MQTT broker CONNECTED
+2024-10-22 13:18:07,121 - INFO - Entrato in on_connect
+2024-10-22 13:18:07,121 - INFO - Connected with result code Success
+2024-10-22 13:18:07,121 - INFO - Connesso al topic: config/topic
+
+
+2024-10-22 13:21:25,267 - INFO - Arduino connesso correttamente sulla porta /dev/cu.usbmodem144101
+2024-10-22 13:21:25,268 - INFO - Connessione riuscita. Pronto a inviare i dati della ciotola.
+2024-10-22 13:21:25,268 - INFO - Entro in SetupMQTT
+2024-10-22 13:21:25,268 - INFO - connecting to MQTT broker...
+2024-10-22 13:21:25,291 - INFO - MQTT broker CONNECTED
+2024-10-22 13:21:25,360 - INFO - Entrato in on_connect
+2024-10-22 13:21:25,360 - INFO - Connected with result code Not authorized
+2024-10-22 13:21:25,360 - INFO - Connesso al topic: config/topic
+2024-10-22 13:21:54,617 - INFO - Entrato in on_connect
+2024-10-22 13:21:54,617 - INFO - Connected with result code Success
+2024-10-22 13:21:54,617 - INFO - Connesso al topic: config/topic
+2024-10-22 13:28:36,768 - INFO - Arduino connesso correttamente sulla porta /dev/cu.usbmodem144101
+2024-10-22 13:28:36,768 - INFO - Connessione riuscita. Pronto a inviare i dati della ciotola.
+2024-10-22 13:28:36,768 - INFO - Entro in SetupMQTT
+2024-10-22 13:28:36,769 - INFO - connecting to MQTT broker...
+2024-10-22 13:28:36,802 - INFO - MQTT broker CONNECTED
+2024-10-22 13:28:36,872 - INFO - Entrato in on_connect
+2024-10-22 13:28:36,872 - INFO - Connected with result code Success
+2024-10-22 13:28:36,872 - INFO - Connesso al topic: config/topic
+2024-10-22 13:28:59,513 - INFO - Entrato in on_message
+2024-10-22 13:28:59,517 - INFO - TOPIC: config/topic
+2024-10-22 13:28:59,517 - INFO - on_config è stato chiamato.
+2024-10-22 13:28:59,518 - INFO - Received message on topic: config/topic
+2024-10-22 13:28:59,518 - INFO - Payload grezzo: {"zona": "Soliera", "id": "50", "latitudine": 44.7365, "longitudine": 10.9174}
+2024-10-22 13:28:59,518 - INFO - Converting from Json to Object
+2024-10-22 13:28:59,518 - INFO - PAYLOAD: {'zona': 'Soliera', 'id': '50', 'latitudine': 44.7365, 'longitudine': 10.9174} - TYPE: <class 'dict'>
+2024-10-22 13:28:59,524 - DEBUG - Dati inviati all'Arduino: Soliera, 50, 44.7365, 10.9174
+2024-10-22 13:28:59,557 - DEBUG - Arduino ha confermato la ricezione dei dati.
+2024-10-22 13:28:59,557 - INFO - Zona: Soliera, ID: 50, Lat: 44.7365, Lon: 10.9174
+2024-10-22 13:28:59,627 - INFO - Entrato in on_message
+2024-10-22 13:28:59,628 - INFO - TOPIC: Soliera/50/Coord
+2024-10-22 13:29:03,245 - INFO - Entrato in on_message
+2024-10-22 13:29:03,246 - INFO - TOPIC: Soliera/50/Lvlsensor_0
+2024-10-22 13:29:06,887 - INFO - Entrato in on_message
+2024-10-22 13:29:06,888 - INFO - TOPIC: Soliera/50/Lvlsensor_1
+2024-10-22 13:29:07,020 - INFO - Entrato in on_message
+2024-10-22 13:29:07,021 - INFO - TOPIC: Soliera/50/Lvlsensor_1
+2024-10-22 13:29:13,252 - INFO - Entrato in on_message
+2024-10-22 13:29:13,253 - INFO - TOPIC: Soliera/50/Lvlsensor_0
+2024-10-22 13:29:16,908 - INFO - Entrato in on_message
+2024-10-22 13:29:16,911 - INFO - TOPIC: Soliera/50/Lvlsensor_1
+2024-10-22 13:29:17,040 - INFO - Entrato in on_message
+2024-10-22 13:29:17,041 - INFO - TOPIC: Soliera/50/Lvlsensor_1
+2024-10-22 13:29:23,264 - INFO - Entrato in on_message
+2024-10-22 13:29:23,266 - INFO - TOPIC: Soliera/50/Lvlsensor_0
+2024-10-22 13:29:26,912 - INFO - Entrato in on_message
+2024-10-22 13:29:26,912 - INFO - TOPIC: Soliera/50/Lvlsensor_1
+2024-10-22 13:29:27,039 - INFO - Entrato in on_message
+2024-10-22 13:29:27,040 - INFO - TOPIC: Soliera/50/Lvlsensor_1
+2024-10-22 13:29:33,286 - INFO - Entrato in on_message
+2024-10-22 13:29:33,290 - INFO - TOPIC: Soliera/50/Lvlsensor_0
+2024-10-22 13:29:36,941 - INFO - Entrato in on_message
+2024-10-22 13:29:36,942 - INFO - TOPIC: Soliera/50/Lvlsensor_1
+2024-10-22 13:29:37,071 - INFO - Entrato in on_message
+2024-10-22 13:29:37,071 - INFO - TOPIC: Soliera/50/Lvlsensor_1
+2024-10-22 13:29:43,295 - INFO - Entrato in on_message
+2024-10-22 13:29:43,296 - INFO - TOPIC: Soliera/50/Lvlsensor_0
+2024-10-22 13:29:46,950 - INFO - Entrato in on_message
+2024-10-22 13:29:46,951 - INFO - TOPIC: Soliera/50/Lvlsensor_1
+2024-10-22 13:29:47,095 - INFO - Entrato in on_message
+2024-10-22 13:29:47,096 - INFO - TOPIC: Soliera/50/Lvlsensor_1
+2024-10-22 13:29:53,318 - INFO - Entrato in on_message
+2024-10-22 13:29:53,323 - INFO - TOPIC: Soliera/50/Lvlsensor_0
+2024-10-22 13:29:56,966 - INFO - Entrato in on_message
+2024-10-22 13:29:56,967 - INFO - TOPIC: Soliera/50/Lvlsensor_1
+2024-10-22 13:29:57,089 - INFO - Entrato in on_message
+2024-10-22 13:29:57,090 - INFO - TOPIC: Soliera/50/Lvlsensor_1
+2024-10-22 13:30:03,328 - INFO - Entrato in on_message
+2024-10-22 13:30:03,330 - INFO - TOPIC: Soliera/50/Lvlsensor_0
+2024-10-22 13:30:06,993 - INFO - Entrato in on_message
+2024-10-22 13:30:06,994 - INFO - TOPIC: Soliera/50/Lvlsensor_1
+2024-10-22 13:30:07,118 - INFO - Entrato in on_message
+2024-10-22 13:30:07,119 - INFO - TOPIC: Soliera/50/Lvlsensor_1
+2024-10-22 13:30:13,346 - INFO - Entrato in on_message
+2024-10-22 13:30:13,351 - INFO - TOPIC: Soliera/50/Lvlsensor_0
+2024-10-22 13:30:17,003 - INFO - Entrato in on_message
+2024-10-22 13:30:17,004 - INFO - TOPIC: Soliera/50/Lvlsensor_1
+2024-10-22 13:30:17,138 - INFO - Entrato in on_message
+2024-10-22 13:30:17,139 - INFO - TOPIC: Soliera/50/Lvlsensor_1
+2024-10-22 13:30:23,347 - INFO - Entrato in on_message
+2024-10-22 13:30:23,348 - INFO - TOPIC: Soliera/50/Lvlsensor_0
+2024-10-22 13:30:27,018 - INFO - Entrato in on_message
+2024-10-22 13:30:27,019 - INFO - TOPIC: Soliera/50/Lvlsensor_1
+2024-10-22 13:30:27,148 - INFO - Entrato in on_message
+2024-10-22 13:30:27,149 - INFO - TOPIC: Soliera/50/Lvlsensor_1
+2024-10-22 13:30:33,359 - INFO - Entrato in on_message
+2024-10-22 13:30:33,363 - INFO - TOPIC: Soliera/50/Lvlsensor_0
+2024-10-22 13:30:37,023 - INFO - Entrato in on_message
+2024-10-22 13:30:37,024 - INFO - TOPIC: Soliera/50/Lvlsensor_1
+2024-10-22 13:30:37,151 - INFO - Entrato in on_message
+2024-10-22 13:30:37,152 - INFO - TOPIC: Soliera/50/Lvlsensor_1
+2024-10-22 13:30:43,379 - INFO - Entrato in on_message
+2024-10-22 13:30:43,380 - INFO - TOPIC: Soliera/50/Lvlsensor_0
+2024-10-22 13:30:47,035 - INFO - Entrato in on_message
+2024-10-22 13:30:47,036 - INFO - TOPIC: Soliera/50/Lvlsensor_1
+2024-10-22 13:30:47,173 - INFO - Entrato in on_message
+2024-10-22 13:30:47,173 - INFO - TOPIC: Soliera/50/Lvlsensor_1
+2024-10-22 13:30:53,389 - INFO - Entrato in on_message
+2024-10-22 13:30:53,394 - INFO - TOPIC: Soliera/50/Lvlsensor_0
+2024-10-22 13:30:57,050 - INFO - Entrato in on_message
+2024-10-22 13:30:57,052 - INFO - TOPIC: Soliera/50/Lvlsensor_1
+2024-10-22 13:30:57,183 - INFO - Entrato in on_message
+2024-10-22 13:30:57,184 - INFO - TOPIC: Soliera/50/Lvlsensor_1
+2024-10-22 13:31:23,168 - INFO - Arduino connesso correttamente sulla porta /dev/cu.usbmodem144101
+2024-10-22 13:31:23,168 - INFO - Connessione riuscita. Pronto a inviare i dati della ciotola.
+2024-10-22 13:31:23,168 - INFO - Entro in SetupMQTT
+2024-10-22 13:31:23,169 - INFO - connecting to MQTT broker...
+2024-10-22 13:31:23,196 - INFO - MQTT broker CONNECTED
+2024-10-22 13:31:23,282 - INFO - Entrato in on_connect
+2024-10-22 13:31:23,282 - INFO - Connected with result code Success
+2024-10-22 13:31:23,282 - INFO - Connesso al topic: config/topic
+2024-10-22 13:31:43,353 - INFO - Entrato in on_message
+2024-10-22 13:31:43,357 - INFO - TOPIC: config/topic
+2024-10-22 13:31:43,357 - INFO - on_config è stato chiamato.
+2024-10-22 13:31:43,357 - INFO - Received message on topic: config/topic
+2024-10-22 13:31:43,357 - INFO - Payload grezzo: {"zona": "Soliera", "id": "2", "latitudine": 44.7365, "longitudine": 10.9174}
+2024-10-22 13:31:43,358 - INFO - Converting from Json to Object
+2024-10-22 13:31:43,358 - INFO - PAYLOAD: {'zona': 'Soliera', 'id': '2', 'latitudine': 44.7365, 'longitudine': 10.9174} - TYPE: <class 'dict'>
+2024-10-22 13:31:43,363 - DEBUG - Dati inviati all'Arduino: Soliera, 2, 44.7365, 10.9174
+2024-10-22 13:31:43,392 - DEBUG - Arduino ha confermato la ricezione dei dati.
+2024-10-22 13:31:43,392 - INFO - Zona: Soliera, ID: 2, Lat: 44.7365, Lon: 10.9174
+2024-10-22 13:31:43,463 - INFO - Entrato in on_message
+2024-10-22 13:31:43,464 - INFO - TOPIC: Soliera/2/Coord
+2024-10-22 13:31:47,077 - INFO - Entrato in on_message
+2024-10-22 13:31:47,079 - INFO - TOPIC: Soliera/2/Lvlsensor_0
+2024-10-22 13:31:50,745 - INFO - Entrato in on_message
+2024-10-22 13:31:50,746 - INFO - TOPIC: Soliera/2/Lvlsensor_1
+2024-10-22 13:31:50,884 - INFO - Entrato in on_message
+2024-10-22 13:31:50,885 - INFO - TOPIC: Soliera/2/Lvlsensor_1
+2024-10-22 13:31:57,098 - INFO - Entrato in on_message
+2024-10-22 13:31:57,099 - INFO - TOPIC: Soliera/2/Lvlsensor_0
+2024-10-22 13:32:00,747 - INFO - Entrato in on_message
+2024-10-22 13:32:00,750 - INFO - TOPIC: Soliera/2/Lvlsensor_1
+2024-10-22 13:32:00,885 - INFO - Entrato in on_message
+2024-10-22 13:32:00,886 - INFO - TOPIC: Soliera/2/Lvlsensor_1
+2024-10-22 13:32:07,116 - INFO - Entrato in on_message
+2024-10-22 13:32:07,116 - INFO - TOPIC: Soliera/2/Lvlsensor_0
+2024-10-22 13:32:10,768 - INFO - Entrato in on_message
+2024-10-22 13:32:10,769 - INFO - TOPIC: Soliera/2/Lvlsensor_1
+2024-10-22 13:32:11,028 - INFO - Entrato in on_message
+2024-10-22 13:32:11,029 - INFO - TOPIC: Soliera/2/Lvlsensor_1
+2024-10-22 13:32:17,120 - INFO - Entrato in on_message
+2024-10-22 13:32:17,124 - INFO - TOPIC: Soliera/2/Lvlsensor_0
+2024-10-22 13:32:20,802 - INFO - Entrato in on_message
+2024-10-22 13:32:20,803 - INFO - TOPIC: Soliera/2/Lvlsensor_1
+2024-10-22 13:32:20,938 - INFO - Entrato in on_message
+2024-10-22 13:32:20,939 - INFO - TOPIC: Soliera/2/Lvlsensor_1
+2024-10-22 13:32:27,200 - INFO - Entrato in on_message
+2024-10-22 13:32:27,201 - INFO - TOPIC: Soliera/2/Lvlsensor_0
+2024-10-22 13:32:30,823 - INFO - Entrato in on_message
+2024-10-22 13:32:30,824 - INFO - TOPIC: Soliera/2/Lvlsensor_1
+2024-10-22 13:32:31,964 - INFO - Entrato in on_message
+2024-10-22 13:32:31,965 - INFO - TOPIC: Soliera/2/Lvlsensor_1
+2024-10-22 13:32:37,201 - INFO - Entrato in on_message
+2024-10-22 13:32:37,205 - INFO - TOPIC: Soliera/2/Lvlsensor_0
+2024-10-22 13:32:40,840 - INFO - Entrato in on_message
+2024-10-22 13:32:40,841 - INFO - TOPIC: Soliera/2/Lvlsensor_1
+2024-10-22 13:32:40,974 - INFO - Entrato in on_message
+2024-10-22 13:32:40,975 - INFO - TOPIC: Soliera/2/Lvlsensor_1
+2024-10-22 13:32:47,196 - INFO - Entrato in on_message
+2024-10-22 13:32:47,198 - INFO - TOPIC: Soliera/2/Lvlsensor_0
+2024-10-22 13:32:50,847 - INFO - Entrato in on_message
+2024-10-22 13:32:50,847 - INFO - TOPIC: Soliera/2/Lvlsensor_1
+2024-10-22 13:32:50,978 - INFO - Entrato in on_message
+2024-10-22 13:32:50,979 - INFO - TOPIC: Soliera/2/Lvlsensor_1
+2024-10-22 13:32:57,222 - INFO - Entrato in on_message
+2024-10-22 13:32:57,226 - INFO - TOPIC: Soliera/2/Lvlsensor_0
+2024-10-22 13:33:00,887 - INFO - Entrato in on_message
+2024-10-22 13:33:00,888 - INFO - TOPIC: Soliera/2/Lvlsensor_1
+2024-10-22 13:33:00,890 - INFO - Entrato in on_message
+2024-10-22 13:33:00,891 - INFO - TOPIC: Soliera/2/Lvlsensor_1
+2024-10-22 13:33:07,226 - INFO - Entrato in on_message
+2024-10-22 13:33:07,228 - INFO - TOPIC: Soliera/2/Lvlsensor_0

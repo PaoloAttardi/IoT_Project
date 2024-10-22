@@ -36,16 +36,16 @@ int sensorPin0 = A0;  // Pin analogico dove è collegato il sensore
 
 int sensorValue0 = 0;
 float bowlWater = 0.0;   // Variabile per memorizzare il valore letto dal sensore
-int sogliaAlta0 = 115;  // Valore per alta presenza di acqua
-int sogliaBassa0 = 195; // Valore per bassa presenza di acqua
+int sogliaAlta0 = 180;  // Valore per alta presenza di acqua
+int sogliaBassa0 = 300; // Valore per bassa presenza di acqua
 
 // CAPACITIVE SOIL SENSOR
 int sensorPin1 = A1;  // Pin analogico dove è collegato il sensore
 
 float tankCap = 0.0;  // Variabile per memorizzare il valore letto dal sensore
 int sensorValue1 = 0;
-int sogliaAlta1 = 415;  // Valore per alta presenza di acqua
-int sogliaBassa1 = 740; // Valore per bassa presenza di acqua
+int sogliaAlta1 = 416;  // Valore per alta presenza di acqua
+int sogliaBassa1 = 790; // Valore per bassa presenza di acqua
 
 int countDigits(float number) {
   char buffer[15];  // Allocate a buffer to hold the string representation

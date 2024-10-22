@@ -11,6 +11,7 @@ from flask import jsonify
 from utils import newPrediction, BucketList, get_weather_forecast, Bowl
 from flask_swagger_ui import get_swaggerui_blueprint
 from influxdb_client.client.write_api import SYNCHRONOUS
+import time
 
 
 appname = "Happy Bowls"
@@ -26,7 +27,7 @@ mqtt_topic = "config/topic"  # Il topic su cui inviare i dati
 def connect_mqtt():
 		try:
 			mqtt_client.connect(
-				config.get("MQTT","Server", fallback= "broker.hivemq.com"),
+				config.get("MQTT","Server", fallback= "test.mosquitto.org"),
 				config.getint("MQTT","Port", fallback= 1883),
 				60)
 			print(f'Connesso a {config.get("MQTT", "Server")}:{config.get("MQTT", "Port")}')
@@ -202,6 +203,7 @@ def bowlConfig(zone, id, lat, lon):
 
 			# Concatena i valori in una stringa separata da virgole (o altro separatore)
 			print(f"MESSAGGIO: {payload} -- TIPO: {type(payload)}")
+			
 			# Pubblica il messaggio tramite MQTT
 			try:
 					mqtt_client.publish(mqtt_topic, payload)

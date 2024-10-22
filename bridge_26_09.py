@@ -13,7 +13,7 @@ import json
 from main import mqtt_client
 
 # Configura il logging
-logging.basicConfig(filename='bridge5.log', level=logging.DEBUG,
+logging.basicConfig(filename='bridge6.log', level=logging.DEBUG,
 					format='%(asctime)s - %(levelname)s - %(message)s')
 
 reset = 1
@@ -37,10 +37,10 @@ class Bridge():
 		self.bowl_data_sent = False
 		# Limit for the water Bowl
 		# self.sogliaMax = 0.1
-		self.sogliaBassa0 = 300	#no water in bowl
+		'''self.sogliaBassa0 = 300	#no water in bowl
 		self.sogliaAlta0 = 160	#water in bowl
 		self.sogliaBassa1 = 740	#no water in tank
-		self.sogliaAlta1 = 415	#water in tank
+		self.sogliaAlta1 = 415	#water in tank'''
 		self.clientMQTT = mqtt_client
 		self.setupSerial(port)
 		self.setupMQTT()
@@ -124,7 +124,7 @@ class Bridge():
 		logging.info("connecting to MQTT broker...")
 		try:
 			self.clientMQTT.connect(
-			self.config.get("MQTT","Server", fallback= "broker.hivemq.com"),
+			self.config.get("MQTT","Server", fallback= "test.mosquitto.org"),
 			self.config.getint("MQTT","Port", fallback= 1883),
 			60)
 			logging.info("MQTT broker CONNECTED")
