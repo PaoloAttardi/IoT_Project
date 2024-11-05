@@ -13,7 +13,7 @@ import json
 from main import mqtt_client
 
 # Configura il logging
-logging.basicConfig(filename='bridge6.log', level=logging.DEBUG,
+logging.basicConfig(filename='bridge7.log', level=logging.DEBUG,
 					format='%(asctime)s - %(levelname)s - %(message)s')
 
 reset = 1
@@ -28,6 +28,7 @@ class Bridge():
 		self.datiZona = {}
 		self.zona = ""
 		self.id = ""
+		self.pippo = 0
 		self.currentstate0 = 0
 		self.currentstate1 = 0
 		self.ser = None
@@ -246,18 +247,22 @@ class Bridge():
 					if bowlWater == 0.0:
 						futurestate0 = 1	#no water in bowl
 					else:
+						self.pippo = 0
 						futurestate0 = 0	#water in bowl
 				
 				#STATE 1
 				elif self.currentstate0 == 1:
-					url = f'http://{IPAddr}/meteo/{self.lat}/{self.lon}'
-					response = requests.get(url)
-					if bowlWater == 0.0 and response.text != 'Rainy':
-						self.ser.write(b'A')
-						#futurestate0 = 2	#fill bowl
-						futurestate0 = 0    #water in bowl
-					else:
-						futurestate0 = 1	#no water
+					logging.info(f"PIPPO = {self.pippo}")
+					if self.pippo == 0:
+						url = f'http://{IPAddr}/meteo/{self.lat}/{self.lon}'
+						response = requests.get(url)
+						if bowlWater == 0.0 and response.text != 'Rainy':
+							self.ser.write(b'A')
+							#futurestate0 = 2	#fill bowl
+							futurestate0 = 0    #water in bowl
+							self.pippo = 1
+						else:
+							futurestate0 = 1	#no water
 						
 				#STATE 2
 				#elif self.currentstate0 == 2:

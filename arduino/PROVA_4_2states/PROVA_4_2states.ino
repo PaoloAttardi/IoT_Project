@@ -3,7 +3,7 @@
 unsigned long previousMillis = 0;
 const int interval = 10000;
 unsigned long servoOpenTime = 0;
-const unsigned long servoDuration = 5000; // 5 secondi per il servo
+const unsigned long servoDuration = 4000; // 4 secondi per il servo
 
 
 //bool config = true;
@@ -44,7 +44,7 @@ int sensorPin1 = A1;  // Pin analogico dove è collegato il sensore
 
 float tankCap = 0.0;  // Variabile per memorizzare il valore letto dal sensore
 int sensorValue1 = 0;
-int sogliaAlta1 = 416;  // Valore per alta presenza di acqua
+int sogliaAlta1 = 300;  // Valore per alta presenza di acqua
 int sogliaBassa1 = 790; // Valore per bassa presenza di acqua
 
 int countDigits(float number) {

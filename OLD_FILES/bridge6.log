@@ -1051,3 +1051,846 @@
 2024-10-22 13:33:00,891 - INFO - TOPIC: Soliera/2/Lvlsensor_1
 2024-10-22 13:33:07,226 - INFO - Entrato in on_message
 2024-10-22 13:33:07,228 - INFO - TOPIC: Soliera/2/Lvlsensor_0
+2024-11-04 10:41:22,753 - INFO - Arduino connesso correttamente sulla porta /dev/cu.usbmodem143101
+2024-11-04 10:41:22,755 - INFO - Connessione riuscita. Pronto a inviare i dati della ciotola.
+2024-11-04 10:41:22,755 - INFO - Entro in SetupMQTT
+2024-11-04 10:41:22,755 - INFO - connecting to MQTT broker...
+2024-11-04 10:41:23,827 - INFO - MQTT broker CONNECTED
+2024-11-04 10:41:23,917 - INFO - Entrato in on_connect
+2024-11-04 10:41:23,917 - INFO - Connected with result code Success
+2024-11-04 10:41:23,917 - INFO - Connesso al topic: config/topic
+2024-11-04 10:47:30,312 - INFO - Arduino connesso correttamente sulla porta /dev/cu.usbmodem143101
+2024-11-04 10:47:30,313 - INFO - Connessione riuscita. Pronto a inviare i dati della ciotola.
+2024-11-04 10:47:30,313 - INFO - Entro in SetupMQTT
+2024-11-04 10:47:30,313 - INFO - connecting to MQTT broker...
+2024-11-04 10:47:30,384 - INFO - MQTT broker CONNECTED
+2024-11-04 10:47:30,542 - INFO - Entrato in on_connect
+2024-11-04 10:47:30,542 - INFO - Connected with result code Success
+2024-11-04 10:47:30,542 - INFO - Connesso al topic: config/topic
+2024-11-04 10:49:26,972 - INFO - Entrato in on_message
+2024-11-04 10:49:26,974 - INFO - TOPIC: config/topic
+2024-11-04 10:49:26,974 - INFO - on_config è stato chiamato.
+2024-11-04 10:49:26,974 - INFO - Received message on topic: config/topic
+2024-11-04 10:49:26,974 - INFO - Payload grezzo: Ciao dal client MQTT!
+2024-11-04 10:49:26,974 - INFO - Converting from Json to Object
+2024-11-04 10:49:26,974 - ERROR - Errore nella decodifica del payload JSON
+2024-11-04 10:49:26,974 - INFO - Zona: , ID: , Lat: , Lon: 
+2024-11-04 10:49:27,074 - INFO - Entrato in on_message
+2024-11-04 10:49:27,077 - INFO - TOPIC: //Coord
+2024-11-04 11:05:03,827 - INFO - Arduino connesso correttamente sulla porta /dev/cu.usbmodem143101
+2024-11-04 11:05:03,828 - INFO - Connessione riuscita. Pronto a inviare i dati della ciotola.
+2024-11-04 11:05:03,828 - INFO - Entro in SetupMQTT
+2024-11-04 11:05:03,828 - INFO - connecting to MQTT broker...
+2024-11-04 11:05:03,902 - INFO - MQTT broker CONNECTED
+2024-11-04 11:05:03,989 - INFO - Entrato in on_connect
+2024-11-04 11:05:03,989 - INFO - Connected with result code Success
+2024-11-04 11:05:03,989 - INFO - Connesso al topic: config/topic
+2024-11-04 11:05:56,038 - INFO - Entrato in on_message
+2024-11-04 11:05:56,040 - INFO - TOPIC: config/topic
+2024-11-04 11:05:56,040 - INFO - on_config è stato chiamato.
+2024-11-04 11:05:56,040 - INFO - Received message on topic: config/topic
+2024-11-04 11:05:56,040 - INFO - Payload grezzo: {"zona": "Modena", "id": "10", "latitudine": 44.6301, "longitudine": 10.9485}
+2024-11-04 11:05:56,040 - INFO - Converting from Json to Object
+2024-11-04 11:05:56,040 - INFO - PAYLOAD: {'zona': 'Modena', 'id': '10', 'latitudine': 44.6301, 'longitudine': 10.9485} - TYPE: <class 'dict'>
+2024-11-04 11:05:56,043 - DEBUG - Dati inviati all'Arduino: Modena, 10, 44.6301, 10.9485
+2024-11-04 11:05:56,072 - DEBUG - Arduino ha confermato la ricezione dei dati.
+2024-11-04 11:05:56,072 - INFO - Zona: Modena, ID: 10, Lat: 44.6301, Lon: 10.9485
+2024-11-04 11:05:56,180 - INFO - Entrato in on_message
+2024-11-04 11:05:56,185 - INFO - TOPIC: Modena/10/Coord
+2024-11-04 11:05:59,793 - INFO - Entrato in on_message
+2024-11-04 11:05:59,794 - INFO - TOPIC: Modena/10/Lvlsensor_0
+2024-11-04 11:06:03,689 - INFO - Entrato in on_message
+2024-11-04 11:06:03,690 - INFO - TOPIC: Modena/10/Lvlsensor_1
+2024-11-04 11:06:04,142 - INFO - Entrato in on_message
+2024-11-04 11:06:04,143 - INFO - TOPIC: Modena/10/Lvlsensor_1
+2024-11-04 11:06:09,805 - INFO - Entrato in on_message
+2024-11-04 11:06:09,806 - INFO - TOPIC: Modena/10/Lvlsensor_0
+2024-11-04 11:06:13,457 - INFO - Entrato in on_message
+2024-11-04 11:06:13,458 - INFO - TOPIC: Modena/10/Lvlsensor_1
+2024-11-04 11:06:13,617 - INFO - Entrato in on_message
+2024-11-04 11:06:13,618 - INFO - TOPIC: Modena/10/Lvlsensor_1
+2024-11-04 11:06:19,817 - INFO - Entrato in on_message
+2024-11-04 11:06:19,819 - INFO - TOPIC: Modena/10/Lvlsensor_0
+2024-11-04 11:06:23,538 - INFO - Entrato in on_message
+2024-11-04 11:06:23,538 - INFO - TOPIC: Modena/10/Lvlsensor_1
+2024-11-04 11:06:23,714 - INFO - Entrato in on_message
+2024-11-04 11:06:23,715 - INFO - TOPIC: Modena/10/Lvlsensor_1
+2024-11-04 11:06:29,837 - INFO - Entrato in on_message
+2024-11-04 11:06:29,838 - INFO - TOPIC: Modena/10/Lvlsensor_0
+2024-11-04 11:06:33,517 - INFO - Entrato in on_message
+2024-11-04 11:06:33,518 - INFO - TOPIC: Modena/10/Lvlsensor_1
+2024-11-04 11:06:33,689 - INFO - Entrato in on_message
+2024-11-04 11:06:33,690 - INFO - TOPIC: Modena/10/Lvlsensor_1
+2024-11-04 11:06:39,853 - INFO - Entrato in on_message
+2024-11-04 11:06:39,854 - INFO - TOPIC: Modena/10/Lvlsensor_0
+2024-11-04 11:06:43,502 - INFO - Entrato in on_message
+2024-11-04 11:06:43,503 - INFO - TOPIC: Modena/10/Lvlsensor_1
+2024-11-04 11:06:44,934 - INFO - Entrato in on_message
+2024-11-04 11:06:44,935 - INFO - TOPIC: Modena/10/Lvlsensor_1
+2024-11-04 11:06:49,843 - INFO - Entrato in on_message
+2024-11-04 11:06:49,844 - INFO - TOPIC: Modena/10/Lvlsensor_0
+2024-11-04 11:06:53,503 - INFO - Entrato in on_message
+2024-11-04 11:06:53,504 - INFO - TOPIC: Modena/10/Lvlsensor_1
+2024-11-04 11:06:53,658 - INFO - Entrato in on_message
+2024-11-04 11:06:53,659 - INFO - TOPIC: Modena/10/Lvlsensor_1
+2024-11-04 11:06:59,858 - INFO - Entrato in on_message
+2024-11-04 11:06:59,859 - INFO - TOPIC: Modena/10/Lvlsensor_0
+2024-11-04 11:07:03,518 - INFO - Entrato in on_message
+2024-11-04 11:07:03,519 - INFO - TOPIC: Modena/10/Lvlsensor_1
+2024-11-04 11:07:03,521 - INFO - Entrato in on_message
+2024-11-04 11:07:03,522 - INFO - TOPIC: Modena/10/Lvlsensor_1
+2024-11-04 11:07:09,888 - INFO - Entrato in on_message
+2024-11-04 11:07:09,889 - INFO - TOPIC: Modena/10/Lvlsensor_0
+2024-11-04 11:07:13,533 - INFO - Entrato in on_message
+2024-11-04 11:07:13,534 - INFO - TOPIC: Modena/10/Lvlsensor_1
+2024-11-04 11:07:13,536 - INFO - Entrato in on_message
+2024-11-04 11:07:13,537 - INFO - TOPIC: Modena/10/Lvlsensor_1
+2024-11-04 11:07:19,893 - INFO - Entrato in on_message
+2024-11-04 11:07:19,894 - INFO - TOPIC: Modena/10/Lvlsensor_0
+2024-11-04 11:07:23,545 - INFO - Entrato in on_message
+2024-11-04 11:07:23,546 - INFO - TOPIC: Modena/10/Lvlsensor_1
+2024-11-04 11:07:23,549 - INFO - Entrato in on_message
+2024-11-04 11:07:23,550 - INFO - TOPIC: Modena/10/Lvlsensor_1
+2024-11-04 11:07:29,918 - INFO - Entrato in on_message
+2024-11-04 11:07:29,919 - INFO - TOPIC: Modena/10/Lvlsensor_0
+2024-11-04 11:07:33,557 - INFO - Entrato in on_message
+2024-11-04 11:07:33,558 - INFO - TOPIC: Modena/10/Lvlsensor_1
+2024-11-04 11:07:33,560 - INFO - Entrato in on_message
+2024-11-04 11:07:33,561 - INFO - TOPIC: Modena/10/Lvlsensor_1
+2024-11-04 11:07:39,903 - INFO - Entrato in on_message
+2024-11-04 11:07:39,904 - INFO - TOPIC: Modena/10/Lvlsensor_0
+2024-11-04 11:09:37,220 - INFO - Arduino connesso correttamente sulla porta /dev/cu.usbmodem143101
+2024-11-04 11:09:37,220 - INFO - Connessione riuscita. Pronto a inviare i dati della ciotola.
+2024-11-04 11:09:37,221 - INFO - Entro in SetupMQTT
+2024-11-04 11:09:37,221 - INFO - connecting to MQTT broker...
+2024-11-04 11:09:37,282 - INFO - MQTT broker CONNECTED
+2024-11-04 11:09:37,322 - INFO - Entrato in on_connect
+2024-11-04 11:09:37,322 - INFO - Connected with result code Success
+2024-11-04 11:09:37,323 - INFO - Connesso al topic: config/topic
+2024-11-04 11:10:27,172 - INFO - Entrato in on_message
+2024-11-04 11:10:27,173 - INFO - TOPIC: config/topic
+2024-11-04 11:10:27,173 - INFO - on_config è stato chiamato.
+2024-11-04 11:10:27,173 - INFO - Received message on topic: config/topic
+2024-11-04 11:10:27,173 - INFO - Payload grezzo: {"zona": "Modena", "id": "11", "latitudine": 44.6298, "longitudine": 10.9486}
+2024-11-04 11:10:27,173 - INFO - Converting from Json to Object
+2024-11-04 11:10:27,173 - INFO - PAYLOAD: {'zona': 'Modena', 'id': '11', 'latitudine': 44.6298, 'longitudine': 10.9486} - TYPE: <class 'dict'>
+2024-11-04 11:10:27,180 - DEBUG - Dati inviati all'Arduino: Modena, 11, 44.6298, 10.9486
+2024-11-04 11:10:27,208 - DEBUG - Arduino ha confermato la ricezione dei dati.
+2024-11-04 11:10:27,208 - INFO - Zona: Modena, ID: 11, Lat: 44.6298, Lon: 10.9486
+2024-11-04 11:10:27,314 - INFO - Entrato in on_message
+2024-11-04 11:10:27,320 - INFO - TOPIC: Modena/11/Coord
+2024-11-04 11:10:31,169 - INFO - Entrato in on_message
+2024-11-04 11:10:31,170 - INFO - TOPIC: Modena/11/Lvlsensor_0
+2024-11-04 11:10:34,597 - INFO - Entrato in on_message
+2024-11-04 11:10:34,598 - INFO - TOPIC: Modena/11/Lvlsensor_1
+2024-11-04 11:10:34,748 - INFO - Entrato in on_message
+2024-11-04 11:10:34,749 - INFO - TOPIC: Modena/11/Lvlsensor_1
+2024-11-04 11:10:40,938 - INFO - Entrato in on_message
+2024-11-04 11:10:40,939 - INFO - TOPIC: Modena/11/Lvlsensor_0
+2024-11-04 11:10:44,617 - INFO - Entrato in on_message
+2024-11-04 11:10:44,618 - INFO - TOPIC: Modena/11/Lvlsensor_1
+2024-11-04 11:10:44,779 - INFO - Entrato in on_message
+2024-11-04 11:10:44,780 - INFO - TOPIC: Modena/11/Lvlsensor_1
+2024-11-04 11:10:50,942 - INFO - Entrato in on_message
+2024-11-04 11:10:50,944 - INFO - TOPIC: Modena/11/Lvlsensor_0
+2024-11-04 11:10:54,597 - INFO - Entrato in on_message
+2024-11-04 11:10:54,598 - INFO - TOPIC: Modena/11/Lvlsensor_1
+2024-11-04 11:10:54,757 - INFO - Entrato in on_message
+2024-11-04 11:10:54,758 - INFO - TOPIC: Modena/11/Lvlsensor_1
+2024-11-04 11:11:00,957 - INFO - Entrato in on_message
+2024-11-04 11:11:00,959 - INFO - TOPIC: Modena/11/Lvlsensor_0
+2024-11-04 11:11:04,606 - INFO - Entrato in on_message
+2024-11-04 11:11:04,607 - INFO - TOPIC: Modena/11/Lvlsensor_1
+2024-11-04 11:11:04,760 - INFO - Entrato in on_message
+2024-11-04 11:11:04,761 - INFO - TOPIC: Modena/11/Lvlsensor_1
+2024-11-04 11:11:10,962 - INFO - Entrato in on_message
+2024-11-04 11:11:10,964 - INFO - TOPIC: Modena/11/Lvlsensor_0
+2024-11-04 11:11:14,622 - INFO - Entrato in on_message
+2024-11-04 11:11:14,623 - INFO - TOPIC: Modena/11/Lvlsensor_1
+2024-11-04 11:11:14,778 - INFO - Entrato in on_message
+2024-11-04 11:11:14,779 - INFO - TOPIC: Modena/11/Lvlsensor_1
+2024-11-04 11:11:20,992 - INFO - Entrato in on_message
+2024-11-04 11:11:20,994 - INFO - TOPIC: Modena/11/Lvlsensor_0
+2024-11-04 11:11:24,637 - INFO - Entrato in on_message
+2024-11-04 11:11:24,638 - INFO - TOPIC: Modena/11/Lvlsensor_1
+2024-11-04 11:11:24,814 - INFO - Entrato in on_message
+2024-11-04 11:11:24,815 - INFO - TOPIC: Modena/11/Lvlsensor_1
+2024-11-04 11:11:31,013 - INFO - Entrato in on_message
+2024-11-04 11:11:31,014 - INFO - TOPIC: Modena/11/Lvlsensor_0
+2024-11-04 11:11:34,888 - INFO - Entrato in on_message
+2024-11-04 11:11:34,889 - INFO - TOPIC: Modena/11/Lvlsensor_1
+2024-11-04 11:11:35,303 - INFO - Entrato in on_message
+2024-11-04 11:11:35,303 - INFO - TOPIC: Modena/11/Lvlsensor_1
+2024-11-04 11:11:41,036 - INFO - Entrato in on_message
+2024-11-04 11:11:41,037 - INFO - TOPIC: Modena/11/Lvlsensor_0
+2024-11-04 11:11:44,815 - INFO - Entrato in on_message
+2024-11-04 11:11:44,815 - INFO - TOPIC: Modena/11/Lvlsensor_1
+2024-11-04 11:11:45,133 - INFO - Entrato in on_message
+2024-11-04 11:11:45,134 - INFO - TOPIC: Modena/11/Lvlsensor_1
+2024-11-04 11:11:51,275 - INFO - Entrato in on_message
+2024-11-04 11:11:51,277 - INFO - TOPIC: Modena/11/Lvlsensor_0
+2024-11-04 11:11:54,731 - INFO - Entrato in on_message
+2024-11-04 11:11:54,732 - INFO - TOPIC: Modena/11/Lvlsensor_1
+2024-11-04 11:11:55,049 - INFO - Entrato in on_message
+2024-11-04 11:11:55,050 - INFO - TOPIC: Modena/11/Lvlsensor_1
+2024-11-04 11:12:01,134 - INFO - Entrato in on_message
+2024-11-04 11:12:01,135 - INFO - TOPIC: Modena/11/Lvlsensor_0
+2024-11-04 11:12:04,994 - INFO - Entrato in on_message
+2024-11-04 11:12:04,995 - INFO - TOPIC: Modena/11/Lvlsensor_1
+2024-11-04 11:12:05,297 - INFO - Entrato in on_message
+2024-11-04 11:12:05,298 - INFO - TOPIC: Modena/11/Lvlsensor_1
+2024-11-04 11:12:11,421 - INFO - Entrato in on_message
+2024-11-04 11:12:11,422 - INFO - TOPIC: Modena/11/Lvlsensor_0
+2024-11-04 11:12:14,931 - INFO - Entrato in on_message
+2024-11-04 11:12:14,931 - INFO - TOPIC: Modena/11/Lvlsensor_1
+2024-11-04 11:12:15,209 - INFO - Entrato in on_message
+2024-11-04 11:12:15,210 - INFO - TOPIC: Modena/11/Lvlsensor_1
+2024-11-04 11:12:21,287 - INFO - Entrato in on_message
+2024-11-04 11:12:21,288 - INFO - TOPIC: Modena/11/Lvlsensor_0
+2024-11-04 11:12:24,812 - INFO - Entrato in on_message
+2024-11-04 11:12:24,813 - INFO - TOPIC: Modena/11/Lvlsensor_1
+2024-11-04 11:12:25,343 - INFO - Entrato in on_message
+2024-11-04 11:12:25,344 - INFO - TOPIC: Modena/11/Lvlsensor_1
+2024-11-04 11:12:31,079 - INFO - Entrato in on_message
+2024-11-04 11:12:31,080 - INFO - TOPIC: Modena/11/Lvlsensor_0
+2024-11-04 11:12:34,743 - INFO - Entrato in on_message
+2024-11-04 11:12:34,744 - INFO - TOPIC: Modena/11/Lvlsensor_1
+2024-11-04 11:12:34,894 - INFO - Entrato in on_message
+2024-11-04 11:12:34,895 - INFO - TOPIC: Modena/11/Lvlsensor_1
+2024-11-04 11:12:41,132 - INFO - Entrato in on_message
+2024-11-04 11:12:41,133 - INFO - TOPIC: Modena/11/Lvlsensor_0
+2024-11-04 11:12:44,971 - INFO - Entrato in on_message
+2024-11-04 11:12:44,972 - INFO - TOPIC: Modena/11/Lvlsensor_1
+2024-11-04 11:12:45,295 - INFO - Entrato in on_message
+2024-11-04 11:12:45,296 - INFO - TOPIC: Modena/11/Lvlsensor_1
+2024-11-04 11:12:51,369 - INFO - Entrato in on_message
+2024-11-04 11:12:51,370 - INFO - TOPIC: Modena/11/Lvlsensor_0
+2024-11-04 11:12:54,792 - INFO - Entrato in on_message
+2024-11-04 11:12:54,793 - INFO - TOPIC: Modena/11/Lvlsensor_1
+2024-11-04 11:12:54,964 - INFO - Entrato in on_message
+2024-11-04 11:12:54,965 - INFO - TOPIC: Modena/11/Lvlsensor_1
+2024-11-04 11:13:01,157 - INFO - Entrato in on_message
+2024-11-04 11:13:01,158 - INFO - TOPIC: Modena/11/Lvlsensor_0
+2024-11-04 11:13:04,822 - INFO - Entrato in on_message
+2024-11-04 11:13:04,823 - INFO - TOPIC: Modena/11/Lvlsensor_1
+2024-11-04 11:13:04,968 - INFO - Entrato in on_message
+2024-11-04 11:13:04,968 - INFO - TOPIC: Modena/11/Lvlsensor_1
+2024-11-04 11:13:11,176 - INFO - Entrato in on_message
+2024-11-04 11:13:11,178 - INFO - TOPIC: Modena/11/Lvlsensor_0
+2024-11-04 11:13:14,832 - INFO - Entrato in on_message
+2024-11-04 11:13:14,833 - INFO - TOPIC: Modena/11/Lvlsensor_1
+2024-11-04 11:13:15,015 - INFO - Entrato in on_message
+2024-11-04 11:13:15,015 - INFO - TOPIC: Modena/11/Lvlsensor_1
+2024-11-04 11:13:21,157 - INFO - Entrato in on_message
+2024-11-04 11:13:21,158 - INFO - TOPIC: Modena/11/Lvlsensor_0
+2024-11-04 11:26:31,335 - INFO - Arduino connesso correttamente sulla porta /dev/cu.usbmodem143101
+2024-11-04 11:26:31,337 - INFO - Connessione riuscita. Pronto a inviare i dati della ciotola.
+2024-11-04 11:26:31,337 - INFO - Entro in SetupMQTT
+2024-11-04 11:26:31,337 - INFO - connecting to MQTT broker...
+2024-11-04 11:26:31,451 - INFO - MQTT broker CONNECTED
+2024-11-04 11:26:31,498 - INFO - Entrato in on_connect
+2024-11-04 11:26:31,498 - INFO - Connected with result code Success
+2024-11-04 11:26:31,499 - INFO - Connesso al topic: config/topic
+2024-11-04 11:30:31,205 - INFO - Arduino connesso correttamente sulla porta /dev/cu.usbmodem143101
+2024-11-04 11:30:31,206 - INFO - Connessione riuscita. Pronto a inviare i dati della ciotola.
+2024-11-04 11:30:31,206 - INFO - Entro in SetupMQTT
+2024-11-04 11:30:31,206 - INFO - connecting to MQTT broker...
+2024-11-04 11:30:31,637 - INFO - MQTT broker CONNECTED
+2024-11-04 11:30:31,779 - INFO - Entrato in on_connect
+2024-11-04 11:30:31,779 - INFO - Connected with result code Success
+2024-11-04 11:30:31,779 - INFO - Connesso al topic: config/topic
+2024-11-04 11:30:53,528 - INFO - Entrato in on_message
+2024-11-04 11:30:53,529 - INFO - TOPIC: config/topic
+2024-11-04 11:30:53,529 - INFO - on_config è stato chiamato.
+2024-11-04 11:30:53,529 - INFO - Received message on topic: config/topic
+2024-11-04 11:30:53,529 - INFO - Payload grezzo: {"zona": "Modena", "id": "15", "latitudine": 44.63, "longitudine": 10.9484}
+2024-11-04 11:30:53,529 - INFO - Converting from Json to Object
+2024-11-04 11:30:53,529 - INFO - PAYLOAD: {'zona': 'Modena', 'id': '15', 'latitudine': 44.63, 'longitudine': 10.9484} - TYPE: <class 'dict'>
+2024-11-04 11:30:53,535 - DEBUG - Dati inviati all'Arduino: Modena, 15, 44.63, 10.9484
+2024-11-04 11:30:53,564 - DEBUG - Arduino ha confermato la ricezione dei dati.
+2024-11-04 11:30:53,564 - INFO - Zona: Modena, ID: 15, Lat: 44.63, Lon: 10.9484
+2024-11-04 11:30:54,170 - INFO - Entrato in on_message
+2024-11-04 11:30:54,175 - INFO - TOPIC: Modena/15/Coord
+2024-11-04 11:30:57,320 - INFO - Entrato in on_message
+2024-11-04 11:30:57,322 - INFO - TOPIC: Modena/15/Lvlsensor_0
+2024-11-04 11:31:00,922 - INFO - Entrato in on_message
+2024-11-04 11:31:00,922 - INFO - TOPIC: Modena/15/Lvlsensor_1
+2024-11-04 11:31:01,076 - INFO - Entrato in on_message
+2024-11-04 11:31:01,077 - INFO - TOPIC: Modena/15/Lvlsensor_1
+2024-11-04 11:31:07,282 - INFO - Entrato in on_message
+2024-11-04 11:31:07,283 - INFO - TOPIC: Modena/15/Lvlsensor_0
+2024-11-04 11:34:06,796 - INFO - Arduino connesso correttamente sulla porta /dev/cu.usbmodem143101
+2024-11-04 11:34:06,796 - INFO - Connessione riuscita. Pronto a inviare i dati della ciotola.
+2024-11-04 11:34:06,796 - INFO - Entro in SetupMQTT
+2024-11-04 11:34:06,796 - INFO - connecting to MQTT broker...
+2024-11-04 11:34:07,101 - INFO - MQTT broker CONNECTED
+2024-11-04 11:34:07,156 - INFO - Entrato in on_connect
+2024-11-04 11:34:07,156 - INFO - Connected with result code Success
+2024-11-04 11:34:07,156 - INFO - Connesso al topic: config/topic
+2024-11-04 11:34:10,871 - INFO - Entrato in on_message
+2024-11-04 11:34:10,872 - INFO - TOPIC: config/topic
+2024-11-04 11:34:10,873 - INFO - on_config è stato chiamato.
+2024-11-04 11:34:10,873 - INFO - Received message on topic: config/topic
+2024-11-04 11:34:10,873 - INFO - Payload grezzo: {"zona": "Modena", "id": "16", "latitudine": 44.63, "longitudine": 10.9484}
+2024-11-04 11:34:10,873 - INFO - Converting from Json to Object
+2024-11-04 11:34:10,873 - INFO - PAYLOAD: {'zona': 'Modena', 'id': '16', 'latitudine': 44.63, 'longitudine': 10.9484} - TYPE: <class 'dict'>
+2024-11-04 11:34:10,879 - DEBUG - Dati inviati all'Arduino: Modena, 16, 44.63, 10.9484
+2024-11-04 11:34:10,907 - DEBUG - Arduino ha confermato la ricezione dei dati.
+2024-11-04 11:34:10,908 - INFO - Zona: Modena, ID: 16, Lat: 44.63, Lon: 10.9484
+2024-11-04 11:34:11,001 - INFO - Entrato in on_message
+2024-11-04 11:34:11,007 - INFO - TOPIC: Modena/16/Coord
+2024-11-04 11:34:20,143 - INFO - Entrato in on_message
+2024-11-04 11:34:20,144 - INFO - TOPIC: Modena/16/Lvlsensor_0
+2024-11-04 11:34:24,011 - INFO - Entrato in on_message
+2024-11-04 11:34:24,012 - INFO - TOPIC: Modena/16/Lvlsensor_1
+2024-11-04 11:34:24,337 - INFO - Entrato in on_message
+2024-11-04 11:34:24,337 - INFO - TOPIC: Modena/16/Lvlsensor_1
+2024-11-04 11:34:30,411 - INFO - Entrato in on_message
+2024-11-04 11:34:30,412 - INFO - TOPIC: Modena/16/Lvlsensor_0
+2024-11-04 11:39:18,357 - INFO - Arduino connesso correttamente sulla porta /dev/cu.usbmodem143101
+2024-11-04 11:39:18,357 - INFO - Connessione riuscita. Pronto a inviare i dati della ciotola.
+2024-11-04 11:39:18,357 - INFO - Entro in SetupMQTT
+2024-11-04 11:39:18,357 - INFO - connecting to MQTT broker...
+2024-11-04 11:39:18,430 - INFO - MQTT broker CONNECTED
+2024-11-04 11:39:18,470 - INFO - Entrato in on_connect
+2024-11-04 11:39:18,471 - INFO - Connected with result code Success
+2024-11-04 11:39:18,471 - INFO - Connesso al topic: config/topic
+2024-11-04 11:39:29,658 - INFO - Entrato in on_message
+2024-11-04 11:39:29,659 - INFO - TOPIC: config/topic
+2024-11-04 11:39:29,659 - INFO - on_config è stato chiamato.
+2024-11-04 11:39:29,659 - INFO - Received message on topic: config/topic
+2024-11-04 11:39:29,659 - INFO - Payload grezzo: {"zona": "Modena", "id": "17", "latitudine": 44.63, "longitudine": 10.9485}
+2024-11-04 11:39:29,659 - INFO - Converting from Json to Object
+2024-11-04 11:39:29,659 - INFO - PAYLOAD: {'zona': 'Modena', 'id': '17', 'latitudine': 44.63, 'longitudine': 10.9485} - TYPE: <class 'dict'>
+2024-11-04 11:39:29,665 - DEBUG - Dati inviati all'Arduino: Modena, 17, 44.63, 10.9485
+2024-11-04 11:39:29,694 - DEBUG - Arduino ha confermato la ricezione dei dati.
+2024-11-04 11:39:29,694 - INFO - Zona: Modena, ID: 17, Lat: 44.63, Lon: 10.9485
+2024-11-04 11:39:30,067 - INFO - Entrato in on_message
+2024-11-04 11:39:30,073 - INFO - TOPIC: Modena/17/Coord
+2024-11-04 11:39:33,456 - INFO - Entrato in on_message
+2024-11-04 11:39:33,458 - INFO - TOPIC: Modena/17/Lvlsensor_0
+2024-11-04 11:39:37,309 - INFO - Entrato in on_message
+2024-11-04 11:39:37,310 - INFO - TOPIC: Modena/17/Lvlsensor_1
+2024-11-04 11:39:37,838 - INFO - Entrato in on_message
+2024-11-04 11:39:37,839 - INFO - TOPIC: Modena/17/Lvlsensor_1
+2024-11-04 11:39:43,426 - INFO - Entrato in on_message
+2024-11-04 11:39:43,428 - INFO - TOPIC: Modena/17/Lvlsensor_0
+
+
+2024-11-04 11:47:08,649 - INFO - Arduino connesso correttamente sulla porta /dev/cu.usbmodem143101
+2024-11-04 11:47:08,649 - INFO - Connessione riuscita. Pronto a inviare i dati della ciotola.
+2024-11-04 11:47:08,649 - INFO - Entro in SetupMQTT
+2024-11-04 11:47:08,649 - INFO - connecting to MQTT broker...
+2024-11-04 11:47:08,814 - INFO - MQTT broker CONNECTED
+2024-11-04 11:47:08,861 - INFO - Entrato in on_connect
+2024-11-04 11:47:08,861 - INFO - Connected with result code Success
+2024-11-04 11:47:08,861 - INFO - Connesso al topic: config/topic
+2024-11-04 11:47:52,662 - INFO - Entrato in on_message
+2024-11-04 11:47:52,663 - INFO - TOPIC: config/topic
+2024-11-04 11:47:52,663 - INFO - on_config è stato chiamato.
+2024-11-04 11:47:52,663 - INFO - Received message on topic: config/topic
+2024-11-04 11:47:52,663 - INFO - Payload grezzo: {"zona": "Modena", "id": "18", "latitudine": 44.63, "longitudine": 10.9484}
+2024-11-04 11:47:52,663 - INFO - Converting from Json to Object
+2024-11-04 11:47:52,663 - INFO - PAYLOAD: {'zona': 'Modena', 'id': '18', 'latitudine': 44.63, 'longitudine': 10.9484} - TYPE: <class 'dict'>
+2024-11-04 11:47:52,669 - DEBUG - Dati inviati all'Arduino: Modena, 18, 44.63, 10.9484
+2024-11-04 11:47:52,698 - DEBUG - Arduino ha confermato la ricezione dei dati.
+2024-11-04 11:47:52,698 - INFO - Zona: Modena, ID: 18, Lat: 44.63, Lon: 10.9484
+2024-11-04 11:47:53,025 - INFO - Entrato in on_message
+2024-11-04 11:47:53,031 - INFO - TOPIC: Modena/18/Coord
+2024-11-04 11:47:56,424 - INFO - Entrato in on_message
+2024-11-04 11:47:56,425 - INFO - TOPIC: Modena/18/Lvlsensor_0
+2024-11-04 11:48:00,064 - INFO - Entrato in on_message
+2024-11-04 11:48:00,065 - INFO - TOPIC: Modena/18/Lvlsensor_1
+2024-11-04 11:48:00,230 - INFO - Entrato in on_message
+2024-11-04 11:48:00,231 - INFO - TOPIC: Modena/18/Lvlsensor_1
+2024-11-04 11:48:06,449 - INFO - Entrato in on_message
+2024-11-04 11:48:06,451 - INFO - TOPIC: Modena/18/Lvlsensor_0
+2024-11-04 11:48:06,452 - INFO - PIPPO = 0
+2024-11-04 11:48:10,064 - INFO - Entrato in on_message
+2024-11-04 11:48:10,065 - INFO - TOPIC: Modena/18/Lvlsensor_1
+2024-11-04 11:48:10,247 - INFO - Entrato in on_message
+2024-11-04 11:48:10,248 - INFO - TOPIC: Modena/18/Lvlsensor_1
+2024-11-04 11:48:16,424 - INFO - Entrato in on_message
+2024-11-04 11:48:16,426 - INFO - TOPIC: Modena/18/Lvlsensor_0
+2024-11-04 11:48:20,091 - INFO - Entrato in on_message
+2024-11-04 11:48:20,092 - INFO - TOPIC: Modena/18/Lvlsensor_1
+2024-11-04 11:48:20,243 - INFO - Entrato in on_message
+2024-11-04 11:48:20,244 - INFO - TOPIC: Modena/18/Lvlsensor_1
+2024-11-04 11:48:26,464 - INFO - Entrato in on_message
+2024-11-04 11:48:26,466 - INFO - TOPIC: Modena/18/Lvlsensor_0
+2024-11-04 11:48:30,134 - INFO - Entrato in on_message
+2024-11-04 11:48:30,135 - INFO - TOPIC: Modena/18/Lvlsensor_1
+2024-11-04 11:48:30,294 - INFO - Entrato in on_message
+2024-11-04 11:48:30,295 - INFO - TOPIC: Modena/18/Lvlsensor_1
+2024-11-04 11:48:36,594 - INFO - Entrato in on_message
+2024-11-04 11:48:36,595 - INFO - TOPIC: Modena/18/Lvlsensor_0
+2024-11-04 11:48:40,119 - INFO - Entrato in on_message
+2024-11-04 11:48:40,120 - INFO - TOPIC: Modena/18/Lvlsensor_1
+2024-11-04 11:48:40,273 - INFO - Entrato in on_message
+2024-11-04 11:48:40,274 - INFO - TOPIC: Modena/18/Lvlsensor_1
+2024-11-04 11:48:46,474 - INFO - Entrato in on_message
+2024-11-04 11:48:46,476 - INFO - TOPIC: Modena/18/Lvlsensor_0
+2024-11-04 11:48:50,159 - INFO - Entrato in on_message
+2024-11-04 11:48:50,160 - INFO - TOPIC: Modena/18/Lvlsensor_1
+2024-11-04 11:48:50,313 - INFO - Entrato in on_message
+2024-11-04 11:48:50,314 - INFO - TOPIC: Modena/18/Lvlsensor_1
+2024-11-04 11:48:56,479 - INFO - Entrato in on_message
+2024-11-04 11:48:56,481 - INFO - TOPIC: Modena/18/Lvlsensor_0
+2024-11-04 11:49:00,139 - INFO - Entrato in on_message
+2024-11-04 11:49:00,140 - INFO - TOPIC: Modena/18/Lvlsensor_1
+2024-11-04 11:49:00,302 - INFO - Entrato in on_message
+2024-11-04 11:49:00,303 - INFO - TOPIC: Modena/18/Lvlsensor_1
+2024-11-04 11:49:06,508 - INFO - Entrato in on_message
+2024-11-04 11:49:06,510 - INFO - TOPIC: Modena/18/Lvlsensor_0
+2024-11-04 11:49:06,510 - INFO - PIPPO = 0
+2024-11-04 11:49:10,164 - INFO - Entrato in on_message
+2024-11-04 11:49:10,165 - INFO - TOPIC: Modena/18/Lvlsensor_1
+2024-11-04 11:49:10,329 - INFO - Entrato in on_message
+2024-11-04 11:49:10,330 - INFO - TOPIC: Modena/18/Lvlsensor_1
+2024-11-04 11:49:16,520 - INFO - Entrato in on_message
+2024-11-04 11:49:16,521 - INFO - TOPIC: Modena/18/Lvlsensor_0
+2024-11-04 11:49:20,351 - INFO - Entrato in on_message
+2024-11-04 11:49:20,352 - INFO - TOPIC: Modena/18/Lvlsensor_1
+2024-11-04 11:49:20,906 - INFO - Entrato in on_message
+2024-11-04 11:49:20,907 - INFO - TOPIC: Modena/18/Lvlsensor_1
+2024-11-04 11:49:26,741 - INFO - Entrato in on_message
+2024-11-04 11:49:26,742 - INFO - TOPIC: Modena/18/Lvlsensor_0
+2024-11-04 11:49:30,261 - INFO - Entrato in on_message
+2024-11-04 11:49:30,262 - INFO - TOPIC: Modena/18/Lvlsensor_1
+2024-11-04 11:49:30,737 - INFO - Entrato in on_message
+2024-11-04 11:49:30,737 - INFO - TOPIC: Modena/18/Lvlsensor_1
+2024-11-04 11:49:36,654 - INFO - Entrato in on_message
+2024-11-04 11:49:36,655 - INFO - TOPIC: Modena/18/Lvlsensor_0
+2024-11-04 11:49:40,250 - INFO - Entrato in on_message
+2024-11-04 11:49:40,251 - INFO - TOPIC: Modena/18/Lvlsensor_1
+2024-11-04 11:49:40,495 - INFO - Entrato in on_message
+2024-11-04 11:49:40,496 - INFO - TOPIC: Modena/18/Lvlsensor_1
+2024-11-04 11:49:46,575 - INFO - Entrato in on_message
+2024-11-04 11:49:46,576 - INFO - TOPIC: Modena/18/Lvlsensor_0
+2024-11-04 11:49:50,414 - INFO - Entrato in on_message
+2024-11-04 11:49:50,415 - INFO - TOPIC: Modena/18/Lvlsensor_1
+2024-11-04 11:49:51,012 - INFO - Entrato in on_message
+2024-11-04 11:49:51,013 - INFO - TOPIC: Modena/18/Lvlsensor_1
+2024-11-04 11:49:56,571 - INFO - Entrato in on_message
+2024-11-04 11:49:56,571 - INFO - TOPIC: Modena/18/Lvlsensor_0
+2024-11-04 11:50:00,339 - INFO - Entrato in on_message
+2024-11-04 11:50:00,340 - INFO - TOPIC: Modena/18/Lvlsensor_1
+2024-11-04 11:50:00,772 - INFO - Entrato in on_message
+2024-11-04 11:50:00,773 - INFO - TOPIC: Modena/18/Lvlsensor_1
+2024-11-04 11:50:06,742 - INFO - Entrato in on_message
+2024-11-04 11:50:06,743 - INFO - TOPIC: Modena/18/Lvlsensor_0
+2024-11-04 11:50:10,286 - INFO - Entrato in on_message
+2024-11-04 11:50:10,287 - INFO - TOPIC: Modena/18/Lvlsensor_1
+2024-11-04 11:50:10,582 - INFO - Entrato in on_message
+2024-11-04 11:50:10,583 - INFO - TOPIC: Modena/18/Lvlsensor_1
+2024-11-04 11:50:16,724 - INFO - Entrato in on_message
+2024-11-04 11:50:16,726 - INFO - TOPIC: Modena/18/Lvlsensor_0
+2024-11-04 11:50:20,260 - INFO - Entrato in on_message
+2024-11-04 11:50:20,261 - INFO - TOPIC: Modena/18/Lvlsensor_1
+2024-11-04 11:50:20,425 - INFO - Entrato in on_message
+2024-11-04 11:50:20,426 - INFO - TOPIC: Modena/18/Lvlsensor_1
+2024-11-04 11:50:26,624 - INFO - Entrato in on_message
+2024-11-04 11:50:26,625 - INFO - TOPIC: Modena/18/Lvlsensor_0
+2024-11-04 11:50:30,258 - INFO - Entrato in on_message
+2024-11-04 11:50:30,259 - INFO - TOPIC: Modena/18/Lvlsensor_1
+2024-11-04 11:50:30,434 - INFO - Entrato in on_message
+2024-11-04 11:50:30,435 - INFO - TOPIC: Modena/18/Lvlsensor_1
+2024-11-04 11:50:36,654 - INFO - Entrato in on_message
+2024-11-04 11:50:36,655 - INFO - TOPIC: Modena/18/Lvlsensor_0
+2024-11-04 11:50:40,339 - INFO - Entrato in on_message
+2024-11-04 11:50:40,339 - INFO - TOPIC: Modena/18/Lvlsensor_1
+2024-11-04 11:50:40,488 - INFO - Entrato in on_message
+2024-11-04 11:50:40,489 - INFO - TOPIC: Modena/18/Lvlsensor_1
+2024-11-04 11:50:46,734 - INFO - Entrato in on_message
+2024-11-04 11:50:46,735 - INFO - TOPIC: Modena/18/Lvlsensor_0
+2024-11-04 11:50:46,735 - INFO - PIPPO = 0
+2024-11-04 11:50:50,310 - INFO - Entrato in on_message
+2024-11-04 11:50:50,310 - INFO - TOPIC: Modena/18/Lvlsensor_1
+2024-11-04 11:50:50,608 - INFO - Entrato in on_message
+2024-11-04 11:50:50,609 - INFO - TOPIC: Modena/18/Lvlsensor_1
+2024-11-04 11:50:56,680 - INFO - Entrato in on_message
+2024-11-04 11:50:56,681 - INFO - TOPIC: Modena/18/Lvlsensor_0
+2024-11-04 11:50:56,681 - INFO - PIPPO = 0
+2024-11-04 11:51:00,494 - INFO - Entrato in on_message
+2024-11-04 11:51:00,495 - INFO - TOPIC: Modena/18/Lvlsensor_1
+2024-11-04 11:51:01,054 - INFO - Entrato in on_message
+2024-11-04 11:51:01,055 - INFO - TOPIC: Modena/18/Lvlsensor_1
+2024-11-04 11:51:06,894 - INFO - Entrato in on_message
+2024-11-04 11:51:06,895 - INFO - TOPIC: Modena/18/Lvlsensor_0
+2024-11-04 11:51:06,895 - INFO - PIPPO = 0
+2024-11-04 11:51:10,469 - INFO - Entrato in on_message
+2024-11-04 11:51:10,470 - INFO - TOPIC: Modena/18/Lvlsensor_1
+2024-11-04 11:51:10,884 - INFO - Entrato in on_message
+2024-11-04 11:51:10,885 - INFO - TOPIC: Modena/18/Lvlsensor_1
+2024-11-04 11:51:16,664 - INFO - Entrato in on_message
+2024-11-04 11:51:16,665 - INFO - TOPIC: Modena/18/Lvlsensor_0
+2024-11-04 11:51:16,665 - INFO - PIPPO = 0
+2024-11-04 11:51:20,318 - INFO - Entrato in on_message
+2024-11-04 11:51:20,319 - INFO - TOPIC: Modena/18/Lvlsensor_1
+2024-11-04 11:51:20,484 - INFO - Entrato in on_message
+2024-11-04 11:51:20,485 - INFO - TOPIC: Modena/18/Lvlsensor_1
+2024-11-04 11:51:26,704 - INFO - Entrato in on_message
+2024-11-04 11:51:26,705 - INFO - TOPIC: Modena/18/Lvlsensor_0
+2024-11-04 11:51:26,705 - INFO - PIPPO = 0
+2024-11-04 11:51:30,379 - INFO - Entrato in on_message
+2024-11-04 11:51:30,380 - INFO - TOPIC: Modena/18/Lvlsensor_1
+2024-11-04 11:51:30,543 - INFO - Entrato in on_message
+2024-11-04 11:51:30,544 - INFO - TOPIC: Modena/18/Lvlsensor_1
+2024-11-04 11:51:36,739 - INFO - Entrato in on_message
+2024-11-04 11:51:36,740 - INFO - TOPIC: Modena/18/Lvlsensor_0
+2024-11-04 11:51:36,741 - INFO - PIPPO = 0
+2024-11-04 11:51:40,373 - INFO - Entrato in on_message
+2024-11-04 11:51:40,374 - INFO - TOPIC: Modena/18/Lvlsensor_1
+2024-11-04 11:51:40,543 - INFO - Entrato in on_message
+2024-11-04 11:51:40,544 - INFO - TOPIC: Modena/18/Lvlsensor_1
+2024-11-04 11:51:46,763 - INFO - Entrato in on_message
+2024-11-04 11:51:46,765 - INFO - TOPIC: Modena/18/Lvlsensor_0
+2024-11-04 11:51:50,404 - INFO - Entrato in on_message
+2024-11-04 11:51:50,405 - INFO - TOPIC: Modena/18/Lvlsensor_1
+2024-11-04 11:51:50,563 - INFO - Entrato in on_message
+2024-11-04 11:51:50,564 - INFO - TOPIC: Modena/18/Lvlsensor_1
+2024-11-04 11:51:56,724 - INFO - Entrato in on_message
+2024-11-04 11:51:56,725 - INFO - TOPIC: Modena/18/Lvlsensor_0
+
+
+2024-11-04 12:20:23,234 - INFO - Arduino connesso correttamente sulla porta /dev/cu.usbmodem143101
+2024-11-04 12:20:23,235 - INFO - Connessione riuscita. Pronto a inviare i dati della ciotola.
+2024-11-04 12:20:23,235 - INFO - Entro in SetupMQTT
+2024-11-04 12:20:23,235 - INFO - connecting to MQTT broker...
+2024-11-04 12:20:23,345 - INFO - MQTT broker CONNECTED
+2024-11-04 12:20:23,401 - INFO - Entrato in on_connect
+2024-11-04 12:20:23,401 - INFO - Connected with result code Success
+2024-11-04 12:20:23,402 - INFO - Connesso al topic: config/topic
+2024-11-04 12:23:14,046 - INFO - Arduino connesso correttamente sulla porta /dev/cu.usbmodem143101
+2024-11-04 12:23:14,046 - INFO - Connessione riuscita. Pronto a inviare i dati della ciotola.
+2024-11-04 12:23:14,046 - INFO - Entro in SetupMQTT
+2024-11-04 12:23:14,046 - INFO - connecting to MQTT broker...
+2024-11-04 12:23:14,148 - INFO - MQTT broker CONNECTED
+2024-11-04 12:23:14,195 - INFO - Entrato in on_connect
+2024-11-04 12:23:14,195 - INFO - Connected with result code Success
+2024-11-04 12:23:14,195 - INFO - Connesso al topic: config/topic
+2024-11-04 12:23:23,441 - INFO - Arduino connesso correttamente sulla porta /dev/cu.usbmodem143101
+2024-11-04 12:23:23,441 - INFO - Connessione riuscita. Pronto a inviare i dati della ciotola.
+2024-11-04 12:23:23,442 - INFO - Entro in SetupMQTT
+2024-11-04 12:23:23,442 - INFO - connecting to MQTT broker...
+2024-11-04 12:23:23,664 - INFO - MQTT broker CONNECTED
+2024-11-04 12:23:23,715 - INFO - Entrato in on_connect
+2024-11-04 12:23:23,716 - INFO - Connected with result code Success
+2024-11-04 12:23:23,716 - INFO - Connesso al topic: config/topic
+2024-11-04 12:23:35,057 - INFO - Entrato in on_message
+2024-11-04 12:23:35,057 - INFO - TOPIC: config/topic
+2024-11-04 12:23:35,058 - INFO - on_config è stato chiamato.
+2024-11-04 12:23:35,058 - INFO - Received message on topic: config/topic
+2024-11-04 12:23:35,058 - INFO - Payload grezzo: {"zona": "Modena", "id": "20", "latitudine": 44.63, "longitudine": 10.9484}
+2024-11-04 12:23:35,058 - INFO - Converting from Json to Object
+2024-11-04 12:23:35,058 - INFO - PAYLOAD: {'zona': 'Modena', 'id': '20', 'latitudine': 44.63, 'longitudine': 10.9484} - TYPE: <class 'dict'>
+2024-11-04 12:23:35,061 - DEBUG - Dati inviati all'Arduino: Modena, 20, 44.63, 10.9484
+2024-11-04 12:23:35,089 - DEBUG - Arduino ha confermato la ricezione dei dati.
+2024-11-04 12:23:35,090 - INFO - Zona: Modena, ID: 20, Lat: 44.63, Lon: 10.9484
+2024-11-04 12:23:35,193 - INFO - Entrato in on_message
+2024-11-04 12:23:35,199 - INFO - TOPIC: Modena/20/Coord
+2024-11-04 12:23:38,811 - INFO - Entrato in on_message
+2024-11-04 12:23:38,812 - INFO - TOPIC: Modena/20/Lvlsensor_0
+2024-11-04 12:23:42,461 - INFO - Entrato in on_message
+2024-11-04 12:23:42,462 - INFO - TOPIC: Modena/20/Lvlsensor_1
+2024-11-04 12:23:42,621 - INFO - Entrato in on_message
+2024-11-04 12:23:42,622 - INFO - TOPIC: Modena/20/Lvlsensor_1
+2024-11-04 12:23:48,836 - INFO - Entrato in on_message
+2024-11-04 12:23:48,837 - INFO - TOPIC: Modena/20/Lvlsensor_0
+2024-11-04 12:23:48,837 - INFO - PIPPO = 0
+2024-11-04 12:23:52,763 - INFO - Entrato in on_message
+2024-11-04 12:23:52,764 - INFO - TOPIC: Modena/20/Lvlsensor_1
+2024-11-04 12:23:53,011 - INFO - Entrato in on_message
+2024-11-04 12:23:53,012 - INFO - TOPIC: Modena/20/Lvlsensor_1
+2024-11-04 12:23:59,183 - INFO - Entrato in on_message
+2024-11-04 12:23:59,184 - INFO - TOPIC: Modena/20/Lvlsensor_0
+2024-11-04 12:24:02,583 - INFO - Entrato in on_message
+2024-11-04 12:24:02,583 - INFO - TOPIC: Modena/20/Lvlsensor_1
+2024-11-04 12:24:02,942 - INFO - Entrato in on_message
+2024-11-04 12:24:02,944 - INFO - TOPIC: Modena/20/Lvlsensor_1
+2024-11-04 12:24:08,983 - INFO - Entrato in on_message
+2024-11-04 12:24:08,984 - INFO - TOPIC: Modena/20/Lvlsensor_0
+2024-11-04 12:24:08,984 - INFO - PIPPO = 1
+2024-11-04 12:24:12,816 - INFO - Entrato in on_message
+2024-11-04 12:24:12,817 - INFO - TOPIC: Modena/20/Lvlsensor_1
+2024-11-04 12:24:12,973 - INFO - Entrato in on_message
+2024-11-04 12:24:12,974 - INFO - TOPIC: Modena/20/Lvlsensor_1
+2024-11-04 12:24:18,897 - INFO - Entrato in on_message
+2024-11-04 12:24:18,898 - INFO - TOPIC: Modena/20/Lvlsensor_0
+2024-11-04 12:24:22,908 - INFO - Entrato in on_message
+2024-11-04 12:24:22,909 - INFO - TOPIC: Modena/20/Lvlsensor_1
+2024-11-04 12:24:23,082 - INFO - Entrato in on_message
+2024-11-04 12:24:23,083 - INFO - TOPIC: Modena/20/Lvlsensor_1
+2024-11-04 12:24:28,883 - INFO - Entrato in on_message
+2024-11-04 12:24:28,884 - INFO - TOPIC: Modena/20/Lvlsensor_0
+2024-11-04 12:24:28,884 - INFO - PIPPO = 1
+2024-11-04 12:24:32,656 - INFO - Entrato in on_message
+2024-11-04 12:24:32,657 - INFO - TOPIC: Modena/20/Lvlsensor_1
+2024-11-04 12:24:33,048 - INFO - Entrato in on_message
+2024-11-04 12:24:33,048 - INFO - TOPIC: Modena/20/Lvlsensor_1
+2024-11-04 12:24:39,058 - INFO - Entrato in on_message
+2024-11-04 12:24:39,059 - INFO - TOPIC: Modena/20/Lvlsensor_0
+2024-11-04 12:24:42,583 - INFO - Entrato in on_message
+2024-11-04 12:24:42,584 - INFO - TOPIC: Modena/20/Lvlsensor_1
+2024-11-04 12:24:42,737 - INFO - Entrato in on_message
+2024-11-04 12:24:42,738 - INFO - TOPIC: Modena/20/Lvlsensor_1
+2024-11-04 12:24:48,876 - INFO - Entrato in on_message
+2024-11-04 12:24:48,877 - INFO - TOPIC: Modena/20/Lvlsensor_0
+2024-11-04 12:24:48,877 - INFO - PIPPO = 1
+2024-11-04 12:24:52,596 - INFO - Entrato in on_message
+2024-11-04 12:24:52,597 - INFO - TOPIC: Modena/20/Lvlsensor_1
+2024-11-04 12:24:52,742 - INFO - Entrato in on_message
+2024-11-04 12:24:52,743 - INFO - TOPIC: Modena/20/Lvlsensor_1
+2024-11-04 12:24:59,111 - INFO - Entrato in on_message
+2024-11-04 12:24:59,112 - INFO - TOPIC: Modena/20/Lvlsensor_0
+2024-11-04 12:25:02,961 - INFO - Entrato in on_message
+2024-11-04 12:25:02,962 - INFO - TOPIC: Modena/20/Lvlsensor_1
+2024-11-04 12:25:03,206 - INFO - Entrato in on_message
+2024-11-04 12:25:03,207 - INFO - TOPIC: Modena/20/Lvlsensor_1
+2024-11-04 12:25:08,930 - INFO - Entrato in on_message
+2024-11-04 12:25:08,932 - INFO - TOPIC: Modena/20/Lvlsensor_0
+2024-11-04 12:25:08,932 - INFO - PIPPO = 1
+2024-11-04 12:25:12,591 - INFO - Entrato in on_message
+2024-11-04 12:25:12,592 - INFO - TOPIC: Modena/20/Lvlsensor_1
+2024-11-04 12:25:12,757 - INFO - Entrato in on_message
+2024-11-04 12:25:12,758 - INFO - TOPIC: Modena/20/Lvlsensor_1
+2024-11-04 12:25:18,930 - INFO - Entrato in on_message
+2024-11-04 12:25:18,932 - INFO - TOPIC: Modena/20/Lvlsensor_0
+2024-11-04 12:25:22,595 - INFO - Entrato in on_message
+2024-11-04 12:25:22,596 - INFO - TOPIC: Modena/20/Lvlsensor_1
+2024-11-04 12:25:22,755 - INFO - Entrato in on_message
+2024-11-04 12:25:22,756 - INFO - TOPIC: Modena/20/Lvlsensor_1
+2024-11-04 12:25:28,951 - INFO - Entrato in on_message
+2024-11-04 12:25:28,952 - INFO - TOPIC: Modena/20/Lvlsensor_0
+2024-11-04 12:25:28,952 - INFO - PIPPO = 1
+2024-11-04 12:25:32,619 - INFO - Entrato in on_message
+2024-11-04 12:25:32,620 - INFO - TOPIC: Modena/20/Lvlsensor_1
+2024-11-04 12:25:32,781 - INFO - Entrato in on_message
+2024-11-04 12:25:32,782 - INFO - TOPIC: Modena/20/Lvlsensor_1
+2024-11-04 12:25:38,950 - INFO - Entrato in on_message
+2024-11-04 12:25:38,952 - INFO - TOPIC: Modena/20/Lvlsensor_0
+2024-11-04 12:25:38,952 - INFO - PIPPO = 1
+2024-11-04 12:25:42,625 - INFO - Entrato in on_message
+2024-11-04 12:25:42,626 - INFO - TOPIC: Modena/20/Lvlsensor_1
+2024-11-04 12:25:42,803 - INFO - Entrato in on_message
+2024-11-04 12:25:42,804 - INFO - TOPIC: Modena/20/Lvlsensor_1
+2024-11-04 12:25:48,973 - INFO - Entrato in on_message
+2024-11-04 12:25:48,974 - INFO - TOPIC: Modena/20/Lvlsensor_0
+2024-11-04 12:25:48,974 - INFO - PIPPO = 1
+2024-11-04 12:25:52,606 - INFO - Entrato in on_message
+2024-11-04 12:25:52,607 - INFO - TOPIC: Modena/20/Lvlsensor_1
+2024-11-04 12:25:52,805 - INFO - Entrato in on_message
+2024-11-04 12:25:52,806 - INFO - TOPIC: Modena/20/Lvlsensor_1
+2024-11-04 12:25:59,218 - INFO - Entrato in on_message
+2024-11-04 12:25:59,219 - INFO - TOPIC: Modena/20/Lvlsensor_0
+2024-11-04 12:26:02,723 - INFO - Entrato in on_message
+2024-11-04 12:26:02,724 - INFO - TOPIC: Modena/20/Lvlsensor_1
+2024-11-04 12:26:02,883 - INFO - Entrato in on_message
+2024-11-04 12:26:02,884 - INFO - TOPIC: Modena/20/Lvlsensor_1
+2024-11-04 12:26:09,124 - INFO - Entrato in on_message
+2024-11-04 12:26:09,125 - INFO - TOPIC: Modena/20/Lvlsensor_0
+2024-11-04 12:26:09,125 - INFO - PIPPO = 1
+2024-11-04 12:26:12,662 - INFO - Entrato in on_message
+2024-11-04 12:26:12,663 - INFO - TOPIC: Modena/20/Lvlsensor_1
+2024-11-04 12:26:12,817 - INFO - Entrato in on_message
+2024-11-04 12:26:12,818 - INFO - TOPIC: Modena/20/Lvlsensor_1
+2024-11-04 12:26:19,003 - INFO - Entrato in on_message
+2024-11-04 12:26:19,005 - INFO - TOPIC: Modena/20/Lvlsensor_0
+2024-11-04 12:26:19,005 - INFO - PIPPO = 1
+2024-11-04 12:26:22,690 - INFO - Entrato in on_message
+2024-11-04 12:26:22,691 - INFO - TOPIC: Modena/20/Lvlsensor_1
+2024-11-04 12:26:22,858 - INFO - Entrato in on_message
+2024-11-04 12:26:22,859 - INFO - TOPIC: Modena/20/Lvlsensor_1
+2024-11-04 12:26:29,026 - INFO - Entrato in on_message
+2024-11-04 12:26:29,027 - INFO - TOPIC: Modena/20/Lvlsensor_0
+2024-11-04 12:26:29,027 - INFO - PIPPO = 1
+2024-11-04 12:26:32,670 - INFO - Entrato in on_message
+2024-11-04 12:26:32,671 - INFO - TOPIC: Modena/20/Lvlsensor_1
+2024-11-04 12:26:32,832 - INFO - Entrato in on_message
+2024-11-04 12:26:32,833 - INFO - TOPIC: Modena/20/Lvlsensor_1
+2024-11-04 12:26:39,030 - INFO - Entrato in on_message
+2024-11-04 12:26:39,031 - INFO - TOPIC: Modena/20/Lvlsensor_0
+2024-11-04 12:26:39,031 - INFO - PIPPO = 1
+2024-11-04 12:26:42,705 - INFO - Entrato in on_message
+2024-11-04 12:26:42,706 - INFO - TOPIC: Modena/20/Lvlsensor_1
+2024-11-04 12:26:43,299 - INFO - Entrato in on_message
+2024-11-04 12:26:43,300 - INFO - TOPIC: Modena/20/Lvlsensor_1
+2024-11-04 12:26:49,060 - INFO - Entrato in on_message
+2024-11-04 12:26:49,061 - INFO - TOPIC: Modena/20/Lvlsensor_0
+2024-11-04 12:26:49,062 - INFO - PIPPO = 1
+2024-11-04 12:26:52,720 - INFO - Entrato in on_message
+2024-11-04 12:26:52,721 - INFO - TOPIC: Modena/20/Lvlsensor_1
+2024-11-04 12:26:52,887 - INFO - Entrato in on_message
+2024-11-04 12:26:52,888 - INFO - TOPIC: Modena/20/Lvlsensor_1
+2024-11-04 12:26:59,061 - INFO - Entrato in on_message
+2024-11-04 12:26:59,062 - INFO - TOPIC: Modena/20/Lvlsensor_0
+2024-11-04 12:26:59,063 - INFO - PIPPO = 1
+2024-11-04 12:27:21,419 - INFO - Arduino connesso correttamente sulla porta /dev/cu.usbmodem143101
+2024-11-04 12:27:21,419 - INFO - Connessione riuscita. Pronto a inviare i dati della ciotola.
+2024-11-04 12:27:21,420 - INFO - Entro in SetupMQTT
+2024-11-04 12:27:21,420 - INFO - connecting to MQTT broker...
+2024-11-04 12:27:21,490 - INFO - MQTT broker CONNECTED
+2024-11-04 12:27:21,532 - INFO - Entrato in on_connect
+2024-11-04 12:27:21,532 - INFO - Connected with result code Success
+2024-11-04 12:27:21,532 - INFO - Connesso al topic: config/topic
+2024-11-04 12:29:59,853 - INFO - Arduino connesso correttamente sulla porta /dev/cu.usbmodem143101
+2024-11-04 12:29:59,853 - INFO - Connessione riuscita. Pronto a inviare i dati della ciotola.
+2024-11-04 12:29:59,853 - INFO - Entro in SetupMQTT
+2024-11-04 12:29:59,854 - INFO - connecting to MQTT broker...
+2024-11-04 12:29:59,946 - INFO - MQTT broker CONNECTED
+2024-11-04 12:30:00,002 - INFO - Entrato in on_connect
+2024-11-04 12:30:00,002 - INFO - Connected with result code Success
+2024-11-04 12:30:00,002 - INFO - Connesso al topic: config/topic
+2024-11-04 12:30:21,381 - INFO - Entrato in on_message
+2024-11-04 12:30:21,382 - INFO - TOPIC: config/topic
+2024-11-04 12:30:21,382 - INFO - on_config è stato chiamato.
+2024-11-04 12:30:21,382 - INFO - Received message on topic: config/topic
+2024-11-04 12:30:21,382 - INFO - Payload grezzo: {"zona": "Modena", "id": "21", "latitudine": 44.63, "longitudine": 10.9484}
+2024-11-04 12:30:21,382 - INFO - Converting from Json to Object
+2024-11-04 12:30:21,383 - INFO - PAYLOAD: {'zona': 'Modena', 'id': '21', 'latitudine': 44.63, 'longitudine': 10.9484} - TYPE: <class 'dict'>
+2024-11-04 12:30:21,389 - DEBUG - Dati inviati all'Arduino: Modena, 21, 44.63, 10.9484
+2024-11-04 12:30:21,417 - DEBUG - Arduino ha confermato la ricezione dei dati.
+2024-11-04 12:30:21,418 - INFO - Zona: Modena, ID: 21, Lat: 44.63, Lon: 10.9484
+2024-11-04 12:30:21,881 - INFO - Entrato in on_message
+2024-11-04 12:30:21,886 - INFO - TOPIC: Modena/21/Coord
+2024-11-04 12:30:25,221 - INFO - Entrato in on_message
+2024-11-04 12:30:25,222 - INFO - TOPIC: Modena/21/Lvlsensor_0
+2024-11-04 12:30:29,054 - INFO - Entrato in on_message
+2024-11-04 12:30:29,055 - INFO - TOPIC: Modena/21/Lvlsensor_1
+2024-11-04 12:30:29,398 - INFO - Entrato in on_message
+2024-11-04 12:30:29,399 - INFO - TOPIC: Modena/21/Lvlsensor_1
+2024-11-04 12:30:35,173 - INFO - Entrato in on_message
+2024-11-04 12:30:35,174 - INFO - TOPIC: Modena/21/Lvlsensor_0
+2024-11-04 12:30:35,174 - INFO - PIPPO = 0
+2024-11-04 12:30:39,093 - INFO - Entrato in on_message
+2024-11-04 12:30:39,093 - INFO - TOPIC: Modena/21/Lvlsensor_1
+2024-11-04 12:30:39,304 - INFO - Entrato in on_message
+2024-11-04 12:30:39,305 - INFO - TOPIC: Modena/21/Lvlsensor_1
+2024-11-04 12:30:45,679 - INFO - Entrato in on_message
+2024-11-04 12:30:45,681 - INFO - TOPIC: Modena/21/Lvlsensor_0
+2024-11-04 12:30:48,814 - INFO - Entrato in on_message
+2024-11-04 12:30:48,815 - INFO - TOPIC: Modena/21/Lvlsensor_1
+2024-11-04 12:30:48,973 - INFO - Entrato in on_message
+2024-11-04 12:30:48,973 - INFO - TOPIC: Modena/21/Lvlsensor_1
+2024-11-04 12:30:55,159 - INFO - Entrato in on_message
+2024-11-04 12:30:55,160 - INFO - TOPIC: Modena/21/Lvlsensor_0
+2024-11-04 12:30:58,834 - INFO - Entrato in on_message
+2024-11-04 12:30:58,835 - INFO - TOPIC: Modena/21/Lvlsensor_1
+2024-11-04 12:30:59,001 - INFO - Entrato in on_message
+2024-11-04 12:30:59,002 - INFO - TOPIC: Modena/21/Lvlsensor_1
+2024-11-04 12:31:05,194 - INFO - Entrato in on_message
+2024-11-04 12:31:05,195 - INFO - TOPIC: Modena/21/Lvlsensor_0
+2024-11-04 12:31:05,195 - INFO - PIPPO = 0
+2024-11-04 12:31:08,829 - INFO - Entrato in on_message
+2024-11-04 12:31:08,830 - INFO - TOPIC: Modena/21/Lvlsensor_1
+2024-11-04 12:31:08,991 - INFO - Entrato in on_message
+2024-11-04 12:31:08,992 - INFO - TOPIC: Modena/21/Lvlsensor_1
+2024-11-04 12:31:15,219 - INFO - Entrato in on_message
+2024-11-04 12:31:15,220 - INFO - TOPIC: Modena/21/Lvlsensor_0
+2024-11-04 12:31:18,982 - INFO - Entrato in on_message
+2024-11-04 12:31:18,983 - INFO - TOPIC: Modena/21/Lvlsensor_1
+2024-11-04 12:31:19,471 - INFO - Entrato in on_message
+2024-11-04 12:31:19,472 - INFO - TOPIC: Modena/21/Lvlsensor_1
+2024-11-04 12:31:25,470 - INFO - Entrato in on_message
+2024-11-04 12:31:25,471 - INFO - TOPIC: Modena/21/Lvlsensor_0
+2024-11-04 12:31:25,472 - INFO - PIPPO = 1
+2024-11-04 12:31:28,894 - INFO - Entrato in on_message
+2024-11-04 12:31:28,895 - INFO - TOPIC: Modena/21/Lvlsensor_1
+2024-11-04 12:31:29,302 - INFO - Entrato in on_message
+2024-11-04 12:31:29,303 - INFO - TOPIC: Modena/21/Lvlsensor_1
+2024-11-04 12:31:35,294 - INFO - Entrato in on_message
+2024-11-04 12:31:35,295 - INFO - TOPIC: Modena/21/Lvlsensor_0
+2024-11-04 12:31:38,884 - INFO - Entrato in on_message
+2024-11-04 12:31:38,885 - INFO - TOPIC: Modena/21/Lvlsensor_1
+2024-11-04 12:31:39,036 - INFO - Entrato in on_message
+2024-11-04 12:31:39,037 - INFO - TOPIC: Modena/21/Lvlsensor_1
+2024-11-04 12:31:45,265 - INFO - Entrato in on_message
+2024-11-04 12:31:45,266 - INFO - TOPIC: Modena/21/Lvlsensor_0
+2024-11-04 12:31:48,894 - INFO - Entrato in on_message
+2024-11-04 12:31:48,895 - INFO - TOPIC: Modena/21/Lvlsensor_1
+2024-11-04 12:31:49,060 - INFO - Entrato in on_message
+2024-11-04 12:31:49,061 - INFO - TOPIC: Modena/21/Lvlsensor_1
+2024-11-04 12:31:55,244 - INFO - Entrato in on_message
+2024-11-04 12:31:55,245 - INFO - TOPIC: Modena/21/Lvlsensor_0
+2024-11-04 12:31:58,889 - INFO - Entrato in on_message
+2024-11-04 12:31:58,890 - INFO - TOPIC: Modena/21/Lvlsensor_1
+2024-11-04 12:31:59,054 - INFO - Entrato in on_message
+2024-11-04 12:31:59,055 - INFO - TOPIC: Modena/21/Lvlsensor_1
+2024-11-04 12:32:05,274 - INFO - Entrato in on_message
+2024-11-04 12:32:05,275 - INFO - TOPIC: Modena/21/Lvlsensor_0
+2024-11-04 12:32:09,001 - INFO - Entrato in on_message
+2024-11-04 12:32:09,002 - INFO - TOPIC: Modena/21/Lvlsensor_1
+2024-11-04 12:32:09,182 - INFO - Entrato in on_message
+2024-11-04 12:32:09,183 - INFO - TOPIC: Modena/21/Lvlsensor_1
+2024-11-04 12:32:15,289 - INFO - Entrato in on_message
+2024-11-04 12:32:15,290 - INFO - TOPIC: Modena/21/Lvlsensor_0
+2024-11-04 12:32:18,980 - INFO - Entrato in on_message
+2024-11-04 12:32:18,981 - INFO - TOPIC: Modena/21/Lvlsensor_1
+2024-11-04 12:32:19,126 - INFO - Entrato in on_message
+2024-11-04 12:32:19,127 - INFO - TOPIC: Modena/21/Lvlsensor_1
+2024-11-04 12:32:25,314 - INFO - Entrato in on_message
+2024-11-04 12:32:25,316 - INFO - TOPIC: Modena/21/Lvlsensor_0
+2024-11-04 12:32:28,949 - INFO - Entrato in on_message
+2024-11-04 12:32:28,950 - INFO - TOPIC: Modena/21/Lvlsensor_1
+2024-11-04 12:32:29,115 - INFO - Entrato in on_message
+2024-11-04 12:32:29,116 - INFO - TOPIC: Modena/21/Lvlsensor_1
+2024-11-04 12:32:35,300 - INFO - Entrato in on_message
+2024-11-04 12:32:35,301 - INFO - TOPIC: Modena/21/Lvlsensor_0
+2024-11-04 12:32:38,964 - INFO - Entrato in on_message
+2024-11-04 12:32:38,965 - INFO - TOPIC: Modena/21/Lvlsensor_1
+2024-11-04 12:32:39,115 - INFO - Entrato in on_message
+2024-11-04 12:32:39,116 - INFO - TOPIC: Modena/21/Lvlsensor_1
+2024-11-04 12:32:45,314 - INFO - Entrato in on_message
+2024-11-04 12:32:45,315 - INFO - TOPIC: Modena/21/Lvlsensor_0
+2024-11-04 12:32:48,974 - INFO - Entrato in on_message
+2024-11-04 12:32:48,975 - INFO - TOPIC: Modena/21/Lvlsensor_1
+2024-11-04 12:32:49,125 - INFO - Entrato in on_message
+2024-11-04 12:32:49,126 - INFO - TOPIC: Modena/21/Lvlsensor_1
+2024-11-04 12:32:55,319 - INFO - Entrato in on_message
+2024-11-04 12:32:55,320 - INFO - TOPIC: Modena/21/Lvlsensor_0
+2024-11-04 12:32:58,983 - INFO - Entrato in on_message
+2024-11-04 12:32:58,984 - INFO - TOPIC: Modena/21/Lvlsensor_1
+2024-11-04 12:32:59,136 - INFO - Entrato in on_message
+2024-11-04 12:32:59,137 - INFO - TOPIC: Modena/21/Lvlsensor_1
+2024-11-04 12:33:05,616 - INFO - Entrato in on_message
+2024-11-04 12:33:05,617 - INFO - TOPIC: Modena/21/Lvlsensor_0
+2024-11-04 12:33:08,989 - INFO - Entrato in on_message
+2024-11-04 12:33:08,990 - INFO - TOPIC: Modena/21/Lvlsensor_1
+2024-11-04 12:33:09,130 - INFO - Entrato in on_message
+2024-11-04 12:33:09,131 - INFO - TOPIC: Modena/21/Lvlsensor_1
+2024-11-04 12:33:15,334 - INFO - Entrato in on_message
+2024-11-04 12:33:15,335 - INFO - TOPIC: Modena/21/Lvlsensor_0
+2024-11-04 12:33:19,003 - INFO - Entrato in on_message
+2024-11-04 12:33:19,004 - INFO - TOPIC: Modena/21/Lvlsensor_1
+2024-11-04 12:33:19,160 - INFO - Entrato in on_message
+2024-11-04 12:33:19,161 - INFO - TOPIC: Modena/21/Lvlsensor_1
+2024-11-04 12:33:25,379 - INFO - Entrato in on_message
+2024-11-04 12:33:25,380 - INFO - TOPIC: Modena/21/Lvlsensor_0
+2024-11-04 12:33:29,034 - INFO - Entrato in on_message
+2024-11-04 12:33:29,035 - INFO - TOPIC: Modena/21/Lvlsensor_1
+2024-11-04 12:33:29,192 - INFO - Entrato in on_message
+2024-11-04 12:33:29,193 - INFO - TOPIC: Modena/21/Lvlsensor_1
+2024-11-04 12:33:35,384 - INFO - Entrato in on_message
+2024-11-04 12:33:35,386 - INFO - TOPIC: Modena/21/Lvlsensor_0
+2024-11-04 12:33:39,033 - INFO - Entrato in on_message
+2024-11-04 12:33:39,034 - INFO - TOPIC: Modena/21/Lvlsensor_1
+2024-11-04 12:33:39,205 - INFO - Entrato in on_message
+2024-11-04 12:33:39,206 - INFO - TOPIC: Modena/21/Lvlsensor_1
+2024-11-04 12:33:45,439 - INFO - Entrato in on_message
+2024-11-04 12:33:45,441 - INFO - TOPIC: Modena/21/Lvlsensor_0
+2024-11-04 12:33:49,055 - INFO - Entrato in on_message
+2024-11-04 12:33:49,056 - INFO - TOPIC: Modena/21/Lvlsensor_1
+2024-11-04 12:33:49,195 - INFO - Entrato in on_message
+2024-11-04 12:33:49,196 - INFO - TOPIC: Modena/21/Lvlsensor_1
+2024-11-04 12:33:55,429 - INFO - Entrato in on_message
+2024-11-04 12:33:55,431 - INFO - TOPIC: Modena/21/Lvlsensor_0
+2024-11-04 12:33:59,059 - INFO - Entrato in on_message
+2024-11-04 12:33:59,060 - INFO - TOPIC: Modena/21/Lvlsensor_1
+2024-11-04 12:33:59,213 - INFO - Entrato in on_message
+2024-11-04 12:33:59,214 - INFO - TOPIC: Modena/21/Lvlsensor_1
+2024-11-04 12:34:05,414 - INFO - Entrato in on_message
+2024-11-04 12:34:05,416 - INFO - TOPIC: Modena/21/Lvlsensor_0
+2024-11-04 12:34:09,094 - INFO - Entrato in on_message
+2024-11-04 12:34:09,095 - INFO - TOPIC: Modena/21/Lvlsensor_1
+2024-11-04 12:34:09,098 - INFO - Entrato in on_message
+2024-11-04 12:34:09,099 - INFO - TOPIC: Modena/21/Lvlsensor_1
